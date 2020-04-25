@@ -1,0 +1,48 @@
+baseURL: /
+languageCode: en-us
+title: JAMstack Themes
+theme: jamstackthemes
+paginate: 30
+summaryLength: 10
+pygmentsCodeFences: true
+pygmentsCodefencesGuessSyntax: true
+pygmentsUseClasses: true
+params:
+  google_analytics_id: ''
+  description: A list of Themes and Starters for JAMstack Sites.
+  banner: false
+  banner_text: "Announcing the Stackbit Control Center for managing modern websites. \U0001F919\U0001F469\U0001F3FC‍\U0001F3A4\U0001F525"
+  banner_link: 'https://www.stackbit.com/control-center/'
+  banner_link_text: Try It Now
+theme_card:
+  show_archetype_icons: false
+  show_services_icons: false
+taxonomies:
+  ssg: ssg
+  cms: cms
+  css: css
+  pm: pm
+  archetype: archetype
+  services: services
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+  section:
+    - HTML
+    - RSS
+frontmatter:
+  lastmod:
+    - ':git'
+    - lastmod
+    - ':fileModTime'
+    - ':default'
+menu:
+  main:
+    - name: Recent Submissions
+      url: /
+      weight: 1
+    - name: All Tools
+      url: /tools/
+      weight: 2

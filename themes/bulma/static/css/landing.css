@@ -1,0 +1,16 @@
+.is-dark {
+  background-color: rgb(187, 56, 89);
+  background-image: linear-gradient(rgba(25, 181, 254, 0.6),rgba(246, 36, 89, 0.6)),linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1422479278902-8cef24992df0?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=');
+}
+.navbar-item {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.navbar-item .button{
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 2px solid #fff;
+  padding: 10px 20px;
+  height: 45px;
+}

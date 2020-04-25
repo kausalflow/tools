@@ -1,0 +1,35 @@
+.breadcrumb {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 15px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  a {
+    color: $primary;
+    padding: 8px;
+    &:first-of-type {
+      padding-left: 0;
+    }
+  }
+  .end {
+    padding: 8px;
+    font-weight: bold;
+  }
+  li {
+    &:not(:last-of-type) {
+      &::after {
+        content: '/';
+        margin: 0 6px;
+        color: $steel;
+      }
+    }
+    &.active {
+      color: $primary;;
+      pointer-events: none;
+    }
+  }
+}

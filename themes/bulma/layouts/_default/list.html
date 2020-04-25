@@ -1,0 +1,24 @@
+{{ define "header" }} {{ partial "menu" . }} {{ end }} 
+
+{{ define "main" }}
+
+<div class="columns is-fullheight">
+    <div class="column">
+        <section class="hero is-default is-bold">
+            <div class="hero-body">
+                <div class="container">
+                    {{ range .Paginator.Pages }} {{ partial "page-summary" . }} {{ end }}
+                </div>
+                <br>
+                <div class="container">
+                    {{ partial "pagination" . }} 
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+{{ end }} 
+{{ define "footer" }} 
+  {{ partial "footer" . }} 
+{{ end }}

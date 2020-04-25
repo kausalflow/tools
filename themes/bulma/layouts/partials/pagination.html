@@ -1,0 +1,27 @@
+<div class="tabs">
+    <p class="control">
+        {{if .Paginator.HasPrev }}
+        <a class="button is-primary" href="{{ .Paginator.Prev.URL }}">
+            <span class="icon is-small">
+        <i class="fa fa-angle-double-left"></i>
+      </span>
+            <span>Previous</span>
+        </a>
+        {{ end }}
+    </p>
+    <p class="control">
+        <a class="button">
+           Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}
+        </a>
+    </p>
+    <p class="control">
+        {{ if .Paginator.HasNext }}
+        <a class="button is-primary" href="{{ .Paginator.Next.URL }}">
+            <span class=" icon is-small ">
+        <i class="fa fa-angle-double-right "></i>
+      </span>
+            <span>Next</span>
+        </a>
+        {{ end }}
+    </p>
+</div>

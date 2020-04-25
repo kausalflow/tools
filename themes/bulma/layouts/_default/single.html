@@ -1,0 +1,48 @@
+{{ define "title" -}}
+  {{ .Title }} | {{ .Site.Title }}
+{{- end }}
+
+{{ define "header" }}
+{{ partial "menu" . }}
+
+<header class="post-header">
+  <h1 class="post-title has-text-centered is-size-1" itemprop="name headline">{{ .Title }}</h1>
+  <p class="post-meta has-text-centered">
+    <time class="dt-published" itemprop="datePublished">
+      {{ .Date }}
+    </time>
+  </p>
+
+  <div class="hero is-primary" style="margin-bottom:2em;">
+    <div class="hero-body">
+      <div class="container">
+        <div class="container has-text-centered">
+            <h1 class="title is-2 has-text-centered">{{ .Title }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+{{ end }}
+
+{{ define "main" }}
+
+<main class="main--content" aria-label="Content">
+<div class="columns is-fullheight">
+    <div class="column">
+        <section class="hero is-default is-bold">
+            <div class="hero-body">
+                <div class="content container">
+                   {{ .Content}}
+                </div>
+                <br>
+            </div>
+        </section>
+    </div>
+</div>
+</main>
+{{ end }}
+{{ define "footer" }}
+  {{ partial "footer" . }}
+{{ end }}

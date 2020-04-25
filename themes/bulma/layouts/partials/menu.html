@@ -1,0 +1,51 @@
+<nav class="navbar is-transparent">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{{.Site.BaseURL | relURL}}">
+      <img src="/img/bulma.png" alt="Bulma logo">
+    </a>
+    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      {{ if .Site.Params.github}}
+      <a class="navbar-item" target="blank" href="https://github.com/{{.Site.Params.github}}">
+        <span class="icon">
+          <i class="fa fa-github"></i>
+        </span>
+      </a>
+      {{end}}
+
+      {{ if .Site.Params.twitter}}
+      <a class="navbar-item" target="blank" href="https://twitter.com/{{.Site.Params.twitter}}">
+        <span class="icon">
+          <i class="fa fa-twitter"></i>
+        </span>
+      </a>
+      {{end}}
+    </div>
+    
+    <!-- This "navbar-burger" hamburger menu is only visible on mobile -->
+    <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+    <span class="navbar-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </span>
+    
+    <!-- This "nav-menu" is hidden on mobile -->
+    <!-- Add the modifier "is-active" to display it on mobile -->
+    <div class="navbar-end">
+      <div class="navbar-item">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+          <a itemprop="url" class="navbar-item {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} is-active{{end}}" href="{{.URL}}"><span itemprop="name">{{ .Name }}</span></a>
+        {{ end }}
+      </div> 
+    </div>
+  </div>
+</nav>

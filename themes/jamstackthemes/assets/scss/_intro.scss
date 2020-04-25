@@ -1,0 +1,57 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  @include breakpoint('small') {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    @include breakpoint('small') {
+      margin-right: 20px;
+      font-size: 40px;
+      margin-bottom: 0px;
+    }
+  }
+  h2 {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    @include breakpoint('small') {
+      font-size: 16px;
+    }
+  }
+  p {
+    line-height: 20px;
+    margin: 0;
+  }
+  .intro-icon {
+    padding: 10px;
+    border: 1px solid $grey;
+    border-radius: 3px;
+    margin-right: 10px;
+    img {
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  }
+}
+
+.byline {
+  p {
+    font-size: 15px;
+    line-height: 23px;
+    @include breakpoint('small') {
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+  a {
+    color: $primary;
+  }
+
+}

@@ -1,0 +1,48 @@
+{{ define "title"}} {{ .Title }} {{ end }}
+
+{{ define "style"}}
+<link rel="stylesheet" href="/css/blog-post.css">
+<link rel="stylesheet" href="/css/code-highlighting/dark.css">
+<link rel="stylesheet" href="/css/custom.css">
+{{ end }}
+
+{{ define "header"}} {{ partial "menu" .}} {{ end }}
+
+{{ define "main" }}
+
+<div class="container" itemscope itemtype="http://schema.org/BlogPosting">
+    {{ template "_internal/schema.html" . }}
+    <section class="section blog">
+        <div class="container">
+            <p>{{ partial "post/meta" . }}</p>
+            <div class="columns is-mobile">
+                <div class="column">
+
+                    <div class="content blog-post section" itemprop="articleBody">
+
+                        {{ partial "toc" .}}
+                        <hr>
+                        {{.Content}}
+                    </div>
+                    <div class="title is-4">
+                        {{ partial "post/byauthor" . }}
+                        {{ partial "post/related-content" . }}
+                    </div>
+
+                    {{ if .Site.DisqusShortname }}
+                    <article>
+
+                        {{ partial "disqus.html" . }}
+                    </article>
+                    {{ end }}
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+{{ end }}
+
+{{ define "footer"}} {{ partial "footer.html" .}} {{ end }}

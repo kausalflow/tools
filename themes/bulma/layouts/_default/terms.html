@@ -1,0 +1,28 @@
+{{ define "header" }}
+  {{ partial "menu" . }}
+{{ end }}
+{{ define "main" }}
+
+<div class="container">
+  <section class="hero is-primary is-medium is-bold">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+       {{ .Title }}
+      </h1>
+    </div>
+  </div>
+</section>
+
+  <ul>
+    {{ range $key, $value := .Data.Terms }}
+      <li><a href="{{ $key | urlize }}">{{ $key }}</a> ({{ len $value }})
+    {{ end }}
+  </ul>
+  
+</div>
+
+{{ end }}
+{{ define "footer" }}
+  {{ partial "footer" . }}
+{{ end }}

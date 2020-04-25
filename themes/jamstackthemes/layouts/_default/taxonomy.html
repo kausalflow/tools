@@ -1,0 +1,48 @@
+{{ define "title" }}{{.Title}} Themes{{ end}}
+{{ define "header_css" }}{{ end }}
+{{ define "body_classes" }}page-taxonomy{{ end }}
+
+{{ define "meta_tags" }}
+<meta name="description" content="{{.Title}} Themes and Starters for JAMstack Sites." />
+{{ end }}
+
+{{ define "main" }}
+{{ $themeCount := len .Pages }}
+
+<div class="main">
+  <div class="hero">
+    <div class="heading">
+      <div class="heading-icon"><img src="{{ .Params.icon | relURL }}" alt="{{.Title}} Logo" /></div>
+      <h1 class="heading-title">{{.Title}} Themes <span class="count">({{ $themeCount }})</span></h1>
+    </div>
+
+    {{ $url := urls.Parse .Params.official_url }}		
+    <div class="official-website"><strong>Official Website:</strong> <a href="{{ .Params.official_url }}">{{ $url.Host }}</a></div>
+  </div>
+  {{ partial "breadcrumbs.html" . }}
+
+  <div id="grids-taxonomy" class="grids">
+    {{ $paginator := .Paginate .RegularPages.ByPublishDate.Reverse }}
+    {{ range $paginator.Pages }}
+    {{ $repoName := printf "%s-%s" (substr (replace .Params.github "/" "-") 19 | urlize) .Params.github_branch }}
+    {{ $repo := index .Site.Data.themes $repoName }}
+      {{ partial "theme-card.html" (dict "theme" . "repo" $repo) }}
+    {{ end }}
+  </div>
+  {{ $paginator := .Paginator }}
+  {{ partial "pagination.html" . }}
+
+</div>
+{{ end }}
+
+{{ define "footer_js" }}
+{{ $mixitup := resources.Get "js/libs/mixitup.js" }}
+{{ $mixitupMultiFilter := resources.Get "js/libs/mixitup-multifilter.js" }}
+{{ $filterTaxonomy := resources.Get "js/filter-taxonomy.js" }}
+{{ $bundle := slice $mixitup $mixitupMultiFilter $filterTaxonomy | resources.Concat "js/bundleTaxonomy.js" }}
+{{ if .Site.IsServer }}
+  <script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
+  {{ else }}
+  <script type="text/javascript" src="{{ ($bundle | minify | fingerprint).RelPermalink }}"></script>
+  {{ end }}
+{{ end }}

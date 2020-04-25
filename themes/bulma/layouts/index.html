@@ -1,0 +1,45 @@
+{{ define "title"}} {{ .Site.Title}} {{end}}
+{{ define "header"}} {{ partial "menu" .}} {{end}} 
+
+{{ define "main" }}
+
+<section class="hero is-fullheight is-dark">
+
+
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="columns is-vcentered">
+          <div class="column is-5">
+            <figure class="image is-4by3">
+              <img class="lazyload" src="https://images.unsplash.com/photo-1487611459768-bd414656ea10?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" alt="Description">
+            </figure>
+          </div>
+          <div class="column is-7 is-multiline">
+            <h1 class="title is-four-fifths">
+             {{ .Site.Title }}
+            </h1>
+            <h2 class="subtitle is-three-fifths">
+              {{ .Site.Params.description}}
+            </h2>
+            <br>
+            <div class="column  is-offset-1">
+            <div class="field is-grouped has-addons-centered">
+              <div class="control is-expanded">
+                <input class="input is-large" type="text" placeholder="Join the beta waitlist: you@example.org">
+              </div>
+              <div class="control">
+                <a class="button is-large is-danger">
+                  Sign Up
+                </a>
+              </div>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{{ end }} 
+
+{{ define "footer" }} {{ partial "footer" .}} {{ end }}
