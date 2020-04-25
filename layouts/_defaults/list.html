@@ -1,22 +1,24 @@
 {{ define "header" }}
-  {{ partial "menu" . }}
-  <div class="hero is-primary" style="margin-bottom:2em;">
+{{ partial "menu" . }}
+<div class="hero is-primary" style="margin-bottom:2em;">
     <div class="hero-body">
         <div class="container">
             <div class="container has-text-centered">
-                <h1 class="title is-2 has-text-centered">{{ .Title }}</h1>
+                <h1 class="title is-2 has-text-centered">{{.Title}}</h1>
             </div>
         </div>
     </div>
 </div>
 {{ end }}
+
+
 {{ define "main" }}
 
-  <main class="container" aria-label="Content">
+<main class="container" aria-label="Content">
     <div class="columns is-multiline">
         <div class="column">
             <div class="field is-grouped is-grouped-multiline">
-                {{ range .Site.Taxonomies.categories }}
+                {{ range .Site.Taxonomies.pm }}
                 <div class="control">
                     <div class="tags has-addons">
                       <a href="{{ .Page.Permalink }}" class="tag is-link">{{ .Page.Title }}</a>
@@ -68,5 +70,5 @@
 </main>
 {{ end }}
 {{ define "footer" }}
-  {{ partial "footer" . }}
+{{ partial "footer" . }}
 {{ end }}

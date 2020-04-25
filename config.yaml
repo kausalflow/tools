@@ -1,7 +1,7 @@
 baseurl: "/" # Controls base URL
 languageCode: "en-US" # Controls html lang attribute
 title: "Research Tools" # Homepage title and page title suffix
-paginate: 5 # Number of posts to show before paginating
+paginate: 12 # Number of posts to show before paginating
 theme: "bulma" # to use as default theme
 
 enableRobotsTXT: true # Suggested, it generates a robots.txt
@@ -9,8 +9,16 @@ googleAnalytics: "" # Optional, add tracking Id for analytics
 disqusShortname: "" # Optional, add Disqus shortname for comments
 SectionPagesMenu: "main" # Enable menu system for lazy bloggers
 
+
+menu:
+  main:
+    - name: Tools
+      weight: 1
+      identifier: tools
+      url: /tools/
+
 params:
-  theme_variant: "minty" # possible value for the theme_variant `cerulean,cosmo,cyborg,darkly,flatly,journal,litera,lumen,lux,materia,minty,pulse,sandstone,simplex,slate,solar,spacelab,superhero,united,yeti`
+  theme_variant: "litera" # possible value for the theme_variant `cerulean,cosmo,cyborg,darkly,flatly,journal,litera,lumen,lux,materia,minty,pulse,sandstone,simplex,slate,solar,spacelab,superhero,united,yeti`
   description: "A Simple Blog with Bulma" # Suggested, controls default description meta and landing page
   powered_by: "love" # Optional, controls name display on footer
   hide_author: false # Optional, set true to hide author name on posts

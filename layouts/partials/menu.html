@@ -29,7 +29,22 @@
       <div class="navbar-item">
         {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
-          <a itemprop="url" class="navbar-item {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} is-active{{end}}" href="{{.URL}}"><span itemprop="name">{{ .Name }}</span></a>
+          {{ if eq (lower .Name) "tools" }}
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a href="{{.URL}}" class="navbar-link">
+              {{.Name}}
+            </a>
+            <div class="navbar-dropdown">
+              {{ range $.Site.Taxonomies.categories }}
+              <a href="{{ .Page.Permalink }}" class="navbar-item">
+                {{ .Page.Title }}
+              </a>
+              {{ end }}
+            </div>
+          </div>
+          {{else}}
+            <a itemprop="url" class="navbar-item {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} is-active{{end}}" href="{{.URL}}"><span itemprop="name">{{ .Name }}</span></a>
+          {{ end }}
         {{ end }}
         {{ if .Site.Params.github}}
         <a class="navbar-item" target="blank" href="https://github.com/{{.Site.Params.github}}">

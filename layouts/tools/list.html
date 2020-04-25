@@ -1,0 +1,102 @@
+{{ define "header" }}
+{{ partial "menu" . }}
+<div class="hero is-primary" style="margin-bottom:2em;">
+    <div class="hero-body">
+        <div class="container">
+            <div class="container has-text-centered">
+                <h1 class="title is-2 has-text-centered">Tools</h1>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+
+{{ define "main" }}
+
+<main class="container" aria-label="Content">
+    <div class="columns">
+        <div class="column is-2">
+            <aside class="menu">
+                <p class="menu-label">
+                    Categories
+                </p>
+                <div class="field is-grouped is-grouped-multiline">
+                    {{ range .Site.Taxonomies.categories }}
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <a href="{{ .Page.Permalink }}" class="tag is-link">{{ .Page.Title }}</a>
+                            <a href="{{ .Page.Permalink }}" class="tag">{{ .Count }}</a>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+                <p class="menu-label">
+                    Tags
+                </p>
+                <div class="field is-grouped is-grouped-multiline">
+                    {{ range .Site.Taxonomies.tags }}
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <a href="{{ .Page.Permalink }}" class="tag is-light">{{ .Page.Title }}</a>
+                            <a href="{{ .Page.Permalink }}" class="tag">{{ .Count }}</a>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </aside>
+        </div>
+        <div class="column">
+            <div class="columns is-multiline">
+                {{ range .Paginator.Pages }}
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                {{ if (isset .Params "images")}}
+                                 {{ $cardimage := index (.Params.images) 0}}
+                                 <img src="{{$cardimage.path}}" alt="{{.Title}}">
+                                 {{else}}
+                                 {{ $cardimage := "/images/tools/default.svg"}}
+                                 <img src="{{$cardimage}}" alt="{{.Title}}">
+                                {{ end }}
+
+
+
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="{{ .Permalink }}">
+                                        <p class="title is-4">{{.Title}}</p>
+                                    </a>
+                                    <p class="subtitle is-6">{{.Params.categories}}</p>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <time datetime="{{.Lastmod}}">{{.Lastmod}}</time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+    <div class="is-divider" style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;"></div>
+
+    <div class="container">
+        <div class="columns">
+            <div class="column" style="margin-bottom: 2em;padding-bottom:1em;">
+                {{ partial "pagination" . }}
+            </div>
+        </div>
+    </div>
+</main>
+{{ end }}
+{{ define "footer" }}
+{{ partial "footer" . }}
+{{ end }}
