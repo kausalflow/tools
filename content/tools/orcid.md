@@ -1,27 +1,21 @@
 ---
-title: "Inkscape"
+title: "ORCID"
 images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: inkscape-landing.png
-  - path: inkscape-voronoi-and-dulaney.png
+  - path: orcid-landing.png
 categories:
-  - Communications
   - Publishing and Sharing
 tags:
-  - Presentation
+  - References and Journals
   - Publications
 links:
-  - name: Inkscape
-    link: https://inkscape.org/
-summary: Create SVG graphs
+  - name: ORCID
+    link: https://orcid.org/
+summary: A unique ID for researchers
 features:
 platforms:
-  - Mac
-  - Win
-  - Linux
+  - Web
 fields:
 plans:
-  - name: Open Source
-    description:
-date: 2020-04-26T21:22:22+02:00
+date: 2020-04-26T21:56:41+02:00
 draft: false
 ---

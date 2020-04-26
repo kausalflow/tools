@@ -1,27 +1,23 @@
 ---
-title: "Inkscape"
+title: "plotnine"
 images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: inkscape-landing.png
-  - path: inkscape-voronoi-and-dulaney.png
+  - path: plotnine-landing.png
 categories:
-  - Communications
   - Publishing and Sharing
 tags:
-  - Presentation
-  - Publications
+  - Visualization
 links:
-  - name: Inkscape
-    link: https://inkscape.org/
-summary: Create SVG graphs
+  - name: plotnine
+    link: https://github.com/has2k1/plotnine
+summary: Python visualization package that follows the grammar of graphics.
 features:
+  - Grammar of grahics
 platforms:
-  - Mac
-  - Win
-  - Linux
+  - Any
 fields:
 plans:
   - name: Open Source
     description:
-date: 2020-04-26T21:22:22+02:00
+date: 2020-04-26T22:32:02+02:00
 draft: false
 ---

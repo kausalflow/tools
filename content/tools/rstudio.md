@@ -1,18 +1,16 @@
 ---
-title: "Inkscape"
+title: "RStudio"
 images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: inkscape-landing.png
-  - path: inkscape-voronoi-and-dulaney.png
+  - path: rstudio-landing.png
 categories:
-  - Communications
-  - Publishing and Sharing
+  - Analysis and Computations
 tags:
-  - Presentation
-  - Publications
+  - Programming
+  - Data Analysis
 links:
-  - name: Inkscape
-    link: https://inkscape.org/
-summary: Create SVG graphs
+  - name: RStudio
+    link: https://rstudio.com/
+summary: IDE for R and Python
 features:
 platforms:
   - Mac
@@ -20,8 +18,6 @@ platforms:
   - Linux
 fields:
 plans:
-  - name: Open Source
-    description:
-date: 2020-04-26T21:22:22+02:00
+date: 2020-04-26T21:34:15+02:00
 draft: false
 ---

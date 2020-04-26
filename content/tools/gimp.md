@@ -1,8 +1,7 @@
 ---
-title: "Inkscape"
+title: "Gimp"
 images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: inkscape-landing.png
-  - path: inkscape-voronoi-and-dulaney.png
+  - path: gimp-landing.png
 categories:
   - Communications
   - Publishing and Sharing
@@ -10,9 +9,9 @@ tags:
   - Presentation
   - Publications
 links:
-  - name: Inkscape
-    link: https://inkscape.org/
-summary: Create SVG graphs
+  - name: GIMP
+    link: https://www.gimp.org/
+summary: Create and edit images
 features:
 platforms:
   - Mac
