@@ -14,6 +14,9 @@ features:
   - ""
 platforms:
   - ""
+plans:
+  - name: ""
+    description: ""
 date: {{ .Date }}
 draft: false
 ---
