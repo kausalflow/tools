@@ -1,16 +1,30 @@
 {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
-  {{ $.Scratch.Set "has_related" true }}
+{{ $.Scratch.Set "has_related" true }}
 {{ end }}
 
 {{ if $.Scratch.Get "has_related" }}
-  <aside>
-    <heade><strong>Related Content</strong></header>
-    <hr>
-    <ul>
-      {{ $num_to_show := .Site.Params.related_content_limit | default 7 }}
-      {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> &ndash; {{ .ReadingTime }} minutes
-      {{ end }}
-    </ul>
-  </aside>
+<div id="comments" class="is-divider" data-content="RELATED"
+  style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+</div>
+<aside>
+  {{ $num_to_show := .Site.Params.related_content_limit | default 7 }}
+
+  <div class="columns is-multiline">
+    {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+    <div class="column is-one-fifth">
+      <a href="{{ .RelPermalink }}">
+        <div class="box">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                {{ .Title }}
+              </div>
+            </div>
+          </article>
+        </div>
+      </a>
+    </div>
+    {{ end }}
+  </div>
+</aside>
 {{ end }}

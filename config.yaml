@@ -26,3 +26,4 @@ params:
   github: "kausalflow" # Optional, to display link to github account in menu bar
   twitter: "" # Optional, to display link to twitter account in menu bar
   author: "KausalFlow"
+  editURL: "https://github.com/kausalflow/tools/edit/master/content/"

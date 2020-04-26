@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/css/blog-post.css">
 <link rel="stylesheet" href="/css/code-highlighting/dark.css">
 <link rel="stylesheet" href="/css/custom.css">
+
 {{ end }}
 
 {{ define "header"}} {{ partial "menu" .}}
@@ -17,7 +18,7 @@
                     <h1 class="title is-2 has-text-centered">{{ .Title }}</h1>
                     <p class="title is-5 has-text-centered">A
                         {{ range $cat := .Params.categories }}
-                        {{ $cat }}
+                        <span class="tag is-link is-light">{{$cat}}</span>
                         {{ end }} tool
                     </p>
 
@@ -128,6 +129,7 @@
                         <p>{{ partial "post/meta" . }}</p>
                         {{ partial "post/byauthor" . }}
                         {{ partial "post/related-content" . }}
+                        {{ partial "utterances-comments.html" . }}
                     </div>
 
                     {{ if .Site.DisqusShortname }}
@@ -142,6 +144,8 @@
         </div>
     </section>
 </div>
+
+{{ partial "nav-buttons.html" . }}
 
 {{ end }}
 
