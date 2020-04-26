@@ -15,81 +15,18 @@
 
 {{ define "main" }}
 <div class="is-divider" data-content="TOOLS"
-                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                        </div>
+    style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+</div>
 <main class="container" aria-label="Content">
     <div class="columns">
         <div class="column is-2">
-            <aside class="menu">
-                <p class="menu-label">
-                    Categories
-                </p>
-                <div class="field is-grouped is-grouped-multiline">
-                    {{ range .Site.Taxonomies.categories }}
-                    <div class="control">
-                        <div class="tags has-addons">
-                            <a href="{{ .Page.Permalink }}" class="tag is-link">{{ .Page.Title }}</a>
-                            <a href="{{ .Page.Permalink }}" class="tag">{{ .Count }}</a>
-                        </div>
-                    </div>
-                    {{ end }}
-                </div>
-                <p class="menu-label">
-                    Tags
-                </p>
-                <div class="field is-grouped is-grouped-multiline">
-                    {{ range .Site.Taxonomies.tags }}
-                    <div class="control">
-                        <div class="tags has-addons">
-                            <a href="{{ .Page.Permalink }}" class="tag is-light">{{ .Page.Title }}</a>
-                            <a href="{{ .Page.Permalink }}" class="tag">{{ .Count }}</a>
-                        </div>
-                    </div>
-                    {{ end }}
-                </div>
-            </aside>
+            {{ partial "list/menu.html" .}}
         </div>
         <div class="column">
             <div class="columns is-multiline">
                 {{ range .Paginator.Pages }}
                 <div class="column is-one-third">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image">
-                                {{ if (isset .Params "images")}}
-                                 {{ $cardimage := index (.Params.images) 0}}
-                                 <img src="/images/{{ index (split .File ".") 0}}/{{$cardimage.path}}" alt="{{.Title}}">
-                                 {{else}}
-                                 {{ $cardimage := "/images/tools/default.svg"}}
-                                 <img src="{{$cardimage}}" alt="{{.Title}}">
-                                {{ end }}
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-content">
-                                    <p><div class="tags">
-                                        {{ range $cat := .Params.categories }}
-                                        <span class="tag is-link">{{$cat}}</span>
-                                        {{ end }}
-                                    </div></p>
-                                    <a href="{{ .Permalink }}">
-                                        <p class="title is-4">{{.Title}}</p>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="content">
-                                <p>{{ .Params.summary }}</p>
-                                <div class="tags">
-                                    {{ range $tag := .Params.tags }}
-                                    <span class="tag">{{$tag}}</span>
-                                    {{ end }}
-                                </div>
-                                <!-- <time datetime="{{.Lastmod}}">{{.Lastmod}}</time> -->
-                            </div>
-                        </div>
-                    </div>
+                    {{ partial "list/card.html" .}}
                 </div>
                 {{ end }}
             </div>

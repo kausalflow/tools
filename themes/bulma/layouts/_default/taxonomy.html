@@ -33,33 +33,7 @@
     <div class="columns is-multiline">
         {{ range .Paginator.Pages }}
         <div class="column is-one-third">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image">
-                        {{ if (isset .Params "images")}}
-                         {{ $cardimage := index (.Params.images) 0}}
-                         <img src="/images/{{ index (split .File ".") 0}}/{{$cardimage.path}}" alt="{{.Title}}">
-                         {{else}}
-                         {{ $cardimage := "/images/tools/default.svg"}}
-                         <img src="{{$cardimage}}" alt="{{.Title}}">
-                        {{ end }}
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-content">
-                            <a href="{{ .Permalink }}">
-                                <p class="title is-4">{{.Title}}</p>
-                            </a>
-                            <p class="subtitle is-6">{{.Params.categories}}</p>
-                        </div>
-                    </div>
-
-                    <div class="content">
-                        <time datetime="{{.Lastmod}}">{{.Lastmod}}</time>
-                    </div>
-                </div>
-            </div>
+            {{ partial "list/card.html" . }}
         </div>
         {{ end }}
 

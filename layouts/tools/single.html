@@ -20,10 +20,10 @@
                         {{ $cat }}
                         {{ end }} tool
                     </p>
-                    <p class="title is-6 has-text-centered">{{ .Params.summary }}</p>
+
                     <div class="tags is-centered">
                         {{ range $tag := .Params.tags }}
-                        <span class="tag">{{$tag}}</span>
+                        <span class="tag is-warning is-light">{{$tag}}</span>
                         {{ end }}
                     </div>
                 </div>
@@ -40,55 +40,59 @@
     <section class="section blog">
         <div class="container">
 
-            <section class="section">
-                <div class="columns">
-                    <div class="column is-10">
-                        <div class="is-divider" data-content="FEATURES"
-                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                        </div>
-                        <article class="message is-success is-light">
-                            <div class="message-header">
-                                <p>{{.Title}} Features</p>
-                            </div>
-                            <div class="message-body">
-
-                                <ul id="all-tags">
-                                    {{ range $idx, $tag := .Params.features }}
-                                    <li>
-                                        <p>{{ $tag }}</p>
-                                    </li>
-                                    {{ end }}
-                                </ul>
-
-                            </div>
-                        </article>
+            <article class="message is-info">
+                <div class="message-body">
+                    <p class="title is-6 has-text-centered">{{ .Params.summary }}</p>
+                    <div class="tags is-centered">
+                        {{ range $pf := .Params.platforms }}
+                        <span class="tag is-white">{{$pf}}</span>
+                        {{ end }}
                     </div>
-
-                    <!-- Links -->
-                    <div class="column">
-                        <div class="is-divider" data-content="LINKS"
-                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                        </div>
-                        <section class="section">
-                            <div class="columns">
-                                <div class="column">
-                                    <div class="field is-grouped">
-                                        {{range $link := .Params.links}}
-                                        <p class="control">
-                                            <a href="{{ $link.link }}" class="button is-dark is-outlined">
-                                                {{ $link.name }}
-                                            </a>
-                                        </p>
-                                        {{end}}
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                    <!-- /Links -->
-
-
                 </div>
+            </article>
+
+            <!-- Links -->
+            <section class="section">
+                <div class="is-divider" data-content="LINKS"
+                    style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <div class="field is-grouped is-centered">
+                            {{range $link := .Params.links}}
+                            <p class="control">
+                                <a href="{{ $link.link }}" class="button is-dark is-outlined">
+                                    {{ $link.name }}
+                                </a>
+                            </p>
+                            {{end}}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /Links -->
+
+
+            <section class="section">
+                <div class="is-divider" data-content="FEATURES"
+                    style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+                </div>
+                <article class="message is-success is-light">
+                    <div class="message-header">
+                        <p>{{.Title}} Features</p>
+                    </div>
+                    <div class="message-body">
+
+                        <ul id="all-tags">
+                            {{ range $idx, $tag := .Params.features }}
+                            <li>
+                                <p>{{ $tag }}</p>
+                            </li>
+                            {{ end }}
+                        </ul>
+
+                    </div>
+                </article>
             </section>
 
             <!-- Image -->

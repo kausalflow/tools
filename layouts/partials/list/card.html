@@ -1,0 +1,58 @@
+<div class="card">
+    <div class="card-image">
+        <a href="{{ .Permalink }}">
+            <figure class="image">
+                {{ if (isset .Params "images")}}
+                {{ $cardimage := index (.Params.images) 0}}
+                <img src="/images/{{ index (split .File ".") 0}}/{{$cardimage.path}}" alt="{{.Title}}">
+                {{else}}
+                {{ $cardimage := "/images/tools/default.svg"}}
+                <img src="{{$cardimage}}" alt="{{.Title}}">
+                {{ end }}
+            </figure>
+        </a>
+    </div>
+    <div class="card-content">
+        <div class="media">
+            <div class="media-content">
+                <a href="{{ .Permalink }}">
+                    <p class="title is-4">{{.Title}}</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="is-divider" data-content="CATEGORIES"
+                style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+            </div>
+            <p>
+                <div class="tags">
+                    {{ range $cat := .Params.categories }}
+                    <span class="tag is-link is-light">{{$cat}}</span>
+                    {{ end }}
+                </div>
+            </p>
+            <div class="is-divider" data-content="SUMMARY"
+                style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+            </div>
+            <p>{{ .Params.summary }}</p>
+            <div class="is-divider" data-content="TAGS"
+                style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+            </div>
+            <div class="tags">
+                {{ range $tag := .Params.tags }}
+                <span class="tag is-warning is-light">{{$tag}}</span>
+                {{ end }}
+            </div>
+            <div class="is-divider" data-content="PLATFORM"
+                style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+            </div>
+            <div class="tags">
+                {{ range $pf := .Params.platforms }}
+                <span class="tag is-danger is-light">{{$pf}}</span>
+                {{ end }}
+            </div>
+            <!-- <time datetime="{{.Lastmod}}">{{.Lastmod}}</time> -->
+        </div>
+    </div>
+</div>
