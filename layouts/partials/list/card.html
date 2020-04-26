@@ -4,7 +4,15 @@
             <figure class="image">
                 {{ if (isset .Params "images")}}
                 {{ $cardimage := index (.Params.images) 0}}
-                <img src="/images/{{ index (split .File ".") 0}}/{{$cardimage.path}}" alt="{{.Title}}">
+                {{ $filePath := index (split .File `.`) 0}}
+                {{ $fullPath := (printf "/images/%s/%s" $filePath $cardimage.path) }}
+
+                {{ if (fileExists (printf "static%s" $fullPath)) }}
+                <img src="{{$fullPath}}" alt="{{.Title}}">
+                {{ else }}
+                {{ $cardimagedefault := "/images/tools/default.svg"}}
+                <img src="{{$cardimagedefault}}" alt="{{.Title}}">
+                {{ end }}
                 {{else}}
                 {{ $cardimage := "/images/tools/default.svg"}}
                 <img src="{{$cardimage}}" alt="{{.Title}}">

@@ -1,22 +1,22 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 images:
-  - path: ""
+  - path:
 categories:
   - ""
 tags:
   - ""
 links:
-  - name: ""
-    link: ""
+  - name:
+    link:
 summary: ""
 features:
   - ""
 platforms:
   - ""
 plans:
-  - name: ""
-    description: ""
+  - name:
+    description:
 date: {{ .Date }}
 draft: false
 ---
