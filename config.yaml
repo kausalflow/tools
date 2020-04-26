@@ -25,3 +25,4 @@ params:
   images: # Suggested, controls default OpenGraph images controls author name display on meta tag
   github: "github" # Optional, to display link to github account in menu bar
   twitter: "twitter" # Optional, to display link to twitter account in menu bar
+  author: "KausalFlow"

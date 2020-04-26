@@ -1,19 +1,22 @@
 {{ define "header" }}
 {{ partial "menu" . }}
-<div class="hero is-primary" style="margin-bottom:2em;">
+<div class="hero" style="margin-bottom:2em;">
     <div class="hero-body">
         <div class="container">
             <div class="container has-text-centered">
-                <h1 class="title is-2 has-text-centered">Tools</h1>
+                <h1 class="title is-2 has-text-centered">Research Tools</h1>
             </div>
         </div>
     </div>
 </div>
+
 {{ end }}
 
 
 {{ define "main" }}
-
+<div class="is-divider" data-content="TOOLS"
+                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+                        </div>
 <main class="container" aria-label="Content">
     <div class="columns">
         <div class="column is-2">
@@ -52,31 +55,38 @@
                 <div class="column is-one-third">
                     <div class="card">
                         <div class="card-image">
-                            <figure class="image is-4by3">
+                            <figure class="image">
                                 {{ if (isset .Params "images")}}
                                  {{ $cardimage := index (.Params.images) 0}}
-                                 <img src="{{$cardimage.path}}" alt="{{.Title}}">
+                                 <img src="/images/{{ index (split .File ".") 0}}/{{$cardimage.path}}" alt="{{.Title}}">
                                  {{else}}
                                  {{ $cardimage := "/images/tools/default.svg"}}
                                  <img src="{{$cardimage}}" alt="{{.Title}}">
                                 {{ end }}
-
-
-
                             </figure>
                         </div>
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-content">
+                                    <p><div class="tags">
+                                        {{ range $cat := .Params.categories }}
+                                        <span class="tag is-link">{{$cat}}</span>
+                                        {{ end }}
+                                    </div></p>
                                     <a href="{{ .Permalink }}">
                                         <p class="title is-4">{{.Title}}</p>
                                     </a>
-                                    <p class="subtitle is-6">{{.Params.categories}}</p>
                                 </div>
                             </div>
 
                             <div class="content">
-                                <time datetime="{{.Lastmod}}">{{.Lastmod}}</time>
+                                <p>{{ .Params.summary }}</p>
+                                <div class="tags">
+                                    {{ range $tag := .Params.tags }}
+                                    <span class="tag">{{$tag}}</span>
+                                    {{ end }}
+                                </div>
+                                <!-- <time datetime="{{.Lastmod}}">{{.Lastmod}}</time> -->
                             </div>
                         </div>
                     </div>

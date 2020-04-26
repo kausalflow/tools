@@ -33,14 +33,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/bulma.css">
     <link rel="stylesheet" href="/css/bulma-divider.min.css">
+    <link rel="stylesheet" href="/assets/bulma-carousel/css/bulma-carousel.min.css">
     {{ if .Site.Params.theme_variant }}
     <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/{{.Site.Params.theme_variant}}/bulmaswatch.min.css"> {{else}}
     {{end}}
-    <link rel="stylesheet" href="/css/landing.css"> {{ block "style" .}} {{end}} {{ $lazylist := findRE "class=\".*?\\blazyload\\b.*?\"|class=lazyload\b" .Content }}
+    {{ block "style" .}} {{end}} {{ $lazylist := findRE "class=\".*?\\blazyload\\b.*?\"|class=lazyload\b" .Content }}
     <!-- http://regexr.com/3f9d1 -->
     {{ if ge (len $lazylist) 1 }}
     <script async src="/js/lazysizes.min.js"></script>
     {{ end }}
+    <script async src="/assets/bulma-carousel/js/bulma-carousel.min.js"></script>
 </head>
 <!--theme variation-->
 
