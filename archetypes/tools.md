@@ -19,9 +19,10 @@ fields:
 plans:
   - name:
     description:
-authors:
+makers: # the makers of the tool
   - name:
     description:
+author:    # the person who submitted this tool to KausalFlow
 date: {{ .Date }}
 draft: false
 ---

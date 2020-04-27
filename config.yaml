@@ -16,6 +16,10 @@ menu:
       weight: 1
       identifier: tools
       url: /tools/
+    - name: Submit New Tools
+      weight: 2
+      identifier: submit
+      url: /submit/
 
 params:
   theme_variant: "litera" # possible value for the theme_variant `cerulean,cosmo,cyborg,darkly,flatly,journal,litera,lumen,lux,materia,minty,pulse,sandstone,simplex,slate,solar,spacelab,superhero,united,yeti`

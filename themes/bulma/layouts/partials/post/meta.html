@@ -1,9 +1,10 @@
+<div class="has-text-right is-size-7">
 <!-- <span class="icon">
   <i class="fa fa-clock-o" aria-hidden="true"></i>
 </span>
 <span>{{ .ReadingTime }} minute read</span> -->
 <span class="icon">
- <i class="fa fa-pencil" aria-hidden="true"></i>
+  <i class="fas fa-pencil-alt"></i>
 </span>
 {{ if .PublishDate.IsZero }}
   Published: <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format "2006-01-02" }}</time>
@@ -12,3 +13,11 @@
 {{ else }}
   Published: <time datetime="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" }}">{{ .PublishDate.Format "2006-01-02" }}</time>
 {{ end }}
+{{ if ne .Site.Params.hide_author true }}
+    {{ with .Params.author }}
+      by <span itemprop="author">{{ index . }}</span>;
+    {{ else }}
+      by <span itemprop="author">{{ .Site.Params.author }}</span>;
+    {{ end }}
+  {{ end }}
+</div>
