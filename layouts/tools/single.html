@@ -103,10 +103,16 @@
             <section class="section">
                 <div class="container is-fluid">
                     <div class="columns is-multiline">
+                        {{ $filePath := index (split .File `.`) 0}}
                         {{ range .Params.images }}
+                        {{ $fullPath := (printf "/images/%s/%s" $filePath .path) }}
+                        {{ if (fileExists (printf "static%s" $fullPath)) }}
                         <div class="column is-one-third">
-                            <img src="/images/tools/{{$.File.BaseFileName }}/{{.path}}">
+                            <img src="{{$fullPath}}" alt="{{.Title}}">
                         </div>
+                        {{ else }}
+                        {{ end }}
+
                         {{ end }}
                     </div>
                 </div>

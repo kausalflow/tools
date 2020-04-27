@@ -19,6 +19,9 @@ fields:
 plans:
   - name:
     description:
+authors:
+  - name:
+    description:
 date: {{ .Date }}
 draft: false
 ---
