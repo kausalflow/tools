@@ -62,16 +62,16 @@
   <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.1"></script>
   <script>
     // Set Algolia options
-const options = {
-  appId: {{ .Site.Params.algolia.options.appId }},
-  apiKey: {{ .Site.Params.algolia.options.apiKey }},
-  indexName: {{ .Site.Params.algolia.options.indexName }},
-  hitsPerPage: {{ .Site.Params.algolia.options.hitsPerPage }},
-  routing: {{ .Site.Params.algolia.options.routing }},
-};
+    const options = {
+      appId: "{{ .Site.Params.algolia.options.appId }}",
+      apiKey: "{{ .Site.Params.algolia.options.apiKey }}",
+      indexName: "{{ .Site.Params.algolia.options.indexName }}",
+      hitsPerPage: "{{ .Site.Params.algolia.options.hitsPerPage }}",
+      routing: "{{ .Site.Params.algolia.options.routing }}",
+    };
 
-// Parse options to instantsearch
-const search = instantsearch(options);
+    // Parse options to instantsearch
+    const search = instantsearch(options);
   </script>
 </body>
 

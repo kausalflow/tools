@@ -5,13 +5,14 @@
 <link rel="stylesheet" href="/css/code-highlighting/dark.css">
 <link rel="stylesheet" href="/css/custom.css">
 
+<link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
 {{ end }}
 
 {{ define "header"}} {{ partial "menu" .}}
 
 <header class="post-header">
 
-    <div class="hero" style="margin-bottom:2em;">
+    <div class="hero">
         <div class="hero-body">
             <div class="container">
                 <div class="container has-text-centered">
@@ -34,12 +35,11 @@
 
 <div class="container" itemscope itemtype="http://schema.org/BlogPosting">
     {{ template "_internal/schema.html" . }}
-    <section class="section blog">
+    <section class="section">
         <div class="container">
 
             <div class="columns">
                 <div class="column">
-
 
                     <section class="section">
                         <article class="message is-success is-light">
@@ -196,4 +196,5 @@
 
 {{ define "footer"}}
 {{ partial "footer.html" .}}
+<script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
 {{ end }}

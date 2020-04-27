@@ -15,21 +15,7 @@
                             style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
                         </div>
   <main class="container" aria-label="Content">
-    <div class="columns is-multiline">
-        <div class="column">
-            <div class="field is-grouped is-grouped-multiline">
-                {{ range .Site.Taxonomies.categories }}
-                <div class="control">
-                    <div class="tags has-addons">
-                      <a href="{{ .Page.Permalink }}" class="tag is-link">{{ .Page.Title }}</a>
-                      <a href="{{ .Page.Permalink }}" class="tag">{{ .Count }}</a>
-                    </div>
-                  </div>
-                </a>
-                {{ end }}
-            </div>
-        </div>
-    </div>
+
     <div class="columns is-multiline">
         {{ range .Paginator.Pages }}
         <div class="column is-one-third">
