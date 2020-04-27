@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="column is-half">
                                         <div class="is-divider" data-content="TAGS"
-                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 0.5rem 0 1.5rem 0!important;">
+                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1.5rem 0 1.5rem 0!important;">
                                         </div>
                                         <div class="tags is-centered">
                                             {{ range $tag := .Params.tags }}
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="column is-half">
                                         <div class="is-divider" data-content="PLATFORMS"
-                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 0.5rem 0 1.5rem 0!important;">
+                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1.5rem 0 1.5rem 0!important;">
                                         </div>
                                         <div class="tags is-centered">
                                             {{ range $pf := .Params.platforms }}
@@ -81,12 +81,12 @@
                                     </div>
                                     <div class="column is-half">
                                         <div class="is-divider" data-content="LINKS"
-                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 0.5rem 0 1.5rem 0!important;">
+                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1.5rem 0 1.5rem 0!important;">
                                         </div>
                                         <div class="tags is-centered">
                                             {{range $link := .Params.links}}
                                             <a href="{{ $link.link }}" class="tag is-danger is-light">
-                                                <i class="fas fa-link"></i> {{ $link.name }}
+                                                <i class="fas fa-link" style="margin-right: 0.5em;"></i> {{ $link.name }}
                                             </a>
                                             {{end}}
                                         </div>
@@ -99,7 +99,7 @@
                     </section>
 
                     <section class="section">
-                        <div class="is-divider" data-content="FEATURES of {{.Title}}"
+                        <div class="is-divider" data-content="FEATURES of {{.Title  | truncate 15 }}"
                             style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
                         </div>
                         <article class="message is-warning is-light">
@@ -121,7 +121,7 @@
                     </section>
 
                     <section class="section">
-                        <div class="is-divider" data-content="TOOLS RELATED {{.Title}}"
+                        <div class="is-divider" data-content="TOOLS RELATED {{.Title | truncate 15}}"
                             style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
                         </div>
                         <article class="message is-info is-light">
@@ -172,12 +172,9 @@
                 <div class="column">
 
                     <div class="content blog-post section" itemprop="articleBody">
-
                         {{ partial "toc" .}}
-
                         {{.Content}}
                     </div>
-
 
                     <p>{{ partial "post/meta" . }}</p>
                     <!-- {{ partial "post/byauthor" . }} -->

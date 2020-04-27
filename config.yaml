@@ -5,7 +5,7 @@ paginate: 12 # Number of posts to show before paginating
 theme: "bulma" # to use as default theme
 
 enableRobotsTXT: true # Suggested, it generates a robots.txt
-googleAnalytics: "" # Optional, add tracking Id for analytics
+googleAnalytics: "UA-164721221-2" # Optional, add tracking Id for analytics
 disqusShortname: "" # Optional, add Disqus shortname for comments
 SectionPagesMenu: "main" # Enable menu system for lazy bloggers
 
