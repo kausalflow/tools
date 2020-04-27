@@ -28,34 +28,35 @@ If you prefer **not** to install Hugo:
 
 1. Fork the repo [kausalflow/tools](https://github.com/kausalflow/tools)
 2. Create a new file `content/tools/name-of-tool.md` with the following content
-{{< highlight go "linenos=table,hl_lines=8 15-17,linenostart=0" >}}
+{{< highlight go "linenos=table,linenostart=0" >}}
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: # Name of the tool
 images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path:
+  - path: # only the file name
 categories:
-  - ""
+  -
 tags:
-  - ""
-links:
+  -
+links: # Links related to the tool
   - name:
     link:
-summary: ""
-features:
+summary:
+features: # list of features
+  -
+platforms: # the platforms that the tool runs on. e.g., Web, Min, Mac, Android, iOS
   - ""
-platforms:
+fields: # the field of science that this tool is mostly used in
   - ""
-fields:
-  - ""
-plans:
+plans: # fees
   - name:
     description:
-authors:
+makers: # the makers of the tool
   - name:
     description:
-date: {{ .Date }}
+author:      # the person who submitted this tool to KausalFlow
+date:   # current date in iso-format
 draft: false
 ---
 {{< / highlight >}}
-4. Fill in the fields in the new file. If it is unclear what to type in, please refer to existing tools inside `content/tools/`.
-5. Commit, Push, and Create PR on GitHub.
+1. Fill in the fields in the new file. If it is unclear what to type in, please refer to existing tools inside `content/tools/`.
+2. Commit, Push, and Create PR on GitHub.
