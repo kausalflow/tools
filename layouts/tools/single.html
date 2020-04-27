@@ -16,17 +16,13 @@
             <div class="container">
                 <div class="container has-text-centered">
                     <h1 class="title is-2 has-text-centered">{{ .Title }}</h1>
-                    <p class="title is-5 has-text-centered">A
-                        {{ range $cat := .Params.categories }}
-                        <span class="tag is-link is-light">{{$cat}}</span>
-                        {{ end }} tool
-                    </p>
-
-                    <div class="tags is-centered">
-                        {{ range $tag := .Params.tags }}
-                        <span class="tag is-warning is-light">{{$tag}}</span>
-                        {{ end }}
-                    </div>
+                    <section class="section has-text-left">
+                        <article class="message is-info">
+                            <div class="message-body">
+                                <p>{{ .Params.summary }}</p>
+                            </div>
+                        </article>
+                    </section>
                 </div>
             </div>
         </div>
@@ -41,79 +37,137 @@
     <section class="section blog">
         <div class="container">
 
-            <article class="message is-info">
-                <div class="message-body">
-                    <p class="title is-6 has-text-centered">{{ .Params.summary }}</p>
-                    <div class="tags is-centered">
-                        {{ range $pf := .Params.platforms }}
-                        <span class="tag is-white">{{$pf}}</span>
-                        {{ end }}
-                    </div>
-                </div>
-            </article>
+            <div class="columns">
+                <div class="column">
 
-            <!-- Links -->
-            <section class="section">
-                <div class="is-divider" data-content="LINKS"
-                    style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                </div>
-                <div class="columns">
-                    <div class="column">
-                        <div class="field is-grouped is-centered">
-                            {{range $link := .Params.links}}
-                            <p class="control">
-                                <a href="{{ $link.link }}" class="button is-dark is-outlined">
-                                    {{ $link.name }}
-                                </a>
-                            </p>
-                            {{end}}
+
+                    <section class="section">
+                        <article class="message is-success is-light">
+                            <div class="message-header">
+                                <p>{{.Title}}</p>
+                            </div>
+                            <div class="message-body">
+
+                                <div class="columns is-multiline">
+                                    <div class="column is-half">
+                                        <div class="is-divider" data-content="CATEGORIES"
+                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 0.5rem 0 1.5rem 0 !important;">
+                                        </div>
+                                        <p class="has-text-centered">
+                                            {{ range $cat := .Params.categories }}
+                                            <span class="tag is-link is-light">{{$cat}}</span>
+                                            {{ end }}
+                                        </p>
+                                    </div>
+                                    <div class="column is-half">
+                                        <div class="is-divider" data-content="TAGS"
+                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 0.5rem 0 1.5rem 0!important;">
+                                        </div>
+                                        <div class="tags is-centered">
+                                            {{ range $tag := .Params.tags }}
+                                            <span class="tag is-warning is-light">{{$tag}}</span>
+                                            {{ end }}
+                                        </div>
+                                    </div>
+                                    <div class="column is-half">
+                                        <div class="is-divider" data-content="PLATFORMS"
+                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 0.5rem 0 1.5rem 0!important;">
+                                        </div>
+                                        <div class="tags is-centered">
+                                            {{ range $pf := .Params.platforms }}
+                                            <span class="tag is-white">{{$pf}}</span>
+                                            {{ end }}
+                                        </div>
+                                    </div>
+                                    <div class="column is-half">
+                                        <div class="is-divider" data-content="LINKS"
+                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 0.5rem 0 1.5rem 0!important;">
+                                        </div>
+                                        <div class="tags is-centered">
+                                            {{range $link := .Params.links}}
+                                            <a href="{{ $link.link }}" class="tag is-danger is-light">
+                                                <i class="fas fa-link"></i> {{ $link.name }}
+                                            </a>
+                                            {{end}}
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </article>
+                    </section>
+
+                    <section class="section">
+                        <div class="is-divider" data-content="FEATURES of {{.Title}}"
+                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
                         </div>
-                    </div>
-                </div>
-            </section>
-            <!-- /Links -->
+                        <article class="message is-warning is-light">
+                            <div class="message-header">
+                                <p>Features</p>
+                            </div>
+                            <div class="message-body">
 
+                                <ul id="all-tags">
+                                    {{ range $idx, $tag := .Params.features }}
+                                    <li>
+                                        <p>{{ $tag }}</p>
+                                    </li>
+                                    {{ end }}
+                                </ul>
 
-            <section class="section">
-                <div class="is-divider" data-content="FEATURES"
-                    style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                </div>
-                <article class="message is-success is-light">
-                    <div class="message-header">
-                        <p>{{.Title}} Features</p>
-                    </div>
-                    <div class="message-body">
+                            </div>
+                        </article>
+                    </section>
 
-                        <ul id="all-tags">
-                            {{ range $idx, $tag := .Params.features }}
-                            <li>
-                                <p>{{ $tag }}</p>
-                            </li>
-                            {{ end }}
-                        </ul>
-
-                    </div>
-                </article>
-            </section>
-
-            <!-- Image -->
-            {{ if (isset .Params "images")}}
-            <div class="is-divider" data-content="IMAGES"
-                style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;"></div>
-            <section class="section">
-                <div class="container is-fluid">
-                    <div class="columns is-multiline">
-                        {{ range .Params.images }}
-                        <div class="column is-one-third">
-                            <img src="/images/tools/{{$.File.BaseFileName }}/{{.path}}">
+                    <section class="section">
+                        <div class="is-divider" data-content="TOOLS RELATED {{.Title}}"
+                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
                         </div>
-                        {{ end }}
-                    </div>
+                        <article class="message is-info is-light">
+                            <div class="message-header">
+                                <p>TOOLS RELATED to {{.Title}}</p>
+                            </div>
+                            <div class="message-body">
+                                {{ partial "related-tools" . }}
+                            </div>
+                        </article>
+                    </section>
                 </div>
-            </section>
-            {{end}}
-            <!-- /Image -->
 
+                <div class="column">
+
+                    <!-- Image -->
+                    {{ if (isset .Params "images")}}
+
+                    <section class="section">
+                        <div class="container is-fluid">
+                            <div class="columns is-multiline">
+                                {{ $filePath := index (split .File `.`) 0}}
+                                {{ range .Params.images }}
+                                {{ $fullPath := (printf "/images/%s/%s" $filePath .path) }}
+                                {{ if (fileExists (printf "static%s" $fullPath)) }}
+                                <div class="column is-full">
+                                    <img src="{{$fullPath}}" alt="{{.Title}}">
+                                    <div class="is-divider"
+                                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 2rem 1rem 2rem 1rem !important;">
+                                    </div>
+                                </div>
+
+                                {{ else }}
+                                {{ end }}
+
+                                {{ end }}
+                            </div>
+                        </div>
+                    </section>
+                    {{end}}
+                    <!-- /Image -->
+
+                </div>
+
+
+            </div>
             <div class="columns is-mobile">
                 <div class="column">
 
@@ -123,24 +177,15 @@
 
                         {{.Content}}
                     </div>
-                    <div class="is-divider" data-content="META"
-                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;"></div>
-                    <div>
-                        <p>{{ partial "post/meta" . }}</p>
-                        {{ partial "post/byauthor" . }}
-                        {{ partial "post/related-content" . }}
-                        {{ partial "utterances-comments.html" . }}
-                    </div>
 
-                    {{ if .Site.DisqusShortname }}
-                    <article>
-                        {{ partial "disqus.html" . }}
-                    </article>
-                    {{ end }}
+
+                    <p>{{ partial "post/meta" . }}</p>
+                    <!-- {{ partial "post/byauthor" . }} -->
+                    {{ partial "utterances-comments.html" . }}
 
                 </div>
-            </div>
 
+            </div>
         </div>
     </section>
 </div>
@@ -151,134 +196,4 @@
 
 {{ define "footer"}}
 {{ partial "footer.html" .}}
-<script>
-    function ready(handler) {
-        if (/complete|loaded|interactive/.test(document.readyState) && document.body) {
-            handler();
-        } else {
-            document.addEventListener('DOMContentLoaded', handler, false);
-        }
-    }
-
-    var _clickEvents = ['click', 'touch'];
-
-    ready(function () {
-        const burgers = document.querySelectorAll('.burger');
-        [].forEach.call(burgers, burger => {
-            _clickEvents.forEach(clickEvent => {
-                burger.addEventListener(clickEvent, e => {
-                    e.preventDefault();
-
-                    const node = e.currentTarget;
-                    if (node) {
-                        node.classList.toggle('is-active');
-                        // Get the target from the "data-target" attribute
-                        let target = node.dataset.target;
-                        if (target) {
-                            const targetNode = document.querySelector(node.dataset
-                                .target);
-                            if (targetNode) {
-                                targetNode.classList.toggle('is-active');
-                            }
-                        }
-                    }
-                });
-            });
-        });
-
-        const menus = document.querySelectorAll('.menu');
-        [].forEach.call(menus, menu => {
-            // Open menu which contains the current active item
-            let activeMenus = menu.querySelectorAll('.menu-item:not(.has-dropdown).is-active');
-            [].forEach.call(activeMenus, (activeMenu) => {
-                activeMenu = activeMenu.closest('.menu-item.has-dropdown');
-                if (activeMenu) {
-                    activeMenu.classList.add('is-active');
-                }
-            });
-
-            let dropdownMenus = menu.querySelectorAll('.menu-item.has-dropdown > .menu-title');
-            [].forEach.call(dropdownMenus, (dropdownMenu) => {
-                dropdownMenu.addEventListener('click', e => {
-                    e.preventDefault();
-                    let currentMenu = e.currentTarget;
-
-                    // Toggle current menu
-                    currentMenu.closest('.menu-item.has-dropdown').classList.toggle(
-                        'is-active');
-
-                    // Close all other active menus
-                    let otherActiveMenus = menu.querySelectorAll(
-                        '.menu-item.has-dropdown.is-active');
-                    [].forEach.call(otherActiveMenus, otherActiveMenu => {
-                        if (!currentMenu.isEqualNode(otherActiveMenu
-                                .querySelector('.menu-title'))) {
-                            otherActiveMenu.classList.remove('is-active');
-                        }
-                    });
-                });
-            });
-        });
-
-        let tabs = document.querySelectorAll('.tabs li a');
-        [].forEach.call(tabs, tab => {
-            if (window.location.hash) {
-                let tabToShow = tab.closest('.tabs').querySelector('[href="' + window.location.hash +
-                    '"]');
-                let tabContentToShow = document.querySelector(window.location.hash);
-                if (tabToShow && tabContentToShow) {
-                    let tabToHide = tab.closest('.tabs').querySelector('li.is-active');
-                    if (tabToHide) {
-                        let tabToHideLink = tabToHide.querySelector('a');
-                        let tabContentToHide = document.querySelector(tabToHideLink.getAttribute(
-                            'href'));
-                        if (tabContentToHide) {
-                            tabContentToHide.classList.remove('is-active');
-                        }
-                        tabToHideLink.classList.remove('is-active');
-                        tabToHide.classList.remove('is-active');
-                    }
-                    tabToShow.closest('li').classList.add('is-active');
-                    tabContentToShow.classList.add('is-active');
-                }
-            }
-
-            _clickEvents.forEach(clickEvent => {
-                tab.addEventListener(clickEvent, event => {
-                    event.preventDefault();
-                    const tab = event.currentTarget;
-
-                    let tabToHide = tab.closest('.tabs').querySelector('li.is-active');
-                    if (tabToHide) {
-                        let tabToHideLink = tabToHide.querySelector('a');
-                        let tabContentToHide = document.querySelector(tabToHideLink
-                            .getAttribute('href'));
-                        if (tabContentToHide) {
-                            tabContentToHide.classList.remove('is-active');
-                        }
-                        tabToHideLink.classList.remove('is-active');
-
-                        tabToHide.classList.remove('is-active');
-                    }
-                    tab.closest('li').classList.add('is-active');
-
-                    let tabContentToShow = document.querySelector(tab.getAttribute(
-                        'href'));
-                    if (tabContentToShow) {
-                        tabContentToShow.classList.add('is-active');
-                    }
-                });
-            });
-        });
-    });
-    ready(function () {
-        bulmaCarousel.attach('.hero-carousel', {
-            slidesToScroll: 1,
-            slidesToShow: 1,
-            pagination: false,
-            effect: 'fade',
-            loop: true
-        });
-    });
-</script>
 {{ end }}

@@ -33,7 +33,6 @@
 
     <link rel="stylesheet" href="/css/bulma.css">
     <link rel="stylesheet" href="/css/bulma-divider.min.css">
-    <link rel="stylesheet" href="/assets/bulma-carousel/css/bulma-carousel.min.css">
     {{ if .Site.Params.theme_variant }}
     <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/{{.Site.Params.theme_variant}}/bulmaswatch.min.css"> {{else}}
     {{end}}
@@ -42,7 +41,6 @@
     {{ if ge (len $lazylist) 1 }}
     <script async src="/js/lazysizes.min.js"></script>
     {{ end }}
-    <script async src="/assets/bulma-carousel/js/bulma-carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 </head>
@@ -54,8 +52,6 @@
     <footer>{{ block "footer" . }}{{ end }}</footer>
 
     <script async type="text/javascript" src="/js/bulma.js"></script>
-    <script async type="text/javascript"  src="/js/clipboard.min.js"></script>
-    <script async type="text/javascript"  src="/js/clip.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,15 @@
+{{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+{{ $.Scratch.Set "has_related" true }}
+{{ end }}
+
+{{ if $.Scratch.Get "has_related" }}
+<aside>
+    {{ $num_to_show := .Site.Params.related_content_limit | default 7 }}
+    <div class="tags">
+        {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+            <a href="{{ .RelPermalink }}" class="tag is-link is-light" style="margin-left: 1em;margin-right:1em;"><i class="fas fa-link" style="margin-right:0.5em;"></i>  {{ .Title }}</a>
+
+        {{ end }}
+    </div>
+</aside>
+{{ end }}

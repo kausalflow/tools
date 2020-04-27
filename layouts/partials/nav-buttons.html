@@ -5,12 +5,14 @@
 {{with $File.Path }}
 <div class="navtools">
     <a class="button is-primary is-light is-outlined" title='{{T "Edit-this-page"}}'
+        alt="Edit this page"
         href="{{ $Site.Params.editURL }}{{ replace $File.Dir "\\" "/" }}{{ $File.LogicalName }}" target="blank"
         style="position:fixed;bottom: 20px;right: 10px;border-radius: 9999px;width:35px;height:35px;">
         <i class="fas fa-pencil-alt"></i>
     </a>
     <a class="button is-primary is-light is-outlined"
         href="#comments"
+        alt="Comments"
         style="position:fixed;bottom: 60px;right: 10px;border-radius: 9999px;width:35px;height:35px;">
         <i class="far fa-comments"></i>
     </a>
