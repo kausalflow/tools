@@ -31,3 +31,23 @@ params:
   twitter: "" # Optional, to display link to twitter account in menu bar
   author: "KausalFlow"
   editURL: "https://github.com/kausalflow/tools/edit/master/content/"
+  algolia:
+    vars:
+      - "title"
+      - "summary"
+      - "date"
+      - "publishdate"
+      - "expirydate"
+      - "permalink"
+    params:
+      - "categories"
+      - "tags"
+
+
+outputFormats:
+  Algolia:
+    baseName: "algolia"
+    isPlainText: true
+    mediaType: "application/json"
+    notAlternative: true
+
