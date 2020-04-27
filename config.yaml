@@ -42,6 +42,13 @@ params:
     params:
       - "categories"
       - "tags"
+    options:
+      appId: NQED3STBQT
+      apiKey: 5b7ac3f0c287018586467528f312e255
+      indexName: "kausalflow-research-tools"
+      hitsPerPage: 10
+      routing: true
+
 
 
 outputFormats:
@@ -51,3 +58,8 @@ outputFormats:
     mediaType: "application/json"
     notAlternative: true
 
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "Algolia"
