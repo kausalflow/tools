@@ -8,7 +8,7 @@ There are two ways to submit a new tool.
 
 ## Using Our Form
 
-We have created a form for you to submit new tools. We will regularly collect the results and integrate them into our website. Click the button below.
+We have created a form for you to submit new tools. We will regularly collect the results and integrate them into our website. Click the button below to submit a tool. All submissions are listed on [this trello board](https://trello.com/b/SwVhZkOp/tools-submissions).
 
 {{< typeform-button >}}
 
