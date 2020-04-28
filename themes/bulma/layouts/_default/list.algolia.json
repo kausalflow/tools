@@ -15,6 +15,7 @@
     {{- .Scratch.SetInMap "temp" "date" $hit.Date.UTC.Unix -}}
     {{- .Scratch.SetInMap "temp" "description" $hit.Description -}}
     {{- .Scratch.SetInMap "temp" "dir" $hit.Dir -}}
+    {{- .Scratch.SetInMap "temp" "file" (index (split $hit.Permalink `/`) 4) -}}
     {{- .Scratch.SetInMap "temp" "path" "temp" -}}
     {{- .Scratch.SetInMap "temp" "expirydate" $hit.ExpiryDate.UTC.Unix -}}
     {{- .Scratch.SetInMap "temp" "path" "temp" -}}
@@ -29,6 +30,10 @@
     {{- .Scratch.SetInMap "temp" "relpermalink" $hit.RelPermalink -}}
     {{- .Scratch.SetInMap "temp" "summary" $hit.Summary -}}
     {{- .Scratch.SetInMap "temp" "title" $hit.Title -}}
+    {{- .Scratch.SetInMap "temp" "images" $hit.Params.images -}}
+    {{- .Scratch.SetInMap "temp" "fields" $hit.Params.fields -}}
+    {{- .Scratch.SetInMap "temp" "platforms" $hit.Params.platforms -}}
+    {{- .Scratch.SetInMap "temp" "author" ($hit.Params.author | default "KausalFlow") -}}
     {{- .Scratch.SetInMap "temp" "type" $hit.Type -}}
     {{- .Scratch.SetInMap "temp" "url" $hit.URL -}}
     {{- .Scratch.SetInMap "temp" "weight" $hit.Weight -}}

@@ -46,10 +46,12 @@
     integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
     integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-  <link rel="stylesheet" type="text/css"
-    href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.1/dist/instantsearch.min.css" />
-  <link rel="stylesheet" type="text/css"
-    href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.1/dist/instantsearch-theme-algolia.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css">
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css">
+
+
 </head>
 <!--theme variation-->
 
@@ -59,20 +61,7 @@
   <footer>{{ block "footer" . }}{{ end }}</footer>
 
   <script async type="text/javascript" src="/js/bulma.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.1"></script>
-  <script>
-    // Set Algolia options
-    const options = {
-      appId: "{{ .Site.Params.algolia.options.appId }}",
-      apiKey: "{{ .Site.Params.algolia.options.apiKey }}",
-      indexName: "{{ .Site.Params.algolia.options.indexName }}",
-      hitsPerPage: "{{ .Site.Params.algolia.options.hitsPerPage }}",
-      routing: "{{ .Site.Params.algolia.options.routing }}",
-    };
 
-    // Parse options to instantsearch
-    const search = instantsearch(options);
-  </script>
 </body>
 
 </html>

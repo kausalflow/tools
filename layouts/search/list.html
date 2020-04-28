@@ -14,31 +14,181 @@
 
 
 {{ define "main" }}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css" />
-<link rel="stylesheet" href="/assets/search/app.css" />
-<div class="is-divider" data-content="TOOLS"
+
+<main class="container" aria-label="Content">
+<div class="columns">
+    <div class="column has-text-centered">
+        <div id="search-box">
+            <!-- SearchBox widget will appear here -->
+        </div>
+        <div style="margin: 1em 0 0.5em 0;">
+        <img src="/images/search/search-by-algolia-light-background.svg">
+    </div>
+    </div>
+</div>
+<div class="columns">
+    <div class="column is-3">
+
+        <aside class="menu">
+
+            <div class="is-divider" data-content="CATEGORIES"
     style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
 </div>
-<main class="container" aria-label="Content">
 
-    <div class="ais-InstantSearch">
-        <div class="left-panel">
-            <div id="clear-refinements"></div>
+            <p class="menu-label">
+                Categories
+            </p>
+                <div id="refinement-list">
+                    <!-- RefinementList widget will appear here -->
+                </div>
 
-            <h2>Categories</h2>
-            <div id="cat-list"></div>
-        </div>
+                <div class="is-divider" data-content="TAGS"
+    style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+</div>
 
-        <div class="right-panel">
-            <div id="searchbox" class="ais-SearchBox"></div>
-            <div id="hits"></div>
-            <div id="pagination"></div>
-        </div>
+                <p class="menu-label">
+                    Tags
+                </p>
+
+                <div id="refinement-list-tags">
+                    <!-- RefinementList widget will appear here -->
+                </div>
+
+        </aside>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
-    <script src="/assets/search/app.js"></script>
+    <div class="column">
+        <div class="is-divider" data-content="TOOLS"
+    style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+</div>
+        <div id="hits">
+            <!-- Hits widget will appear here -->
+        </div>
+        <div class="is-divider" data-content="PAGES"
+    style="border-top:.1rem dashed #dbdbdb57 !important;margin: 2rem 0 !important;">
+</div>
+        <div id="pagination" style="margin: 2em 0 2em 0;">
+            <!-- Pagination widget will appear here -->
+          </div>
+    </div>
+</div>
+</main>
+
+
+<script>
+    // create variable for custom hit template
+    var hitTemplate =`<div class="column">
+        <div class="card">
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content">
+                        <a href='{{ "{{" }} permalink {{ "}}" }}'>`
+                            +
+                               `<a href='{{ "{{" }} permalink {{ "}}" }}' class="List-item">` +
+                                `<p class="title is-4 List-title">'{{ "{{" }} title {{ "}}" }}'</p>` +
+                               "</a>"
+                            +
+                        `</a>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>
+                        <div class="tags">
+                            {{ "{{" }}#categories{{ "}}" }}<span class="tag is-link is-light">{{ "{{{" }}.{{ "}}}" }}</span> {{ "{{" }}/categories{{ "}}" }}
+                        </div>
+                    </p>
+                    <p>
+                        <div class="tags">
+                            {{ "{{" }}#tags{{ "}}" }}<span class="tag is-warning is-light">{{ "{{{" }}.{{ "}}}" }}</span> {{ "{{" }}/tags{{ "}}" }}
+                        </div>
+                    </p>
+                    <div class="is-divider" data-content="SUMMARY"
+                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+                    </div>
+                    <p>{{ "{{{" }} summary {{ "}}}" }}</p>
+                </div>
+            </div>
+        </div>
+    </div>`
+
+    // Set Algolia options
+    const options = {
+        appId: `{{ printf "%s" .Site.Params.algolia.options.appId }}`,
+        apiKey: `{{ printf "%s" .Site.Params.algolia.options.apiKey }}`,
+        indexName: `{{ printf "%s" .Site.Params.algolia.options.indexName }}`,
+        hitsPerPage: {{ .Site.Params.algolia.options.hitsPerPage }},
+        routing: {{ .Site.Params.algolia.options.routing }}
+    };
+
+
+    // Parse options to instantsearch
+    const search = instantsearch(options);
+
+    // initialize SearchBox
+search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: "#search-box",
+      placeholder: "Search for research tools",
+      reset: false,
+      cssClasses: {
+        root: "Search-box-container control",
+        input: "Search-box-input input is-success",
+      },
+    })
+  );
+
+    // initialize hits widget
+    search.addWidget(
+        instantsearch.widgets.hits({
+            // define container
+            container: "#hits",
+            // add classes for styling
+            cssClasses: {
+                root: "Search-hits columns is-multiline",
+                item: "column is-one-third",
+                empty: "Search-hits--empty",
+            },
+            templates: {
+                // call custom hit template
+                item: hitTemplate,
+                // item: `{{ "{{{" }}title{{ "}}}" }}`,
+                empty: 'Didn’t find any results for the search  <em>{{ "{{{" }}query{{ "}}}" }}</em>',
+            },
+        })
+    );
+
+        // initialize RefinementList
+    search.addWidget(
+        instantsearch.widgets.refinementList({
+        container: "#refinement-list",
+        attributeName: "categories",
+        })
+    );
+
+            search.addWidget(
+                instantsearch.widgets.refinementList({
+                container: "#refinement-list-tags",
+                attributeName: "tags",
+                })
+            );
+
+              // initialize pagination
+  search.addWidget(
+    instantsearch.widgets.pagination({
+      container: '#pagination',
+      maxPages: 20,
+      // default is to scroll to 'body', here we disable this behavior
+      scrollTo: false,
+      cssClasses: {
+          item: "pagination-list"
+      }
+    })
+  );
+
+
+    search.start();
+
+</script>
 
 
 </main>

@@ -17,9 +17,13 @@ menu:
       identifier: tools
       url: /tools/
     - name: Submit New Tools
-      weight: 2
+      weight: 3
       identifier: submit
       url: /submit/
+    - name: Search
+      weight: 2
+      identifier: search
+      url: /search/
 
 params:
   theme_variant: "litera" # possible value for the theme_variant `cerulean,cosmo,cyborg,darkly,flatly,journal,litera,lumen,lux,materia,minty,pulse,sandstone,simplex,slate,solar,spacelab,superhero,united,yeti`
@@ -39,14 +43,19 @@ params:
       - "publishdate"
       - "expirydate"
       - "permalink"
+      - "images"
+      - "author"
+      - "fields"
+      - "platforms"
+      - "file"
     params:
       - "categories"
       - "tags"
     options:
-      appId: NQED3STBQT
-      apiKey: 5b7ac3f0c287018586467528f312e255
+      appId: "NQED3STBQT"
+      apiKey: "5b7ac3f0c287018586467528f312e255"
       indexName: "kausalflow-research-tools"
-      hitsPerPage: 10
+      hitsPerPage: 12
       routing: true
 
 
