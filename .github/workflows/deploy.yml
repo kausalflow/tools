@@ -23,6 +23,14 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Update Algolia
+        run: |
+          npm install
+          ALGOLIA_APP_ID=NQED3STBQT ALGOLIA_ADMIN_KEY=${{ secrets.ALGOLIA_ADMIN_KEY }} ALGOLIA_INDEX_NAME=kausalflow-research-tools ALGOLIA_INDEX_FILE=public/algolia.json npm run algolia
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
