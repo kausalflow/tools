@@ -31,7 +31,7 @@ params:
   powered_by: "love" # Optional, controls name display on footer
   hide_author: false # Optional, set true to hide author name on posts
   images: # Suggested, controls default OpenGraph images controls author name display on meta tag
-  github: "kausalflow" # Optional, to display link to github account in menu bar
+  github: "kausalflow/tools" # Optional, to display link to github account in menu bar
   twitter: "" # Optional, to display link to twitter account in menu bar
   author: "KausalFlow"
   editURL: "https://github.com/kausalflow/tools/edit/master/content/"
