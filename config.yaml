@@ -20,10 +20,6 @@ menu:
       weight: 3
       identifier: submit
       url: /submit/
-    - name: Search
-      weight: 2
-      identifier: search
-      url: /search/
 
 params:
   theme_variant: "litera" # possible value for the theme_variant `cerulean,cosmo,cyborg,darkly,flatly,journal,litera,lumen,lux,materia,minty,pulse,sandstone,simplex,slate,solar,spacelab,superhero,united,yeti`

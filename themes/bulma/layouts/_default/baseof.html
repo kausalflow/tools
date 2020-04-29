@@ -52,6 +52,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css">
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 </head>
 <!--theme variation-->
 
@@ -62,6 +63,15 @@
 
   <script async type="text/javascript" src="/js/bulma.js"></script>
 
+  <!-- at the end of the BODY -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+  apiKey: '99a6ee5b5267cec45216974e3b1acfee',
+  indexName: 'kausalflow',
+  inputSelector: '#search-bar',
+  debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  </script>
 </body>
 
 </html>

@@ -13,6 +13,7 @@
   <div class="navbar-menu" id="navMenu">
     <div class="navbar-start">
 
+
       <div class="navbar-item has-dropdown is-hoverable">
         <a href="/tools" class="navbar-link">
           All Tools
@@ -25,7 +26,12 @@
           {{ end }}
         </div>
       </div>
+
+
+
     </div>
+
+
 
     <!-- This "navbar-burger" hamburger menu is only visible on mobile -->
     <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
@@ -38,6 +44,16 @@
     <!-- This "nav-menu" is hidden on mobile -->
     <!-- Add the modifier "is-active" to display it on mobile -->
     <div class="navbar-end">
+
+      <div class="navbar-item">
+        <p class="control has-icons-right">
+          <input id="search-bar" class="input" type="search" placeholder="Search tools...">
+          <span class="icon is-small is-right">
+            <icon />
+          </span>
+        </p>
+      </div>
+
       <div class="navbar-item">
         {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
