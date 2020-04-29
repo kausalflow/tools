@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css"> -->
 
 {{ end }}
 
@@ -85,7 +85,6 @@
                         style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
                         <section class="section">
 
-
                             {{ partial "profile/author" . }}
                         </section>
                     </div>
@@ -95,8 +94,6 @@
                     <div class="box"
                         style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
                         <section class="section">
-
-
                             {{ partial "related-tools" . }}
                         </section>
                     </div>
@@ -104,34 +101,30 @@
 
                 </div>
 
-                <div class="column">
+                <div class="column is-10">
 
-                    <!-- Image -->
-                    {{ if (isset .Params "images")}}
+                    <div class="box"
+                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
+                        <!-- Image -->
+                        {{ if (isset .Params "images")}}
 
-                    <section class="section">
-                        <div class="container is-fluid">
-                            <div class="columns is-multiline">
+                        <section class="section">
+
                                 {{ $filePath := index (split .File `.`) 0}}
                                 {{ range .Params.images }}
                                 {{ $fullPath := (printf "/images/%s/%s" $filePath .path) }}
                                 {{ if (fileExists (printf "static%s" $fullPath)) }}
-                                <div class="column is-full">
+                                <figure class="image">
                                     <img src="{{$fullPath}}" alt="{{.Title}}">
-                                    <div class="is-divider"
-                                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 2rem 1rem 2rem 1rem !important;">
-                                    </div>
-                                </div>
-
+                                </figure>
                                 {{ else }}
                                 {{ end }}
-
                                 {{ end }}
-                            </div>
-                        </div>
-                    </section>
-                    {{end}}
-                    <!-- /Image -->
+
+                        </section>
+                        {{end}}
+                        <!-- /Image -->
+                    </div>
 
                     {{ partial "utterances-comments.html" . }}
 
@@ -164,12 +157,14 @@
 
 {{ define "footer"}}
 {{ partial "footer.html" .}}
+
+
 <script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
 <script>
     bulmaCarousel.attach('#carousel-demo', {
         slidesToScroll: 1,
-        slidesToShow: 4
+        slidesToShow: 1
     });
-</script>
+</script> -->
 {{ end }}
