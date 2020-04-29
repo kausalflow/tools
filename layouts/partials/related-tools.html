@@ -3,13 +3,29 @@
 {{ end }}
 
 {{ if $.Scratch.Get "has_related" }}
-<aside>
-    {{ $num_to_show := .Site.Params.related_content_limit | default 7 }}
-    <div class="tags">
-        {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
-            <a href="{{ .RelPermalink }}" class="tag is-link is-light" style="margin-left: 1em;margin-right:1em;"><i class="fas fa-link" style="margin-right:0.5em;"></i>  {{ .Title | truncate 40 }}</a>
 
+    {{ $num_to_show := .Site.Params.related_content_limit | default 7 }}
+    <ul id="related-tools">
+        {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+        <li>
+            <a href="{{ .RelPermalink }}">
+                <div class="box" style="margin-bottom: 0.75em;border-top:0.5px solid;border-bottom:0.5px solid;border-left:none;border-right:none;box-shadow:none;">
+                    <article class="media">
+                      <div class="media-content">
+                        <div class="content">
+                          <p>
+                            <strong>{{ .Title | truncate 40 }}</strong>
+                            <br>
+                            {{ .Params.summary | truncate 40 }}
+                          </p>
+                        </div>
+
+                      </div>
+                    </article>
+                  </div>
+
+               </a>
+        </li>
         {{ end }}
-    </div>
-</aside>
+    </ul>
 {{ end }}

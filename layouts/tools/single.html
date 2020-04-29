@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 <link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
+
 {{ end }}
 
 {{ define "header"}} {{ partial "menu" .}}
@@ -15,14 +18,13 @@
     <div class="hero">
         <div class="hero-body">
             <div class="container">
+                {{ partial "breadcrumb" . }}
                 <div class="container has-text-centered">
-                    <h1 class="title is-2 has-text-centered">{{ .Title }}</h1>
+                    {{ partial "profile/title" . }}
+
                     <section class="section has-text-left">
-                        <article class="message is-info">
-                            <div class="message-body">
-                                <p>{{ .Params.summary }}</p>
-                            </div>
-                        </article>
+
+
                     </section>
                 </div>
             </div>
@@ -38,101 +40,68 @@
     <section class="section">
         <div class="container">
 
+
             <div class="columns">
-                <div class="column">
+                <div class="column is-3">
 
-                    <section class="section">
-                        <article class="message is-success is-light">
-                            <div class="message-header">
-                                <p>{{.Title}}</p>
+                    <div class="is-divider" data-content="LINKS"
+                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 0rem 0 1.5rem 0!important;">
+                    </div>
+                    <div class="box"
+                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
+                        <section class="section">
+
+
+                            {{range $link := .Params.links}}
+                            <div class="buttons is-centered">
+                                <a href="{{ $link.link }}" class="button is-danger is-light">{{ $link.name }}</a>
                             </div>
-                            <div class="message-body">
+                            {{end}}
+                        </section>
+                    </div>
+                    <div class="is-divider" data-content="FEATURES of {{.Title  | truncate 15 }}"
+                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+                    </div>
 
-                                <div class="columns is-multiline">
-                                    <div class="column is-half">
-                                        <div class="is-divider" data-content="CATEGORIES"
-                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 0.5rem 0 1.5rem 0 !important;">
-                                        </div>
-                                        <p class="has-text-centered">
-                                            {{ range $cat := .Params.categories }}
-                                            <span class="tag is-link is-light">{{$cat}}</span>
-                                            {{ end }}
-                                        </p>
-                                    </div>
-                                    <div class="column is-half">
-                                        <div class="is-divider" data-content="TAGS"
-                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1.5rem 0 1.5rem 0!important;">
-                                        </div>
-                                        <div class="tags is-centered">
-                                            {{ range $tag := .Params.tags }}
-                                            <span class="tag is-warning is-light">{{$tag}}</span>
-                                            {{ end }}
-                                        </div>
-                                    </div>
-                                    <div class="column is-half">
-                                        <div class="is-divider" data-content="PLATFORMS"
-                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1.5rem 0 1.5rem 0!important;">
-                                        </div>
-                                        <div class="tags is-centered">
-                                            {{ range $pf := .Params.platforms }}
-                                            <span class="tag is-white">{{$pf}}</span>
-                                            {{ end }}
-                                        </div>
-                                    </div>
-                                    <div class="column is-half">
-                                        <div class="is-divider" data-content="LINKS"
-                                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1.5rem 0 1.5rem 0!important;">
-                                        </div>
-                                        <div class="tags is-centered">
-                                            {{range $link := .Params.links}}
-                                            <a href="{{ $link.link }}" class="tag is-danger is-light">
-                                                <i class="fas fa-link" style="margin-right: 0.5em;"></i> {{ $link.name }}
-                                            </a>
-                                            {{end}}
-                                        </div>
-                                    </div>
 
-                                </div>
+                    <div class="box"
+                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
+                        <section class="section">
 
-                            </div>
-                        </article>
-                    </section>
 
-                    <section class="section">
-                        <div class="is-divider" data-content="FEATURES of {{.Title  | truncate 15 }}"
-                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                        </div>
-                        <article class="message is-warning is-light">
-                            <div class="message-header">
-                                <p>Features</p>
-                            </div>
-                            <div class="message-body">
+                            <ul id="all-tags">
+                                {{ range $idx, $tag := .Params.features }}
+                                <li>
+                                    <p><i class="fas fa-certificate"></i> {{ $tag }}</p>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="is-divider" data-content="RELATED {{.Title | truncate 15}}"
+                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+                    </div>
+                    <div class="box"
+                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
+                        <section class="section">
 
-                                <ul id="all-tags">
-                                    {{ range $idx, $tag := .Params.features }}
-                                    <li>
-                                        <p>{{ $tag }}</p>
-                                    </li>
-                                    {{ end }}
-                                </ul>
 
-                            </div>
-                        </article>
-                    </section>
+                            {{ partial "profile/author" . }}
+                        </section>
+                    </div>
+                    <div class="is-divider" data-content="RELATED {{.Title | truncate 15}}"
+                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+                    </div>
+                    <div class="box"
+                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
+                        <section class="section">
 
-                    <section class="section">
-                        <div class="is-divider" data-content="TOOLS RELATED {{.Title | truncate 15}}"
-                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                        </div>
-                        <article class="message is-info is-light">
-                            <div class="message-header">
-                                <p>TOOLS RELATED to {{.Title}}</p>
-                            </div>
-                            <div class="message-body">
-                                {{ partial "related-tools" . }}
-                            </div>
-                        </article>
-                    </section>
+
+                            {{ partial "related-tools" . }}
+                        </section>
+                    </div>
+
+
                 </div>
 
                 <div class="column">
@@ -164,6 +133,8 @@
                     {{end}}
                     <!-- /Image -->
 
+                    {{ partial "utterances-comments.html" . }}
+
                 </div>
 
 
@@ -176,9 +147,9 @@
                         {{.Content}}
                     </div>
 
-                    <p>{{ partial "post/meta" . }}</p>
+                    <!-- <p>{{ partial "post/meta" . }}</p> -->
                     <!-- {{ partial "post/byauthor" . }} -->
-                    {{ partial "utterances-comments.html" . }}
+
 
                 </div>
 
@@ -194,4 +165,11 @@
 {{ define "footer"}}
 {{ partial "footer.html" .}}
 <script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+<script>
+    bulmaCarousel.attach('#carousel-demo', {
+        slidesToScroll: 1,
+        slidesToShow: 4
+    });
+</script>
 {{ end }}

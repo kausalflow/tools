@@ -1,0 +1,26 @@
+
+<div class="box has-ribbon-left" style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
+    <div class="ribbon is-small is-outlined is-white">{{ range $pf := .Params.platforms }}
+        <span class="tag is-white">{{$pf}}</span>
+        {{ end }}</div>
+<article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <h1 class="title is-3">{{ .Title }}</h1>
+          <div><i class="fas fa-quote-left" style="margin-right: 0.5em;"></i>{{ .Params.summary }}</div>
+          <h2 class="title is-6"><i class="far fa-folder-open" style="margin-right: 0.5em;"></i>{{ range $cat := .Params.categories }}
+            <span class="tag is-link is-light">{{$cat}}</span>
+            {{ end }}</h2>
+          <h3 class="title is-6"><i class="fas fa-tags" style="margin-right: 0.5em;"></i>{{ range $tag := .Params.tags }}
+                <span class="tag is-warning is-light">{{$tag}}</span>
+                {{ end }}</h3>
+        </p>
+      </div>
+
+    </div>
+    <div class="media-right">
+
+    </div>
+  </article>
+</div>
