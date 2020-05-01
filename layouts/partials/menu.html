@@ -65,6 +65,15 @@
           href="{{.URL}}"><span itemprop="name">{{ .Name }}</span></a>
         {{ end }}
         {{ end }}
+        {{ if .Site.Params.sunspot }}
+
+        <a class="navbar-item tooltip" title="Sunspot" target="blank" href="{{.Site.Params.sunspot}}">
+          <span class="icon" style="color: orange;">
+            <i class="fas fa-sun"></i>
+          </span>
+          <span class="tooltiptext">Sunspot: anonymous mindfulness in research</span>
+        </a>
+        {{end}}
         {{ if .Site.Params.github}}
         <a class="navbar-item" target="blank" href="https://github.com/{{.Site.Params.github}}">
           <span class="icon">
@@ -75,10 +84,19 @@
         {{ if .Site.Params.twitter}}
         <a class="navbar-item" target="blank" href="https://twitter.com/{{.Site.Params.twitter}}">
           <span class="icon">
-            <i class="fa fa-twitter"></i>
+            <i class="fab fa-twitter"></i>
           </span>
         </a>
         {{end}}
+        {{ if .Site.Params.facebook }}
+        <a class="navbar-item" target="blank" href="https://www.facebook.com/{{.Site.Params.facebook}}">
+          <span class="icon">
+            <i class="fab fa-facebook"></i>
+          </span>
+        </a>
+        {{end}}
+
+
       </div>
     </div>
   </div>
