@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/css/blog-post.css">
 <link rel="stylesheet" href="/css/code-highlighting/dark.css">
 <link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/assets/swiper/swiper.min.css">
 
 <link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css"> -->
@@ -12,30 +13,25 @@
 
 {{ define "header"}} {{ partial "menu" .}}
 
-<header class="post-header">
-
-    <div class="hero">
-        <div class="hero-body">
-            <div class="container">
-                {{ partial "breadcrumb" . }}
-                <div class="container has-text-centered">
-                    {{ partial "profile/title" . }}
-
-                    <section class="section has-text-left">
-
-
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
 {{ end }}
 
 {{ define "main" }}
 
 <div class="container" itemscope itemtype="http://schema.org/BlogPosting">
     {{ template "_internal/schema.html" . }}
+    <header class="post-header">
+
+        <div class="hero">
+            <div class="hero-body">
+                <div class="container">
+                    {{ partial "breadcrumb" . }}
+                    <div class="container has-text-centered">
+                        {{ partial "profile/title" . }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
     <section class="section">
         <div class="container">
 
@@ -71,13 +67,13 @@
                             <ul id="all-tags">
                                 {{ range $idx, $tag := .Params.features }}
                                 <li>
-                                    <p><i class="fas fa-certificate"></i> {{ $tag }}</p>
+                                    <p><i class="fas fa-certificate" style="margin-right: 0.3em;"></i> {{ $tag }}</p>
                                 </li>
                                 {{ end }}
                             </ul>
                         </section>
                     </div>
-                    <div class="is-divider" data-content="RELATED {{.Title | truncate 15}}"
+                    <div class="is-divider" data-content="META {{.Title | truncate 15}}"
                         style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
                     </div>
                     <div class="box"
@@ -100,7 +96,7 @@
 
                 </div>
 
-                <div class="column is-10">
+                <div class="column is-9">
 
                     <div class="box"
                         style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
@@ -108,18 +104,27 @@
                         {{ if (isset .Params "images")}}
 
                         <section class="section">
-
-                                {{ $filePath := index (split .File `.`) 0}}
-                                {{ range .Params.images }}
-                                {{ $fullPath := (printf "/images/%s/%s" $filePath .path) }}
-                                {{ if (fileExists (printf "static%s" $fullPath)) }}
-                                <figure class="image">
-                                    <img src="{{$fullPath}}" alt="{{.Title}}">
-                                </figure>
-                                {{ else }}
-                                {{ end }}
-                                {{ end }}
-
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    {{ $filePath := index (split .File `.`) 0}}
+                                    {{ range .Params.images }}
+                                    {{ $fullPath := (printf "/images/%s/%s" $filePath .path) }}
+                                    {{ if (fileExists (printf "static%s" $fullPath)) }}
+                                    <div class="swiper-slide">
+                                        <figure class="image">
+                                            <img src="{{$fullPath}}" alt="{{.Title}}">
+                                        </figure>
+                                    </div>
+                                    {{ else }}
+                                    {{ end }}
+                                    {{ end }}
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
                         </section>
                         {{end}}
                         <!-- /Image -->
@@ -159,6 +164,28 @@
 
 
 <script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+<script src="/assets/swiper/swiper.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+
 <!-- <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
 <script>
     bulmaCarousel.attach('#carousel-demo', {

@@ -1,6 +1,6 @@
 <ul id="all-tags">
     <li>
-        <p><i class="fas fa-at"></i> {{ if ne .Site.Params.hide_author true }}
+        <p><i class="fas fa-at" style="margin-right: 0.3em;"></i> {{ if ne .Site.Params.hide_author true }}
             {{ with .Params.author }}
             Submitted by <span itemprop="author">{{ index . }}</span>
             {{ else }}
@@ -9,7 +9,7 @@
             {{ end }}</p>
     </li>
     <li>
-        <p><i class="fas fa-pencil-alt"></i> {{ if .PublishDate.IsZero }}
+        <p><i class="fas fa-pencil-alt" style="margin-right: 0.3em;"></i> {{ if .PublishDate.IsZero }}
             <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format "2006-01-02" }}</time>
             {{ else if lt .PublishDate .Lastmod }}
             Modified: <time

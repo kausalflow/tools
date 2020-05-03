@@ -198,3 +198,5 @@ dist
 .pnp.*
 
 /public
+
+default.profraw
