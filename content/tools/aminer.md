@@ -6,6 +6,7 @@ images: # Create a folder in /static/images/tools that has the same name as this
   - path: open.aminer.cn_.png
   - path: trend.aminer.cn_trend_ml.png
   - path: www.aminer.cn_ai10.png
+  - path: aminer.cn_data.png
 categories:
   - "Project Research"
 tags:
