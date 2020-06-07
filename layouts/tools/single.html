@@ -112,7 +112,15 @@
                                     {{ if (fileExists (printf "static%s" $fullPath)) }}
                                     <div class="swiper-slide">
                                         <figure class="image">
+                                            {{ if or (strings.HasSuffix $fullPath "webm") (strings.HasSuffix $fullPath "mp4") }}
+                                            <video controls>
+                                                <source src="{{$fullPath}}"
+                                                        type="video/webm">
+                                                Sorry, your browser doesn't support embedded videos.
+                                            </video>
+                                            {{ else }}
                                             <img src="{{$fullPath}}" alt="{{.Title}}">
+                                            {{ end }}
                                         </figure>
                                     </div>
                                     {{ else }}
