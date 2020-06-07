@@ -1,6 +1,6 @@
 baseurl: "/" # Controls base URL
 languageCode: "en-US" # Controls html lang attribute
-title: "Research Tools" # Homepage title and page title suffix
+title: "Tools for Academic Research" # Homepage title and page title suffix
 paginate: 12 # Number of posts to show before paginating
 theme: "bulma" # to use as default theme
 
@@ -16,6 +16,10 @@ menu:
       weight: 1
       identifier: tools
       url: /tools/
+    - name: Advanced Search
+      weight: 2
+      identifier: search
+      url: /search/
     - name: Submit New Tools
       weight: 3
       identifier: submit
