@@ -9,7 +9,7 @@
   {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
   <li>
     <a href="{{ .RelPermalink }}">
-      <div class="box"
+      <div
       style="margin-bottom:1em;">
         <article class="media">
           <div class="media-content">

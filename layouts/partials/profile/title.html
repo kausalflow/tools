@@ -1,26 +1,54 @@
 
-<div class="box has-ribbon-left" style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
-    <div class="ribbon is-small is-outlined is-white">{{ range $pf := .Params.platforms }}
-        <span class="tag is-white">{{$pf}}</span>
-        {{ end }}</div>
-<article class="media">
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <h1 class="title is-3">{{ .Title }}</h1>
-          <div><i class="fas fa-quote-left" style="margin-right: 0.5em;"></i>{{ .Params.summary }}</div>
-          <h2 class="title is-6"><i class="far fa-folder-open" style="margin-right: 0.5em;"></i>{{ range $cat := .Params.categories }}
-            <span class="tag is-link is-light">{{$cat}}</span>
-            {{ end }}</h2>
-          <h3 class="title is-6"><i class="fas fa-tags" style="margin-right: 0.5em;"></i>{{ range $tag := .Params.tags }}
-                <span class="tag is-warning is-light">{{$tag}}</span>
+    <div class="box has-ribbon-left" style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
+        <div class="ribbon is-small is-outlined is-white">
+          {{ range $pf := .Params.platforms }}
+            <span class="tag is-white">{{$pf}}</span>
+            {{ end }}
+        </div>
+    <article class="media">
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <h1 class="title is-3">{{ .Title }}</h1>
+              <div><i class="fas fa-quote-left" style="margin-right: 0.5em;"></i>{{ .Params.summary }}</div>
+              <h2 class="title is-4"><i class="far fa-folder-open" style="margin-right: 0.5em;"></i>{{ range $cat := .Params.categories }}
+                <a href="{{ "/categories/" | relLangURL }}{{ $cat | urlize }}"><span class="tag is-link is-light">{{$cat}}</span></a>
+                {{ end }}</h2>
+              <h3 class="title is-4"><i class="fas fa-tags" style="margin-right: 0.5em;"></i>{{ range $tag := .Params.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize }}"><span class="tag is-warning is-light">{{$tag}}</span></a>
+                    {{ end }}</h3>
+              <h3 class="title is-4"><i class="fas fa-link" style="margin-right: 0.5em;"></i>{{range $link := .Params.links}}
+                <a href="{{ $link.link }}" class="button is-danger is-light is-small">{{ $link.name }}</a>
                 {{ end }}</h3>
-        </p>
-      </div>
 
-    </div>
-    <div class="media-right">
+            </p>
 
+
+            <div class="is-divider" data-content="FEATURES of {{.Title  | truncate 15 }}"
+                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+                    </div>
+
+
+                        <section class="section">
+
+                                {{ range $idx, $tag := .Params.features }}
+
+                                    <p><i class="fas fa-certificate" style="margin-right: 0.3em;"></i> {{ $tag }}</p>
+
+                                {{ end }}
+
+                        </section>
+
+
+
+
+          </div>
+
+        </div>
+        <div class="media-right">
+
+        </div>
+      </article>
     </div>
-  </article>
-</div>
+
+

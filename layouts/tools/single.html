@@ -37,65 +37,6 @@
 
 
             <div class="columns">
-                <div class="column is-3">
-
-                    <div class="is-divider" data-content="LINKS"
-                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 0rem 0 1.5rem 0!important;">
-                    </div>
-                    <div class="box"
-                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
-                        <section class="section">
-
-
-                            {{range $link := .Params.links}}
-                            <div class="buttons is-centered">
-                                <a href="{{ $link.link }}" class="button is-danger is-light">{{ $link.name }}</a>
-                            </div>
-                            {{end}}
-                        </section>
-                    </div>
-                    <div class="is-divider" data-content="FEATURES of {{.Title  | truncate 15 }}"
-                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                    </div>
-
-
-                    <div class="box"
-                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
-                        <section class="section">
-
-
-                            <ul id="all-tags">
-                                {{ range $idx, $tag := .Params.features }}
-                                <li>
-                                    <p><i class="fas fa-certificate" style="margin-right: 0.3em;"></i> {{ $tag }}</p>
-                                </li>
-                                {{ end }}
-                            </ul>
-                        </section>
-                    </div>
-                    <div class="is-divider" data-content="META {{.Title | truncate 15}}"
-                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                    </div>
-                    <div class="box"
-                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
-                        <section class="section">
-
-                            {{ partial "profile/author" . }}
-                        </section>
-                    </div>
-                    <div class="is-divider" data-content="RELATED {{.Title | truncate 15}}"
-                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                    </div>
-                    <div class="box"
-                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
-                        <section class="section">
-                            {{ partial "related-tools" . }}
-                        </section>
-                    </div>
-
-
-                </div>
-
                 <div class="column is-9">
 
                     <div class="box"
@@ -141,6 +82,67 @@
                     {{ partial "utterances-comments.html" . }}
 
                 </div>
+
+                <div class="column is-3">
+
+                    <!-- <div class="is-divider" data-content="LINKS"
+                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 0rem 0 1.5rem 0!important;">
+                    </div>
+                    <div class="box"
+                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
+                        <section class="section">
+
+
+                            {{range $link := .Params.links}}
+                            <div class="buttons is-centered">
+                                <a href="{{ $link.link }}" class="button is-danger is-light">{{ $link.name }}</a>
+                            </div>
+                            {{end}}
+                        </section>
+                    </div>
+                    <div class="is-divider" data-content="FEATURES of {{.Title  | truncate 15 }}"
+                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+                    </div>
+
+
+                    <div class="box"
+                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
+                        <section class="section">
+
+
+                            <ul id="all-tags">
+                                {{ range $idx, $tag := .Params.features }}
+                                <li>
+                                    <p><i class="fas fa-certificate" style="margin-right: 0.3em;"></i> {{ $tag }}</p>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </section>
+                    </div> -->
+                    <!-- <div class="is-divider" data-content="META {{.Title | truncate 15}}"
+                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+                    </div> -->
+                    <div class="box"
+                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
+                        <section class="section">
+
+                            {{ partial "profile/author" . }}
+                        </section>
+                    </div>
+                    <div class="is-divider" data-content="RELATED {{.Title | truncate 15}}"
+                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+                    </div>
+                    <div class="box"
+                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
+                        <section class="section">
+                            {{ partial "related-tools" . }}
+                        </section>
+                    </div>
+
+
+                </div>
+
+
 
 
             </div>
