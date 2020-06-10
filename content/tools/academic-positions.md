@@ -5,9 +5,11 @@ images: # Create a folder in /static/images/tools that has the same name as this
   - path: academicpositions.com_143869.png
 categories:
   - "Guides"
+  - "Career"
 tags:
   - "PhD Guide"
   - "Research Guide"
+  - "Career"
 links:
   - name: Academic Positions
     link: https://academicpositions.com/

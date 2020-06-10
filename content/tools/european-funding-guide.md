@@ -6,8 +6,10 @@ images: # Create a folder in /static/images/tools that has the same name as this
   - path: european-funding-guide.eu_scholarship.png
 categories:
   - "Guides"
+  - "Career"
 tags:
   - "PhD Guide"
+  - "Career"
 links:
   - name: European Funding Guide
     link: http://www.european-funding-guide.eu/
