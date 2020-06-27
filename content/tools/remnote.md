@@ -1,7 +1,17 @@
 ---
 title: RemNote
 images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: # only the file name
+  - path: homepage1.png
+  - path: homepage2.png
+  - path: queue_ex_ml_answer.png
+  - path: queue_ex_ml_question.png
+  - path: queue_ex_spanish_answer.png
+  - path: queue_ex_spanish_question.png
+  - path: tutorials.png
+  - path: use_case_bio.png
+  - path: use_case_cs.png
+  - path: use_case_product.png
+  - path: use_case_research.png
 categories:
   - Project Management
   - Publishing and Sharing
