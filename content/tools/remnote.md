@@ -18,33 +18,33 @@ categories:
   - Communications
 tags:
   - Note-taking
-  - Writing
+  - Writing
   - Presentation
-  - GTD
-links: # Links related to the tool
+  - GTD
+links:
   - name: remnote
     link: https://www.remnote.io/
 summary: "The first spaced-repetition powered note-taking tool that lets you structure knowledge exactly in the way you think about it."
-features: # list of features
-  - non-linear note takin
-  - Automatically created flashcards and scheduled spaced repetition 
-  - Portals and Backlinks
+features:
+  - non-linear note taking
+  - Automatically created flashcards and scheduled spaced repetition
+  - Portals and Backlinks
   - Capture Ideas quickly
-  - Imports from Markdown folders, Dynalist and Workflowy
-  - easy note sharing with Mnemonic Medium
-  - Frontend Plugin API and Backend API 
-platforms: # the platforms that the tool runs on. e.g., Web, Min, Mac, Android, iOS
+  - Imports from Markdown folders, Dynalist and Workflowy
+  - easy note sharing with Mnemonic Medium
+  - Frontend Plugin API and Backend API
+platforms:
   - Web
-fields: # the field of science that this tool is mostly used in
+fields:
   - "General and Interdisciplinary"
-plans: # fees
+plans:
   - name:
-    description: 
+    description:
 makers: # the makers of the tool
-  - name: 
+  - name:
     description:
 author: Moritz Wallawitsch
 # the person who submitted this tool to KausalFlow
-date: 27-06-2020
+date: 2020-06-27
 draft: false
 ---
