@@ -16,7 +16,7 @@ links:
     link: https://sci-hub.uno/
   - name: sci-hub.ren
     link: https://sci-hub.ren/
-  - name: sci-hub.im
+  - name: sci-hub.se
     link: https://sci-hub.se/
 summary: "sh can helping people getting academic papers for free"
 features:
