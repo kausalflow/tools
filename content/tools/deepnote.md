@@ -1,8 +1,8 @@
 ---
 title: "Deepnote"
 images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: feature-collaboration.mp4
   - path: deepnote-demo-command-palette.png
+  - path: feature-collaboration.mp4
   - path: deepnote-demo-comments.png
   - path: deepnote-demo-file-browser.png
   - path: deepnote-demo-git.png
