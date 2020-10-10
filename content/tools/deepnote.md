@@ -30,6 +30,10 @@ tags:
 links:
   - name: deepnote
     link: https://deepnote.com
+  - name: deepnote invitation 1
+    link: https://beta.deepnote.com/invite?token=CWkMNXUsS
+  - name: deepnote invitation 2
+    link: https://beta.deepnote.com/invite?token=PBEH9KH_o
 summary: "Data science notebooks for teams"
 features:
   - Real-time collaboration
