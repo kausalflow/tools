@@ -10,6 +10,10 @@ tags:
 links:
   - name: sci-hub.im
     link: https://sci-hub.se/
+  - name: sci-hub.st
+    link: https://sci-hub.st
+  - name: sci-hub.ee
+    link: https://sci-hub.ee/
   - name: sci-hub.tw
     link: https://sci-hub.tw/
   - name: sci-hub.uno
@@ -18,6 +22,8 @@ links:
     link: https://sci-hub.ren/
   - name: sci-hub.se
     link: https://sci-hub.se/
+  - name: sci-hub.shop
+    link: https://sci-hub.shop
 summary: "sh can helping people getting academic papers for free"
 features:
   - "Use DOI to download papers"
