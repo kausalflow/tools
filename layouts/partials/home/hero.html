@@ -30,7 +30,7 @@
                     <div class="is-divider"
                         style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;"></div>
 
-{{ $posts := (where .Site.RegularPages "Section" "==" "tools") }}
+{{ $posts := (where $.Site.RegularPages "Section" "==" "tools") }}
 {{ $postCount := len $posts }}
                     <div class="buttons is-centered">
                         <a href="/tools" class="button is-warning is-large">View Tool List ({{ $postCount }})</a>
