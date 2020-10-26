@@ -1,0 +1,50 @@
+{{ define "header" }}
+{{ partial "menu" . }}
+<div class="hero" style="margin-bottom:2em;">
+    <div class="hero-body">
+        <div class="container">
+            <div class="container has-text-centered">
+                <h1 class="title is-2 has-text-centered">Tools for Academic Research</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ end }}
+
+
+{{ define "main" }}
+<div class="is-divider" data-content="TOOLS"
+    style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+</div>
+<main class="container" aria-label="Content">
+    <div class="columns">
+        <div class="column is-3">
+            {{ partial "list/menu.html" .}}
+        </div>
+        <div class="column">
+            <div class="columns is-multiline">
+                {{ range .Paginator.Pages }}
+                <div class="column is-one-third">
+                    {{ partial "list/card.html" .}}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+    <div class="is-divider" style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;"></div>
+
+    <div class="container">
+        <div class="columns">
+            <div class="column" style="margin-bottom: 2em;padding-bottom:1em;">
+                {{ partial "pagination" . }}
+            </div>
+        </div>
+    </div>
+
+</main>
+{{ end }}
+{{ define "footer" }}
+{{ partial "footer" . }}
+{{ end }}

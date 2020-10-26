@@ -1,0 +1,84 @@
+{{ define "title"}} {{ .Title }} {{ end }}
+
+{{ define "style"}}
+<link rel="stylesheet" href="/css/blog-post.css">
+<link rel="stylesheet" href="/css/code-highlighting/dark.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/assets/swiper/swiper.min.css">
+
+<link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css"> -->
+
+{{ end }}
+
+{{ define "header"}} {{ partial "menu" .}}
+
+{{ end }}
+
+{{ define "main" }}
+
+<div class="container" itemscope itemtype="http://schema.org/BlogPosting">
+    {{ template "_internal/schema.html" . }}
+    <div class="hero" style="margin-bottom:2em;">
+        <div class="hero-body">
+            <div class="container">
+                <div class="container has-text-centered">
+                    <h1 class="title is-2 has-text-centered">{{ .Page.Title }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="content blog-post section" itemprop="articleBody">
+                        {{.Content}}
+                    </div>
+                    {{ partial "shared.html" . }}
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{{ partial "nav-buttons.html" . }}
+
+{{ end }}
+
+{{ define "footer"}}
+{{ partial "footer.html" .}}
+
+
+<script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+<script src="/assets/swiper/swiper.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+            delay: 10000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+<script>
+    bulmaCarousel.attach('#carousel-demo', {
+        slidesToScroll: 1,
+        slidesToShow: 1
+    });
+</script> -->
+{{ end }}
