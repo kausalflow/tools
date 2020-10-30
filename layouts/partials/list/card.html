@@ -8,14 +8,14 @@
                 {{ $fullPath := (printf "/images/%s/%s" $filePath $cardimage.path) }}
 
                 {{ if (fileExists (printf "static%s" $fullPath)) }}
-                <img src="{{$fullPath}}" alt="{{.Title}}">
+                <img src="{{$fullPath}}" style="max-height: 200px;" alt="{{.Title}}">
                 {{ else }}
                 {{ $cardimagedefault := "/images/tools/default.svg"}}
-                <img src="{{$cardimagedefault}}" alt="{{.Title}}">
+                <img src="{{$cardimagedefault}}" style="max-height: 200px;" alt="{{.Title}}">
                 {{ end }}
                 {{else}}
                 {{ $cardimage := "/images/tools/default.svg"}}
-                <img src="{{$cardimage}}" alt="{{.Title}}">
+                <img src="{{$cardimage}}" style="max-height: 200px;" alt="{{.Title}}">
                 {{ end }}
             </figure>
         </a>
@@ -34,22 +34,22 @@
                 style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
             </div>
             <p>
-                <div class="tags">
+                <div class="tags" style="min-height: 50px;">
                     {{ range $cat := .Params.categories }}
-                    <a href="{{ "/categories/" | relLangURL }}{{ $cat | urlize }}"><span class="tag is-link is-light">{{$cat}}</span></a>
+                    <a href="{{ "/categories/" | relLangURL }}{{ $cat | urlize }}" style="margin: 0 0.1em 0 0.1em;"><span class="tag is-link is-light">{{$cat}}</span></a>
                     {{ end }}
                 </div>
             </p>
             <div class="is-divider" data-content="SUMMARY"
                 style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
             </div>
-            <p>{{ .Params.summary }}</p>
+            <p style="min-height: 100px;">{{ .Params.summary | truncate 140 }}</p>
             <div class="is-divider" data-content="TAGS"
                 style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
             </div>
-            <div class="tags">
+            <div class="tags" style="min-height: 80px;">
                 {{ range $tag := .Params.tags }}
-                <a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize }}"><span class="tag is-warning is-light">{{$tag}}</span></a>
+                <a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize }}" style="margin: 0 0.1em 0 0.1em;"><span class="tag is-warning is-light">{{$tag}}</span></a>
                 {{ end }}
             </div>
             <div class="is-divider" data-content="PLATFORM"
