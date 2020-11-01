@@ -1,21 +1,21 @@
 <div class="card">
     <div class="card-image">
         <a href="{{ .Permalink }}">
-            <figure class="image">
+            <figure class="image" style="margin-left: auto;margin-right: auto;">
                 {{ if (isset .Params "images")}}
                 {{ $cardimage := index (.Params.images) 0}}
                 {{ $filePath := index (split .File `.`) 0}}
                 {{ $fullPath := (printf "/images/%s/%s" $filePath $cardimage.path) }}
 
                 {{ if (fileExists (printf "static%s" $fullPath)) }}
-                <img src="{{$fullPath}}" style="max-height: 200px;" alt="{{.Title}}">
+                <img src="{{$fullPath}}" style="max-height: 200px;width: auto;margin-left: auto;margin-right: auto;" alt="{{.Title}}">
                 {{ else }}
                 {{ $cardimagedefault := "/images/tools/default.svg"}}
-                <img src="{{$cardimagedefault}}" style="max-height: 200px;" alt="{{.Title}}">
+                <img src="{{$cardimagedefault}}" style="max-height: 200px;width: auto;margin-left: auto;margin-right: auto;" alt="{{.Title}}">
                 {{ end }}
                 {{else}}
                 {{ $cardimage := "/images/tools/default.svg"}}
-                <img src="{{$cardimage}}" style="max-height: 200px;" alt="{{.Title}}">
+                <img src="{{$cardimage}}" style="max-height: 200px;width: auto;margin-left: auto;margin-right: auto;" alt="{{.Title}}">
                 {{ end }}
             </figure>
         </a>
