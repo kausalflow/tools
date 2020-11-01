@@ -41,6 +41,8 @@ params:
   sunspot: "https://sunspot-cave.herokuapp.com/"
   author: "KausalFlow"
   editURL: "https://github.com/kausalflow/tools/edit/master/content/"
+  noindex_kinds:
+    - "taxonomyTerm"
   algolia:
     vars:
       - "title"
