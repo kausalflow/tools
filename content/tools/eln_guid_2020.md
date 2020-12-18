@@ -7,6 +7,7 @@ categories:
 tags:
   - "Project Management"
   - "Data Management"
+  - "Electronic Lab Notebook"
 links:
   - name: "The Electronic Lab Notebook in 2020: A comprehensive guide"
     link: https://www.labfolder.com/electronic-lab-notebook-eln-research-guide/

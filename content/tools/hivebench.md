@@ -10,6 +10,7 @@ categories:
 tags:
   - "Data Management"
   - "Note-taking"
+  - "Electronic Lab Notebook"
 links:
   - name: hivebench
     link: https://www.hivebench.com/

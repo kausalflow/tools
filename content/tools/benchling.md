@@ -13,6 +13,7 @@ categories:
   - "Project Management"
 tags:
   - "Tools"
+  - "Electronic Lab Notebook"
 links:
   - name: benchling
     link: https://www.benchling.com

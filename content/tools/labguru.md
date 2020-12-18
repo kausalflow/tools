@@ -8,6 +8,7 @@ categories:
 tags:
   - "Data Management"
   - "Project management"
+  - "Electronic Lab Notebook"
 links:
   - name: labguru
     link: https://www.labguru.com/

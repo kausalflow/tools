@@ -8,6 +8,7 @@ categories:
   - "Project Management"
 tags:
   - "Data Management"
+  - "Electronic Lab Notebook"
 links:
   - name: labcollector
     link: https://www.labcollector.com/

@@ -20,6 +20,7 @@ tags:
   - "Data Management"
   - "Regulation"
   - "Tools"
+  - "Electronic Lab Notebook"
 links:
   - name: elabftw
     link: https://www.elabftw.net/

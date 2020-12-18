@@ -11,6 +11,7 @@ categories:
   - "Project Management"
 tags:
   - "Data Management"
+  - "Electronic Lab Notebook"
 links:
   - name: labfolder
     link: https://www.labfolder.com/

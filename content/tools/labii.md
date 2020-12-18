@@ -12,6 +12,7 @@ categories:
 tags:
   - "Data Management"
   - "Project management"
+  - "Electronic Lab Notebook"
 links:
   - name: labii
     link: https://www.labii.com

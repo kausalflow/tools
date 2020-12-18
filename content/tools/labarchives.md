@@ -12,6 +12,7 @@ categories:
   - "Project Management"
 tags:
   - "Data Management"
+  - "Electronic Lab Notebook"
 links:
   - name: labarchives
     link: https://www.labarchives.com/
