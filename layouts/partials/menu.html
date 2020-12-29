@@ -16,7 +16,7 @@
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a href="/tools" class="navbar-link">
-          All Tools
+          <i class="fas fa-toolbox" style="margin-right: 0.3em;"></i>All Tools
         </a>
         <div class="navbar-dropdown">
           {{ range $.Site.Taxonomies.categories }}
@@ -62,7 +62,7 @@
         {{else}}
         <a itemprop="url"
           class="navbar-item {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} is-active{{end}}"
-          href="{{.URL}}"><span itemprop="name">{{ .Name }}</span></a>
+          href="{{.URL}}"><span itemprop="name">{{ .Name | safeHTML }}</span></a>
         {{ end }}
         {{ end }}
         {{ if .Site.Params.sunspot }}

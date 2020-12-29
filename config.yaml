@@ -12,25 +12,25 @@ SectionPagesMenu: "main" # Enable menu system for lazy bloggers
 
 menu:
   main:
-    - name: Tools
+    - name: "Tools"
       weight: 1
       identifier: tools
       url: /tools/
-    - name: Advanced Search
+    - name: "<i class=\"fab fa-searchengin\" style=\"margin-right: 0.3em;\"></i>Advanced Search"
       weight: 2
       identifier: search
       url: /search/
-    - name: Submit New Tools
+    - name: "<i class=\"fas fa-folder-plus\" style=\"margin-right: 0.3em;\"></i> Submit New Tools"
       weight: 3
       identifier: submit
       url: /submit/
-    - name: Shared
+    - name: "<i class=\"fas fa-satellite-dish\" style=\"margin-right: 0.3em;\"></i>Community"
       weight: 4
-      identifier: shared
-      url: /shared/
+      identifier: community
+      url: https://github.com/kausalflow/tools/discussions
 
 params:
-  theme_variant: "sandstone" # possible value for the theme_variant `cerulean,cosmo,cyborg,darkly,flatly,journal,litera,lumen,lux,materia,minty,pulse,sandstone,simplex,slate,solar,spacelab,superhero,united,yeti`
+  theme_variant: "journal" # possible value for the theme_variant `cerulean,cosmo,cyborg,darkly,flatly,journal,litera,lumen,lux,materia,minty,pulse,sandstone,simplex,slate,solar,spacelab,superhero,united,yeti`
   description: "A Curated List of Research Tool"
   powered_by: "love" # Optional, controls name display on footer
   hide_author: false # Optional, set true to hide author name on posts
