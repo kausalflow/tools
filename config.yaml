@@ -38,7 +38,7 @@ params:
   github: "kausalflow/tools" # Optional, to display link to github account in menu bar
   twitter: "" # Optional, to display link to twitter account in menu bar
   facebook: "Research-Tools-101254031583772"
-  sunspot: "https://sunspot-cave.herokuapp.com/"
+  sunspot: "http://sunspot.kausalflow.com/"
   author: "KausalFlow"
   editURL: "https://github.com/kausalflow/tools/edit/master/content/"
   noindex_kinds:
