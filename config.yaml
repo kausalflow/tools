@@ -65,7 +65,12 @@ params:
       indexName: "kausalflow-research-tools"
       hitsPerPage: 12
       routing: true
-
+  comments:
+    giscus:
+      repo: "kausalflow/tools"
+      repo_id: "MDEwOlJlcG9zaXRvcnkyNTg1NjU2ODg="
+      category: "Comments"
+      category_id: "DIC_kwDOD2lmOM4B-h15"
 
 
 outputFormats:
