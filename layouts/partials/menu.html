@@ -65,6 +65,17 @@
           href="{{.URL}}"><span itemprop="name">{{ .Name | safeHTML }}</span></a>
         {{ end }}
         {{ end }}
+
+        {{ if .Site.Taxonomies.author }}
+
+        <a class="navbar-item tooltip" title="All Contributors" href="{{ "/author" | relLangURL }}">
+          <span class="icon" style="color: green;">
+            <i class="far fa-id-card"></i>
+          </span>
+          <span class="tooltiptext">Content Contributors</span>
+        </a>
+        {{end}}
+
         {{ if .Site.Params.sunspot }}
 
         <a class="navbar-item tooltip" title="Sunspot" target="blank" href="{{.Site.Params.sunspot}}">
@@ -75,10 +86,11 @@
         </a>
         {{end}}
         {{ if .Site.Params.github}}
-        <a class="navbar-item" target="blank" href="https://github.com/{{.Site.Params.github}}">
+        <a class="navbar-item tooltip" target="blank" href="https://github.com/{{.Site.Params.github}}">
           <span class="icon">
             <i class="fab fa-github"></i>
           </span>
+          <span class="tooltiptext">Source code: everything is transparent</span>
         </a>
         {{end}}
         {{ if .Site.Params.twitter}}
@@ -89,10 +101,11 @@
         </a>
         {{end}}
         {{ if .Site.Params.facebook }}
-        <a class="navbar-item" target="blank" href="https://www.facebook.com/{{.Site.Params.facebook}}">
+        <a class="navbar-item tooltip" target="blank" href="https://www.facebook.com/{{.Site.Params.facebook}}">
           <span class="icon">
             <i class="fab fa-facebook"></i>
           </span>
+          <span class="tooltiptext">Facebook: discuss and share on Facebook</span>
         </a>
         {{end}}
 

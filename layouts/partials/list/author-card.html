@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-image">
+        <a href="{{ .Permalink }}">
+        </a>
+    </div>
+    <div class="card-content">
+        <div class="media">
+            <div class="media-content">
+                <a href="{{ .Permalink }}">
+                    <p class="title is-4">{{.Title}}</p>
+                </a>
+            </div>
+        </div>
+        {{ if or .Description .Params.website }}
+        <div class="is-divider" data-content="About {{.Title | truncate 15}}"
+            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+        </div>
+        {{ end }}
+
+        <div class="content">
+            {{ if .Description }}
+          <div>
+            <i class="fas fa-quote-left" style="margin-right: 0.5em;"></i>
+            <span style="margin-left: 12px;">{{ .Description }}</span>
+          </div>
+          {{ end }}
+
+          {{ if .Params.website }}
+          <h3 class="title is-4"><i class="fas fa-link" style="margin-right: 0.5em;"></i>
+            <a href="{{ .Params.website }}" class="button is-danger is-light is-small">{{ .Params.website }}</a>
+          </h3>
+          {{ end }}
+        </div>
+    </div>
+</div>

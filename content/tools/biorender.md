@@ -33,7 +33,7 @@ plans:
 makers: # the makers of the tool
   - name:
     description:
-author: Ad_infinitum   # the person who submitted this tool to KausalFlow
+author: Ad   # the person who submitted this tool to KausalFlow
 date: 2020-06-07T12:20:35+02:00
 draft: false
 ---

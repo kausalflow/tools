@@ -85,3 +85,8 @@ outputs:
     - "HTML"
     - "RSS"
     - "Algolia"
+
+taxonomies:
+    author: "author"
+    category: "categories"
+    tag: "tags"

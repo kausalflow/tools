@@ -2,7 +2,7 @@
     <li>
         <p><i class="fas fa-at" style="margin-right: 0.3em;"></i> {{ if ne .Site.Params.hide_author true }}
             {{ with .Params.author }}
-            Submitted by <span itemprop="author">{{ index . }}</span>
+            Submitted by <a href="{{ "/author/" | relLangURL }}{{ . | urlize }}" style="margin: 0 0.1em 0 0.1em;"><span itemprop="author">{{ index . }}</span></a>
             {{ else }}
             Submitted by <span itemprop="author">{{ .Site.Params.author }}</span>
             {{ end }}
