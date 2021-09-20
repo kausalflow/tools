@@ -1,4 +1,4 @@
-import argparse
+from io import StringIO
 import os
 from collections import OrderedDict
 import click
@@ -99,16 +99,31 @@ class Tool:
                     i.strip(" ").strip("-").strip(" ") for i in x.split("\n")
                 ],
             },
+            "We3J0Q83MdaC": {
+                "key": "links",
+                "field": "url",
+                "transform": lambda x: [
+                    {
+                        "name": x.strip(" ")
+                        .lstrip("http://")
+                        .lstrip("https://")
+                        .strip("/"),
+                        "link": x,
+                    }
+                ] if x else [],
+            },
             "LJgBWcwdmHA4": {
                 "key": "links",
                 "field": "url",
-                "transform": lambda x: {
-                    "name": x.strip(" ")
-                    .lstrip("http://")
-                    .lstrip("https://")
-                    .strip("/"),
-                    "link": x,
-                },
+                "transform": lambda x: [
+                    {
+                        "name": x.strip(" ")
+                        .lstrip("http://")
+                        .lstrip("https://")
+                        .strip("/"),
+                        "link": x,
+                    }
+                ],
             },
             "RHD5OqKiutBd": {
                 "key": "categories",
@@ -150,11 +165,12 @@ class Tool:
 
         return tool
 
-    def save(self):
-
+    def _save_yaml(self):
         res = None
 
-        target = os.path.join(self.save_path, convert_title_to_filename(self.data["title"]))
+        target = os.path.join(
+            self.save_path, convert_title_to_filename(self.data["title"])
+        )
 
         if os.path.isfile(target):
             logger.debug("Tool already created!")
@@ -164,6 +180,42 @@ class Tool:
                 yaml.dump(OrderedDict(self.data), fp)
             logger.info(f"Added a new tool {self.data.get('_id')}")
             res = {"status": "added", "_id": self.data.get("_id")}
+
+        return res
+
+    def _save_md(self):
+        res = None
+
+        md_file = convert_title_to_filename(self.data["title"]) + ".md"
+        target = os.path.join(self.save_path, md_file)
+
+        if os.path.isfile(target):
+            logger.debug("Tool already created!")
+            res = {"status": "exist"}
+        else:
+            string_stream = StringIO()
+            yaml.dump(OrderedDict(self.data), string_stream)
+            md_content = string_stream.getvalue()
+            string_stream.close()
+
+            with open(target, "w+") as fp:
+                fp.write("---\n" + md_content + "\n---")
+            logger.info(f"Added a new tool {self.data.get('_id')}")
+            res = {
+                "status": "added",
+                "_id": self.data.get("_id"),
+                "title": self.data.get("title"),
+            }
+
+        return res
+
+    def save(self, type="md"):
+
+        res = {}
+        if type == "yaml":
+            res = self._save_yaml()
+        elif type == "md":
+            res = self._save_md()
 
         return res
 
@@ -210,17 +262,17 @@ def main(typeform_url, token, save_path):
 
     logger.info(f"PR History: {pr_history}")
 
-    for comp in tf_json.get("items"):
-        comp_obj = Tool(typeform_item=comp, save_path=save_path)
-        if comp_obj.data.get("_id") not in pr_history:
-            comp_save = comp_obj.save()
+    for tool in tf_json.get("items"):
+        tool_obj = Tool(typeform_item=tool, save_path=save_path)
+        if tool_obj.data.get("_id") not in pr_history:
+            comp_save = tool_obj.save()
             if comp_save.get("status") == "added":
                 with open(history_file, "a") as fp:
                     fp.write(f"{comp_save.get('_id')}\n")
                 break
 
-    logger.info("Generating Pages")
-    generate_pages()
+    # logger.info("Generating Pages")
+    # generate_pages()
 
 
 if __name__ == "__main__":
