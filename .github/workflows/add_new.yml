@@ -3,7 +3,7 @@ name: CI Add New Tool
 on:
   push:
     branches:
-      - gh-pages
+      - master
   schedule:
     - cron:  '0 7/1 * * *'
   workflow_dispatch:
