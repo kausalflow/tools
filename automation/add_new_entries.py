@@ -85,7 +85,7 @@ class Tool:
             if choices.get("other"):
                 other = [choices.get("other")]
             else:
-                other = []
+                other = ""
 
             return labels + other
 
