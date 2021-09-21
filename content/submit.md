@@ -12,6 +12,8 @@ We have created a form for you to submit new tools. We will regularly collect th
 
 {{< typeform-button >}}
 
+We pull data from this form automatically and create a [Pull Request on GitHub](https://github.com/kausalflow/tools/pulls).
+
 ## OR Create a Pull Request on GitHub
 
 If your are familiar with GitHub, please create a new Pull Request here: [kausalflow/tools](https://github.com/kausalflow/tools/pulls)
