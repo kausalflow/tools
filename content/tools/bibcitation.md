@@ -1,6 +1,4 @@
 ---
-_id: taljncrxts7fhqhptaljntrxfb1e2ulx
-author: LM
 title: Bibcitation
 images:
   - path: "bibcitation_blog.png"
@@ -10,21 +8,23 @@ images:
 summary: Cite your sources in over 9,000 formats and generate automatic citations
   and works cited for books, websites and journal articles.
 features:
-- Chrome extension to cite any page, from academic papers to books to blogs;
-- Export to many different citation styles;
-- Recite page is easy as the extension can remember the configs of the page;
-- Create lists of citations
+  - Chrome extension to cite any page, from academic papers to books to blogs;
+  - Export to many different citation styles;
+  - Recite page is easy as the extension can remember the configs of the page;
+  - Create lists of citations
 links:
-- name: bibcitation.com
-  link: https://www.bibcitation.com/
+  - name: bibcitation.com
+    link: https://www.bibcitation.com/
 categories:
-- Publishing and Sharing
+  - Publishing and Sharing
 tags:
-- References and Journals
-- Reference Management
+  - References and Journals
+  - Reference Management
 platforms:
-- Web
+  - Web
 fields:
-- General and Interdisciplinary
+  - General and Interdisciplinary
+author: LM
 date: '2021-09-20'
+_id: taljncrxts7fhqhptaljntrxfb1e2ulx
 ---
