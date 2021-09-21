@@ -12,7 +12,7 @@ We have created a form for you to submit new tools. We will regularly collect th
 
 {{< typeform-button >}}
 
-We pull data from this form automatically and create a [Pull Request on GitHub](https://github.com/kausalflow/tools/pulls).
+We pull data from this form automatically and create a [Pull Request on GitHub](https://github.com/kausalflow/tools/pulls). Not every tool will be merged. The unmerged tools will be shown in the list of [PRs](https://github.com/kausalflow/tools/pulls).
 
 ## OR Create a Pull Request on GitHub
 
