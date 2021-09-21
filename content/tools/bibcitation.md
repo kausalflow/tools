@@ -1,7 +1,12 @@
 ---
 _id: taljncrxts7fhqhptaljntrxfb1e2ulx
 author: LM
-title: bibcitation
+title: Bibcitation
+images:
+  - path: "bibcitation_blog.png"
+  - path: "bibcitation_prx.png"
+  - path: "bibcitation_arxiv.png"
+  - path: "www.bibcitation.com_.png"
 summary: Cite your sources in over 9,000 formats and generate automatic citations
   and works cited for books, websites and journal articles.
 features:
@@ -10,7 +15,7 @@ features:
 - Recite page is easy as the extension can remember the configs of the page;
 - Create lists of citations
 links:
-- name: www.bibcitation.com
+- name: bibcitation.com
   link: https://www.bibcitation.com/
 categories:
 - Publishing and Sharing
@@ -22,5 +27,4 @@ platforms:
 fields:
 - General and Interdisciplinary
 date: '2021-09-20'
-
 ---
