@@ -6,6 +6,11 @@ draft: false
 
 There are two ways to submit a new tool.
 
+**All submitted content will be licensed** under [the **CC BY-SA** license](https://creativecommons.org/licenses/by-sa/4.0/). Under this license, everyone, including you, can access and use the content on this website freely. **Please don't submit anything if you don't agree with this license.**
+
+On how to use the content, please refer to [the About page](/about/).
+
+
 ## Using Our Form
 
 We have created a form for you to submit new tools. We will regularly collect the results and integrate them into our website. Click the button below to submit a tool. All submissions are listed on [this trello board](https://trello.com/b/SwVhZkOp/tools-submissions).

@@ -79,12 +79,18 @@ outputFormats:
     isPlainText: true
     mediaType: "application/json"
     notAlternative: true
+  Tools:
+    baseName: "tools"
+    isPlainText: true
+    mediaType: "application/json"
+    notAlternative: true
 
 outputs:
   home:
     - "HTML"
     - "RSS"
     - "Algolia"
+    - "Tools"
 
 taxonomies:
     author: "author"
