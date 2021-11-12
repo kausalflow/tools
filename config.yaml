@@ -27,7 +27,7 @@ menu:
     - name: "<i class=\"fas fa-satellite-dish\" style=\"margin-right: 0.3em;\"></i>Community"
       weight: 4
       identifier: community
-      url: "https://community.kausalflow.com/c/kf-workflows/"
+      url: "https://github.com/kausalflow/community/discussions/categories/kf-workflow"
 
 params:
   theme_variant: "journal" # possible value for the theme_variant `cerulean,cosmo,cyborg,darkly,flatly,journal,litera,lumen,lux,materia,minty,pulse,sandstone,simplex,slate,solar,spacelab,superhero,united,yeti`
