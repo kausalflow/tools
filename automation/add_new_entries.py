@@ -100,7 +100,7 @@ class Tool:
                 ],
             },
             "We3J0Q83MdaC": {
-                "key": "links",
+                "key": "links_b",
                 "field": "url",
                 "transform": lambda x: [
                     {
@@ -110,10 +110,10 @@ class Tool:
                         .strip("/"),
                         "link": x,
                     }
-                ] if x else [],
+                ] if x else {},
             },
             "LJgBWcwdmHA4": {
-                "key": "links",
+                "key": "links_a",
                 "field": "url",
                 "transform": lambda x: [
                     {
@@ -123,7 +123,7 @@ class Tool:
                         .strip("/"),
                         "link": x,
                     }
-                ],
+                ] if x else {},
             },
             "RHD5OqKiutBd": {
                 "key": "categories",
@@ -158,6 +158,12 @@ class Tool:
             if schema_item.get("transform"):
                 item_value = schema_item["transform"](item_value)
             tool[item_key] = item_value
+            
+        tool_links = []
+        for l in ["links_a", "links_b"]:
+            l_value = tool.pop(l)
+            if l_value:
+                tool_links.append(l_value)
 
         tool["date"] = (
             parser.parse(typeform_item.get("submitted_at")).date().isoformat()
