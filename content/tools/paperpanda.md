@@ -4,10 +4,10 @@ author: LM
 title: PaperPanda
 summary: "PaperPanda is a chrome extension to access the PDF files of research papers by automatically searching the web. So our research is not blocked by the paywall."
 images:
-- path: "paperpanda-extension-demo.png"
 - path: "paperpanda.app_ (1).png"
 - path: "paperpanda.app_.png"
 - path: "paperpanda.app_how.png"
+- path: "paperpanda-extension-demo.png"
 features:
 - "Chrome extension is a minimal design, nothing is added to the web page"
 - "It uses multiple sources to search the PDF, including your university library if
