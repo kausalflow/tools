@@ -163,7 +163,7 @@ class Tool:
         for l in ["links_a", "links_b"]:
             l_value = tool.pop(l, {})
             if l_value:
-                tool_links.append(l_value)
+                tool_links = tool_links + l_value
         
         tool["links"] = tool_links
         tool["date"] = (
