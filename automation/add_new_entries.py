@@ -164,7 +164,8 @@ class Tool:
             l_value = tool.pop(l, {})
             if l_value:
                 tool_links.append(l_value)
-
+        
+        tool["links"] = tool_links
         tool["date"] = (
             parser.parse(typeform_item.get("submitted_at")).date().isoformat()
         )
