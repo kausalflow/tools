@@ -4,6 +4,7 @@ images:
   - path: kaggle_landing.png
 categories:
   - Analysis and Computations
+  - Datasets
   - Publishing and Sharing
 tags:
   - Visualization
