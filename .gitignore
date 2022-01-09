@@ -205,3 +205,5 @@ default.profraw
 
 # Local History for Visual Studio Code
 .history/
+
+.hugo_build.lock
