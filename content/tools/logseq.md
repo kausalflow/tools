@@ -19,7 +19,7 @@ features:
 categories:
 - Project Management
 tags:
-- GTD (Get Things Done)
+- GTD
 - Note-taking
 platforms:
 - Web
