@@ -67,3 +67,10 @@ draft: false
 {{< / highlight >}}
 1. Fill in the fields in the new file. If it is unclear what to type in, please refer to existing tools inside `content/tools/`.
 2. Commit, Push, and Create PR on GitHub.
+
+
+If one would like to generate the list of images for the markdown metadata, `awk` helps. For example, for all images of `kroki`, one could use
+
+```
+ls static/images/tools/kroki | awk '{print "  - path: \""$0"\""}'
+```
