@@ -2,8 +2,16 @@
 _id: aku4yg6qrr2jaku4yg8q937h1hsqe4fr
 author: LM
 title: Dendron
-summary: Opensource knowledge management inside your vscode editor, with linked notes,
-  and tools for publishing notes.
+summary: Opensource knowledge management inside your vscode editor, with linked notes, and tools for publishing notes.
+images:
+  - path: "www.dendron.so_.png"
+  - path: "dendron_Hero_video_2-transcode.mp4"
+  - path: "dendron-landing-page.mp4"
+  - path: "dendron-landing-middle.png"
+  - path: "wiki.dendron.so_ (1).png"
+  - path: "wiki.dendron.so_ (2).png"
+  - path: "wiki.dendron.so_ (3).png"
+  - path: "wiki.dendron.so_.png"
 features:
 - Open source
 - Built to scale
@@ -15,7 +23,7 @@ categories:
 - Project Management
 tags:
 - Note-taking
-- GTD (Get Things Done)
+- GTD
 platforms:
 - Mac
 - Win
