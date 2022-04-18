@@ -3,10 +3,16 @@ _id: va5gcjqz4whcgo9f8cva5iga3wwgdfxi
 author: Myo
 title: Heptabase
 summary: visual networked and mind-mapping note taking app
+images:
+  - path: "heptabase.com_.png"
+  - path: "capture.mp4"
+  - path: "drag.mp4"
+  - path: "focus.mp4"
+  - path: "zoom.mp4"
 features:
-- 3-step work flow in creating bi-directional note taking - https://youtu.be/fxuzPgFixZ4
+- "3-step work flow in creating bi-directional note taking - https://youtu.be/fxuzPgFixZ4"
 categories:
-- Project Research (such as background research, hypothesis proposals)
+- Project Research
 tags:
 - Note-taking
 platforms:
