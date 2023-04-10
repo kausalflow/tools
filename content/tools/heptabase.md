@@ -34,7 +34,7 @@ fields:
 - History and Arts
 - Engineering
 links:
-- name: eptabase.com
+- name: heptabase.com
   link: http://heptabase.com/
 date: '2022-04-15'
 
