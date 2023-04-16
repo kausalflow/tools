@@ -8,6 +8,7 @@ categories:
   - "AI"
 tags:
   - "AI"
+  - "LLM"
 links:
   - name: "chat.openai.com"
     link: "https://chat.openai.com"

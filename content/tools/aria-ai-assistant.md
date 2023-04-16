@@ -11,6 +11,8 @@ tags:
   - Reference Management
   - References and Journals
   - Writing
+  - AI
+  - LLM
 links:
   - name: "lifan0127/zotero-research-assistant"
     link: "https://github.com/lifan0127/zotero-research-assistant"
