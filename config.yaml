@@ -60,9 +60,9 @@ params:
       - "categories"
       - "tags"
     options:
-      appId: "NQED3STBQT"
-      apiKey: "5b7ac3f0c287018586467528f312e255"
-      indexName: "kausalflow-research-tools"
+      appId: "GHN6Q94HKJ"
+      apiKey: "2e4aba48a2586d24b6f1e0fe801ac4c9"
+      indexName: "tools-kausalflow"
       hitsPerPage: 12
       routing: true
   comments:
