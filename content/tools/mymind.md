@@ -10,6 +10,7 @@ categories:
 tags:
   - "Note-taking"
   - "Tools"
+  - "AI"
 links:
   - name: mymind
     link: https://mymind.com/

@@ -15,6 +15,7 @@ tags:
   - References and Journals
   - Reference Management
   - Publication
+  - AI
 links:
   - name: Semantic Scholar
     link: https://www.semanticscholar.org/

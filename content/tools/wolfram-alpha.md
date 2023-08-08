@@ -11,6 +11,7 @@ tags:
   - Visualization
   - Data Research
   - Data Analysis
+  - AI
 links:
   - name: Wolfram Alpha
     link: https://www.wolframalpha.com/

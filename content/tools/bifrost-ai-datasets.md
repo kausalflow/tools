@@ -9,6 +9,7 @@ categories:
 tags:
   - Data Management
   - Datasets
+  - AI
 links:
   - name: bifrost datasets
     link: https://datasets.bifrost.ai/

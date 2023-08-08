@@ -15,6 +15,7 @@ tags:
   - "PhD Guide"
   - "Open Science"
   - "Data Research"
+  - "AI"
 links:
   - name: aminer
     link: http://aminer.cn

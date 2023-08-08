@@ -21,6 +21,7 @@ categories:
 tags:
 - Reference Management
 - Data Research
+- AI
 platforms:
 - Web
 fields:
