@@ -67,12 +67,17 @@
 
   <!-- at the end of the BODY -->
   <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-  <script type="text/javascript"> docsearch({
-  apiKey: '2e4aba48a2586d24b6f1e0fe801ac4c9',
+  <script type="text/javascript"> 
+    import docsearch from '@docsearch/js';
+
+import '@docsearch/css';
+
+docsearch({
+  container: '#search-bar',
+  appId: 'GHN6Q94HKJ',
   indexName: 'tools-kausalflow',
-  inputSelector: '#search-bar',
-  debug: false // Set debug to true if you want to inspect the dropdown
-  });
+  apiKey: '2e4aba48a2586d24b6f1e0fe801ac4c9',
+});
   </script>
 </body>
 
