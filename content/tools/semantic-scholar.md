@@ -37,4 +37,6 @@ makers: # the makers of the tool
 author:    # the person who submitted this tool to KausalFlow
 date: 2020-05-13T21:18:40+02:00
 draft: false
+collections:
+  - AI
 ---

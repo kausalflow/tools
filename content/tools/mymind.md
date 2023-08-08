@@ -36,4 +36,6 @@ makers: # the makers of the tool
 author: sc0ttwad3   # the person who submitted this tool to KausalFlow
 date: 2020-08-27T18:57:37
 draft: false
+collections:
+  - AI
 ---

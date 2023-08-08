@@ -30,5 +30,6 @@ links:
 - name: elicit.org
   link: https://elicit.org/
 date: '2022-03-28'
-
+collections:
+  - AI
 ---
