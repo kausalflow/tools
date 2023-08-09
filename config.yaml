@@ -16,10 +16,10 @@ menu:
       weight: 1
       identifier: tools
       url: /tools/
-    - name: "<i class=\"fab fa-searchengin\" style=\"margin-right: 0.3em;\"></i>Advanced Search"
-      weight: 2
-      identifier: search
-      url: /search/
+    # - name: "<i class=\"fab fa-searchengin\" style=\"margin-right: 0.3em;\"></i>Advanced Search"
+    #   weight: 2
+    #   identifier: search
+    #   url: /search/
     - name: "<i class=\"fas fa-folder-plus\" style=\"margin-right: 0.3em;\"></i> Submit New Tools"
       weight: 3
       identifier: submit
