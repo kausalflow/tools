@@ -20,6 +20,10 @@ menu:
     #   weight: 2
     #   identifier: search
     #   url: /search/
+    - name: "<i class=\"fas fa-microchip\" style=\"margin-right: 0.3em;\"></i>AI Collection"
+      weight: 2
+      identifier: collection-ai
+      url: /collections/ai
     - name: "<i class=\"fas fa-folder-plus\" style=\"margin-right: 0.3em;\"></i> Submit New Tools"
       weight: 3
       identifier: submit
