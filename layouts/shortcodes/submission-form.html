@@ -173,7 +173,9 @@
             </div>
         </div>
 
-        <div id="file-js-example" class="file has-name">
+        <p class="label">Upload a cover screenshot if you like</p>
+
+        <div id="file-upload-js" class="file has-name">
             <label class="file-label">
                 <input class="file-input" type="file" name="images">
                 <span class="file-cta">
@@ -199,10 +201,10 @@
     </form>
 
     <script>
-        const fileInput = document.querySelector('#file-js-example input[type=file]');
+        const fileInput = document.querySelector('#file-upload-js input[type=file]');
         fileInput.onchange = () => {
             if (fileInput.files.length > 0) {
-                const fileName = document.querySelector('#file-js-example .file-name');
+                const fileName = document.querySelector('#file-upload-js .file-name');
                 fileName.textContent = fileInput.files[0].name;
             }
         }
