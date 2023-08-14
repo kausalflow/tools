@@ -1,7 +1,7 @@
 <nav class="navbar is-transparent">
   <div class="navbar-brand">
     <a class="navbar-item" href="{{.Site.BaseURL | relURL}}">
-      {{.Site.Title}}
+      <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }}" height="28" style="margin-right: 0.5em;"> {{.Site.Title}}
     </a>
     <div class="navbar-burger burger" data-target="navMenu">
       <span></span>
