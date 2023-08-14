@@ -1,5 +1,5 @@
 <section style="margin-bottom: 3em;">
-    <form name="kausalflow-tools-submission" method="POST" data-netlify="true">
+    <form name="kausalflow-tools-submission" enctype="multipart/form-data" method="POST" data-netlify="true">
         <div class="field">
             <label class="label">How shall we address you on the website? Do you have a website for us to link
                 to?</label>
@@ -173,12 +173,39 @@
             </div>
         </div>
 
+        <div id="file-js-example" class="file has-name">
+            <label class="file-label">
+                <input class="file-input" type="file" name="images">
+                <span class="file-cta">
+                    <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                        Choose a file…
+                    </span>
+                </span>
+                <span class="file-name">
+                    No file uploaded
+                </span>
+            </label>
+        </div>
 
-        <div class="field is-grouped"  style="margin-top: 3em;">
+        <div class="field is-grouped" style="margin-top: 3em;">
             <div class="control">
                 <button class="button is-link" type="submit">Submit</button>
             </div>
         </div>
 
     </form>
+
+    <script>
+        const fileInput = document.querySelector('#file-js-example input[type=file]');
+        fileInput.onchange = () => {
+            if (fileInput.files.length > 0) {
+                const fileName = document.querySelector('#file-js-example .file-name');
+                fileName.textContent = fileInput.files[0].name;
+            }
+        }
+    </script>
+
 </section>
