@@ -31,4 +31,6 @@ makers: # the makers of the tool
 author: LM   # the person who submitted this tool to KausalFlow
 date: 2023-04-16T14:29:27+02:00
 draft: false
+collections:
+  - AI
 ---
