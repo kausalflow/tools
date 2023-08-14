@@ -1,0 +1,184 @@
+<section style="margin-bottom: 3em;">
+    <form class="field" name="kausalflow-tools-submission" method="POST" data-netlify="true">
+        <div class="field">
+            <label class="label">How shall we address you on the website? Do you have a website for us to link
+                to?</label>
+            <p>We need a name so we can address in the database that it was you who added the tool. Please consider
+                avoiding your real name since this will be public. If you would like to link to your own website, please
+                also provide a link to your personal website so that people can reach you though the link.</p>
+            <div class="control">
+                <input name="submitted_by" class="input" type="text" placeholder="Your Name" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">What is the name of the tool?</label>
+            <div class="control">
+                <input name="tool-name" class="input" type="text" placeholder="Tool Name" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">How would you introduce this tool in a few sentence?</label>
+            <div class="control">
+                <textarea name="tool-summary" class="textarea" placeholder="Tool Description" required></textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">What are the salient features of this tool?</label>
+            <p>bullet list is recommended, i.e.,</br>
+                - This is features one</br>
+                - This is feature two</br>
+                - ...</br></p>
+            <div class="control">
+                <textarea name="tool-features" class="textarea" placeholder="-&#10; " required></textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">What is the official website of this tool?</label>
+            <div class="control">
+                <input name="tool-link" class="input" type="url" placeholder="Tool Link" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">If you have some additional links related to this tool, please specify here.</label>
+            <div class="control">
+                <input name="tool-link-alt" class="input" type="url" placeholder="Tool Alternative Link">
+            </div>
+        </div>
+
+
+        <div class="field">
+            <label class="label">What categories is this tool in?</label>
+            <div class="control">
+                <div class="select is-multiple">
+                    <select name="tool-categories[]" multiple size=8>
+                        <option value="Project Management">Project Management</option>
+                        <option value="Analysis and Computations">Analysis and Computations</option>
+                        <option value="Publishing and Sharing">Publishing and Sharing</option>
+                        <option value="Project Research">Project Research (such as background research, hypothesis
+                            proposals)</option>
+                        <option value="Communications">Communications</option>
+                        <option value="Guides">Guides (such as research guides, PhD life guides)</option>
+                        <option value="Career">Career</option>
+                        <option value="Fun">Fun</option>
+                        <option value="Project Management">Project Management</option>
+                        <option value="Other">Other (Please Specify below)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">If you choose Other category in the above, please specify here</label>
+            <div class="control">
+                <input name="tool-category-other" class="input" type="text"
+                    placeholder="Manually Specify Tool Category">
+            </div>
+        </div>
+
+
+        <div class="field">
+            <label class="label">What tags is this tool in?</label>
+            <p>We have a few predefined tags already. Feel free to choose "Other" option and specify after.</p>
+            <div class="control">
+                <div class="select is-multiple">
+                    <select name="tool-tags[]" multiple size=8>
+                        <option value="Version Control">Version Control</option>
+                        <option value="GTD">GTD (Get Things Done)</option>
+                        <option value="Note-taking">Note-taking</option>
+                        <option value="Data Management">Data Management</option>
+                        <option value="Programming">Programming</option>
+                        <option value="Statistical Software">Statistical Software</option>
+                        <option value="Data Analysis">Data Analysis</option>
+                        <option value="References and Journals">References and Journals</option>
+                        <option value="Reference Management">Reference Management</option>
+                        <option value="Data Research">Data Research (such as astronomical images database, tools to find
+                            new data)</option>
+                        <option value="Visualization">Visualization</option>
+                        <option value="Presentation">Presentation</option>
+                        <option value="Peer Review">Peer Review</option>
+                        <option value="Regulation">Regulation</option>
+                        <option value="Open Science">Open Science</option>
+                        <option value="Publication">Publication</option>
+                        <option value="Writing">Writing</option>
+                        <option value="Community">Community (such as a forum for neuroinformatics)</option>
+                        <option value="PhD Guide">PhD Guide</option>
+                        <option value="Career">Career</option>
+                        <option value="Tools">Tools</option>
+                        <option value="Research Guide">Research Guide</option>
+                        <option value="Seminar">Seminar</option>
+                        <option value="Colloquium">Colloquium</option>
+                        <option value="Project Management">Project Management</option>
+                        <option value="AI">AI</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">If you choose Other tag in the above, please specify here</label>
+            <div class="control">
+                <input name="tool-tags-other" class="input" type="text" placeholder="Manually Specify Tool Tag">
+            </div>
+        </div>
+
+
+        <div class="field">
+            <label class="label">What platforms is this tool being used on?</label>
+            <div class="control">
+                <div class="select is-multiple">
+                    <select name="tool-platforms[]" multiple size=8>
+                        <option value="Web">Web</option>
+                        <option value="Mac">Mac</option>
+                        <option value="Win">Win</option>
+                        <option value="Linux">Linux</option>
+                        <option value="iOS">iOS</option>
+                        <option value="Android">Android</option>
+                        <option value="Book">Book</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Which field is this tool mostly used in?</label>
+            <div class="control">
+                <div class="select is-multiple">
+                    <select name="tool-fields[]" multiple size=8>
+                        <option value="General and Interdisciplinary">General and Interdisciplinary</option>
+                        <option value="Medicine">Medicine</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Statistics">Statistics</option>
+                        <option value="Philosophy">Philosophy</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Life Science">Life Science</option>
+                        <option value="Physical Science">Physical Science</option>
+                        <option value="Space Science">Space Science</option>
+                        <option value="Earth Science">Earth Science</option>
+                        <option value="Social Science">Social Science</option>
+                        <option value="Languages">Languages</option>
+                        <option value="Business">Business</option>
+                        <option value="History and Arts">History and Arts</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="AI">AI</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="field is-grouped"  style="margin-top: 3em;">
+            <div class="control">
+                <button class="button is-link" type="submit">Submit</button>
+            </div>
+        </div>
+
+        <form>
+</section>

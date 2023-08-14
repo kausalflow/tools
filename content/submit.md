@@ -15,7 +15,7 @@ On how to use the content, please refer to [the About page](/about/).
 
 We have created a form for you to submit new tools. We will regularly collect the results and integrate them into our website. Click the button below to submit a tool. All submissions are listed on [this trello board](https://trello.com/b/SwVhZkOp/tools-submissions).
 
-{{< typeform-button >}}
+{{< submission-form >}}
 
 We pull data from this form automatically and create a [Pull Request on GitHub](https://github.com/kausalflow/tools/pulls). Not every tool will be merged. The unmerged tools will be shown in the list of [PRs](https://github.com/kausalflow/tools/pulls).
 
