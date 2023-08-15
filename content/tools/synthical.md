@@ -43,4 +43,6 @@ makers: # the makers of the tool
 author: mixeden  # the person who submitted this tool to KausalFlow
 date: 2023-08-15T12:43:13+02:00
 draft: false
+collections:
+  - AI
 ---
