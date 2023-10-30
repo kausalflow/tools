@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  {{ hugo.Generator }}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ block "title" . }}{{ .Title }}{{ end }} | {{ .Site.Title }} | {{ .Site.Params.author }} </title>
+
+  {{ with .Description }}
+  <meta name="description" content="{{ . }}"> {{ end }}
+  {{ $default_noindex_kinds := slice "section" "taxonomy" "taxonomyTerm" }}
+  {{ $noindex_kinds := .Site.Params.noindex_kinds | default $default_noindex_kinds }}
+  {{ $is_noindex_true := and (isset .Params "noindex") .Params.noindex }}
+  {{ if or (in $noindex_kinds .Kind) ($is_noindex_true) }}
+  <meta name="robots" content="noindex">
+  {{ end }}
+
+  {{ partial "meta/name-author" . }}
+  {{ template "_internal/opengraph.html" . }}
+  {{ partial "meta/ogimage" . }}
+
+  {{ if .IsHome }} {{ partial "site-verification" . }} {{ end }}
+  {{ template "_internal/google_analytics.html" . }}
+  {{ with .OutputFormats.Get "RSS" }}
+    <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+  {{ end }}
+
+  <link rel="canonical" href="{{ .Permalink }}"> {{ if (isset .Params "prev") }}
+  <link rel="prev" href="{{ .Params.prev }}"> {{ end }} {{ if (isset .Params "next") }}
+  <link rel="next" href="{{ .Params.next }}"> {{ end }} {{ partial "favicon" . }}
+
+
+  <link rel="stylesheet" href="/css/bulma.css">
+  <link rel="stylesheet" href="/css/bulma-divider.min.css">
+  <link rel="stylesheet" href="/assets/css/bulma-ribbon.min.css">
+  <link rel="stylesheet" href="/assets/css/tooltip.css">
+
+  {{ if .Site.Params.theme_variant }}
+  <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/{{.Site.Params.theme_variant.light}}/bulmaswatch.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/{{.Site.Params.theme_variant.dark}}/bulmaswatch.min.css" media="(prefers-color-scheme: dark)">
+  
+  <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+  {{else}}
+  {{end}}
+  {{ block "style" .}} {{end}} {{ $lazylist := findRE "class=\".*?\\blazyload\\b.*?\"|class=lazyload\b" .Content }}
+  <!-- http://regexr.com/3f9d1 -->
+  {{ if ge (len $lazylist) 1 }}
+  <script async src="/js/lazysizes.min.js"></script>
+  {{ end }}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+    integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
+        
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.19.1/dist/algoliasearch-lite.umd.js" integrity="sha256-qzlNbRtZWHoUV5I2mI2t9QR7oYXlS9oNctX+0pECXI0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.56.8/dist/instantsearch.production.min.js" integrity="sha256-xUys6KCuRGBxFaRaYZlWulRUjY48XFv6/Q2s0mb1dmc=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+
+</head>
+<!--theme variation-->
+
+<body>
+  <header>{{ block "header" . }}{{ end }}</header>
+  <main>{{ block "main" . }}{{ end }}</main>
+  <footer>{{ block "footer" . }}{{ end }}</footer>
+
+  <script async type="text/javascript" src="/js/bulma.js"></script>
+
+  <!-- at the end of the BODY -->
+  <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+  <script type="text/javascript">
+docsearch({
+  container: '#docsearch',
+  appId: 'GHN6Q94HKJ',
+  indexName: 'tools-kausalflow',
+  apiKey: '2e4aba48a2586d24b6f1e0fe801ac4c9',
+  placeholder: 'Command + K',
+});
+  </script>
+</body>
+
+</html>

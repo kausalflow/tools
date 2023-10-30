@@ -34,7 +34,9 @@ menu:
       url: "https://github.com/kausalflow/tools/discussions"
 
 params:
-  theme_variant: "journal" # possible value for the theme_variant `cerulean,cosmo,cyborg,darkly,flatly,journal,litera,lumen,lux,materia,minty,pulse,sandstone,simplex,slate,solar,spacelab,superhero,united,yeti`
+  theme_variant: 
+    light: "journal" # possible value for the theme_variant `cerulean,cosmo,cyborg,darkly,flatly,journal,litera,lumen,lux,materia,minty,pulse,sandstone,simplex,slate,solar,spacelab,superhero,united,yeti`
+    dark: "darkly"
   description: "A Curated List of Research Tool"
   logo: "/assets/logo/kausalflow_bare.png"
   favicon: "/assets/logo/kausalflow_bare.png"
@@ -103,3 +105,8 @@ taxonomies:
     category: "categories"
     tag: "tags"
     collection: "collections"
+
+
+security:
+  gotemplates:
+    allowActionJSTmpl: true
