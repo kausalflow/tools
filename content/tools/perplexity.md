@@ -1,13 +1,13 @@
 ---
 title: "Perplexity AI"
 images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: hperplexity-landing.png 
+  - path: perplexity-landing.png
   - path: perplexity-demo-paris-2.png 
-  - path: hperplexity-demo-paris-3.png 
-  - path: hperplexity-demo-planets-2.png 
-  - path: hperplexity-demo-planets.png 
-  - path: hperplexity-demo-pro-paris.png 
-  - path: hperplexity-pro.png
+  - path: perplexity-demo-paris-3.png 
+  - path: perplexity-demo-planets-2.png 
+  - path: perplexity-demo-planets.png 
+  - path: perplexity-demo-pro-paris.png 
+  - path: perplexity-pro.png
 categories:
   - "Project Research"
   - "Other"
