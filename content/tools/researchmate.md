@@ -32,4 +32,6 @@ makers: # the makers of the tool
 author: ResearchMate   # the person who submitted this tool to KausalFlow
 date: 2024-05-12T14:44:43+02:00
 draft: false
+collections:
+  - AI
 ---
