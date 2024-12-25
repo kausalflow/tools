@@ -3,17 +3,17 @@ title: "PPResume"
 images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
   - path: "ppresume-demo.png"
   - path: "ppresume.com_.png"
-	- path: "ppresume.com_ (1).png"
-	- path: "ppresume.com_ (2).png"
-	- path: "ppresume.com_ (3).png"
-	- path: “docs.ppresume.com_.png”
-	- path: "docs.ppresume.com_ (1).png"
-	- path: "docs.ppresume.com_ (2).png"
-	- path: "docs.ppresume.com_ (3).png"
-	- path: "docs.ppresume.com_ (4).png"
-	- path: "docs.ppresume.com_ (5).png"
-	- path: "docs.ppresume.com_ (6).png"
-	- path: "docs.ppresume.com_ (7).png"
+  - path: "ppresume.com_ (1).png"
+  - path: "ppresume.com_ (2).png"
+  - path: "ppresume.com_ (3).png"
+  - path: “docs.ppresume.com_.png”
+  - path: "docs.ppresume.com_ (1).png"
+  - path: "docs.ppresume.com_ (2).png"
+  - path: "docs.ppresume.com_ (3).png"
+  - path: "docs.ppresume.com_ (4).png"
+  - path: "docs.ppresume.com_ (5).png"
+  - path: "docs.ppresume.com_ (6).png"
+  - path: "docs.ppresume.com_ (7).png"
 categories:
   - "Resume"
 tags:
