@@ -1,4 +1,4 @@
-requests==2.26.0
+requests==2.32.4
 ruamel.yaml==0.17.16
 python-dateutil==2.8.2
 loguru==0.5.3
