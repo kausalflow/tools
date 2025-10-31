@@ -1,7 +1,7 @@
 ---
 title: "SankeyDiagram"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-summary: "SankeyDiagram.net is a free, open-source online Sankey diagram maker that runs in your browser with no sign-up, keeping your data 100% local and private. Create Sankey charts from plain-text using the simple syntax, with customizable colors and layout, auto-calculating operators, and support for basic math expressions."
+images: # Screenshots will be added when available
+summary: "A free, open-source online Sankey diagram maker that runs in your browser with no sign-up required, keeping your data completely private."
 features:
   - No sign-up required - keeps data 100% local and private
   - Create diagrams from plain-text using simple syntax
