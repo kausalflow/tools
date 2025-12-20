@@ -17,18 +17,12 @@ features:
   - Organize findings with folders, tags, and notes
   - Build visual page-relationship graphs for investigations or research
   - Search across all saved pages, titles, text, and tags
-  - Browser extension for one-click capture: Chrome & FireFox
+  - Browser extension for one-click capture: Chrome & Firefox
   - Ideal for OSINT, threat intelligence, research, and digital evidence preservation
 platforms:
   - Web
 fields:
   - General and Interdisciplinary
-plans:
-  - name:
-    description:
-makers:
-  - name:
-    description:
 author: David Ryan
 date: 2025-11-22
 draft: false
