@@ -1,28 +1,26 @@
 ---
-title: "SankeyDiagram"
+title: "SankeyDiagram.net"
 images:
   - path: sankeydiagram-landing.png
-summary: "A free, open-source online Sankey diagram maker that runs in your browser with no sign-up required, keeping your data completely private."
+summary: "SankeyDiagram.net is a free, open‑source online Sankey diagram maker that runs in your browser with no sign‑up, keeping your data 100% local and private. Create Sankey charts from plain‑text using the simple syntax, with customizable colors and layout, auto-calculating operators, and support for basic math expressions. Ideal for visualizing personal-finance budgets, cash flow, energy or material flows, and user journeys, it also lets you export diagrams as PNG, SVG, text, or a shareable link."
 features:
-  - No sign-up required - keeps data 100% local and private
-  - Create diagrams from plain-text using simple syntax
-  - Customizable colors and layout
-  - Auto-calculating operators with support for basic math expressions
-  - Export diagrams as PNG, SVG, text, or shareable link
-  - Ideal for personal-finance budgets, cash flow, energy or material flows, and user journeys
+  - Data Visualisation with Sankey-Diagram Flows
+  - Personal Budget Visualisation
+  - Sharing Links
+  - PNG, JPG, SVG Export
 categories:
-  - Publishing and Sharing
+  - Analysis and Computations
 tags:
   - Visualization
-  - Presentation
 platforms:
   - Web
 fields:
   - General and Interdisciplinary
-  - Economics and Finance
 links:
   - name: SankeyDiagram.net
     link: https://sankeydiagram.net/
+  - name: GitHub
+    link: https://github.com/nxt3AT/sankeydiagram.net/
 plans:
   - name: Free
     description: Open-source, no account required
