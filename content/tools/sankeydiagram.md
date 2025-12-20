@@ -1,6 +1,7 @@
 ---
 title: "SankeyDiagram"
-images: # Screenshots will be added when available
+images:
+  - path: sankeydiagram-landing.png
 summary: "A free, open-source online Sankey diagram maker that runs in your browser with no sign-up required, keeping your data completely private."
 features:
   - No sign-up required - keeps data 100% local and private
