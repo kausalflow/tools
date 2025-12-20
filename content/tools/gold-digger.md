@@ -1,12 +1,14 @@
 ---
 title: "gold-digger"
+images:
+  - path: gold-digger-readme.png
 categories:
   - "Project Research"
 tags:
   - "Peer Review"
   - "Research"
   - "Literature Search"
-  - "API"
+  - "CLI"
 links:
   - name: github.com/amirkhaki/gold-digger
     link: https://github.com/amirkhaki/gold-digger
