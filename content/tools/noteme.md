@@ -9,7 +9,7 @@ tags:
   - Note-taking
   - Reference Management
 links:
-  - name: "chromewebstore.google.com/detail/noteme/cmngjelfbeidndnhnfffcokjlfldelcl"
+  - name: "Chrome Web Store"
     link: "https://chromewebstore.google.com/detail/noteme/cmngjelfbeidndnhnfffcokjlfldelcl?pli=1"
 summary: "NoteMe is a Chrome extension that empowers you to place notes anywhere on any website and access them all in one convenient popup. Your notes stay 100% local and private—no internet or external servers involved. Instantly jump back to the exact spot on any page, and easily share notes with others"
 features:
@@ -22,10 +22,7 @@ features:
   - "Works fully offline; no APIs or external servers used."
   - "User-friendly interface: Clean, intuitive design for effortless note management."
 platforms:
-  - Web
-  - Mac
-  - Win
-  - Linux
+  - Chrome
 fields:
   - "General and Interdisciplinary"
 author: Khushaal N   # the person who submitted this tool to KausalFlow
