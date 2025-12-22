@@ -43,13 +43,14 @@
     (function() {
       var lightTheme = '{{.Site.Params.theme_variant.light}}';
       var darkTheme = '{{.Site.Params.theme_variant.dark}}';
-      var savedTheme = localStorage.getItem('theme') || 'light';
-      var themeUrl = 'https://jenil.github.io/bulmaswatch/' + (savedTheme === 'dark' ? darkTheme : lightTheme) + '/bulmaswatch.min.css';
+      var savedTheme = localStorage.getItem('theme');
+      // Validate savedTheme to prevent XSS
+      var validTheme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'light';
+      var themeUrl = 'https://jenil.github.io/bulmaswatch/' + (validTheme === 'dark' ? darkTheme : lightTheme) + '/bulmaswatch.min.css';
       document.write('<link rel="stylesheet" id="theme-stylesheet" href="' + themeUrl + '">');
     })();
   </script>
   {{else}}
-  <link rel="stylesheet" id="theme-stylesheet" href="">
   {{end}}
   {{ block "style" .}} {{end}} {{ $lazylist := findRE "class=\".*?\\blazyload\\b.*?\"|class=lazyload\b" .Content }}
   <!-- http://regexr.com/3f9d1 -->
