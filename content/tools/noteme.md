@@ -28,12 +28,6 @@ platforms:
   - Linux
 fields:
   - "General and Interdisciplinary"
-plans:
-  - name:
-    description:
-makers: # the makers of the tool
-  - name:
-    description:
 author: Khushaal N   # the person who submitted this tool to KausalFlow
 date: 2025-07-26
 draft: false
