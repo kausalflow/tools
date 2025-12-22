@@ -38,8 +38,17 @@
   <link rel="stylesheet" href="/assets/css/tooltip.css">
 
   {{ if .Site.Params.theme_variant }}
-  <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/{{.Site.Params.theme_variant.light}}/bulmaswatch.min.css">
-  
+  <link rel="stylesheet" id="theme-stylesheet" href="https://jenil.github.io/bulmaswatch/{{.Site.Params.theme_variant.light}}/bulmaswatch.min.css">
+  <script>
+    // Initialize theme before page renders to avoid flash
+    (function() {
+      var savedTheme = localStorage.getItem('theme') || 'light';
+      var lightTheme = '{{.Site.Params.theme_variant.light}}';
+      var darkTheme = '{{.Site.Params.theme_variant.dark}}';
+      var themeUrl = 'https://jenil.github.io/bulmaswatch/' + (savedTheme === 'dark' ? darkTheme : lightTheme) + '/bulmaswatch.min.css';
+      document.getElementById('theme-stylesheet').href = themeUrl;
+    })();
+  </script>
   {{else}}
   {{end}}
   {{ block "style" .}} {{end}} {{ $lazylist := findRE "class=\".*?\\blazyload\\b.*?\"|class=lazyload\b" .Content }}
@@ -80,6 +89,45 @@ docsearch({
   placeholder: 'Command + K',
 });
   </script>
+
+  {{ if .Site.Params.theme_variant }}
+  <script>
+    // Dark mode toggle functionality
+    function toggleTheme() {
+      var currentTheme = localStorage.getItem('theme') || 'light';
+      var newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      var lightTheme = '{{.Site.Params.theme_variant.light}}';
+      var darkTheme = '{{.Site.Params.theme_variant.dark}}';
+      var themeUrl = 'https://jenil.github.io/bulmaswatch/' + (newTheme === 'dark' ? darkTheme : lightTheme) + '/bulmaswatch.min.css';
+      
+      document.getElementById('theme-stylesheet').href = themeUrl;
+      localStorage.setItem('theme', newTheme);
+      
+      // Update icon
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      var themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        var icon = themeToggle.querySelector('i');
+        if (icon) {
+          if (theme === 'dark') {
+            icon.className = 'fas fa-sun';
+          } else {
+            icon.className = 'fas fa-moon';
+          }
+        }
+      }
+    }
+
+    // Initialize theme icon on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      var currentTheme = localStorage.getItem('theme') || 'light';
+      updateThemeIcon(currentTheme);
+    });
+  </script>
+  {{end}}
 </body>
 
 </html>
