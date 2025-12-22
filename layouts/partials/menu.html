@@ -109,6 +109,15 @@
         </a>
         {{end}}
         
+        {{ if .Site.Params.theme_variant }}
+        <a class="navbar-item tooltip" id="theme-toggle" onclick="toggleTheme()" style="cursor: pointer;">
+          <span class="icon">
+            <i class="fas fa-moon"></i>
+          </span>
+          <span class="tooltiptext">Toggle Dark Mode</span>
+        </a>
+        {{end}}
+        
       </div>
     
   </div>
