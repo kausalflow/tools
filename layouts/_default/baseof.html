@@ -38,8 +38,21 @@
   <link rel="stylesheet" href="/assets/css/tooltip.css">
 
   {{ if .Site.Params.theme_variant }}
-  <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/{{.Site.Params.theme_variant.light}}/bulmaswatch.min.css">
-  
+  <script>
+    // Initialize theme before page renders to avoid flash
+    // Note: document.write is used intentionally here for synchronous execution
+    // to prevent flash of unstyled content. The theme values come from server-side
+    // Hugo config and savedTheme is validated before use.
+    (function() {
+      var lightTheme = '{{.Site.Params.theme_variant.light}}';
+      var darkTheme = '{{.Site.Params.theme_variant.dark}}';
+      var savedTheme = localStorage.getItem('theme');
+      // Validate savedTheme to prevent XSS - only allow 'light' or 'dark'
+      var validTheme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'light';
+      var themeUrl = 'https://jenil.github.io/bulmaswatch/' + (validTheme === 'dark' ? darkTheme : lightTheme) + '/bulmaswatch.min.css';
+      document.write('<link rel="stylesheet" id="theme-stylesheet" href="' + themeUrl + '">');
+    })();
+  </script>
   {{else}}
   {{end}}
   {{ block "style" .}} {{end}} {{ $lazylist := findRE "class=\".*?\\blazyload\\b.*?\"|class=lazyload\b" .Content }}
@@ -80,6 +93,51 @@ docsearch({
   placeholder: 'Command + K',
 });
   </script>
+
+  {{ if .Site.Params.theme_variant }}
+  <script>
+    // Dark mode toggle functionality
+    var LIGHT_THEME = '{{.Site.Params.theme_variant.light}}';
+    var DARK_THEME = '{{.Site.Params.theme_variant.dark}}';
+    
+    function getThemeUrl(theme) {
+      var validTheme = (theme === 'dark' || theme === 'light') ? theme : 'light';
+      return 'https://jenil.github.io/bulmaswatch/' + (validTheme === 'dark' ? DARK_THEME : LIGHT_THEME) + '/bulmaswatch.min.css';
+    }
+    
+    function toggleTheme() {
+      var currentTheme = localStorage.getItem('theme') || 'light';
+      var newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      document.getElementById('theme-stylesheet').href = getThemeUrl(newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update icon
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      var validTheme = (theme === 'dark' || theme === 'light') ? theme : 'light';
+      var themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        var icon = themeToggle.querySelector('i');
+        if (icon) {
+          if (validTheme === 'dark') {
+            icon.className = 'fas fa-sun';
+          } else {
+            icon.className = 'fas fa-moon';
+          }
+        }
+      }
+    }
+
+    // Initialize theme icon on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      var currentTheme = localStorage.getItem('theme') || 'light';
+      updateThemeIcon(currentTheme);
+    });
+  </script>
+  {{end}}
 </body>
 
 </html>
