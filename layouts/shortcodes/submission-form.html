@@ -1,62 +1,92 @@
 {{- $tax := readFile "scripts/triage/taxonomy.yaml" | transform.Unmarshal -}}
+{{- $fn := eq (site.Params.submit_mode | default "github") "function" -}}
+{{- $repo := site.Params.github | default "kausalflow/tools" -}}
+{{- if $fn -}}
 <form class="submit-form" action="/api/submit" method="post">
+{{- else -}}
+<form class="submit-form" id="gh-form" action="https://github.com/{{ $repo }}/issues/new" method="get" target="_blank" rel="noopener">
+  <input type="hidden" name="template" value="new-tool.yml">
+  <input type="hidden" name="title" id="gh-title" value="New tool: ">
+{{- end }}
   <div class="field">
     <label class="label" for="f-by">Your name or handle</label>
     <p>Shown as the person who added the tool. Please avoid your real name if you prefer, it is public.</p>
-    <input class="input" id="f-by" name="submitted_by" type="text" maxlength="120" autocomplete="nickname">
+    <input class="input" id="f-by" name="{{ if $fn }}submitted_by{{ else }}name{{ end }}" type="text" maxlength="120" autocomplete="nickname">
   </div>
   <div class="field">
     <label class="label" for="f-name">Tool name</label>
-    <input class="input" id="f-name" name="tool-name" type="text" maxlength="120" required>
+    <input class="input" id="f-name" name="{{ if $fn }}tool-name{{ else }}tool{{ end }}" type="text" maxlength="120" required>
   </div>
   <div class="field">
     <label class="label" for="f-link">Link</label>
     <p>We read this page to fill in details and take a screenshot.</p>
-    <input class="input" id="f-link" name="tool-link" type="url" placeholder="https://" maxlength="500" required>
+    <input class="input" id="f-link" name="{{ if $fn }}tool-link{{ else }}link{{ end }}" type="url" placeholder="https://" maxlength="500" required>
   </div>
   <div class="field">
     <label class="label" for="f-alt">Alternative link <span class="help">(optional: app store, repository, docs)</span></label>
-    <input class="input" id="f-alt" name="tool-link-alt" type="url" placeholder="https://" maxlength="500">
+    <input class="input" id="f-alt" name="{{ if $fn }}tool-link-alt{{ else }}alt{{ end }}" type="url" placeholder="https://" maxlength="500">
   </div>
   <div class="field">
     <label class="label" for="f-sum">What does it do, and who is it for?</label>
     <p>A few sentences, at least 40 characters.</p>
-    <textarea class="textarea" id="f-sum" name="tool-summary" maxlength="2000" required></textarea>
+    <textarea class="textarea" id="f-sum" name="{{ if $fn }}tool-summary{{ else }}summary{{ end }}" maxlength="2000" required></textarea>
   </div>
   <div class="field">
     <label class="label" for="f-feat">Main features <span class="help">(optional, one per line)</span></label>
-    <textarea class="textarea" id="f-feat" name="tool-features" maxlength="3000" placeholder="- Exports to BibTeX&#10;- Works offline"></textarea>
+    <textarea class="textarea" id="f-feat" name="{{ if $fn }}tool-features{{ else }}features{{ end }}" maxlength="3000" placeholder="- Exports to BibTeX&#10;- Works offline"></textarea>
   </div>
 
   <fieldset class="field"><legend class="label">Categories</legend>
-    {{ range $tax.categories }}<label class="checkbox"><input type="checkbox" name="tool-categories" value="{{ . }}"> {{ . }}</label>{{ end }}
+    {{ range $tax.categories }}<label class="checkbox"><input type="checkbox" data-group="categories" {{ if $fn }}name="tool-categories"{{ end }} value="{{ . }}"> {{ . }}</label>{{ end }}
   </fieldset>
   <fieldset class="field"><legend class="label">Field</legend>
-    {{ range $tax.fields }}<label class="checkbox"><input type="checkbox" name="tool-fields" value="{{ . }}"> {{ . }}</label>{{ end }}
+    {{ range $tax.fields }}<label class="checkbox"><input type="checkbox" data-group="fields" {{ if $fn }}name="tool-fields"{{ end }} value="{{ . }}"> {{ . }}</label>{{ end }}
   </fieldset>
   <fieldset class="field"><legend class="label">Platforms</legend>
-    {{ range $tax.platforms }}<label class="checkbox"><input type="checkbox" name="tool-platforms" value="{{ . }}"> {{ . }}</label>{{ end }}
+    {{ range $tax.platforms }}<label class="checkbox"><input type="checkbox" data-group="platforms" {{ if $fn }}name="tool-platforms"{{ end }} value="{{ . }}"> {{ . }}</label>{{ end }}
   </fieldset>
   <fieldset class="field"><legend class="label">Tags <span class="help">(optional)</span></legend>
-    {{ range $tax.tags }}<label class="checkbox"><input type="checkbox" name="tool-tags" value="{{ . }}"> {{ . }}</label>{{ end }}
+    {{ range $tax.tags }}<label class="checkbox"><input type="checkbox" data-group="tags" {{ if $fn }}name="tool-tags"{{ end }} value="{{ . }}"> {{ . }}</label>{{ end }}
   </fieldset>
   <div class="field">
     <label class="label" for="f-tags">Other tags <span class="help">(optional, comma separated)</span></label>
-    <input class="input" id="f-tags" name="tool-tags-other" type="text" maxlength="300">
+    <input class="input" id="f-tags" name="{{ if $fn }}tool-tags-other{{ else }}tags-other{{ end }}" type="text" maxlength="300">
   </div>
 
-  <div class="sr-only" aria-hidden="true">
+  {{ if not $fn }}
+  {{ range slice "categories" "fields" "platforms" "tags" }}<input type="hidden" name="{{ . }}" id="gh-{{ . }}">{{ end }}
+  {{ end }}
+  {{ if $fn }}<div class="sr-only" aria-hidden="true">
     <label>Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-  </div>
+  </div>{{ end }}
 
-  {{ with site.Params.turnstile_sitekey }}
+  {{ with (cond $fn site.Params.turnstile_sitekey "") }}
   <div class="cf-turnstile" data-sitekey="{{ . }}" style="margin-bottom:20px"></div>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   {{ end }}
 
   <div class="field is-grouped">
-    <button class="button" type="submit">Submit for review</button>
+    <button class="button" type="submit">{{ if $fn }}Submit for review{{ else }}Continue on GitHub{{ end }}</button>
     <span class="help" style="align-self:center">By submitting you agree to the CC BY-SA 4.0 licence.</span>
   </div>
 </form>
-<p class="help">Prefer GitHub? <a href="https://github.com/{{ site.Params.github }}/issues/new?template=new-tool.yml">Open an issue with the form there</a>.</p>
+{{ if not $fn }}
+<p class="help">This opens a GitHub issue with your answers filled in. You need a free GitHub account to submit it.</p>
+<script>
+  (function () {
+    var f = document.getElementById('gh-form');
+    if (!f) return;
+    f.addEventListener('submit', function () {
+      ['categories', 'fields', 'platforms', 'tags'].forEach(function (g) {
+        var picked = Array.prototype.map.call(f.querySelectorAll('input[data-group="' + g + '"]:checked'), function (i) { return i.value; });
+        if (g === 'tags') {
+          var other = f.querySelector('[name="tags-other"]');
+          if (other && other.value.trim()) picked.push(other.value.trim());
+        }
+        document.getElementById('gh-' + g).value = picked.join(', ');
+      });
+      document.getElementById('gh-title').value = 'New tool: ' + (f.querySelector('[name="tool"]').value || '').trim();
+    });
+  })();
+</script>
+{{ end }}

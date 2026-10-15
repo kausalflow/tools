@@ -1,7 +1,7 @@
 # Submission and review flow
 
-> Hosting on Cloudflare Pages replaces the Netlify form with `/api/submit`; see
-> [hosting-cloudflare.md](hosting-cloudflare.md). The checks below are unchanged.
+> Submissions now arrive as GitHub issues (prefilled issue form, or `/api/submit` on Cloudflare).
+> See [hosting-github-pages.md](hosting-github-pages.md). The checks below are unchanged.
 
 ```
 visitor -> /submit/ (Netlify form) -> Netlify submissions

@@ -1,4 +1,7 @@
-# Hosting on Cloudflare Pages
+# Hosting on Cloudflare Pages (optional)
+
+The default is GitHub Pages ([hosting-github-pages.md](hosting-github-pages.md)). Use Cloudflare only if you want
+anonymous submissions through `/api/submit` or per-PR preview URLs. Set `params.submit_mode: function` in `config.yaml`.
 
 The site is static Hugo output. Cloudflare Pages builds it, serves it, and runs the one
 function that receives submissions (`functions/api/submit.js`). Netlify is not required.
