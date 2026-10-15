@@ -1,0 +1,63 @@
+name: Triage submission issue
+
+# Runs when a submission issue is opened: either created by the /api/submit
+# Cloudflare Pages Function or by the GitHub issue form. Same checks as triage.yml.
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: triage-issue-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  triage:
+    if: contains(github.event.issue.labels.*.name, 'submission')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      # untrusted text: only ever read through the environment, never interpolated into a script
+      ISSUE_BODY: ${{ github.event.issue.body }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/triage/requirements.txt
+
+      - run: pip install -r scripts/triage/requirements.txt
+
+      - name: Ensure labels exist
+        run: |
+          for l in "triage:5319e7" "ready:0e8a16" "needs-info:fbca04" "triage-reject:b60205" "submission:1d76db"; do
+            gh label create "${l%%:*}" --color "${l##*:}" --force >/dev/null
+          done
+
+      - name: Skip if this issue was already processed
+        id: seen
+        run: |
+          if gh pr list --state all --label triage --limit 1000 --json body --jq '.[].body' \
+              | grep -q "netlify-submission:issue-${ISSUE_NUMBER}\b"; then
+            echo "done=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Triage
+        if: steps.seen.outputs.done != 'true'
+        run: |
+          python scripts/triage/triage.py --issue-body-env ISSUE_BODY --issue-number "$ISSUE_NUMBER" --out triage-out
+
+      - name: Open pull request or close the issue
+        if: steps.seen.outputs.done != 'true'
+        run: bash scripts/triage/publish.sh triage-out

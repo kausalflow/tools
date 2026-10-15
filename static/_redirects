@@ -1,0 +1,17 @@
+# Renamed categories and tags (taxonomy cleanup). Same rules as netlify.toml.
+/categories/ai/ /categories/project-research/ 301
+/categories/education/ /categories/guides/ 301
+/categories/management/ /categories/project-management/ 301
+/categories/other/ /categories/project-research/ 301
+/categories/resume/ /categories/career/ 301
+/categories/social-network/ /categories/communications/ 301
+/categories/systematic-review/ /categories/project-research/ 301
+/categories/tools/ /categories/productivity/ 301
+/categories/translational/ /categories/project-research/ 301
+/tags/-version-control/ /tags/version-control/ 301
+/tags/chatgpt/ /tags/llm/ 301
+/tags/coordinations/ /tags/coordination/ 301
+/tags/publications/ /tags/publication/ 301
+/tags/references-management/ /tags/reference-management/ 301
+/tags/systematic--review/ /tags/systematic-review/ 301
+/tags/writing-assistant/ /tags/writing/ 301

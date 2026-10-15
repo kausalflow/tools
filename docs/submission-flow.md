@@ -1,5 +1,8 @@
 # Submission and review flow
 
+> Hosting on Cloudflare Pages replaces the Netlify form with `/api/submit`; see
+> [hosting-cloudflare.md](hosting-cloudflare.md). The checks below are unchanged.
+
 ```
 visitor -> /submit/ (Netlify form) -> Netlify submissions
         -> triage.yml (hourly, or run manually)

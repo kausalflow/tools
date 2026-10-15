@@ -35,6 +35,7 @@ menu:
       url: "https://github.com/kausalflow/tools/discussions"
 
 params:
+  turnstile_sitekey: "" # Cloudflare Turnstile site key for the submit form (public); empty disables the widget
   theme_variant: 
     light: "journal" # possible value for the theme_variant `cerulean,cosmo,cyborg,darkly,flatly,journal,litera,lumen,lux,materia,minty,pulse,sandstone,simplex,slate,solar,spacelab,superhero,united,yeti`
     dark: "darkly"
