@@ -2,6 +2,8 @@
 author: Zealer
 title: IEEE Citation Generator
 summary: Generate IEEE-style citations from a DOI, URL, ISBN or title. Review source details, copy numbered in-text citations and export a reference list to Word or BibTeX without signing up.
+images:
+- path: home.png
 features:
 - DOI, URL, ISBN and title lookup
 - Review and edit returned metadata before formatting

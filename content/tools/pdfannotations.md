@@ -2,6 +2,8 @@
 author: PDFAnnotations
 title: PDFAnnotations
 summary: PDFAnnotations turns PDF highlights and comments into reusable notes. Extract, clean, convert and organise annotations and export them to Markdown, CSV or plain text, with Pro formats for Obsidian, Notion, Excel and JSON. Processing happens locally in your browser.
+images:
+- path: home.png
 features:
 - Extract PDF highlights, comments, sticky notes, underlines, wavy lines and strikeouts
 - Export to Markdown, CSV or TXT; Pro adds Obsidian, Notion, Excel, JSON, ZIP and custom templates

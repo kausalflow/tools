@@ -2,6 +2,8 @@
 author: BGPT
 title: BGPT API
 summary: BGPT API searches scientific papers through REST/Python or MCP and returns structured full-text study evidence rather than only abstracts. It is useful for literature review agents, scientific RAG, systematic review screening and evidence tables.
+images:
+- path: home.png
 features:
 - Search scientific papers from REST, Python and MCP clients
 - 'Structured study evidence: methods, sample sizes, results, limitations, conflicts of interest, data/code availability and quality scores'

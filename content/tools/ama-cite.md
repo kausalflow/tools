@@ -2,6 +2,8 @@
 author: Citation Generator
 title: AMA Cite
 summary: AMA Cite is a free, browser-based AMA 11th edition citation generator for medical and life-science references. Enter a DOI, PMID, ISBN, title, URL or source details to format a reference, review it, manage a local citation list and export to BibTeX, TXT or Word.
+images:
+- path: home.png
 features:
 - Generate AMA-style references for articles, books, chapters, theses, websites, reports, preprints and more
 - Import metadata from DOI, PMID, ISBN, title or URL, with batch input

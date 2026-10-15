@@ -2,6 +2,8 @@
 author: V.S
 title: Critiplot
 summary: Critiplot is an open-source Python package and web tool for visualising risk-of-bias and critical appraisal assessments in systematic reviews and meta-analyses, producing publication-ready traffic-light plots and summary figures.
+images:
+- path: Screenshot2.png
 features:
 - Supports NOS, GRADE, ROBIS, JBI and MMAT frameworks
 - Traffic-light plots, bar charts and more with multiple themes

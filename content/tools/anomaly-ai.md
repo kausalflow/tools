@@ -2,6 +2,8 @@
 author: Avi, Anomaly AI
 title: Anomaly AI
 summary: Anomaly AI is an AI data analysis workspace for large datasets and spreadsheets. It turns Excel, CSV, Google Sheets, GA4, BigQuery, Snowflake and MySQL data into traceable dashboards, reports, slides and PDFs.
+images:
+- path: home.png
 features:
 - Analyse large Excel and CSV datasets in a web workspace
 - Connect Google Sheets, GA4, BigQuery, Snowflake and MySQL
