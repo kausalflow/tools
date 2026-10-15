@@ -1,0 +1,5 @@
+{{- $items := slice -}}
+{{- range where .Site.RegularPages "Type" "tools" -}}
+{{- $items = $items | append (dict "t" .Title "u" .RelPermalink "s" (.Summary | plainify | truncate 200) "c" .Params.categories "g" .Params.tags "f" .Params.fields "p" .Params.platforms) -}}
+{{- end -}}
+{{- jsonify $items -}}
