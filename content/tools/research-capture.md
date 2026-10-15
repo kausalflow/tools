@@ -2,6 +2,8 @@
 author: Rick Search
 title: Research Capture
 summary: Research Capture is a lightweight, self-hosted platform for managing study operations, registries and participant follow-up in smaller research projects.
+images:
+- path: home.png
 features:
 - Self-hosted, so you keep data ownership and can ease HIPAA/GDPR compliance
 - Lightweight operations for small-scale studies

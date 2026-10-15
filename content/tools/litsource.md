@@ -2,6 +2,8 @@
 author: LitSource Team
 title: LitSource
 summary: LitSource is a biomedical research assistant for finding relevant scholarly papers and checking that citation records are traceable before use. It matches claims and references to scholarly records (PubMed, PMC, Crossref, OpenAlex, Semantic Scholar) and flags mismatches for human review, leaving interpretation and final citation decisions to the researcher.
+images:
+- path: home.png
 features:
 - Find candidate papers from a research question, claim or reference list
 - Check citation records and metadata (DOI, PMID) against scholarly databases

@@ -2,6 +2,8 @@
 author: Kahubi team (kahubi.com)
 title: Kahubi
 summary: Kahubi is an AI research assistant for academics and PhD students. It searches the literature, answers questions with citations from your own reference library, runs statistics on your data, transcribes and codes research interviews, and helps write Word or LaTeX manuscripts. Built in Sweden and hosted in the EU; a free plan is available.
+images:
+- path: home.png
 features:
 - Literature search and answers cited from your own library
 - Systematic review flow with screening and PRISMA reporting

@@ -2,6 +2,8 @@
 author: LovelaceLoom
 title: ToText
 summary: ToText is an iPhone app that turns any recording into a transcript, a summary, tasks and answers to questions you ask about it. It also includes a dictation keyboard, which can help with interviews, lectures, meetings and field notes. Freemium.
+images:
+- path: home.png
 features:
 - Transcript of any recording
 - Summary and task list

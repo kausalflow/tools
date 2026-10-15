@@ -2,6 +2,8 @@
 author: V.S.
 title: Evidence Synthesis Tools Directory
 summary: A curated directory of 288+ open-source tools for systematic reviews, meta-analysis and evidence synthesis, based on a systematic mapping study. It covers the full workflow from search and screening to extraction, risk-of-bias assessment and meta-analysis, and only lists publicly available, OSI-licensed software.
+images:
+- path: banner1.png
 features:
 - Curated list of 288+ open-source evidence synthesis tools
 - Covers search, screening, extraction, risk of bias and meta-analysis

@@ -2,6 +2,8 @@
 author: V.S.
 title: NOS-TLPlot
 summary: NOS-TLPlot is an open-source Python tool that visualises Newcastle–Ottawa Scale (NOS) risk-of-bias assessments for systematic reviews and meta-analyses, turning star ratings into traffic-light plots, heatmaps, radar charts and other summary figures.
+images:
+- path: Screenshot2.png
 features:
 - Converts NOS star ratings into standard risk-of-bias categories
 - 12 visualisation types (traffic-light, heatmap, radar, lollipop and more)
