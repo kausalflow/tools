@@ -2,7 +2,7 @@
 title: D3.js
 summary: The most widely used javascript lib for visualizations in the browser.
 images:
-- path: d3-js-landing.png
+- path: d3-js-landing.jpg
 features: null
 categories:
 - Publishing and Sharing

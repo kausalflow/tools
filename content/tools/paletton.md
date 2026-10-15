@@ -2,7 +2,7 @@
 title: Paletton
 summary: Generate color palettes
 images:
-- path: paletton-landing.png
+- path: paletton-landing.jpg
 features: null
 categories:
 - Publishing and Sharing

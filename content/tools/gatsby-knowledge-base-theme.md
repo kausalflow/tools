@@ -8,8 +8,8 @@ images:
 - path: gatsby-project-kb.vercel.app_ (3).png
 - path: gatsby-project-kb.vercel.app_ (4).png
 - path: gatsby-project-kb.vercel.app_.png
-- path: wiki.hikerpig.cn_ (1).png
-- path: wiki.hikerpig.cn_.png
+- path: wiki.hikerpig.cn_ (1).jpg
+- path: wiki.hikerpig.cn_.jpg
 features:
 - Based on Gatsby
 - Can be easily extended

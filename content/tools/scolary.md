@@ -3,13 +3,13 @@ author: LM
 title: Scolary
 summary: Find the best scientific tools for literally any stage of your research on Scolary.
 images:
-- path: scolary_tools_landing.png
+- path: scolary_tools_landing.jpg
 - path: scolary_landing_lower.png
-- path: scolary_search.png
-- path: scolary_tools_details_2.png
-- path: scolary_tools_details.png
-- path: scolary_tools_overlay.png
-- path: scolary_workflow.png
+- path: scolary_search.jpg
+- path: scolary_tools_details_2.jpg
+- path: scolary_tools_details.jpg
+- path: scolary_tools_overlay.jpg
+- path: scolary_workflow.jpg
 features:
 - Search by stage of research
 - Tool listing comes with nice screenshots even video

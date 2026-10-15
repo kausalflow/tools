@@ -3,17 +3,17 @@ author: LM
 title: AcademicLabs
 summary: Platform where you find research groups with their current research focus, publications, patents, clinical trials and projects. Research groups can also connect with industry easily here.
 images:
-- path: www.academiclabs.com_.png
+- path: www.academiclabs.com_.jpg
 - path: www.academiclabs.com_ (1).png
 - path: www.academiclabs.com_ (2).png
-- path: www.academiclabs.com_ (3).png
+- path: www.academiclabs.com_ (3).jpg
 - path: app.academiclabs.com_dashboard (1).png
-- path: app.academiclabs.com_dashboard (2).png
-- path: app.academiclabs.com_dashboard (3).png
+- path: app.academiclabs.com_dashboard (2).jpg
+- path: app.academiclabs.com_dashboard (3).jpg
 - path: app.academiclabs.com_dashboard (4).png
-- path: app.academiclabs.com_dashboard (5).png
+- path: app.academiclabs.com_dashboard (5).jpg
 - path: app.academiclabs.com_dashboard.png
-- path: portal.productboard.com_academiclabs_3-features-and-coming-soon_tabs_8-features.png
+- path: portal.productboard.com_academiclabs_3-features-and-coming-soon_tabs_8-features.jpg
 features:
 - Fast, results in minutes
 - All in one place

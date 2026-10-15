@@ -2,7 +2,7 @@
 title: Noizio
 summary: a handy white noise tool that stays in your Mac status bar.
 images:
-- path: noizio-landing.png
+- path: noizio-landing.jpg
 features:
 - Multiple scenes
 categories:

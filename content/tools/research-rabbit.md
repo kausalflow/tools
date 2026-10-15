@@ -3,8 +3,8 @@ author: Ad
 title: Research Rabbit
 summary: Discover and track literature
 images:
-- path: researchrabbitapp.com_home_1.png
-- path: researchrabbitapp.com_home_2.png
+- path: researchrabbitapp.com_home_1.jpg
+- path: researchrabbitapp.com_home_2.jpg
 - path: researchrabbit.mp4
 features:
 - Create collections of papers

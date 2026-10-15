@@ -4,7 +4,7 @@ title: Hypothesis
 summary: Collaborative or private note taking on the web. Highlight and annotate websites in distinct notebooks.
 images:
 - path: hypotehsis-annotate.png
-- path: hypothesis-ATIExample-1024x530.png
+- path: hypothesis-ATIExample-1024x530.jpg
 - path: hypothesis-comment-with-tags.png
 - path: hypothesis-groups-public-private.png
 - path: hypothesis-papers.png

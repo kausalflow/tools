@@ -3,11 +3,11 @@ author: null
 title: DeepL Write
 summary: DeepL Write is an AI writing tool that can improve your written communication with just one click. It will help you with your writing by checking the grammar, punctuation, and style as well as providing suggestions and alternative phrasing.
 images:
-- path: www.deepl.com_write_simple.png
+- path: www.deepl.com_write_simple.jpg
 - path: deepl_write_donotshow_changes.png
 - path: www.deepl.com_write_academic.png
-- path: www.deepl.com_write_changes.png
-- path: www.deepl.com_write.png
+- path: www.deepl.com_write_changes.jpg
+- path: www.deepl.com_write.jpg
 features:
 - Fix grammar and punctuation mistakes
 - Be creative and rephrase entire sentences

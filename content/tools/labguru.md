@@ -3,8 +3,8 @@ author: LM
 title: Labguru
 summary: Run your lab more efficiently and maximize your research output. Plan and document experiments, track progress, streamline lab logistics, and share results.
 images:
-- path: www.labguru.com_.png
-- path: www.labguru.com_ (1).png
+- path: www.labguru.com_.jpg
+- path: www.labguru.com_ (1).jpg
 features:
 - Plan and record your research with our user-friendly ELN
 - Intellectual property protection

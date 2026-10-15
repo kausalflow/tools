@@ -3,11 +3,11 @@ author: LM
 title: Sciencecast
 summary: ScienceCast is a free open-access platform for researchers to disseminate their scientific results and ideas to a wide audience of fellow scientists, journal Editors, grant program managers, and other professionals working at the cutting edge of science and innovation.
 images:
-- path: sciencecast.org_example.png
-- path: sciencecast.org_ example_menu.png
-- path: sciencecast.org_.png
+- path: sciencecast.org_example.jpg
+- path: sciencecast.org_ example_menu.jpg
+- path: sciencecast.org_.jpg
 - path: sciencecast.org_list.png
-- path: sciencecast.org_menu_2.png
+- path: sciencecast.org_menu_2.jpg
 features:
 - Podcast of any arxiv paper
 - Podcast for new and top papers on arxiv every day

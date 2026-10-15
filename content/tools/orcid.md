@@ -2,7 +2,7 @@
 title: ORCID
 summary: A unique ID for researchers
 images:
-- path: orcid-landing.png
+- path: orcid-landing.jpg
 features: null
 categories:
 - Publishing and Sharing

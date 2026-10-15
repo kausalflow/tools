@@ -2,7 +2,7 @@
 title: Scirate
 summary: free and open access scientific collaboration network
 images:
-- path: scirate-landing.png
+- path: scirate-landing.jpg
 features: null
 categories:
 - Project Research

@@ -3,7 +3,7 @@ title: Colorcet
 summary: Colorcet is a collection of perceptually uniform colormaps for use with Python plotting programs like bokeh, matplotlib, holoviews, and datashader based on the set of perceptually uniform colormaps created by Peter Kovesi at the Center for Exploration Targeting.
 images:
 - path: colorcet-landing.png
-- path: colorcet-map-comparison.png
+- path: colorcet-map-comparison.jpg
 features:
 - Run experiments on color schemes
 categories:

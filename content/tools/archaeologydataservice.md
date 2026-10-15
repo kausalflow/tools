@@ -2,7 +2,7 @@
 title: Archaeology Data Service
 summary: Certified repository for Archaeology data
 images:
-- path: archaeologydataservice-landing.png
+- path: archaeologydataservice-landing.jpg
 - path: archaeologydataservice-search.png
 features: null
 categories:

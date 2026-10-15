@@ -2,7 +2,7 @@
 title: Gitbook
 summary: Online tool for personal and team knowledge management.
 images:
-- path: gitbook-landing.png
+- path: gitbook-landing.jpg
 - path: gitbook-edit.png
 - path: gitbook-example.png
 features:

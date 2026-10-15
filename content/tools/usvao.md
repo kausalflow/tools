@@ -2,7 +2,7 @@
 title: 'USVAO: US Virtual Astronomical Observatory'
 summary: US Virtual Astronomical Observatory
 images:
-- path: usvao-landing.png
+- path: usvao-landing.jpg
 features: null
 categories:
 - Project Research

@@ -2,7 +2,7 @@
 title: itermplot
 summary: An awesome iTerm2 backend for Matplotlib, so you can plot directly in your terminal.
 images:
-- path: itermplot-readme.png
+- path: itermplot-readme.jpg
 features:
 - plotting in terminal
 categories:

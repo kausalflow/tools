@@ -4,15 +4,15 @@ title: Scrapbox
 summary: A knowledge base that lets you capture notes, code, and research lightning-fast. Everything adds to a web of ideas that’s easy to use at scale.
 images:
 - path: scrapbox_landing.png
-- path: scrapbox_case.png
+- path: scrapbox_case.jpg
 - path: scrapbox_drawing.png
 - path: scrapbox_insti.png
 - path: scrapbox_modes.png
 - path: scrapbox_presentation.png
 - path: scrapbox_pricing_business.png
 - path: scrapbox_pricing_free.png
-- path: scrapbox_projects.png
-- path: scrapbox_reasons.png
+- path: scrapbox_projects.jpg
+- path: scrapbox_reasons.jpg
 - path: scrapbox_view.png
 features:
 - Rapid outlining

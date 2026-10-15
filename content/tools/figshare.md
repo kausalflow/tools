@@ -2,7 +2,7 @@
 title: Figshare
 summary: Figshare allows us store, share and discover research data and other materials.
 images:
-- path: figshare_landing.png
+- path: figshare_landing.jpg
 - path: figshare_browse.png
 - path: figshare_publications.png
 features:

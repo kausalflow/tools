@@ -2,8 +2,8 @@
 title: 'new MAST: Barbara A. Mikulski Archive for Space Telescopes'
 summary: 'MAST: Barbara A. Mikulski Archive for Space Telescopes'
 images:
-- path: archive.stsci.edu_landing.png
-- path: archive.stsci.edu_access-mast-data.png
+- path: archive.stsci.edu_landing.jpg
+- path: archive.stsci.edu_access-mast-data.jpg
 features: null
 categories:
 - Project Research

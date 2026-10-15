@@ -3,8 +3,8 @@ author: LM
 title: Academic Positions
 summary: All kinds of academic jobs listings.
 images:
-- path: academicpositions.com_.png
-- path: academicpositions.com_143869.png
+- path: academicpositions.com_.jpg
+- path: academicpositions.com_143869.jpg
 features:
 - Filter by academic job types, locations, and fields.
 - A lot of employers in academia are publishing on academic positions

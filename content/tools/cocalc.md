@@ -2,7 +2,7 @@
 title: Cocalc
 summary: A toolkit for coding and writing online. The UI is a bit outdated but the services are real hardcore.
 images:
-- path: cocalc_landing.png
+- path: cocalc_landing.jpg
 features:
 - Jupyter notebook
 - LaTeX

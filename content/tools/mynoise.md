@@ -7,7 +7,7 @@ images:
 - path: mynoise.net_.png
 - path: mynoise.net_demo-1.php.png
 - path: mynoise.net_demo-fireplace.png
-- path: mynoise.net_menu.png
+- path: mynoise.net_menu.jpg
 features:
 - A variety of noise collections.
 - Simple index but easy to use.

@@ -3,7 +3,7 @@ author: LM
 title: Responsible Journals
 summary: Understand how the journals deal with submissions and how reviews are done
 images:
-- path: responsiblejournals_landing.png
+- path: responsiblejournals_landing.jpg
 - path: responsiblejournals_database_statistics.png
 - path: responsiblejournals_database_search.png
 - path: responsiblejournals_database_download.png

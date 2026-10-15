@@ -2,7 +2,7 @@
 title: NCEI
 summary: Weather, climate, coasts, oceans, and geophysics etc
 images:
-- path: ncei_landing.png
+- path: ncei_landing.jpg
 features:
 - Weather
 - Geophysics

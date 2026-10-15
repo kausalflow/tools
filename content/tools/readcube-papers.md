@@ -2,7 +2,7 @@
 title: Readcube/Papers
 summary: A all platform app for reference mamagement, note-taking, and more. The former Papers has been rebanded as ReadCube Papers.
 images:
-- path: readcube-landing.png
+- path: readcube-landing.jpg
 features:
 - Online library
 - Destop apps

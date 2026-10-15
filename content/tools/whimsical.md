@@ -3,10 +3,10 @@ author: amigniox
 title: Whimsical
 summary: Visual workspace, online tool for quick diagrams
 images:
-- path: whimsical.com_flowcharts.png
+- path: whimsical.com_flowcharts.jpg
 - path: whimsical.com_mind-maps.png
 - path: whimsical.com_pricing.png
-- path: whimsical.com_sticky-notes.png
+- path: whimsical.com_sticky-notes.jpg
 features:
 - minimal steps to access the workspace (with Gmail)
 - all-in-one place for architecture diagram, mind map, notes, UI design

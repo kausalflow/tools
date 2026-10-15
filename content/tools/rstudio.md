@@ -2,7 +2,7 @@
 title: RStudio
 summary: IDE for R and Python
 images:
-- path: rstudio-landing.png
+- path: rstudio-landing.jpg
 features: null
 categories:
 - Analysis and Computations

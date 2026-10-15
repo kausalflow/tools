@@ -6,7 +6,7 @@ images:
 - path: aminer_landing.png
 - path: aminer.cn_ranks_home.png
 - path: open.aminer.cn_.png
-- path: trend.aminer.cn_trend_ml.png
+- path: trend.aminer.cn_trend_ml.jpg
 - path: www.aminer.cn_ai10.png
 - path: aminer.cn_data.png
 features:

@@ -3,11 +3,11 @@ author: Myo
 title: Scrintal
 summary: visual networked and mind-mapping note taking app
 images:
-- path: scrintal1.png
+- path: scrintal1.jpg
 - path: scrintal_video.jpg
 - path: www.scrintal.com_ (1).png
-- path: www.scrintal.com_ (2).png
-- path: www.scrintal.com_.png
+- path: www.scrintal.com_ (2).jpg
+- path: www.scrintal.com_.jpg
 features:
 - Excellent UX design - https://youtu.be/Ge21_flr5dU
 categories:

@@ -4,15 +4,15 @@ title: Data Stewardship Wizard
 summary: Create Smart Data Management Plans for FAIR Open Science
 images:
 - path: ds-wizard-1.png
-- path: book-references@2x.png
+- path: book-references@2x.jpg
 - path: ds-wizard.org_comparison.html.png
 - path: fair-metrics@2x.png
 - path: guidance@2x.png
 - path: integrations@2x.png
-- path: km-editor@2x.png
+- path: km-editor@2x.jpg
 - path: knowledge-models@2x.png
 - path: machine-actionable@2x.png
-- path: online-collaboration@2x.png
+- path: online-collaboration@2x.jpg
 - path: open-id@2x.png
 - path: sharing@2x.png
 - path: templates@2x.png

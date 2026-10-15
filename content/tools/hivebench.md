@@ -3,9 +3,9 @@ author: LM
 title: Hivebench
 summary: 'Everything you need to do research: Plan, Experiment, Publish.'
 images:
-- path: www.hivebench.com_.png
-- path: www.hivebench.com_ (1).png
-- path: www.hivebench.com_ (2).png
+- path: www.hivebench.com_.jpg
+- path: www.hivebench.com_ (1).jpg
+- path: www.hivebench.com_ (2).jpg
 - path: hivebench.mp4
 features:
 - data management

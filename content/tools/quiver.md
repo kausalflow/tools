@@ -2,7 +2,7 @@
 title: Quiver
 summary: Programmer's notebook, math + Markdown, code snippet.
 images:
-- path: quiver-landing.png
+- path: quiver-landing.jpg
 features:
 - Favorites and recents in the navigations make it easy to location snippets.
 - Math support

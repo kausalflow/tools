@@ -3,7 +3,7 @@ author: LM
 title: Typst
 summary: Typst is a new markup-based typesetting system for the sciences. It is designed to be an alternative both to advanced tools like LaTeX and simpler tools like Word and Google Docs. Our goal with Typst is to build a typesetting tool that is highly capable and a pleasure to use.
 images:
-- path: typst.app_project_p7cUj7G6Evr5ka7sbfSJcf.png
+- path: typst.app_project_p7cUj7G6Evr5ka7sbfSJcf.jpg
 - path: typst-mockup.webm
 - path: typst-readyforscience.png
 features:

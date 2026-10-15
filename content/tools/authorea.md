@@ -2,7 +2,7 @@
 title: Authorea
 summary: Write and submit your papers online.
 images:
-- path: authorea-landing.png
+- path: authorea-landing.jpg
 - path: authorea-edit.png
 - path: authorea-export.png
 - path: authorea-one-click-publishing.png

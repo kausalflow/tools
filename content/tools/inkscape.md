@@ -2,7 +2,7 @@
 title: Inkscape
 summary: Create SVG graphs
 images:
-- path: inkscape-landing.png
+- path: inkscape-landing.jpg
 - path: inkscape-voronoi-and-dulaney.png
 features: null
 categories:

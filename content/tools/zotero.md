@@ -2,7 +2,7 @@
 title: Zotero
 summary: An open source bibliography reference manager with syncing and BibTeX support.
 images:
-- path: zotero-landing.png
+- path: zotero-landing.jpg
 features:
 - Online libraries to read anywhere
 - Related papers

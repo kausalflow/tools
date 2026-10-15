@@ -3,7 +3,7 @@ author: LM
 title: SciTools
 summary: Open tools for the analysis and visualisation of Earth science data
 images:
-- path: scitools.org.uk_.png
+- path: scitools.org.uk_.jpg
 features:
 - Python stack
 - Open source

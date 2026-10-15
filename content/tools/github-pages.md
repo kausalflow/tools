@@ -2,7 +2,7 @@
 title: Github Pages
 summary: Hosted directly from your GitHub repository. Just edit, push, and your changes are live. Integrated with Jekyll and turns markdown posts automatically. Jekyll is a tool for blogging.
 images:
-- path: pages.github.com.png
+- path: pages.github.com.jpg
 features:
 - Jekyll is already supported out of the box.
 - Can be combined with GitHub Actions.

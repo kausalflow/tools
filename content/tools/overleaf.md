@@ -2,10 +2,10 @@
 title: Overleaf/Overleaf
 summary: Overleaf and ShareLaTeX are Online LaTeX editors with collaborations, history, chat, and submission.
 images:
-- path: overleaf-landing.png
-- path: overleaf-collaborations.png
-- path: overleaf-history.png
-- path: overleaf-prewview.png
+- path: overleaf-landing.jpg
+- path: overleaf-collaborations.jpg
+- path: overleaf-history.jpg
+- path: overleaf-prewview.jpg
 - path: overleaf-review-mode.png
 features:
 - Review mode

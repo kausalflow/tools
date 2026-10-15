@@ -4,18 +4,18 @@ title: PPResume
 summary: A LaTeX Based Resume Builder that helps people create beautifully typed resumes in minutes
 images:
 - path: ppresume-demo.png
-- path: ppresume.com_.png
-- path: ppresume.com_ (1).png
-- path: ppresume.com_ (2).png
+- path: ppresume.com_.jpg
+- path: ppresume.com_ (1).jpg
+- path: ppresume.com_ (2).jpg
 - path: ppresume.com_ (3).png
-- path: “docs.ppresume.com_.png”
-- path: docs.ppresume.com_ (1).png
-- path: docs.ppresume.com_ (2).png
-- path: docs.ppresume.com_ (3).png
+- path: docs.ppresume.com_.jpg
+- path: docs.ppresume.com_ (1).jpg
+- path: docs.ppresume.com_ (2).jpg
+- path: docs.ppresume.com_ (3).jpg
 - path: docs.ppresume.com_ (4).png
-- path: docs.ppresume.com_ (5).png
+- path: docs.ppresume.com_ (5).jpg
 - path: docs.ppresume.com_ (6).png
-- path: docs.ppresume.com_ (7).png
+- path: docs.ppresume.com_ (7).jpg
 features:
 - 'State of the Art Typesetting: Each element, from heading and subheadings to bullet points and text alignment, is carefully considered, for the pursuit of pixel perfect'
 - 'Fine-tuned Typography: Tuning typography like selecting the perfect font, adjusting spacing and alignment, etc. is tedious, leave these nitty gritty details to us'

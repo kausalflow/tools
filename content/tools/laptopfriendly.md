@@ -3,10 +3,10 @@ author: LM
 title: LaptopFriendly
 summary: Find a laptop friendly place to work
 images:
-- path: laptopfriendly.co_.png
+- path: laptopfriendly.co_.jpg
 - path: laptopfriendly.co_berlin_two-and-two_edit.png
-- path: laptopfriendly.co_berlin_two-and-two.png
-- path: laptopfriendly.co_berlin.png
+- path: laptopfriendly.co_berlin_two-and-two.jpg
+- path: laptopfriendly.co_berlin.jpg
 - path: laptopfriendly.co_cities.png
 - path: laptopfriendly.co_suggest.png
 features:

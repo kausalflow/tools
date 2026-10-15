@@ -2,7 +2,7 @@
 title: Unpaywall
 summary: An open database of free scholarly articles for you to legally download research papers for free.
 images:
-- path: unpaywall-landing.png
+- path: unpaywall-landing.jpg
 features:
 - Chrome Extension
 categories:

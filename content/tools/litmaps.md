@@ -7,11 +7,11 @@ images:
 - path: keyword-desc.png
 - path: radar-desc-symmetrical.png
 - path: CleanShot 2021-03-07 at 09.41.18@2x.png
-- path: CleanShot 2021-03-07 at 09.42.29@2x.png
+- path: CleanShot 2021-03-07 at 09.42.29@2x.jpg
 - path: CleanShot 2021-03-07 at 09.43.07@2x.png
 - path: CleanShot 2021-03-07 at 09.44.04@2x.png
 - path: CleanShot 2021-03-07 at 09.44.53@2x.png
-- path: CleanShot 2021-03-07 at 09.45.07@2x.png
+- path: CleanShot 2021-03-07 at 09.45.07@2x.jpg
 - path: CleanShot 2021-03-07 at 09.46.04@2x.png
 - path: CleanShot 2021-03-07 at 09.46.17@2x.png
 features:

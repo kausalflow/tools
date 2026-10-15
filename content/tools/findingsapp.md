@@ -2,9 +2,9 @@
 title: Findings App
 summary: Your research assistant & lab notebook, all in one app.
 images:
-- path: findingsapp-overview.png
+- path: findingsapp-overview.jpg
 - path: findingsapp-screenshot-intro.png
-- path: findingsapp-protocals.png
+- path: findingsapp-protocals.jpg
 features:
 - Protocals
 - Meeting notes

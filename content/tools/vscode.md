@@ -2,7 +2,7 @@
 title: Visual Studio Code
 summary: Universal editor with an extension marketplace.
 images:
-- path: vscode-landing.png
+- path: vscode-landing.jpg
 - path: vscode-marketplace.png
 features:
 - Extensions can be installed freely.

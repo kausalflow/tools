@@ -2,7 +2,7 @@
 title: Rousseau
 summary: Lightweight proofreader in JS
 images:
-- path: rousseau-github.png
+- path: rousseau-github.jpg
 features: null
 categories:
 - Publishing and Sharing

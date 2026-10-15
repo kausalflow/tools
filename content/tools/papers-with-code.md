@@ -3,16 +3,16 @@ author: LM
 title: Papers with Code
 summary: The mission of Papers with Code is to create a free and open resource with Machine Learning papers, code, datasets, methods and evaluation tables. There is also papers with code for physics, astronomy, and more.
 images:
-- path: paperswithcode.com_.png
-- path: paperswithcode.com_datasets.png
-- path: paperswithcode.com_libraries.png
+- path: paperswithcode.com_.jpg
+- path: paperswithcode.com_datasets.jpg
+- path: paperswithcode.com_libraries.jpg
 - path: paperswithcode.com_method_multi-head-attention.png
-- path: paperswithcode.com_methods.png
+- path: paperswithcode.com_methods.jpg
 - path: paperswithcode.com_methods_category_attention-mechanisms.png
 - path: paperswithcode.com_paper_unleashing-vanilla-vision-transformer-with.png
-- path: paperswithcode.com_sota.png
+- path: paperswithcode.com_sota.jpg
 - path: paperswithcode.com_sota_medical-image-segmentation-on-kvasir-seg.png
-- path: paperswithcode.com_task_medical-image-segmentation.png
+- path: paperswithcode.com_task_medical-image-segmentation.jpg
 - path: paperswithcode.com_trends.png
 - path: portal.paperswithcode.com_.png
 features:

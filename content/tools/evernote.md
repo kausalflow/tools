@@ -2,7 +2,7 @@
 title: Evernote
 summary: Not so lightweight but still very good for managing life especially since it has got a lot of integrations from a lot of other services.
 images:
-- path: evernote.com_.png
+- path: evernote.com_.jpg
 - path: evernote_new_note.png
 categories:
 - Project Management

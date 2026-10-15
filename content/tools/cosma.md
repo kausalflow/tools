@@ -3,10 +3,10 @@ author: tooler
 title: Cosma
 summary: Cosma is a document graph visualization tool. It modelizes interlinked Markdown files and renders them as an interactive network in a web interface. You can use Cosma to create a portable knowledge base, combining rich hypertextual descriptions with the affordances of a graph view, contextualized backlinks, automatically generated citations, metadata filters and more.
 images:
-- path: otletosphere.png
+- path: otletosphere.jpg
 - path: glossary.png
 - path: algoj-concept.png
-- path: algoJ.png
+- path: algoJ.jpg
 - path: cosma-examples.png
 - path: glossary-backlink.png
 features:

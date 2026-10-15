@@ -12,10 +12,10 @@ images:
 - path: synthical.com_pricing.png
 - path: synthical.com_user_activity.png
 - path: synthical.com_article_comments.png
-- path: synthical.com_article_demo.png
+- path: synthical.com_article_demo.jpg
 - path: synthical.com_article_folder.png
 - path: synthical.com_article_similar.png
-- path: synthical.com_feed.png
+- path: synthical.com_feed.jpg
 - path: synthical.com_new_article.png
 - path: synthical.com_article_4d4f86a2-ffaa-11ed-9b54-72eb57fa10b3.png
 features:

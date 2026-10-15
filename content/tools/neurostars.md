@@ -2,7 +2,7 @@
 title: Neurostars
 summary: StackOverflow style Q&A site for neuroinformatics.
 images:
-- path: neurostars-landing.png
+- path: neurostars-landing.jpg
 features: null
 categories:
 - Communications

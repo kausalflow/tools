@@ -2,7 +2,7 @@
 title: Arxiv Sanity
 summary: Web interface for browsing, search and filtering recent arxiv submissions
 images:
-- path: arxiv-sanity-landing.png
+- path: arxiv-sanity-landing.jpg
 features: null
 categories:
 - Project Research

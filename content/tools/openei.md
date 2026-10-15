@@ -2,11 +2,11 @@
 title: OpenEI
 summary: Linked energy information on hundreds of topics crowdsourced from industry and government agencies.
 images:
-- path: openei-landing.png
-- path: openei-fields.png
-- path: openei.org_wiki_Apps.png
-- path: openei.org_wiki_Data.png
-- path: openei.org_wiki_OpenEI_Get_Involved.png
+- path: openei-landing.jpg
+- path: openei-fields.jpg
+- path: openei.org_wiki_Apps.jpg
+- path: openei.org_wiki_Data.jpg
+- path: openei.org_wiki_OpenEI_Get_Involved.jpg
 features: null
 categories:
 - Project Research

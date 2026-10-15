@@ -2,7 +2,7 @@
 title: Biostars
 summary: StackOverflow style Q&A site for bioinformatics.
 images:
-- path: biostars-landing.png
+- path: biostars-landing.jpg
 features: null
 categories:
 - Communications

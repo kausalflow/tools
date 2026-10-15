@@ -3,7 +3,7 @@ author: LM
 title: Logseq
 summary: Logseq is a joyful, open-source outliner that works on top of local plain-text Markdown and Org-mode files. Use it to write, organize and share your thoughts, keep your to-do list, and build your own digital garden.
 images:
-- path: logseq-1.png
+- path: logseq-1.jpg
 - path: logseq-connections.gif
 - path: logseq-tasks.gif
 - path: logseq.github.io_ (1).png

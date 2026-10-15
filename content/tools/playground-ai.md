@@ -3,11 +3,11 @@ author: LM
 title: Playground AI
 summary: Generate images for your presentations
 images:
-- path: playgroundai.com_canvas_earth.png
-- path: playgroundai.com_.png
-- path: playgroundai.com_1.png
-- path: playgroundai.com_canvas_neurons.png
-- path: playgroundai.com_canvas_sharing.png
+- path: playgroundai.com_canvas_earth.jpg
+- path: playgroundai.com_.jpg
+- path: playgroundai.com_1.jpg
+- path: playgroundai.com_canvas_neurons.jpg
+- path: playgroundai.com_canvas_sharing.jpg
 - path: playgroundai.com_pricing.png
 features:
 - Write prompt and generate images

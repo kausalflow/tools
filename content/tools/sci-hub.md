@@ -3,7 +3,7 @@ author: sci-hub.im
 title: Sci-Hub - Academic Papers for All
 summary: sh can helping people getting academic papers for free
 images:
-- path: sci-hub-landing.png
+- path: sci-hub-landing.jpg
 features:
 - Use DOI to download papers
 - Use journal paper links to download papers

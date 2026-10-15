@@ -2,7 +2,7 @@
 title: 'OSF: Open Science Framework'
 summary: OSF is a free, open platform to support your research and enable collaboration.
 images:
-- path: osf-landing.png
+- path: osf-landing.jpg
 features:
 - Repositories
 - DOI

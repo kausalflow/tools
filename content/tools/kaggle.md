@@ -2,7 +2,7 @@
 title: Kaggle
 summary: Kaggle is a competition platform that bundles online computing Jupyter notebooks and data management.
 images:
-- path: kaggle_landing.png
+- path: kaggle_landing.jpg
 features:
 - Public datasets
 - Connect to Google services such as BigQuery

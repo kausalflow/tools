@@ -3,9 +3,9 @@ author: LM
 title: Labcollector
 summary: All-in-One Lab notebook and management platform.
 images:
-- path: www.labcollector.com_.png
-- path: www.labcollector.com_ (1).png
-- path: www.labcollector.com_ (2).png
+- path: www.labcollector.com_.jpg
+- path: www.labcollector.com_ (1).jpg
+- path: www.labcollector.com_ (2).jpg
 features:
 - Mobile app
 - Data management

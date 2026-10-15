@@ -2,7 +2,7 @@
 title: 'MAST: Barbara A. Mikulski Archive for Space Telescopes'
 summary: 'MAST: Barbara A. Mikulski Archive for Space Telescopes'
 images:
-- path: mast_landing.png
+- path: mast_landing.jpg
 features: null
 categories:
 - Project Research

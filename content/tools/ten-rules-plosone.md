@@ -2,7 +2,7 @@
 title: Ten Rules Plosone
 summary: Series of quick "Ten Simple Rules" articles for research scientists to manage challenges in their careers. Number of articles are life-science specific, but rest the of articles are general enough for any researcher.
 images:
-- path: ten-rules-plosone-landing.png
+- path: ten-rules-plosone-landing.jpg
 features: null
 categories:
 - Guides

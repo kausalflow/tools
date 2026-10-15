@@ -2,7 +2,7 @@
 title: Read the Docs
 summary: Read the Docs simplifies software documentation by automating building, versioning, and hosting of your docs for you.
 images:
-- path: readthedocs-landing.png
+- path: readthedocs-landing.jpg
 features:
 - Integrated with GitHub and Gitlab
 categories:

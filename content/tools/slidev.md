@@ -5,7 +5,7 @@ summary: Presentation Slides for Developers
 images:
 - path: slidev_demo.gif
 - path: sli.dev_landing.png
-- path: sli.dev_themes_gallery.png
+- path: sli.dev_themes_gallery.jpg
 features:
 - 📝 Markdown-based - use your favorite editors and workflow
 - 🧑‍💻 Developer Friendly - built-in syntax highlighting, live coding, etc.

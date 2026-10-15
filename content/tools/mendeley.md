@@ -2,7 +2,7 @@
 title: Mendeley
 summary: A bibliography reference manager with cloud storage and BibTeX support.
 images:
-- path: mendeley-landing.png
+- path: mendeley-landing.jpg
 features:
 - Use online library to read anywhere
 - Teams

@@ -4,7 +4,7 @@ summary: Speed up literature review
 images:
 - path: iris-ai-landing.png
 - path: iris-ai-demo-1.png
-- path: iris-ai-demo-map.png
+- path: iris-ai-demo-map.jpg
 - path: iris-ai-demo.png
 features:
 - literature map

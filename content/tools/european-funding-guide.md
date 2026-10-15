@@ -3,9 +3,9 @@ author: LM
 title: European Funding Guide
 summary: Find money for your education in Europe.
 images:
-- path: european-funding-guide.eu_.png
-- path: european-funding-guide.eu_scholarship_overview_Germany.png
-- path: european-funding-guide.eu_scholarship.png
+- path: european-funding-guide.eu_.jpg
+- path: european-funding-guide.eu_scholarship_overview_Germany.jpg
+- path: european-funding-guide.eu_scholarship.jpg
 features: null
 categories:
 - Guides

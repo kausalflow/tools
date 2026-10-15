@@ -3,7 +3,7 @@ author: null
 title: Asciinema
 summary: Command line recording and sharing.
 images:
-- path: asciinema-landing.png
+- path: asciinema-landing.jpg
 features:
 - Text in the recording can be selected.
 categories:

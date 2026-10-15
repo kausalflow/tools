@@ -2,7 +2,7 @@
 title: Todoist
 summary: Multi-platform tool to track and analyze tasks.
 images:
-- path: todoist.png
+- path: todoist.jpg
 - path: todoist-inbox.png
 - path: todoist-today.png
 features:

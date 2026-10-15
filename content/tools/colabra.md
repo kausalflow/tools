@@ -3,16 +3,16 @@ author: Philip Seifi
 title: Colabra
 summary: Collaborative ELN and Project Management
 images:
-- path: www.colabra.app_landing.png
-- path: www.colabra.app_ (3).png
+- path: www.colabra.app_landing.jpg
+- path: www.colabra.app_ (3).jpg
 - path: lab.colabra.app_auth-callback (1).png
 - path: lab.colabra.app_auth-callback (2).png
 - path: lab.colabra.app_auth-callback.png
-- path: modernlab.colabra.app.png
+- path: modernlab.colabra.app.jpg
 - path: www.colabra.app_ (1).png
-- path: www.colabra.app_ (2).png
+- path: www.colabra.app_ (2).jpg
 - path: www.colabra.app_ (5).png
-- path: www.colabra.app_ (6).png
+- path: www.colabra.app_ (6).jpg
 - path: www.colabra.app_integrations_.png
 - path: www.colabra.app_integrations_pricing.png
 features:

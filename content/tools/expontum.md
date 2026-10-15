@@ -6,7 +6,7 @@ images:
 - path: subjectpage_earning.png
 - path: knowledgegaps_learning.png
 - path: landing.png
-- path: searchbytext.png
+- path: searchbytext.jpg
 features:
 - Helps researchers quickly find knowledge gaps and identify what research projects have been completed before.
 - Expontum is free, open access, and available to all globally with no paid versions of the site.

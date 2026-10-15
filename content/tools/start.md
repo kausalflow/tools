@@ -3,7 +3,7 @@ author: Ana
 title: StArt
 summary: StArt is a tool developed in an academic environment with scientific soundness that supports conducting systematic reviews.
 images:
-- path: www.lapes.ufscar.br_resources_tools-1_start-1.png
+- path: www.lapes.ufscar.br_resources_tools-1_start-1.jpg
 features:
 - Built-in protocol to fill out
 - Operationalises the planning, execution, selection and extraction stages of the systematic review

@@ -2,7 +2,7 @@
 title: GEOSS Portal
 summary: Earth science data
 images:
-- path: geoss-portal-landing.png
+- path: geoss-portal-landing.jpg
 features:
 - Earth Science
 categories:

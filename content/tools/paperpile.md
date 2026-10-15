@@ -3,7 +3,7 @@ author: null
 title: Paperpile
 summary: Reference manager made by scientists for scientists using modern technology
 images:
-- path: paperpile.com_features_.png
+- path: paperpile.com_features_.jpg
 - path: google-docs-citations-bibliography.mp4
 - path: import-pdfs.mp4
 - path: download-pdfs.mp4
@@ -12,7 +12,7 @@ images:
 - path: online-search.png
 - path: paperpile.com_pricing_.png
 - path: CleanShot 2021-02-23 at 20.22.13@2x.png
-- path: CleanShot 2021-02-23 at 20.22.27@2x.png
+- path: CleanShot 2021-02-23 at 20.22.27@2x.jpg
 - path: CleanShot 2021-02-23 at 20.22.51@2x.png
 - path: CleanShot 2021-02-23 at 20.23.51@2x.png
 - path: CleanShot 2021-02-23 at 20.24.58@2x.png

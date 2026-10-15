@@ -3,7 +3,7 @@ author: null
 title: ASReview
 summary: Active learning tool designed to aid researchers in the title/abstract screening step of systematic reviews. It is expected to save time as it allows a prioritized screening based on prior knowledge (set of at least one relevant and one irrelevant record).
 images:
-- path: asreview-exploration-mode-1-2048x1280.png
+- path: asreview-exploration-mode-1-2048x1280.jpg
 - path: as-review-select-dataset-2048x1280.png
 - path: asreview-logos-2.webp
 - path: asreview-results-with-social-media-buttons.png

@@ -2,7 +2,7 @@
 title: Unsplash
 summary: Free high resolution images.
 images:
-- path: unsplash-landing.png
+- path: unsplash-landing.jpg
 features: null
 categories:
 - Publishing and Sharing

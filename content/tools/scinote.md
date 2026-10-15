@@ -3,9 +3,9 @@ author: LM
 title: SciNote
 summary: SciNote Electronic Lab Notebook (ELN). Top-rated solution trusted by the FDA & 70k+ scientists in 100+ countries.
 images:
-- path: www.scinote.net_.png
+- path: www.scinote.net_.jpg
 - path: www.scinote.net_premium_.png
-- path: www.scinote.net_product_.png
+- path: www.scinote.net_product_.jpg
 features:
 - Electronic Lab notebook
 - Lab information management

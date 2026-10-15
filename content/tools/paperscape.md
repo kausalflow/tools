@@ -2,7 +2,7 @@
 title: Paperscape
 summary: Paperscape is an interactive map that visualises the arXiv, an open, online repository for scientific research papers.
 images:
-- path: paperscape-landing.png
+- path: paperscape-landing.jpg
 features: null
 categories:
 - Project Research

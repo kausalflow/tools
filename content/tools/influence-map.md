@@ -3,10 +3,10 @@ author: LM
 title: Influence Map
 summary: Influence flower visualizes citation influences among academic entities, including papers, authors, institutions, and research topics.
 images:
-- path: influencemap.cmlab.dev_example_2.png
+- path: influencemap.cmlab.dev_example_2.jpg
 - path: influencemap.cmlab.dev_.png
 - path: influencemap.cmlab.dev_create.png
-- path: influencemap.cmlab.dev_example.png
+- path: influencemap.cmlab.dev_example.jpg
 features:
 - Visualization of researchers and institutes.
 - Create maps

@@ -3,7 +3,7 @@ author: ResearchMate
 title: ResearchMate.pro
 summary: Instantly Extract Insights from Medical Research Papers with ResearchMate.
 images:
-- path: researchmate.pro-landing.png
+- path: researchmate.pro-landing.jpg
 - path: researchmate_demo_vid_cropped_split_looped.webm
 - path: researchmate-chat.png
 features:

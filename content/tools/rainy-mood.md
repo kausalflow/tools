@@ -2,7 +2,7 @@
 title: Rainy Mood
 summary: rainy day rainy mood, simple but with excellent white noise; a new beautiful soundtrack each day
 images:
-- path: rainymood-landing.png
+- path: rainymood-landing.jpg
 features: null
 categories:
 - Guides

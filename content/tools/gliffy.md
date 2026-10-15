@@ -2,7 +2,7 @@
 title: Gliffy
 summary: Diagram software that works as hard as your team.
 images:
-- path: gliffy-landing.png
+- path: gliffy-landing.jpg
 features:
 - Collaborations with other people
 - A lot of built-in diagram types

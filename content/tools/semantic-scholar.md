@@ -9,7 +9,7 @@ images:
 - path: semanticscholar-paper-citations.png
 - path: semanticscholar-search.png
 - path: semanticscholar-view-paper.png
-- path: semanticscholar-landing.png
+- path: semanticscholar-landing.jpg
 features:
 - Search papers in all fields
 - Researcher profiles

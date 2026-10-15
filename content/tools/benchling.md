@@ -8,9 +8,9 @@ images:
 - path: benchling_demo_video.mp4
 - path: www.benchling.com_pricing_ (1).png
 - path: www.benchling.com_pricing_ (2).png
-- path: www.benchling.com_pricing_ (3).png
-- path: www.benchling.com_pricing_ (4).png
-- path: www.benchling.com_pricing_.png
+- path: www.benchling.com_pricing_ (3).jpg
+- path: www.benchling.com_pricing_ (4).jpg
+- path: www.benchling.com_pricing_.jpg
 features:
 - visualization of analysis such as molecules
 - manage project workflows

@@ -3,9 +3,9 @@ author: LM
 title: Microsoft Bing Image Generator
 summary: Generate images by typing some texts.
 images:
-- path: www.bing.com_images_create_neurons-connected-to-each-other.png
-- path: www.bing.com_images_create_q=dying_sun.png
-- path: www.bing.com_images_create_q=cells.png
+- path: www.bing.com_images_create_neurons-connected-to-each-other.jpg
+- path: www.bing.com_images_create_q=dying_sun.jpg
+- path: www.bing.com_images_create_q=cells.jpg
 - path: bing-ai-images.png
 features:
 - Generate images by describing what you want.

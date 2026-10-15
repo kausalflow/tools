@@ -2,8 +2,8 @@
 title: Codingame
 summary: Coding and having fun
 images:
-- path: codingame-landing.png
-- path: codingame-clash.png
+- path: codingame-landing.jpg
+- path: codingame-clash.jpg
 categories:
 - Fun
 tags:

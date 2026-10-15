@@ -3,10 +3,10 @@ author: LM
 title: ReadPaper
 summary: A Chinese website for reading, managing, and discussing research papers online.
 images:
-- path: readpaper.com_pdf-annotate_note_pdfId=4510126408285708289 (1).png
+- path: readpaper.com_pdf-annotate_note_pdfId=4510126408285708289 (1).jpg
 - path: readpaper.com_pdf-annotate_note_pdfId=4510126408285708289.png
 - path: readpaper.com_ (2).png
-- path: readpaper.com_ (3).png
+- path: readpaper.com_ (3).jpg
 - path: readpaper.com_paper_2136922672 (1).png
 - path: readpaper.com_paper_2136922672 (2).png
 - path: readpaper.com_paper_2136922672 (3).png

@@ -6,7 +6,7 @@ images:
 - path: www.mylabbook.org_.png
 - path: www.mylabbook.org_an-example-of-the-mylabbook-approach_.png
 - path: www.mylabbook.org_knowledge-base.png
-- path: www.mylabbook.org_overview-of-mylabbook_.png
+- path: www.mylabbook.org_overview-of-mylabbook_.jpg
 features:
 - Open source
 - Sustainable because of popularity of WordPress

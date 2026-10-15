@@ -2,7 +2,7 @@
 title: Scholarpedia
 summary: the peer-reviewed open-access encyclopedia, where knowledge is curated by communities of experts.
 images:
-- path: scholarpedia-landing.png
+- path: scholarpedia-landing.jpg
 features:
 - Peer-reviewed
 categories:

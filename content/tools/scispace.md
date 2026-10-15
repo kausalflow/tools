@@ -8,14 +8,14 @@ images:
 - path: scispace-4.jpg
 - path: scispace.jpg
 - path: typeset.io_ ai_paper.png
-- path: typeset.io_.png
+- path: typeset.io_.jpg
 - path: typeset.io_lib.png
-- path: typeset.io_pdf_paper.png
+- path: typeset.io_pdf_paper.jpg
 - path: typeset.io_search_ai_detector.png
 - path: typeset.io_search_citation_gen.png
 - path: typeset.io_search_paraphrasing_example.png
 - path: typeset.io_search_paraphrasing.png
-- path: typeset.io_search.png
+- path: typeset.io_search.jpg
 features:
 - Literature review with AI
 - AI assisted paper reading

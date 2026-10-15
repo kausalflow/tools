@@ -3,13 +3,13 @@ author: LM
 title: RAx - Your Personal Smart Research Assistant (Rebranded to Enago Read)
 summary: (Rebranded to Enago Read) Speed up literature analysis and comprehension with RAx. Smart assistant to explore, collate insights and organize your research easily.
 images:
-- path: raxter_landing.png
-- path: raxter_analysis.png
-- path: raxter_compare.png
-- path: raxter_expand.png
-- path: raxter_gaps.png
-- path: raxter_gtd.png
-- path: raxter_insights.png
+- path: raxter_landing.jpg
+- path: raxter_analysis.jpg
+- path: raxter_compare.jpg
+- path: raxter_expand.jpg
+- path: raxter_gaps.jpg
+- path: raxter_gtd.jpg
+- path: raxter_insights.jpg
 - path: raxter_assistant_projects.png
 features:
 - Related research and texts in literature

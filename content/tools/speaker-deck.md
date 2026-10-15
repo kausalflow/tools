@@ -2,7 +2,7 @@
 title: Speaker Deck
 summary: Share your slides with others and find interesting slides.
 images:
-- path: speakerdeck-landing.png
+- path: speakerdeck-landing.jpg
 features:
 - Upload pdf files
 categories:

@@ -3,8 +3,8 @@ author: LM
 title: Bifrost AI Datasets
 summary: Search for visual datasets by task, application, class, label or format
 images:
-- path: datasets.bifrost.ai_.png
-- path: datasets.bifrost.ai_info_2056.png
+- path: datasets.bifrost.ai_.jpg
+- path: datasets.bifrost.ai_info_2056.jpg
 features:
 - A lot of datasets for open access
 - Filter by task, application, class, label or format

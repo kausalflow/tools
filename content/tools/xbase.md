@@ -3,7 +3,7 @@ author: Kyle Do
 title: Xbase
 summary: It's a Twitter Bookmark Manager for professional users.
 images:
-- path: xbase-intro.png
+- path: xbase-intro.jpg
 - path: xbase-demo.mp4
 - path: xbase-pricing.png
 - path: xbase-usecase.png

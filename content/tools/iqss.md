@@ -2,8 +2,8 @@
 title: 'IQSS: The Institute for Quantitative Social Science'
 summary: The Institute for Quantitative Social Science
 images:
-- path: iqss-landing.png
-- path: iqss-programs.png
+- path: iqss-landing.jpg
+- path: iqss-programs.jpg
 features: null
 categories:
 - Project Research

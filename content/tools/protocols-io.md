@@ -2,7 +2,7 @@
 title: Protocols Io
 summary: Create, share, and collaborate on protocals. Protocals.io is not only for biologist, it can be used for any protocals.
 images:
-- path: protocols-io-landing.png
+- path: protocols-io-landing.jpg
 - path: protocols-io-add.png
 - path: protocols-io-create-new.png
 features:

@@ -2,7 +2,7 @@
 title: Seaborn
 summary: statistical data visualization in Python
 images:
-- path: seaborn-landing.png
+- path: seaborn-landing.jpg
 features:
 - Built-in statistical charts
 categories:

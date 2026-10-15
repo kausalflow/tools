@@ -2,8 +2,8 @@
 title: Papeeria
 summary: Online LaTeX editor
 images:
-- path: papeeria-landing.png
-- path: papeeria-editor.png
+- path: papeeria-landing.jpg
+- path: papeeria-editor.jpg
 features: null
 categories:
 - Publishing and Sharing

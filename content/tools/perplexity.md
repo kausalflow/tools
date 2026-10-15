@@ -6,8 +6,8 @@ images:
 - path: perplexity-landing.png
 - path: perplexity-demo-paris-2.png
 - path: perplexity-demo-paris-3.png
-- path: perplexity-demo-planets-2.png
-- path: perplexity-demo-planets.png
+- path: perplexity-demo-planets-2.jpg
+- path: perplexity-demo-planets.jpg
 - path: perplexity-demo-pro-paris.png
 - path: perplexity-pro.png
 features:

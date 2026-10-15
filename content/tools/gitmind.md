@@ -3,10 +3,10 @@ author: wanderer27w
 title: Gitmind
 summary: Free, online mindmapping and flow charts
 images:
-- path: gitmind.com_.png
-- path: gitmind.com_ (1).png
+- path: gitmind.com_.jpg
+- path: gitmind.com_ (1).jpg
 - path: gitmind.com_ (2).png
-- path: gitmind.com_ (3).png
+- path: gitmind.com_ (3).jpg
 - path: gitmind.com_ (4).png
 - path: gitmind.com_ (5).png
 - path: gitmind.com_ (6).png

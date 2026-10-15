@@ -3,7 +3,7 @@ title: Phylopic
 summary: Free silhouette images of animals, plants, and other life forms, available for reuse under a Public Domain or Creative Commons license.
 images:
 - path: phylopic-landing.png
-- path: phylopic-pic.png
+- path: phylopic-pic.jpg
 features: null
 categories:
 - Project Research

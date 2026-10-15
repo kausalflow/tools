@@ -3,12 +3,12 @@ author: LM
 title: Adobe Firefly
 summary: Experiment, imagine, and create an infinite range of images with Firefly, generative AI-powered content creation from Adobe.
 images:
-- path: firefly.adobe.com_galary.png
-- path: firefly.adobe.com_atoms.png
-- path: firefly.adobe.com_many_neurons.png
-- path: firefly.adobe.com_more_neurons.png
-- path: firefly.adobe.com_neurons.png
-- path: firefly.adobe.com_sun.png
+- path: firefly.adobe.com_galary.jpg
+- path: firefly.adobe.com_atoms.jpg
+- path: firefly.adobe.com_many_neurons.jpg
+- path: firefly.adobe.com_more_neurons.jpg
+- path: firefly.adobe.com_neurons.jpg
+- path: firefly.adobe.com_sun.jpg
 features:
 - Create images from text, or existing images
 - Style and design images for your presentation

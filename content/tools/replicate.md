@@ -3,10 +3,10 @@ author: LM
 title: Replicate
 summary: Run and share models in the cloud at scale.
 images:
-- path: replicate.com_.png
+- path: replicate.com_.jpg
 - path: replicate.com_demo.png
-- path: replicate.com_docs.png
-- path: replicate.com_explore.png
+- path: replicate.com_docs.jpg
+- path: replicate.com_explore.jpg
 - path: replicate.com_pricing.png
 - path: replicate.com_replicate_llama-2-70b-chat.png
 - path: replicate.com_replicate_llama-2-70b-chat_2.png

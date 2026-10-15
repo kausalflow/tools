@@ -2,9 +2,9 @@
 title: 'ICPSR: Inter-university Consortium for Political and Social Research'
 summary: Inter-university Consortium for Political and Social Research
 images:
-- path: icpsr-landing.png
-- path: icpsr-deposit.png
-- path: icpsr-search.png
+- path: icpsr-landing.jpg
+- path: icpsr-deposit.jpg
+- path: icpsr-search.jpg
 features: null
 categories:
 - Project Research
