@@ -8,10 +8,8 @@ features:
 - Shortcut key to activate the UI
 - Ask it anything to get answers
 categories:
+- Project Research
 - Publishing and Sharing
-- Project Management
-- Project Research (such as background research, hypothesis proposals)
-- Project Management
 tags:
 - Reference Management
 - References and Journals
@@ -23,7 +21,7 @@ platforms:
 fields:
 - General and Interdisciplinary
 links:
-- name: github.com/lifan0127/zotero-research-assistant
+- name: GitHub
   link: https://github.com/lifan0127/zotero-research-assistant
 date: '2023-04-11'
 
