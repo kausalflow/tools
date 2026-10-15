@@ -280,6 +280,13 @@ Answer with one JSON object only: {"relevant": "yes" | "no" | "unsure", "reason"
 "flags": ["short flag", ...]}"""
 
 
+def llm_headers(key):
+    h = {"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"}
+    if os.environ.get("ANTHROPIC_WORKSPACE_ID"):  # needed for keys that are not scoped to one workspace
+        h["anthropic-workspace-id"] = os.environ["ANTHROPIC_WORKSPACE_ID"]
+    return h
+
+
 def llm_screen(sub, page):
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
@@ -297,7 +304,7 @@ def llm_screen(sub, page):
     try:
         r = requests.post(
             "https://api.anthropic.com/v1/messages",
-            headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"},
+            headers=llm_headers(key),
             json=body, timeout=60,
         )
         r.raise_for_status()
@@ -312,7 +319,7 @@ def llm_screen(sub, page):
         detail = str(e)[:80]
         resp = getattr(e, "response", None)
         if resp is not None:
-            detail += " | " + resp.text[:160].replace("\n", " ")
+            detail += " | " + resp.text[:400].replace("\n", " ")
         return {"relevant": "skipped", "reason": f"screen failed: {detail}", "flags": []}
 
 
