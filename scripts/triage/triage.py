@@ -114,20 +114,27 @@ def from_csv(path):
             yield normalize(row, sid, row.get("created_at", ""))
 
 
+def netlify_get(path, token, **params):
+    r = requests.get(
+        f"https://api.netlify.com/api/v1/{path}", params=params,
+        headers={"Authorization": f"Bearer {token}", "User-Agent": UA}, timeout=30,
+    )
+    if r.status_code != 200:
+        raise SystemExit(f"Netlify API {path} returned HTTP {r.status_code}: {r.text[:200]!r}")
+    try:
+        return r.json()
+    except ValueError:
+        raise SystemExit(f"Netlify API {path} returned non-JSON ({r.headers.get('content-type')}): {r.text[:200]!r}")
+
+
 def from_netlify(token, site_id=None):
-    h = {"Authorization": f"Bearer {token}", "User-Agent": UA}
-    forms = requests.get("https://api.netlify.com/api/v1/forms", headers=h, timeout=30).json()
-    forms = [f for f in forms if f.get("name") == FORM_NAME and (not site_id or f.get("site_id") == site_id)]
+    path = f"sites/{site_id}/forms" if site_id else "forms"
+    forms = [f for f in netlify_get(path, token) if f.get("name") == FORM_NAME]
     if not forms:
-        raise SystemExit(f"form {FORM_NAME!r} not found for this token")
+        raise SystemExit(f"form {FORM_NAME!r} not found (looked in {path}); set the NETLIFY_SITE_ID variable")
     page = 1
     while True:
-        r = requests.get(
-            f"https://api.netlify.com/api/v1/forms/{forms[0]['id']}/submissions",
-            params={"per_page": 100, "page": page}, headers=h, timeout=30,
-        )
-        r.raise_for_status()
-        batch = r.json()
+        batch = netlify_get(f"forms/{forms[0]['id']}/submissions", token, per_page=100, page=page)
         if not batch:
             return
         for s in batch:
