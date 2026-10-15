@@ -309,7 +309,11 @@ def llm_screen(sub, page):
         return {"relevant": out["relevant"], "reason": str(out.get("reason", ""))[:300],
                 "flags": [str(f)[:60] for f in (out.get("flags") or [])][:5]}
     except Exception as e:
-        return {"relevant": "skipped", "reason": f"screen failed: {str(e)[:120]}", "flags": []}
+        detail = str(e)[:80]
+        resp = getattr(e, "response", None)
+        if resp is not None:
+            detail += " | " + resp.text[:160].replace("\n", " ")
+        return {"relevant": "skipped", "reason": f"screen failed: {detail}", "flags": []}
 
 
 # ---------------------------------------------------------------- triage
