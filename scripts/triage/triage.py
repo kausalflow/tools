@@ -128,7 +128,15 @@ def netlify_get(path, token, **params):
 
 
 def from_netlify(token, site_id=None):
-    path = f"sites/{site_id}/forms" if site_id else "forms"
+    if not site_id:
+        wanted = os.environ.get("NETLIFY_SITE_NAME", "kausalflow-tools")
+        sites = netlify_get("sites", token, filter="all", per_page=100)
+        match = [s for s in sites if wanted in (s.get("name"), s.get("custom_domain"))]
+        if not match:
+            names = ", ".join(sorted(s.get("name", "?") for s in sites)[:20])
+            raise SystemExit(f"no Netlify site named {wanted!r}; token can see: {names}. Set NETLIFY_SITE_ID.")
+        site_id = match[0]["id"]
+    path = f"sites/{site_id}/forms"
     forms = [f for f in netlify_get(path, token) if f.get("name") == FORM_NAME]
     if not forms:
         raise SystemExit(f"form {FORM_NAME!r} not found (looked in {path}); set the NETLIFY_SITE_ID variable")
