@@ -1,6 +1,6 @@
 name: Triage submission issue
 
-# Runs when a submission issue is opened: either created by the /api/submit
+# Runs when a submission issue is opened: either created by the submit worker (workers/submit)
 # Cloudflare Pages Function or by the GitHub issue form. Same checks as triage.yml.
 
 on:

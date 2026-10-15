@@ -1,8 +1,10 @@
 {{- $tax := readFile "scripts/triage/taxonomy.yaml" | transform.Unmarshal -}}
-{{- $fn := eq (site.Params.submit_mode | default "github") "function" -}}
+{{- $url := site.Params.submit_url | default "" -}}
+{{- $fn := ne $url "" -}}
 {{- $repo := site.Params.github | default "kausalflow/tools" -}}
 {{- if $fn -}}
-<form class="submit-form" action="/api/submit" method="post">
+<form class="submit-form" id="fn-form" action="{{ $url }}" method="post">
+  <input type="hidden" name="t" id="fn-t" value="">
 {{- else -}}
 <form class="submit-form" id="gh-form" action="https://github.com/{{ $repo }}/issues/new" method="get" target="_blank" rel="noopener">
   <input type="hidden" name="template" value="new-tool.yml">
@@ -70,7 +72,9 @@
     <span class="help" style="align-self:center">By submitting you agree to the CC BY-SA 4.0 licence.</span>
   </div>
 </form>
-{{ if not $fn }}
+{{ if $fn }}
+<script>document.getElementById('fn-t').value = Date.now();</script>
+{{ else }}
 <p class="help">This opens a GitHub issue with your answers filled in. You need a free GitHub account to submit it.</p>
 <script>
   (function () {

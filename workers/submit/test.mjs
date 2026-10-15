@@ -1,0 +1,23 @@
+import worker from './src/index.js';
+const calls = [];
+globalThis.fetch = async (url, init) => { calls.push({ url, init }); return { ok: true, json: async () => ({ success: true }) }; };
+const mk = (o) => { const f = new FormData(); for (const [k, v] of Object.entries(o)) (Array.isArray(v) ? v : [v]).forEach((x) => f.append(k, x)); return new Request('https://worker.example/', { method: 'POST', body: f, headers: { origin: 'https://tools.example' } }); };
+const env = { GITHUB_TOKEN: 't', SITE_URL: 'https://tools.example' };
+const onRequestPost = ({ request, env }) => worker.fetch(request, env);
+const good = { submitted_by: '@bob --> x', 'tool-name': 'Demo', 'tool-summary': 'A tool that does something useful for researchers, see #12 for details.', 'tool-link': 'https://example.org', 'tool-categories[]': ['Guides', 'Career'], 'tool-fields': 'Medicine' };
+let r = await onRequestPost({ request: mk(good), env });
+console.log('good', r.status, r.headers.get('location'), calls.length);
+const sent = JSON.parse(calls[0].init.body);
+console.log('title', sent.title, '| labels', sent.labels);
+const m = sent.body.match(/<!-- kf-submission\n([\s\S]*?)\n-->/);
+console.log('json ok', JSON.parse(m[1])['tool-categories'], '| contains raw "-->" inside json:', m[1].includes('-->'));
+console.log('mention defanged', !/@bob/.test(sent.body.split('<!--')[0]));
+r = await onRequestPost({ request: mk({ ...good, 'tool-link': 'javascript:alert(1)' }), env }); console.log('bad link', r.status);
+r = await onRequestPost({ request: mk({ ...good, company: 'spam' }), env }); console.log('honeypot', r.status, calls.length);
+r = await onRequestPost({ request: mk(good), env: { ...env, TURNSTILE_SECRET: 's' } }); console.log('turnstile ok', r.status);
+globalThis.fetch = async () => ({ ok: true, json: async () => ({ success: false }) });
+r = await onRequestPost({ request: mk(good), env: { ...env, TURNSTILE_SECRET: 's' } }); console.log('turnstile fail', r.status);
+
+r = await worker.fetch(new Request('https://worker.example/', { method: 'GET' }), env); console.log('GET', r.status);
+r = await worker.fetch(new Request('https://worker.example/', { method: 'POST', body: (()=>{const f=new FormData();f.append('tool-name','x');return f})(), headers: { origin: 'https://evil.example' } }), env); console.log('bad origin', r.status);
+const n0 = calls.length; r = await onRequestPost({request: mk({...good, t: String(Date.now())}), env}); console.log('too fast', r.status, 'issues created:', calls.length - n0);

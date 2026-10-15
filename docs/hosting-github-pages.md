@@ -12,8 +12,8 @@ push to master --> .github/workflows/pages.yml --> GitHub Pages --> tools.kausal
 
 - Renamed categories and tags redirect through Hugo `aliases` on the term pages (`content/categories`, `content/tags`).
 - `static/CNAME` holds the custom domain.
-- Submitters need a free GitHub account. To accept anonymous submissions, switch `params.submit_mode`
-  to `function` and follow [hosting-cloudflare.md](hosting-cloudflare.md).
+- Without more setup, submitters need a free GitHub account. For anonymous submissions deploy the small
+  worker in `workers/submit` (see [anonymous-submissions.md](anonymous-submissions.md)) and set `params.submit_url`.
 
 ## One-time setup
 

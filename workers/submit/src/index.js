@@ -1,10 +1,12 @@
-// Cloudflare Pages Function: POST /api/submit
-// Validates a tool submission and opens a GitHub issue labelled `submission`.
+// Cloudflare Worker: receives the /submit/ form (a plain cross-origin HTML POST),
+// validates it and opens a GitHub issue labelled `submission`.
 // The triage workflow picks the issue up from there.
 //
-// Environment (Pages > Settings > Variables and secrets):
+// Configuration (wrangler.toml [vars] or `wrangler secret put`):
 //   GITHUB_TOKEN      secret   fine-grained token, Issues: read and write on the repository
-//   GITHUB_REPO       variable owner/name, default kausalflow/tools
+//   GITHUB_REPO       var      owner/name, default kausalflow/tools
+//   SITE_URL          var      where to send people afterwards, default https://tools.kausalflow.com
+//   ALLOWED_ORIGINS   var      comma separated origins allowed to post, default SITE_URL
 //   TURNSTILE_SECRET  secret   optional; when set, the Turnstile token is required
 
 const SINGLE = {
@@ -18,11 +20,12 @@ const SINGLE = {
 };
 const MULTI = ['tool-categories', 'tool-tags', 'tool-platforms', 'tool-fields'];
 
-const html = (status, title, message) =>
+const BACK = '/submit/';
+const html = (status, title, message, site) =>
   new Response(
     `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">` +
       `<title>${title}</title><body style="font:16px system-ui;max-width:36rem;margin:4rem auto;padding:0 1rem">` +
-      `<h1>${title}</h1><p>${message}</p><p><a href="/submit/">Back to the form</a></p>`,
+      `<h1>${title}</h1><p>${message}</p><p><a href="${site}${BACK}">Back to the form</a></p>`,
     { status, headers: { 'content-type': 'text/html; charset=utf-8' } },
   );
 
@@ -38,16 +41,23 @@ const isHttp = (u) => {
 // keep @mentions and #refs from pinging people or linking issues
 const defang = (s) => s.replace(/@/g, '@​').replace(/#(\d)/g, '#​$1');
 
-export async function onRequestPost({ request, env }) {
+async function handle(request, env) {
+  const site = (env.SITE_URL || 'https://tools.kausalflow.com').replace(/\/$/, '');
+  const allowed = (env.ALLOWED_ORIGINS || site).split(',').map((o) => o.trim().replace(/\/$/, ''));
+  const origin = (request.headers.get('origin') || '').replace(/\/$/, '');
+  if (origin && !allowed.includes(origin)) return html(403, 'Not allowed', 'This form must be submitted from the site.', site);
+  const thanks = () => Response.redirect(`${site}/submit/thanks/`, 303);
   let form;
   try {
     form = await request.formData();
   } catch {
-    return html(400, 'Invalid submission', 'The form data could not be read.');
+    return html(400, 'Invalid submission', 'The form data could not be read.', site);
   }
 
   // honeypot: bots fill every field, people never see this one
-  if (form.get('company')) return Response.redirect(new URL('/submit/thanks/', request.url), 303);
+  // too fast to be a person: the page stamps its load time into `t`
+  const t = Number(form.get('t'));
+  if (form.get('company') || (t && Date.now() - t < 3000)) return thanks();
 
   const data = {};
   for (const [key, max] of Object.entries(SINGLE)) data[key] = clean(form.get(key), max);
@@ -61,7 +71,7 @@ export async function onRequestPost({ request, env }) {
   if (data['tool-summary'].length < 40) problems.push('a summary of at least 40 characters');
   if (!isHttp(data['tool-link'])) problems.push('a link starting with http:// or https://');
   if (data['tool-link-alt'] && !isHttp(data['tool-link-alt'])) problems.push('a valid alternative link');
-  if (problems.length) return html(400, 'Please check the form', `Missing or invalid: ${problems.join(', ')}.`);
+  if (problems.length) return html(400, 'Please check the form', `Missing or invalid: ${problems.join(', ')}.`, site);
 
   if (env.TURNSTILE_SECRET) {
     const body = new URLSearchParams({
@@ -71,10 +81,10 @@ export async function onRequestPost({ request, env }) {
     });
     const r = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body });
     const out = await r.json().catch(() => ({}));
-    if (!out.success) return html(400, 'Verification failed', 'The spam check did not pass. Please go back and try again.');
+    if (!out.success) return html(400, 'Verification failed', 'The spam check did not pass. Please go back and try again.', site);
   }
 
-  if (!env.GITHUB_TOKEN) return html(500, 'Not configured', 'Submissions are not available right now.');
+  if (!env.GITHUB_TOKEN) return html(500, 'Not configured', 'Submissions are not available right now.', site);
   const repo = env.GITHUB_REPO || 'kausalflow/tools';
 
   const lines = [
@@ -110,11 +120,14 @@ export async function onRequestPost({ request, env }) {
       labels: ['submission'],
     }),
   });
-  if (!res.ok) return html(502, 'Could not save the submission', 'Please try again later or open an issue on GitHub.');
+  if (!res.ok) return html(502, 'Could not save the submission', 'Please try again later or open an issue on GitHub.', site);
 
-  return Response.redirect(new URL('/submit/thanks/', request.url), 303);
+  return thanks();
 }
 
-export async function onRequest() {
-  return new Response('Method not allowed', { status: 405, headers: { allow: 'POST' } });
-}
+export default {
+  async fetch(request, env) {
+    if (request.method !== 'POST') return new Response('Method not allowed', { status: 405, headers: { allow: 'POST' } });
+    return handle(request, env);
+  },
+};

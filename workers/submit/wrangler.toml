@@ -1,0 +1,9 @@
+name = "kausalflow-tools-submit"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+GITHUB_REPO = "kausalflow/tools"
+SITE_URL = "https://tools.kausalflow.com"
+# add origins that may post, e.g. a preview domain:
+# ALLOWED_ORIGINS = "https://tools.kausalflow.com,https://kausalflow.github.io"

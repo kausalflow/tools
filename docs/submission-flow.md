@@ -1,6 +1,6 @@
 # Submission and review flow
 
-> Submissions now arrive as GitHub issues (prefilled issue form, or `/api/submit` on Cloudflare).
+> Submissions now arrive as GitHub issues (anonymous form through the submit worker, or the prefilled GitHub issue form).
 > See [hosting-github-pages.md](hosting-github-pages.md). The checks below are unchanged.
 
 ```
