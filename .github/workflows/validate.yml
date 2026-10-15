@@ -1,0 +1,24 @@
+name: Validate tool entries
+
+on:
+  pull_request:
+    paths:
+      - "content/tools/**"
+      - "scripts/triage/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Validate added or changed entries
+        run: python scripts/triage/validate_entries.py --changed "origin/${{ github.base_ref }}"

@@ -1,0 +1,112 @@
+# Allowed values for new tool entries. Phase 2 of the renovation will consolidate these;
+# until then they match what the site's filters already use.
+categories:
+  - Analysis and Computations
+  - Career
+  - Communications
+  - Datasets
+  - Fun
+  - Guides
+  - Life
+  - Productivity
+  - Project Management
+  - Project Research
+  - Publishing and Sharing
+
+fields:
+  - General and Interdisciplinary
+  - AI
+  - Arts and Humanities
+  - Astronomy
+  - Business
+  - Computer Science
+  - Earth Science
+  - Engineering
+  - Life Science
+  - Mathematics
+  - Medicine
+  - Physical Sciences
+  - Social Science
+  - Statistics
+
+platforms:
+  - Web
+  - Mac
+  - Win
+  - Linux
+  - iOS
+  - Android
+  - Chrome
+  - Firefox
+  - Any
+
+tags:
+  - AI
+  - Career
+  - Community
+  - Data Analysis
+  - Data Management
+  - Data Research
+  - Electronic Lab Notebook
+  - LLM
+  - Note-taking
+  - Open Science
+  - Peer Review
+  - PhD Guide
+  - Presentation
+  - Programming
+  - Publication
+  - Reference Management
+  - References and Journals
+  - Research Guide
+  - Statistical Software
+  - Systematic Review
+  - Tools
+  - Version Control
+  - Visualization
+  - Writing
+
+# Old or sloppy spellings mapped to the canonical value (case-insensitive).
+synonyms:
+  categories:
+    research: Project Research
+    productivity tools: Productivity
+    publishing: Publishing and Sharing
+    other: Project Research
+  fields:
+    general: General and Interdisciplinary
+    interdisciplinary: General and Interdisciplinary
+    physical science: Physical Sciences
+    physical sciences: Physical Sciences
+    social sciences: Social Science
+    "life sciences": Life Science
+    "computer science and ai": Computer Science
+    math: Mathematics
+    maths: Mathematics
+    space science: Astronomy
+  platforms:
+    windows: Win
+    window: Win
+    macos: Mac
+    osx: Mac
+    ios: iOS
+    iphone: iOS
+    ipad: iOS
+    browser: Web
+    website: Web
+    "chrome extension": Chrome
+    "browser extension": Chrome
+  tags:
+    publications: Publication
+    "references management": Reference Management
+    "reference-management": Reference Management
+    note taking: Note-taking
+    notes: Note-taking
+    "systematic  review": Systematic Review
+    other: Tools
+
+limits:
+  summary_max: 600
+  summary_min: 40
+  features_max: 12
+  tags_max: 6
