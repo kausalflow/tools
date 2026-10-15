@@ -46,17 +46,26 @@ tags:
   - Community
   - Data Analysis
   - Data Management
+  - Coordination
   - Data Research
   - Electronic Lab Notebook
+  - Focus
+  - Game
+  - GTD
+  - Lab Management
   - LLM
   - Note-taking
+  - Noise
   - Open Science
   - Peer Review
   - PhD Guide
+  - Pacifiers
   - Presentation
   - Programming
+  - Project Management
   - Publication
   - Reference Management
+  - Regulation
   - References and Journals
   - Research Guide
   - Statistical Software
@@ -73,6 +82,14 @@ synonyms:
     productivity tools: Productivity
     publishing: Publishing and Sharing
     other: Project Research
+    ai: Project Research
+    social network: Communications
+    translational: Project Research
+    systematic review: Project Research
+    management: Project Management
+    education: Guides
+    resume: Career
+    tools: Productivity
   fields:
     general: General and Interdisciplinary
     interdisciplinary: General and Interdisciplinary
@@ -84,6 +101,11 @@ synonyms:
     math: Mathematics
     maths: Mathematics
     space science: Astronomy
+    languages: Arts and Humanities
+    history and arts: Arts and Humanities
+    philosophy: Arts and Humanities
+    data science: Computer Science
+    machine learning: AI
   platforms:
     windows: Win
     window: Win
@@ -96,6 +118,8 @@ synonyms:
     website: Web
     "chrome extension": Chrome
     "browser extension": Chrome
+    physical: Any
+    book: Any
   tags:
     publications: Publication
     "references management": Reference Management
@@ -104,6 +128,10 @@ synonyms:
     notes: Note-taking
     "systematic  review": Systematic Review
     other: Tools
+    coordinations: Coordination
+    chatgpt: LLM
+    project management: Project Management
+    "writing assistant": Writing
 
 limits:
   summary_max: 600

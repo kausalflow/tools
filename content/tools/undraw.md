@@ -1,24 +1,25 @@
 ---
-title: "Undraw"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: undraw-landing.png
-  - path: undraw-search.png
-categories:
-  - Publishing and Sharing
-  - Communications
-tags:
-  - Writing
-  - Presentation
-links:
-  - name: undraw
-    link: https://undraw.co/
+title: Undraw
 summary: Open source illustrations
+images:
+- path: undraw-landing.png
+- path: undraw-search.png
 features:
-  - Open source
+- Open source
+categories:
+- Publishing and Sharing
+- Communications
+tags:
+- Writing
+- Presentation
 platforms:
-  - Web
+- Web
 fields:
-plans:
-date: 2020-04-27T13:29:14+02:00
+- General and Interdisciplinary
+links:
+- name: undraw
+  link: https://undraw.co/
+plans: null
+date: 2020-04-27 13:29:14+02:00
 draft: false
 ---

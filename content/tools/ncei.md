@@ -1,26 +1,27 @@
 ---
-title: "NCEI"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: ncei_landing.png
-categories:
-  - Project Research
-  - Publishing and Sharing
-tags:
-  - Data Research
-links:
-  - name: NCEI
-    link: https://www.ncei.noaa.gov/
+title: NCEI
 summary: Weather, climate, coasts, oceans, and geophysics etc
+images:
+- path: ncei_landing.png
 features:
-  - Weather
-  - Geophysics
-  - Ocean
+- Weather
+- Geophysics
+- Ocean
+categories:
+- Project Research
+- Publishing and Sharing
+tags:
+- Data Research
 platforms:
-  - Web
+- Web
 fields:
+- General and Interdisciplinary
+links:
+- name: NCEI
+  link: https://www.ncei.noaa.gov/
 plans:
-  - name: Free
-    description:
-date: 2020-04-26T17:59:37+02:00
+- name: Free
+  description: null
+date: 2020-04-26 17:59:37+02:00
 draft: false
 ---

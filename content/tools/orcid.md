@@ -1,21 +1,22 @@
 ---
-title: "ORCID"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: orcid-landing.png
-categories:
-  - Publishing and Sharing
-tags:
-  - References and Journals
-  - Publications
-links:
-  - name: ORCID
-    link: https://orcid.org/
+title: ORCID
 summary: A unique ID for researchers
-features:
+images:
+- path: orcid-landing.png
+features: null
+categories:
+- Publishing and Sharing
+tags:
+- References and Journals
+- Publication
 platforms:
-  - Web
+- Web
 fields:
-plans:
-date: 2020-04-26T21:56:41+02:00
+- General and Interdisciplinary
+links:
+- name: ORCID
+  link: https://orcid.org/
+plans: null
+date: 2020-04-26 21:56:41+02:00
 draft: false
 ---

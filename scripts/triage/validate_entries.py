@@ -15,24 +15,28 @@ from pathlib import Path
 import kftools as kf
 
 
-def changed_files(base):
+def git_names(base, filt):
     out = subprocess.run(
-        ["git", "diff", "--name-only", "--diff-filter=AM", f"{base}...HEAD", "--", "content/tools"],
+        ["git", "diff", "--name-only", f"--diff-filter={filt}", f"{base}...HEAD", "--", "content/tools"],
         cwd=kf.ROOT, capture_output=True, text=True, check=True,
     ).stdout.split()
     return [kf.ROOT / p for p in out if p.endswith(".md") and not Path(p).name.startswith("_")]
 
 
 def main(argv):
+    # Added files get the full rules; edited legacy files only the vocabulary and required fields.
+    legacy = set()
     if len(argv) == 2 and argv[0] == "--changed":
-        files = changed_files(argv[1])
+        added = git_names(argv[1], "A")
+        legacy = set(git_names(argv[1], "M"))
+        files = added + sorted(legacy)
     else:
         files = [Path(a) for a in argv]
     failed = 0
     for f in files:
         try:
             fm = kf.read_front_matter(f)
-            problems = kf.validate_entry(fm)
+            problems = kf.validate_entry(fm, strict=f not in legacy)
         except Exception as e:  # malformed YAML etc.
             problems = [f"cannot parse: {e}"]
         rel = f.relative_to(kf.ROOT) if f.is_absolute() and kf.ROOT in f.parents else f

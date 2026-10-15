@@ -1,39 +1,39 @@
 ---
-title: "Biorender"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: biorender_landing.png
-  - path: biorender_library_templates.png
-  - path: biorender_library.png
-  - path: features-library.webp
-  - path: biorender-1000s-of-free-scientific-icons-and-science-figures.webm
-  - path: biorender-immunology-icon-library-create-immunology-science-figures-quickly.webm
-  - path: biorender-microbiology-icon-library-create-microbiology-science-figures-quickly.webm
-  - path: biorender-neuroscience-icon-library-create-neuroscience-science-figures-quickly.webm
-categories:
-  - Publishing and Sharing
-  - Communications
-  - Fun
-tags:
-  - Visualization
-  - Presentation
-  - Publication
-links:
-  - name: biorender
-    link: https://biorender.com
-summary: "a powerful tool to draw scientific illustrations"
+author: Ad
+title: Biorender
+summary: a powerful tool to draw scientific illustrations
+images:
+- path: biorender_landing.png
+- path: biorender_library_templates.png
+- path: biorender_library.png
+- path: features-library.webp
+- path: biorender-1000s-of-free-scientific-icons-and-science-figures.webm
+- path: biorender-immunology-icon-library-create-immunology-science-figures-quickly.webm
+- path: biorender-microbiology-icon-library-create-microbiology-science-figures-quickly.webm
+- path: biorender-neuroscience-icon-library-create-neuroscience-science-figures-quickly.webm
 features:
-  - "ellaborate materials"
+- ellaborate materials
+categories:
+- Publishing and Sharing
+- Communications
+- Fun
+tags:
+- Visualization
+- Presentation
+- Publication
 platforms:
-  - "Web"
+- Web
 fields:
-  - "Life Science"
+- Life Science
+links:
+- name: biorender
+  link: https://biorender.com
 plans:
-  - name:
-    description:
-makers: # the makers of the tool
-  - name:
-    description:
-author: Ad   # the person who submitted this tool to KausalFlow
-date: 2020-06-07T12:20:35+02:00
+- name: null
+  description: null
+makers:
+- name: null
+  description: null
+date: 2020-06-07 12:20:35+02:00
 draft: false
 ---

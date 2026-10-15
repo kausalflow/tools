@@ -1,32 +1,34 @@
 ---
-title: "Kaggle"
+title: Kaggle
+summary: Kaggle is a competition platform that bundles online computing Jupyter notebooks and data management.
 images:
-  - path: kaggle_landing.png
-categories:
-  - Analysis and Computations
-  - Datasets
-  - Publishing and Sharing
-tags:
-  - Visualization
-  - Open Science
-  - Data Science
-  - Programming
-links:
-  - name: Kaggle
-    link: https://kaggle.com
-summary: "Kaggle is a competition platform that bundles online computing Jupyter notebooks and data management."
+- path: kaggle_landing.png
 features:
-  - Public datasets
-  - Connect to Google services such as BigQuery
-  - Free computation resources
-  - Online Jupyter notebooks
-  - Data science coursers
-  - Data science competitions
+- Public datasets
+- Connect to Google services such as BigQuery
+- Free computation resources
+- Online Jupyter notebooks
+- Data science coursers
+- Data science competitions
+categories:
+- Analysis and Computations
+- Datasets
+- Publishing and Sharing
+tags:
+- Visualization
+- Open Science
+- Data Science
+- Programming
 platforms:
-  - Web
+- Web
+fields:
+- General and Interdisciplinary
+links:
+- name: Kaggle
+  link: https://kaggle.com
 plans:
-  - name: Free
-    description:
-date: 2020-04-26T16:34:16+02:00
+- name: Free
+  description: null
+date: 2020-04-26 16:34:16+02:00
 draft: false
 ---

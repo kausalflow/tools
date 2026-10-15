@@ -1,42 +1,42 @@
 ---
-title: "Semantic Scholar"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: semanticscholar-alerts.png
-  - path: semanticscholar-lib-2.png
-  - path: semanticscholar-lib.png
-  - path: semanticscholar-paper-citations.png
-  - path: semanticscholar-search.png
-  - path: semanticscholar-view-paper.png
-  - path: semanticscholar-landing.png
-categories:
-  - Project Research
-  - Project Management
-tags:
-  - References and Journals
-  - Reference Management
-  - Publication
-  - AI
-links:
-  - name: Semantic Scholar
-    link: https://www.semanticscholar.org/
-summary: "Semantic Scholar uses groundbreaking AI and engineering to understand the semantics of scientific literature to help Scholars discover relevant research."
+author: null
+title: Semantic Scholar
+summary: Semantic Scholar uses groundbreaking AI and engineering to understand the semantics of scientific literature to help Scholars discover relevant research.
+images:
+- path: semanticscholar-alerts.png
+- path: semanticscholar-lib-2.png
+- path: semanticscholar-lib.png
+- path: semanticscholar-paper-citations.png
+- path: semanticscholar-search.png
+- path: semanticscholar-view-paper.png
+- path: semanticscholar-landing.png
 features:
-  - Search papers in all fields
-  - Researcher profiles
-  - Network of researchers and the relations between them
-  - Build my own library of papers
-  - Email alert of topics, authors etc
+- Search papers in all fields
+- Researcher profiles
+- Network of researchers and the relations between them
+- Build my own library of papers
+- Email alert of topics, authors etc
+categories:
+- Project Research
+- Project Management
+tags:
+- References and Journals
+- Reference Management
+- Publication
+- AI
 platforms:
-  - Web
+- Web
 fields:
-  - General and Interdisciplinary
+- General and Interdisciplinary
+links:
+- name: Semantic Scholar
+  link: https://www.semanticscholar.org/
 plans:
-  - name:
-    description:
-makers: # the makers of the tool
-author:    # the person who submitted this tool to KausalFlow
-date: 2020-05-13T21:18:40+02:00
+- name: null
+  description: null
+makers: null
+date: 2020-05-13 21:18:40+02:00
 draft: false
 collections:
-  - AI
+- AI
 ---

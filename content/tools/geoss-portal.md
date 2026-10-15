@@ -1,25 +1,25 @@
 ---
-title: "GEOSS Portal"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: geoss-portal-landing.png
-categories:
-  - Project Research
-  - Publishing and Sharing
-tags:
-  - Data Research
-links:
-  - name: GEOSS Portal
-    link: https://www.geoportal.org/?f:dataSource=dab
+title: GEOSS Portal
 summary: Earth science data
+images:
+- path: geoss-portal-landing.png
 features:
-  - Earth Science
+- Earth Science
+categories:
+- Project Research
+- Publishing and Sharing
+tags:
+- Data Research
 platforms:
-  - Web
+- Web
 fields:
-  - Earth Science
+- Earth Science
+links:
+- name: GEOSS Portal
+  link: https://www.geoportal.org/?f:dataSource=dab
 plans:
-  - name: Free
-    description:
-date: 2020-04-26T18:04:59+02:00
+- name: Free
+  description: null
+date: 2020-04-26 18:04:59+02:00
 draft: false
 ---

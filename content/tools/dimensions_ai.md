@@ -1,32 +1,32 @@
 ---
-title: "dimensions.ai"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: "app.dimensions.ai_discover_publication.png" 
-  - path: "www.dimensions.ai_.png"
-categories:
-  - "Project Research"
-  - "Fun"
-tags:
-  - "References and Journals"
-  - "Publication"
-  - "Tools"
-links:
-  - name: "Dimensions Search"
-    link: "https://app.dimensions.ai/"
-summary: "With Dimensions, you have free access to a vast collection of curated research outputs and tools that help you source exactly what you need to advance your own discoveries."
+author: LM
+title: dimensions.ai
+summary: With Dimensions, you have free access to a vast collection of curated research outputs and tools that help you source exactly what you need to advance your own discoveries.
+images:
+- path: app.dimensions.ai_discover_publication.png
+- path: www.dimensions.ai_.png
 features:
-  - "trends for research topics and keywords"
+- trends for research topics and keywords
+categories:
+- Project Research
+- Fun
+tags:
+- References and Journals
+- Publication
+- Tools
 platforms:
-  - "Web"
+- Web
 fields:
-  - "General and Interdisciplinary"
+- General and Interdisciplinary
+links:
+- name: Dimensions Search
+  link: https://app.dimensions.ai/
 plans:
-  - name:
-    description:
-makers: # the makers of the tool
-  - name:
-    description:
-author: LM   # the person who submitted this tool to KausalFlow
-date: 2023-03-27T21:50:45+02:00
+- name: null
+  description: null
+makers:
+- name: null
+  description: null
+date: 2023-03-27 21:50:45+02:00
 draft: false
 ---

@@ -1,38 +1,38 @@
 ---
-title: "RoamResearch"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: roamresearch-landing.png
-  - path: roamresearch-editing.png
-  - path: roamresearch-links-2.png
-  - path: roamresearch-links.png
-  - path: roamresearch-all-pages.png
-categories:
-  - Project Management
-  - Publishing and Sharing
-  - Communications
-tags:
-  - Note-taking
-  - Reference Management
-  - Writing
-links:
-  - name: roamresearch
-    link: https://roamresearch.com
-summary: "Online note-taking with zettelkasten method (connected notes)"
+author: LM
+title: RoamResearch
+summary: Online note-taking with zettelkasten method (connected notes)
+images:
+- path: roamresearch-landing.png
+- path: roamresearch-editing.png
+- path: roamresearch-links-2.png
+- path: roamresearch-links.png
+- path: roamresearch-all-pages.png
 features:
-  - day-based notes
-  - graphical view
-  - connected notes makes it easier to search and make connections
+- day-based notes
+- graphical view
+- connected notes makes it easier to search and make connections
+categories:
+- Project Management
+- Publishing and Sharing
+- Communications
+tags:
+- Note-taking
+- Reference Management
+- Writing
 platforms:
-  - Web
+- Web
 fields:
-  - "General and Interdisciplinary"
+- General and Interdisciplinary
+links:
+- name: roamresearch
+  link: https://roamresearch.com
 plans:
-  - name:
-    description:
-makers: # the makers of the tool
-  - name:
-    description:
-author: LM  # the person who submitted this tool to KausalFlow
-date: 2020-05-31T09:31:49+02:00
+- name: null
+  description: null
+makers:
+- name: null
+  description: null
+date: 2020-05-31 09:31:49+02:00
 draft: false
 ---

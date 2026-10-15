@@ -1,31 +1,32 @@
 ---
-title: "Sphinx"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: sphinx-doc-landing.png
-  - path: sphinx-doc-demo-alabaster-result.png
-  - path: sphinx-doc-demo-alabaster-source.png
-  - path: sphinx-doc-demo-effect-of-defects-result.png
-  - path: sphinx-doc-demo-effect-of-defects.png
-categories:
-  - Publishing and Sharing
-  - Project Management
-tags:
-  - Note-taking
-links:
-  - name: sphinx-doc
-    link: https://www.sphinx-doc.org
+title: Sphinx
 summary: Sphinx is a tool for python code documentation generation. It is also a very good tool to take digital notes since it supports images, equations, tables, code blocks, etc.
+images:
+- path: sphinx-doc-landing.png
+- path: sphinx-doc-demo-alabaster-result.png
+- path: sphinx-doc-demo-alabaster-source.png
+- path: sphinx-doc-demo-effect-of-defects-result.png
+- path: sphinx-doc-demo-effect-of-defects.png
 features:
-  - restructuredText
-  - Generates static content
-  - Math support
+- restructuredText
+- Generates static content
+- Math support
+categories:
+- Publishing and Sharing
+- Project Management
+tags:
+- Note-taking
 platforms:
-  - Any
+- Any
 fields:
+- General and Interdisciplinary
+links:
+- name: sphinx-doc
+  link: https://www.sphinx-doc.org
 plans:
-  - name: Open Source
-    description:
-date: 2020-04-26T19:38:31+02:00
+- name: Open Source
+  description: null
+date: 2020-04-26 19:38:31+02:00
 draft: false
 ---
 

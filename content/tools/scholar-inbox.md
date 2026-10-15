@@ -1,5 +1,4 @@
 ---
-_id: scholar-inbox-km
 author: KM
 title: Scholar Inbox
 summary: Scholar Inbox is a personal paper recommender which enables researchers to stay up-to-date with the most relevant progress in their fields based on their personal research interests.
@@ -37,5 +36,4 @@ links:
 - name: Scholar Inbox
   link: https://scholar-inbox.com/
 date: '2026-03-17'
-
 ---

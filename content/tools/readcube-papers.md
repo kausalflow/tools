@@ -1,26 +1,27 @@
 ---
-title: "Readcube/Papers"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: readcube-landing.png
-categories:
-  - Publishing and Sharing
-tags:
-  - References and Journals
-  - Publications
-  - References Management
-links:
-  - name: ReadCube/Papers
-    link: https://www.readcube.com/
+title: Readcube/Papers
 summary: A all platform app for reference mamagement, note-taking, and more. The former Papers has been rebanded as ReadCube Papers.
+images:
+- path: readcube-landing.png
 features:
-  - Online library
-  - Destop apps
+- Online library
+- Destop apps
+categories:
+- Publishing and Sharing
+tags:
+- References and Journals
+- Publication
+- Reference Management
 platforms:
-  - Web
-  - Mac
-  - Win
+- Web
+- Mac
+- Win
 fields:
-plans:
-date: 2020-04-26T22:01:14+02:00
+- General and Interdisciplinary
+links:
+- name: ReadCube/Papers
+  link: https://www.readcube.com/
+plans: null
+date: 2020-04-26 22:01:14+02:00
 draft: false
 ---

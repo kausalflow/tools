@@ -1,28 +1,28 @@
 ---
-title: "new MAST: Barbara A. Mikulski Archive for Space Telescopes"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: archive.stsci.edu_landing.png
-  - path: archive.stsci.edu_access-mast-data.png
+title: 'new MAST: Barbara A. Mikulski Archive for Space Telescopes'
+summary: 'MAST: Barbara A. Mikulski Archive for Space Telescopes'
+images:
+- path: archive.stsci.edu_landing.png
+- path: archive.stsci.edu_access-mast-data.png
+features: null
 categories:
-  - Project Research
-  - Publishing and Sharing
-  - Fun
+- Project Research
+- Publishing and Sharing
+- Fun
 tags:
-  - Data Research
-links:
-  - name: New MAST
-    link: http://archive.stsci.edu/
-summary: "MAST: Barbara A. Mikulski Archive for Space Telescopes"
-features:
+- Data Research
 platforms:
-  - Web
-  - Any
+- Web
+- Any
 fields:
-  - Astronomy
-  - Physical Sciences
+- Astronomy
+- Physical Sciences
+links:
+- name: New MAST
+  link: http://archive.stsci.edu/
 plans:
-  - name: Free
-    description:
-date: 2020-04-26T18:12:54+02:00
+- name: Free
+  description: null
+date: 2020-04-26 18:12:54+02:00
 draft: false
 ---

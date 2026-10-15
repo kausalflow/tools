@@ -1,37 +1,36 @@
 ---
-title: "Bifrost AI Datasets"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: datasets.bifrost.ai_.png
-  - path: datasets.bifrost.ai_info_2056.png
-categories:
-  - Analysis and Computations
-  - Datasets
-tags:
-  - Data Management
-  - Datasets
-  - AI
-links:
-  - name: bifrost datasets
-    link: https://datasets.bifrost.ai/
-summary: "Search for visual datasets by task, application, class, label or format"
+author: LM
+title: Bifrost AI Datasets
+summary: Search for visual datasets by task, application, class, label or format
+images:
+- path: datasets.bifrost.ai_.png
+- path: datasets.bifrost.ai_info_2056.png
 features:
-  - A lot of datasets for open access
-  - Filter by task, application, class, label or format
+- A lot of datasets for open access
+- Filter by task, application, class, label or format
+categories:
+- Analysis and Computations
+- Datasets
+tags:
+- Data Management
+- Datasets
+- AI
 platforms:
-  - "Web"
+- Web
 fields:
-  - Computer Science
-  - Statistics
-  - Data Science
+- Computer Science
+- Statistics
+links:
+- name: bifrost datasets
+  link: https://datasets.bifrost.ai/
 plans:
-  - name:
-    description:
-makers: # the makers of the tool
-  - name:
-    description:
-author: LM   # the person who submitted this tool to KausalFlow
-date: 2020-08-28T21:36:40+02:00
+- name: null
+  description: null
+makers:
+- name: null
+  description: null
+date: 2020-08-28 21:36:40+02:00
 draft: false
 collections:
-  - AI
+- AI
 ---

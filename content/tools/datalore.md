@@ -1,28 +1,28 @@
 ---
-title: "Datalore"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: datalore_landing_1.png
-  - path: datalore_landing_plans.png
-  - path: datalore_workspace.png
-  - path: datalore_notebook.png
-categories:
-  - Analysis and Computations
-tags:
-  - ""
-links:
-  - name: Datalore
-    link: https://datalore.io/
+title: Datalore
 summary: Datalore is hosted jupyter notebook
+images:
+- path: datalore_landing_1.png
+- path: datalore_landing_plans.png
+- path: datalore_workspace.png
+- path: datalore_notebook.png
 features:
-  - Each notebook can have multiple sheets.
-  - Collaborations on notebook
+- Each notebook can have multiple sheets.
+- Collaborations on notebook
+categories:
+- Analysis and Computations
 platforms:
-  - Web
+- Web
+fields:
+- General and Interdisciplinary
+links:
+- name: Datalore
+  link: https://datalore.io/
 plans:
-  - name: Community Plan
-    description: Free
-  - name: Professonal Plan
-    description: Paid
-date: 2020-04-26T16:48:50+02:00
+- name: Community Plan
+  description: Free
+- name: Professonal Plan
+  description: Paid
+date: 2020-04-26 16:48:50+02:00
 draft: false
 ---
