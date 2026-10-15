@@ -1,7 +1,8 @@
 baseurl: "https://tools.kausalflow.com" # Controls base URL
 languageCode: "en-US" # Controls html lang attribute
 title: "Tools for Academic Research" # Homepage title and page title suffix
-paginate: 12 # Number of posts to show before paginating
+pagination:
+  pagerSize: 12 # Number of posts to show before paginating
 theme: "bulma" # to use as default theme
 
 enableRobotsTXT: true # Suggested, it generates a robots.txt
