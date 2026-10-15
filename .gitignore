@@ -207,3 +207,7 @@ default.profraw
 .history/
 
 .hugo_build.lock
+__pycache__/
+*.pyc
+triage-out/
+processed-ids.txt
