@@ -297,7 +297,7 @@ def llm_screen(sub, page):
     }
     body = {
         "model": os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5-5"),
-        "max_tokens": 300,
+        "max_tokens": 1500,
         "system": LLM_PROMPT,
         "messages": [{"role": "user", "content": "<submission>\n" + json.dumps(payload, ensure_ascii=False) + "\n</submission>"}],
     }
@@ -308,8 +308,12 @@ def llm_screen(sub, page):
             json=body, timeout=60,
         )
         r.raise_for_status()
-        text = "".join(b.get("text", "") for b in r.json().get("content", []))
+        blocks = r.json().get("content", [])
+        text = "".join(b.get("text", "") for b in blocks if b.get("type") == "text")
         m = re.search(r"\{.*\}", text, re.S)
+        if not m:
+            kinds = ",".join(b.get("type", "?") for b in blocks) or "none"
+            raise ValueError(f"no JSON in reply (blocks: {kinds}; text: {text[:120]!r})")
         out = json.loads(m.group(0))
         if out.get("relevant") not in ("yes", "no", "unsure"):
             raise ValueError("bad verdict")
