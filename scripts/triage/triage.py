@@ -114,20 +114,35 @@ def from_csv(path):
             yield normalize(row, sid, row.get("created_at", ""))
 
 
+def netlify_get(path, token, **params):
+    r = requests.get(
+        f"https://api.netlify.com/api/v1/{path}", params=params,
+        headers={"Authorization": f"Bearer {token}", "User-Agent": UA}, timeout=30,
+    )
+    if r.status_code != 200:
+        raise SystemExit(f"Netlify API {path} returned HTTP {r.status_code}: {r.text[:200]!r}")
+    try:
+        return r.json()
+    except ValueError:
+        raise SystemExit(f"Netlify API {path} returned non-JSON ({r.headers.get('content-type')}): {r.text[:200]!r}")
+
+
 def from_netlify(token, site_id=None):
-    h = {"Authorization": f"Bearer {token}", "User-Agent": UA}
-    forms = requests.get("https://api.netlify.com/api/v1/forms", headers=h, timeout=30).json()
-    forms = [f for f in forms if f.get("name") == FORM_NAME and (not site_id or f.get("site_id") == site_id)]
+    if not site_id:
+        wanted = os.environ.get("NETLIFY_SITE_NAME", "kausalflow-tools")
+        sites = netlify_get("sites", token, filter="all", per_page=100)
+        match = [s for s in sites if wanted in (s.get("name"), s.get("custom_domain"))]
+        if not match:
+            names = ", ".join(sorted(s.get("name", "?") for s in sites)[:20])
+            raise SystemExit(f"no Netlify site named {wanted!r}; token can see: {names}. Set NETLIFY_SITE_ID.")
+        site_id = match[0]["id"]
+    path = f"sites/{site_id}/forms"
+    forms = [f for f in netlify_get(path, token) if f.get("name") == FORM_NAME]
     if not forms:
-        raise SystemExit(f"form {FORM_NAME!r} not found for this token")
+        raise SystemExit(f"form {FORM_NAME!r} not found (looked in {path}); set the NETLIFY_SITE_ID variable")
     page = 1
     while True:
-        r = requests.get(
-            f"https://api.netlify.com/api/v1/forms/{forms[0]['id']}/submissions",
-            params={"per_page": 100, "page": page}, headers=h, timeout=30,
-        )
-        r.raise_for_status()
-        batch = r.json()
+        batch = netlify_get(f"forms/{forms[0]['id']}/submissions", token, per_page=100, page=page)
         if not batch:
             return
         for s in batch:
@@ -265,6 +280,13 @@ Answer with one JSON object only: {"relevant": "yes" | "no" | "unsure", "reason"
 "flags": ["short flag", ...]}"""
 
 
+def llm_headers(key):
+    h = {"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"}
+    if os.environ.get("ANTHROPIC_WORKSPACE_ID"):  # needed for keys that are not scoped to one workspace
+        h["anthropic-workspace-id"] = os.environ["ANTHROPIC_WORKSPACE_ID"]
+    return h
+
+
 def llm_screen(sub, page):
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
@@ -282,7 +304,7 @@ def llm_screen(sub, page):
     try:
         r = requests.post(
             "https://api.anthropic.com/v1/messages",
-            headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"},
+            headers=llm_headers(key),
             json=body, timeout=60,
         )
         r.raise_for_status()
@@ -294,7 +316,11 @@ def llm_screen(sub, page):
         return {"relevant": out["relevant"], "reason": str(out.get("reason", ""))[:300],
                 "flags": [str(f)[:60] for f in (out.get("flags") or [])][:5]}
     except Exception as e:
-        return {"relevant": "skipped", "reason": f"screen failed: {str(e)[:120]}", "flags": []}
+        detail = str(e)[:80]
+        resp = getattr(e, "response", None)
+        if resp is not None:
+            detail += " | " + resp.text[:400].replace("\n", " ")
+        return {"relevant": "skipped", "reason": f"screen failed: {detail}", "flags": []}
 
 
 # ---------------------------------------------------------------- triage
@@ -460,7 +486,7 @@ def main():
     for sub in subs:
         if sub["id"] in skip or (only and sub["id"] not in only):
             continue
-        if a.since and sub["created"] and sub["created"] < a.since:
+        if a.since and not only and sub["created"] and sub["created"] < a.since:
             continue
         r = triage(sub, a.out, urls, slugs, do_screenshot=not a.no_screenshot)
         results.append(r)

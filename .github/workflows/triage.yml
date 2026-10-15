@@ -36,6 +36,7 @@ jobs:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ vars.NETLIFY_SITE_ID }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}
     steps:
       - uses: actions/checkout@v4
 
@@ -66,8 +67,10 @@ jobs:
         env:
           ONLY: ${{ inputs.only }}
           LIMIT: ${{ inputs.limit || '10' }}
+          TRIAGE_SINCE: ${{ vars.TRIAGE_SINCE }}
         run: |
-          args=(--netlify --out triage-out --skip-ids processed-ids.txt --limit "$LIMIT")
+          # only submissions after the go-live date; earlier ones were handled by hand
+          args=(--netlify --out triage-out --skip-ids processed-ids.txt --limit "$LIMIT" --since "${TRIAGE_SINCE:-2026-10-15T13:30:00Z}")
           if [ -n "$ONLY" ]; then args+=(--only "$ONLY"); : > processed-ids.txt; fi
           python scripts/triage/triage.py "${args[@]}"
 
