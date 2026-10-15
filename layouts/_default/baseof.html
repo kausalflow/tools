@@ -1,70 +1,44 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-
+<html lang="{{ .Site.LanguageCode | default "en-US" }}">
 <head>
-  {{ hugo.Generator }}
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ block "title" . }}{{ .Title }}{{ end }} | {{ .Site.Title }} | {{ .Site.Params.author }} </title>
-
-  {{ with .Description }}
-  <meta name="description" content="{{ . }}"> {{ end }}
-  {{ $default_noindex_kinds := slice "section" "taxonomy" "taxonomyTerm" }}
-  {{ $noindex_kinds := .Site.Params.noindex_kinds | default $default_noindex_kinds }}
-  {{ $is_noindex_true := and (isset .Params "noindex") .Params.noindex }}
-  {{ if or (in $noindex_kinds .Kind) ($is_noindex_true) }}
-  <meta name="robots" content="noindex">
-  {{ end }}
-
-  {{ partial "meta/name-author" . }}
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  {{ with .Description }}<meta name="description" content="{{ . }}">{{ else }}{{ if .IsPage }}{{ with .Params.summary }}<meta name="description" content="{{ . | plainify | truncate 200 }}">{{ end }}{{ else }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}{{ end }}
+  {{ $noindex := slice "section" "taxonomy" "term" }}
+  {{ if or (and (in $noindex .Kind) (not .IsHome)) (and (isset .Params "noindex") .Params.noindex) }}<meta name="robots" content="noindex">{{ end }}
+  <meta name="author" content="{{ .Site.Params.author }}">
+  <meta name="theme-color" content="#0b6e69">
   {{ partial "opengraph.html" . }}
-  {{ partial "meta/ogimage" . }}
-
-  {{ if .IsHome }} {{ partial "site-verification" . }} {{ end }}
   {{ template "_internal/google_analytics.html" . }}
-  {{ with .OutputFormats.Get "RSS" }}
-    <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
-  {{ end }}
-
-  <link rel="canonical" href="{{ .Permalink }}"> {{ if (isset .Params "prev") }}
-  <link rel="prev" href="{{ .Params.prev }}"> {{ end }} {{ if (isset .Params "next") }}
-  <link rel="next" href="{{ .Params.next }}"> {{ end }} {{ partial "favicon" . }}
-
-
-  <link rel="stylesheet" href="/css/bulma.css">
-  <link rel="stylesheet" href="/css/bulma-divider.min.css">
-  <link rel="stylesheet" href="/assets/css/bulma-ribbon.min.css">
-  <link rel="stylesheet" href="/assets/css/tooltip.css">
-
-  {{ if .Site.Params.theme_variant }}
-  <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/{{.Site.Params.theme_variant.light}}/bulmaswatch.min.css">
-  
-  {{else}}
-  {{end}}
-  {{ block "style" .}} {{end}} {{ $lazylist := findRE "class=\".*?\\blazyload\\b.*?\"|class=lazyload\b" .Content }}
-  <!-- http://regexr.com/3f9d1 -->
-  {{ if ge (len $lazylist) 1 }}
-  <script async src="/js/lazysizes.min.js"></script>
-  {{ end }}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
-    integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-
-  <link rel="stylesheet" href="/assets/css/search-palette.css">
-
+  {{ with .OutputFormats.Get "RSS" }}<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">{{ end }}
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="icon" href="{{ .Site.Params.favicon }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('kf-theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  {{ $pal := resources.Get "css/search-palette.css" }}
+  {{ $bundle := slice (resources.Get "css/site.css") $pal | resources.Concat "css/bundle.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $bundle.RelPermalink }}">
 </head>
-<!--theme variation-->
-
 <body>
-  <header>{{ block "header" . }}{{ end }}</header>
-  <main>{{ block "main" . }}{{ end }}</main>
-  <footer>{{ block "footer" . }}{{ end }}</footer>
-
-  <script async type="text/javascript" src="/js/bulma.js"></script>
-
-  <script defer src="/js/search-palette.js" data-index="/search-index.json"></script>
+  <a class="skip" href="#main">Skip to content</a>
+  {{ block "header" . }}{{ partial "site-header.html" . }}{{ end }}
+  <main id="main">{{ block "main" . }}{{ end }}</main>
+  {{ block "footer" . }}{{ partial "site-footer.html" . }}{{ end }}
+  {{ $site := resources.Get "js/site.js" }}
+  {{ $palJs := resources.Get "js/search-palette.js" }}
+  {{ $js := $site | minify | fingerprint }}
+  {{ $pjs := $palJs | minify | fingerprint }}
+  <script src="{{ $js.RelPermalink }}" defer></script>
+  <script src="{{ $pjs.RelPermalink }}" data-index="/search-index.json" defer></script>
 </body>
-
 </html>

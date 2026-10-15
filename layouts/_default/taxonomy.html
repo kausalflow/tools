@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="page-head"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Directory</a><span aria-hidden="true">/</span><span>{{ .Data.Plural | title }}</span></nav>
+  <h1>{{ .Title }}</h1>
+  <p>{{ with .Params.description }}{{ . }}{{ else }}{{ len .Pages }} tools{{ end }}</p>
+</div></section>
+<div class="wrap" style="padding-top:32px;padding-bottom:64px">
+  <div class="grid grid-3">
+    {{ range .Pages.ByDate.Reverse }}{{ partial "tool-card.html" . }}{{ end }}
+  </div>
+</div>
+{{ end }}
