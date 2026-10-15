@@ -47,7 +47,7 @@
                         <section class="section">
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
-                                    {{ $filePath := index (split .File `.`) 0}}
+                                    {{ $filePath := printf "%s%s" .File.Dir .File.ContentBaseName }}
                                     {{ range .Params.images }}
                                     {{ $fullPath := (printf "/images/%s/%s" $filePath .path) }}
                                     {{ if (fileExists (printf "static%s" $fullPath)) }}

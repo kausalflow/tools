@@ -4,7 +4,7 @@
             <figure class="image" style="margin-left: auto;margin-right: auto;">
                 {{ if (isset .Params "images")}}
                 {{ $cardimage := index (.Params.images) 0}}
-                {{ $filePath := index (split .File `.`) 0}}
+                {{ $filePath := printf "%s%s" .File.Dir .File.ContentBaseName }}
                 {{ $fullPath := (printf "/images/%s/%s" $filePath $cardimage.path) }}
 
                 {{ if (fileExists (printf "static%s" $fullPath)) }}
