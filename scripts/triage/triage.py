@@ -479,7 +479,7 @@ def main():
     for sub in subs:
         if sub["id"] in skip or (only and sub["id"] not in only):
             continue
-        if a.since and sub["created"] and sub["created"] < a.since:
+        if a.since and not only and sub["created"] and sub["created"] < a.since:
             continue
         r = triage(sub, a.out, urls, slugs, do_screenshot=not a.no_screenshot)
         results.append(r)
