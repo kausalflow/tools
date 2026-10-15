@@ -1,5 +1,4 @@
 ---
-_id: 1cp63z8m2ba94u9x1cp63zp0diropwni
 author: LM
 title: Zotero RA
 summary: Your AI research assistant in Zotero, powered by Large Language Models (LLMs).
@@ -24,5 +23,4 @@ links:
 - name: GitHub
   link: https://github.com/lifan0127/zotero-research-assistant
 date: '2023-04-11'
-
 ---

@@ -1,23 +1,24 @@
 ---
-title: "De-Jargonizer"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: de-jargonizer-landing.png
-categories:
-  - Publishing and Sharing
-  - Communications
-tags:
-  - Publications
-  - Writing
-links:
-  - name: rousseau
-    link: http://scienceandpublic.com/
+title: De-Jargonizer
 summary: The De-Jargonizer is an automated jargon identification program aimed at helping scientists and science communication trainers improve and adapt vocabulary use for a variety of audiences.
-features:
+images:
+- path: de-jargonizer-landing.png
+features: null
+categories:
+- Publishing and Sharing
+- Communications
+tags:
+- Publication
+- Writing
 platforms:
-  - Web
-  - Any
+- Web
+- Any
 fields:
-plans:
-date: 2020-04-26T20:12:00+02:00
+- General and Interdisciplinary
+links:
+- name: rousseau
+  link: http://scienceandpublic.com/
+plans: null
+date: 2020-04-26 20:12:00+02:00
 draft: false
 ---

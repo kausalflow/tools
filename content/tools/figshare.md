@@ -1,26 +1,28 @@
 ---
-title: "Figshare"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: figshare_landing.png
-  - path: figshare_browse.png
-  - path: figshare_publications.png
-categories:
-  - Analysis and Computations
-  - Publishing and Sharing
-tags:
-  - Data Research
-  - Data Management
-links:
-  - name: Figshare
-    link: https://figshare.com/
+title: Figshare
 summary: Figshare allows us store, share and discover research data and other materials.
+images:
+- path: figshare_landing.jpg
+- path: figshare_browse.png
+- path: figshare_publications.png
 features:
-  - Data Research
-  - Data Management
-  - Open Science
+- Data Research
+- Data Management
+- Open Science
+categories:
+- Analysis and Computations
+- Publishing and Sharing
+tags:
+- Data Research
+- Data Management
 platforms:
-  - Web
-plans:
-date: 2020-04-26T17:50:26+02:00
+- Web
+fields:
+- General and Interdisciplinary
+links:
+- name: Figshare
+  link: https://figshare.com/
+plans: null
+date: 2020-04-26 17:50:26+02:00
 draft: false
 ---

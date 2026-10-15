@@ -1,24 +1,25 @@
 ---
-title: "Gliffy"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: gliffy-landing.png
-categories:
-  - Publishing and Sharing
-  - Project Management
-tags:
-  - Note-taking
-  - Writing
-links:
-  - name: gliffy
-    link: https://www.gliffy.com/
+title: Gliffy
 summary: Diagram software that works as hard as your team.
+images:
+- path: gliffy-landing.jpg
 features:
-  - Collaborations with other people
-  - A lot of built-in diagram types
+- Collaborations with other people
+- A lot of built-in diagram types
+categories:
+- Publishing and Sharing
+- Project Management
+tags:
+- Note-taking
+- Writing
 platforms:
-  - Web
+- Web
 fields:
-plans:
-date: 2020-04-26T21:02:59+02:00
+- General and Interdisciplinary
+links:
+- name: gliffy
+  link: https://www.gliffy.com/
+plans: null
+date: 2020-04-26 21:02:59+02:00
 draft: false
 ---

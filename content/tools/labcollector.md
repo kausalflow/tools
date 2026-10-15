@@ -1,32 +1,32 @@
 ---
-title: "Labcollector"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: www.labcollector.com_.png
-  - path: www.labcollector.com_ (1).png
-  - path: www.labcollector.com_ (2).png
-categories:
-  - "Project Management"
-tags:
-  - "Data Management"
-  - "Electronic Lab Notebook"
-links:
-  - name: labcollector
-    link: https://www.labcollector.com/
-summary: "All-in-One Lab notebook and management platform."
+author: LM
+title: Labcollector
+summary: All-in-One Lab notebook and management platform.
+images:
+- path: www.labcollector.com_.jpg
+- path: www.labcollector.com_ (1).jpg
+- path: www.labcollector.com_ (2).jpg
 features:
-  - "Mobile app"
-  - "Data management"
+- Mobile app
+- Data management
+categories:
+- Project Management
+tags:
+- Data Management
+- Electronic Lab Notebook
 platforms:
-  - "Web"
+- Web
 fields:
-  - "Life Science"
+- Life Science
+links:
+- name: labcollector
+  link: https://www.labcollector.com/
 plans:
-  - name:
-    description:
-makers: # the makers of the tool
-  - name:
-    description:
-author: LM   # the person who submitted this tool to KausalFlow
-date: 2020-12-17T22:35:46+01:00
+- name: null
+  description: null
+makers:
+- name: null
+  description: null
+date: 2020-12-17 22:35:46+01:00
 draft: false
 ---

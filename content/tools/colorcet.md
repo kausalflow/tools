@@ -1,25 +1,26 @@
 ---
-title: "Colorcet"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: colorcet-landing.png
-  - path: colorcet-map-comparison.png
-categories:
-  - Publishing and Sharing
-tags:
-  - Visualization
-links:
-  - name: colorcet
-    link: https://colorcet.holoviz.org/
+title: Colorcet
 summary: Colorcet is a collection of perceptually uniform colormaps for use with Python plotting programs like bokeh, matplotlib, holoviews, and datashader based on the set of perceptually uniform colormaps created by Peter Kovesi at the Center for Exploration Targeting.
+images:
+- path: colorcet-landing.png
+- path: colorcet-map-comparison.jpg
 features:
-  - Run experiments on color schemes
+- Run experiments on color schemes
+categories:
+- Publishing and Sharing
+tags:
+- Visualization
 platforms:
-  - Any
+- Any
 fields:
-plans:
+- General and Interdisciplinary
+links:
+- name: colorcet
+  link: https://colorcet.holoviz.org/
+plans: null
 makers:
-  - name: Anaconda
-    description:
-date: 2020-04-27T11:13:08+02:00
+- name: Anaconda
+  description: null
+date: 2020-04-27 11:13:08+02:00
 draft: false
 ---

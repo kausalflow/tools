@@ -1,23 +1,24 @@
 ---
-title: "Seaborn"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: seaborn-landing.png
-categories:
-  - Publishing and Sharing
-tags:
-  - Visualization
-links:
-  - name: seaborn
-    link: https://seaborn.pydata.org/
+title: Seaborn
 summary: statistical data visualization in Python
+images:
+- path: seaborn-landing.jpg
 features:
-  - Built-in statistical charts
+- Built-in statistical charts
+categories:
+- Publishing and Sharing
+tags:
+- Visualization
 platforms:
-  - Any
+- Any
 fields:
+- General and Interdisciplinary
+links:
+- name: seaborn
+  link: https://seaborn.pydata.org/
 plans:
-  - name: Open Source
-    description:
-date: 2020-04-26T22:30:40+02:00
+- name: Open Source
+  description: null
+date: 2020-04-26 22:30:40+02:00
 draft: false
 ---

@@ -1,33 +1,33 @@
 ---
-title: "SciNote"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: www.scinote.net_.png
-  - path: www.scinote.net_premium_.png
-  - path: www.scinote.net_product_.png
-categories:
-  - "Project Management"
-tags:
-  - "Lab Management"
-  - "LIMS"
-links:
-  - name: scinote
-    link: https://www.scinote.net
-summary: "SciNote Electronic Lab Notebook (ELN). Top-rated solution trusted by the FDA & 70k+ scientists in 100+ countries."
+author: LM
+title: SciNote
+summary: SciNote Electronic Lab Notebook (ELN). Top-rated solution trusted by the FDA & 70k+ scientists in 100+ countries.
+images:
+- path: www.scinote.net_.jpg
+- path: www.scinote.net_premium_.png
+- path: www.scinote.net_product_.jpg
 features:
-  - "Electronic Lab notebook"
-  - "Lab information management"
-  - "Collaborations"
+- Electronic Lab notebook
+- Lab information management
+- Collaborations
+categories:
+- Project Management
+tags:
+- Lab Management
+- LIMS
 platforms:
-  - "Web"
+- Web
 fields:
-  - "General and Interdisciplinary"
+- General and Interdisciplinary
+links:
+- name: scinote
+  link: https://www.scinote.net
 plans:
-  - name:
-    description:
-makers: # the makers of the tool
-  - name:
-    description:
-author: LM   # the person who submitted this tool to KausalFlow
-date: 2020-12-18T16:38:17+01:00
+- name: null
+  description: null
+makers:
+- name: null
+  description: null
+date: 2020-12-18 16:38:17+01:00
 draft: false
 ---

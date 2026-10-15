@@ -1,11 +1,10 @@
 ---
-_id: 9asapcac34ata8xr2a9asaaq8vzcbx2d
 author: Rosano
 title: Hyperdraft
 summary: Create a static website by typing plaintext or Markdown.
 images:
-  - path: "hyperdraft.rosano.ca_.png"
-  - path: "hyperdraft.rosano.ca_ (1).png"
+- path: hyperdraft.rosano.ca_.png
+- path: hyperdraft.rosano.ca_ (1).png
 features:
 - Works offline without internet access.
 - Automatic cloud sync with remoteStorage or Fission.
@@ -26,5 +25,4 @@ links:
 - name: yperdraft.rosano.ca
   link: https://hyperdraft.rosano.ca
 date: '2022-01-08'
-
 ---

@@ -1,17 +1,16 @@
 ---
-_id: aku4yg6qrr2jaku4yg8q937h1hsqe4fr
 author: LM
 title: Dendron
 summary: Opensource knowledge management inside your vscode editor, with linked notes, and tools for publishing notes.
 images:
-  - path: "www.dendron.so_.png"
-  - path: "dendron_Hero_video_2-transcode.mp4"
-  - path: "dendron-landing-page.mp4"
-  - path: "dendron-landing-middle.png"
-  - path: "wiki.dendron.so_ (1).png"
-  - path: "wiki.dendron.so_ (2).png"
-  - path: "wiki.dendron.so_ (3).png"
-  - path: "wiki.dendron.so_.png"
+- path: www.dendron.so_.jpg
+- path: dendron_Hero_video_2-transcode.mp4
+- path: dendron-landing-page.mp4
+- path: dendron-landing-middle.png
+- path: wiki.dendron.so_ (1).png
+- path: wiki.dendron.so_ (2).jpg
+- path: wiki.dendron.so_ (3).jpg
+- path: wiki.dendron.so_.jpg
 features:
 - Open source
 - Built to scale
@@ -34,5 +33,4 @@ links:
 - name: www.dendron.so
   link: https://www.dendron.so
 date: '2022-04-03'
-
 ---

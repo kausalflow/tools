@@ -1,24 +1,25 @@
 ---
-title: "Rousseau"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: rousseau-github.png
-categories:
-  - Publishing and Sharing
-  - Communications
-tags:
-  - Publications
-  - Writing
-links:
-  - name: rousseau
-    link: https://github.com/GitbookIO/rousseau
+title: Rousseau
 summary: Lightweight proofreader in JS
-features:
+images:
+- path: rousseau-github.jpg
+features: null
+categories:
+- Publishing and Sharing
+- Communications
+tags:
+- Publication
+- Writing
 platforms:
-  - Any
+- Any
 fields:
+- General and Interdisciplinary
+links:
+- name: rousseau
+  link: https://github.com/GitbookIO/rousseau
 plans:
-  - name: Open Source
-    description:
-date: 2020-04-26T20:12:00+02:00
+- name: Open Source
+  description: null
+date: 2020-04-26 20:12:00+02:00
 draft: false
 ---

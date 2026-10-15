@@ -3,7 +3,7 @@ author: Coherence Team
 title: Coherence
 summary: Coherence is an AI reading workspace for research articles and PDFs. Ask contextual questions about selected passages, annotate sources, and organise saved sources and notes in a smart knowledgebase. It supports PDF parsing and Markdown workflows, with web, Chrome and macOS access and a free plan.
 images:
-- path: home.png
+- path: home.jpg
 features:
 - Ask contextual AI questions while reading articles and PDFs
 - Parse PDFs and work with Markdown

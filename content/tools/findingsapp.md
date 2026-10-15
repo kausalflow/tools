@@ -1,31 +1,32 @@
 ---
-title: "Findings App"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: findingsapp-overview.png
-  - path: findingsapp-screenshot-intro.png
-  - path: findingsapp-protocals.png
-categories:
-  - Project Management
-tags:
-  - Note-taking
-  - GTD
-  - Data Management
-links:
-  - name: Findings App
-    link: https://findingsapp.com/
+title: Findings App
 summary: Your research assistant & lab notebook, all in one app.
+images:
+- path: findingsapp-overview.jpg
+- path: findingsapp-screenshot-intro.png
+- path: findingsapp-protocals.jpg
 features:
-  - Protocals
-  - Meeting notes
-  - Utilities for experiments
+- Protocals
+- Meeting notes
+- Utilities for experiments
+categories:
+- Project Management
+tags:
+- Note-taking
+- GTD
+- Data Management
 platforms:
-  - Mac
+- Mac
 fields:
+- General and Interdisciplinary
+links:
+- name: Findings App
+  link: https://findingsapp.com/
 plans:
-  - name: Free Basic Version
-    description:
-  - name: Pro
-    description:
-date: 2020-04-26T20:27:15+02:00
+- name: Free Basic Version
+  description: null
+- name: Pro
+  description: null
+date: 2020-04-26 20:27:15+02:00
 draft: false
 ---

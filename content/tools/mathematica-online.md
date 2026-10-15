@@ -1,27 +1,29 @@
 ---
-title: "Mathematica Online"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: mathematicaOnline-header.png
-categories:
-  - Analysis and Computations
-  - Publishing and Sharing
-tags:
-  - Visualization
-  - Presentation
-  - Open Science
-  - Note-taking
-  - Programming
-  - Statistical Software
-links:
-  - name: Mathematica Online
-    link: https://www.wolfram.com/mathematica/online/
+title: Mathematica Online
 summary: The online version of Mathematica!
+images:
+- path: mathematicaOnline-header.png
 features:
-  - Wolfram Language
-  - Connect to WolframAlpha
+- Wolfram Language
+- Connect to WolframAlpha
+categories:
+- Analysis and Computations
+- Publishing and Sharing
+tags:
+- Visualization
+- Presentation
+- Open Science
+- Note-taking
+- Programming
+- Statistical Software
 platforms:
-  - Web
-plans:
-date: 2020-04-26T17:03:26+02:00
+- Web
+fields:
+- General and Interdisciplinary
+links:
+- name: Mathematica Online
+  link: https://www.wolfram.com/mathematica/online/
+plans: null
+date: 2020-04-26 17:03:26+02:00
 draft: false
 ---

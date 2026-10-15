@@ -76,17 +76,17 @@ def existing_entries(exclude=None):
     return urls, slugs
 
 
-def validate_entry(fm):
-    """Return a list of problem strings for a new entry's front matter."""
+def validate_entry(fm, strict=True):
+    """Return problems for an entry. strict=False skips size limits (legacy entries)."""
     problems = []
     for key in REQUIRED:
         if not fm.get(key):
             problems.append(f"missing required field: {key}")
     summary = str(fm.get("summary") or "")
     lim = TAXONOMY["limits"]
-    if summary and len(summary) < lim["summary_min"]:
+    if strict and summary and len(summary) < lim["summary_min"]:
         problems.append(f"summary is too short (min {lim['summary_min']} characters)")
-    if len(summary) > lim["summary_max"]:
+    if strict and len(summary) > lim["summary_max"]:
         problems.append(f"summary is too long (max {lim['summary_max']} characters)")
     for kind in ("categories", "fields", "platforms"):
         for v in fm.get(kind) or []:
@@ -96,7 +96,7 @@ def validate_entry(fm):
         url = link.get("link") if isinstance(link, dict) else None
         if not url or urlparse(str(url)).scheme not in ("http", "https"):
             problems.append(f"link is not an http(s) URL: {url}")
-    if len(fm.get("features") or []) > lim["features_max"]:
+    if strict and len(fm.get("features") or []) > lim["features_max"]:
         problems.append("too many features")
     for img in fm.get("images") or []:
         if not isinstance(img, dict) or not img.get("path"):

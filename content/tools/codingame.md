@@ -1,28 +1,26 @@
 ---
-title: "Codingame"
-images: # Create a folder in /static/images/tools that has the same name as this current markdown file and place the images there. We only need the file name here. If this is not clear, please refer to existing tools as references.
-  - path: codingame-landing.png
-  - path: codingame-clash.png
-categories:
-  - Fun
-tags:
-  - Programming
-links:
-  - name: codingame
-    link: https://www.codingame.com/
+title: Codingame
 summary: Coding and having fun
-features:
-  - ""
+images:
+- path: codingame-landing.jpg
+- path: codingame-clash.jpg
+categories:
+- Fun
+tags:
+- Programming
 platforms:
-  - ""
+- Any
 fields:
-  - ""
+- General and Interdisciplinary
+links:
+- name: codingame
+  link: https://www.codingame.com/
 plans:
-  - name:
-    description:
+- name: null
+  description: null
 makers:
-  - name:
-    description:
-date: 2020-04-27T08:47:10+02:00
+- name: null
+  description: null
+date: 2020-04-27 08:47:10+02:00
 draft: false
 ---
