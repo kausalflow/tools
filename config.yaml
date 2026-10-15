@@ -52,28 +52,6 @@ params:
   editURL: "https://github.com/kausalflow/tools/edit/master/content/"
   noindex_kinds:
     - "taxonomyTerm"
-  algolia:
-    vars:
-      - "title"
-      - "summary"
-      - "date"
-      - "publishdate"
-      - "expirydate"
-      - "permalink"
-      - "images"
-      - "author"
-      - "fields"
-      - "platforms"
-      - "file"
-    params:
-      - "categories"
-      - "tags"
-    options:
-      appId: "GHN6Q94HKJ"
-      apiKey: "2e4aba48a2586d24b6f1e0fe801ac4c9"
-      indexName: "tools-kausalflow"
-      hitsPerPage: 12
-      routing: true
   comments:
     giscus:
       repo: "kausalflow/tools"
@@ -83,8 +61,8 @@ params:
 
 
 outputFormats:
-  Algolia:
-    baseName: "algolia"
+  SearchIndex:
+    baseName: "search-index"
     isPlainText: true
     mediaType: "application/json"
     notAlternative: true
@@ -98,7 +76,7 @@ outputs:
   home:
     - "HTML"
     - "RSS"
-    - "Algolia"
+    - "SearchIndex"
     - "Tools"
 
 taxonomies:
