@@ -1,0 +1,3 @@
+<script type="application/ld+json">
+{{ dict "@context" "https://schema.org" "@type" (cond .IsPage "SoftwareApplication" "WebSite") "name" .Title "description" (.Summary | plainify | truncate 300) "url" .Permalink "applicationCategory" "ResearchApplication" "datePublished" (.Date.Format "2006-01-02") | jsonify | safeJS }}
+</script>
