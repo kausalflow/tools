@@ -1,5 +1,5 @@
 ---
-author: pipeline-test
+author: KausalFlow
 title: Papers AI
 summary: 'One research workspace for writing, data and code: collaborative Word, LaTeX and Markdown editing with AI that has the whole project in context.'
 images:
