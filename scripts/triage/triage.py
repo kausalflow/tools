@@ -250,7 +250,9 @@ def probe(url):
         info.update(status=r.status_code, final_url=final, ok=r.status_code < 400)
         if info["ok"]:
             m = Meta()
-            m.feed(body.decode(r.encoding or "utf-8", errors="replace"))
+            # requests guesses ISO-8859-1 when the header has no charset, which garbles UTF-8 titles
+            declared = "charset" in r.headers.get("Content-Type", "").lower()
+            m.feed(body.decode(r.encoding if declared and r.encoding else "utf-8", errors="replace"))
             info.update(title=" ".join(m.title.split()), description=" ".join(m.desc.split()))
     except Exception as e:
         info["error"] = str(e)[:200]
