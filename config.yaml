@@ -35,7 +35,7 @@ menu:
       url: "https://github.com/kausalflow/tools/discussions"
 
 params:
-  submit_url: "" # URL of the submit worker (workers/submit). Empty: the form opens a prefilled GitHub issue instead
+  submit_url: "https://kausalflow-tools-submit.leima.workers.dev" # submit worker (workers/submit); empty makes the form open a prefilled GitHub issue instead
   turnstile_sitekey: "" # Cloudflare Turnstile site key for the submit form (public); empty disables the widget
   theme_variant: 
     light: "journal" # possible value for the theme_variant `cerulean,cosmo,cyborg,darkly,flatly,journal,litera,lumen,lux,materia,minty,pulse,sandstone,simplex,slate,solar,spacelab,superhero,united,yeti`
