@@ -1,207 +1,84 @@
-{{ define "title"}} {{ .Title }} {{ end }}
-
-{{ define "style"}}
-<link rel="stylesheet" href="/css/blog-post.css">
-<link rel="stylesheet" href="/css/code-highlighting/dark.css">
-<link rel="stylesheet" href="/css/custom.css">
-<link rel="stylesheet" href="/assets/swiper/swiper.min.css">
-
-<link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css"> -->
-
-{{ end }}
-
-{{ define "header"}} {{ partial "menu" .}}
-
-{{ end }}
-
 {{ define "main" }}
+{{- $slug := printf "%s%s" .File.Dir .File.ContentBaseName -}}
+{{- $first := "" -}}{{- with .Params.links -}}{{- $first = index . 0 -}}{{- end -}}
+<div class="wrap" style="padding-top:28px">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/tools/">Directory</a><span aria-hidden="true">/</span>
+    {{ with .Params.categories }}<a href="/categories/{{ index . 0 | urlize }}/">{{ index . 0 }}</a><span aria-hidden="true">/</span>{{ end }}
+    <span>{{ .Title }}</span>
+  </nav>
+  <div class="tool-head" style="margin-top:20px">
+    <span class="mono-tile tint-{{ mod (len .Title) 6 }}" aria-hidden="true">{{ substr .Title 0 1 | upper }}</span>
+    <div class="titles">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.summary }}<p class="lead">{{ . | plainify | truncate 260 }}</p>{{ end }}
+      <div class="tool-actions">
+        {{ with $first }}<a class="btn btn-primary" href="{{ .link }}" rel="noopener" target="_blank">Visit {{ .name | default "website" }} &#8599;</a>{{ end }}
+        <a class="btn" href="{{ .Site.Params.editURL }}{{ .File.Path }}" rel="noopener">Suggest an edit</a>
+      </div>
+    </div>
+  </div>
 
-<div class="container" itemscope itemtype="http://schema.org/BlogPosting">
-    {{ partial "schema.html" . }}
-    <header class="post-header">
+  <div class="tool-layout">
+    <div class="tool-main">
+      {{ $has := false }}
+      {{ range .Params.images }}{{ if and .path (fileExists (printf "static/images/%s/%s" $slug .path)) }}{{ $has = true }}{{ end }}{{ end }}
+      {{ if $has }}
+      <div class="gallery" role="region" aria-label="Screenshots" tabindex="0">
+        {{ range .Params.images }}
+          {{ $p := printf "/images/%s/%s" $slug .path }}
+          {{ if fileExists (printf "static%s" $p) }}
+            {{ if strings.HasSuffix $p ".mp4" }}<video controls preload="metadata"><source src="{{ $p }}" type="video/mp4"></video>
+            {{ else if strings.HasSuffix $p ".webm" }}<video controls preload="metadata"><source src="{{ $p }}" type="video/webm"></video>
+            {{ else }}<a href="{{ $p }}" target="_blank" rel="noopener"><img src="{{ $p }}" alt="{{ $.Title }} screenshot" loading="lazy" decoding="async"></a>{{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+      {{ end }}
 
-        <div class="hero">
-            <div class="hero-body">
-                <div class="container">
-                    {{ partial "breadcrumb" . }}
-                    <div class="container has-text-centered">
-                        {{ partial "profile/title" . }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <section class="section">
-        <div class="container">
+      {{ with .Params.features }}
+      <section>
+        <h2 style="font-size:26px;margin-bottom:16px">What it does</h2>
+        <ul class="features">
+          {{ range . }}<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>{{ . | plainify }}</span></li>{{ end }}
+        </ul>
+      </section>
+      {{ end }}
 
+      {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
 
-            <div class="columns">
-                <div class="column is-9">
+      {{ partial "giscus-comments.html" . }}
+    </div>
 
-                    <div class="box"
-                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
-                        <!-- Image -->
-                        {{ if (isset .Params "images")}}
+    <aside class="tool-side">
+      <div class="panel">
+        <span class="mono">At a glance</span>
+        <dl class="facts" style="margin-top:12px">
+          {{ with .Params.fields }}<div><dt>Field</dt><dd>{{ delimit . ", " }}</dd></div>{{ end }}
+          {{ with .Params.platforms }}<div><dt>Platform</dt><dd>{{ delimit . ", " }}</dd></div>{{ end }}
+          {{ with .Params.categories }}<div><dt>Category</dt><dd>{{ range $i, $c := . }}{{ if $i }}, {{ end }}<a href="/categories/{{ $c | urlize }}/">{{ $c }}</a>{{ end }}</dd></div>{{ end }}
+          {{ range .Params.plans }}{{ if .name }}<div><dt>Plan</dt><dd>{{ .name }}</dd></div>{{ end }}{{ end }}
+          {{ with .Params.author }}{{ if reflect.IsMap . }}{{ else }}<div><dt>Added by</dt><dd><a href="/author/{{ . | urlize }}/">{{ . }}</a></dd></div>{{ end }}{{ end }}
+          <div><dt>Added</dt><dd>{{ .Date.Format "Jan 2006" }}</dd></div>
+        </dl>
+      </div>
+      {{ with .Params.tags }}
+      <div class="chip-row">{{ range . }}<a class="chip" href="/tags/{{ . | urlize }}/">{{ . }}</a>{{ end }}</div>
+      {{ end }}
+      {{ with .Params.links }}{{ if gt (len .) 1 }}
+      <div class="panel"><span class="mono">Links</span>
+        <ul class="features" style="margin-top:12px">{{ range . }}<li><a href="{{ .link }}" rel="noopener" target="_blank">{{ .name }}</a></li>{{ end }}</ul>
+      </div>
+      {{ end }}{{ end }}
+    </aside>
+  </div>
 
-                        <section class="section">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    {{ $filePath := printf "%s%s" .File.Dir .File.ContentBaseName }}
-                                    {{ range .Params.images }}
-                                    {{ $fullPath := (printf "/images/%s/%s" $filePath .path) }}
-                                    {{ if (fileExists (printf "static%s" $fullPath)) }}
-                                    <div class="swiper-slide">
-                                        <figure class="image">
-                                            {{ if or (strings.HasSuffix $fullPath "webm") (strings.HasSuffix $fullPath "mp4") }}
-                                            <video controls>
-                                                <source src="{{$fullPath}}"
-                                                        type="video/webm">
-                                                Sorry, your browser doesn't support embedded videos.
-                                            </video>
-                                            {{ else }}
-                                            <img src="{{$fullPath}}" alt="{{.Title}}">
-                                            {{ end }}
-                                        </figure>
-                                    </div>
-                                    {{ else }}
-                                    {{ end }}
-                                    {{ end }}
-                                </div>
-                                <!-- Add Pagination -->
-                                <div class="swiper-pagination"></div>
-                                <!-- Add Arrows -->
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
-                            </div>
-                        </section>
-                        {{end}}
-                        <!-- /Image -->
-                    </div>
-
-                    {{ partial "giscus-comments.html" . }}
-
-                </div>
-
-                <div class="column is-3">
-
-                    <!-- <div class="is-divider" data-content="LINKS"
-                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 0rem 0 1.5rem 0!important;">
-                    </div>
-                    <div class="box"
-                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
-                        <section class="section">
-
-
-                            {{range $link := .Params.links}}
-                            <div class="buttons is-centered">
-                                <a href="{{ $link.link }}" class="button is-danger is-light">{{ $link.name }}</a>
-                            </div>
-                            {{end}}
-                        </section>
-                    </div>
-                    <div class="is-divider" data-content="FEATURES of {{.Title  | truncate 15 }}"
-                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                    </div>
-
-
-                    <div class="box"
-                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
-                        <section class="section">
-
-
-                            <ul id="all-tags">
-                                {{ range $idx, $tag := .Params.features }}
-                                <li>
-                                    <p><i class="fas fa-certificate" style="margin-right: 0.3em;"></i> {{ $tag }}</p>
-                                </li>
-                                {{ end }}
-                            </ul>
-                        </section>
-                    </div> -->
-                    <!-- <div class="is-divider" data-content="META {{.Title | truncate 15}}"
-                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                    </div> -->
-                    <div class="box"
-                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
-                        <section class="section">
-
-                            {{ partial "profile/author" . }}
-                        </section>
-                    </div>
-                    <div class="is-divider" data-content="RELATED {{.Title | truncate 15}}"
-                        style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                    </div>
-                    <div class="box"
-                        style="box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);">
-                        <section class="section">
-                            {{ partial "related-tools" . }}
-                        </section>
-                    </div>
-
-
-                </div>
-
-
-
-
-            </div>
-            <div class="columns is-mobile">
-                <div class="column">
-
-                    <div class="content blog-post section" itemprop="articleBody">
-                        {{ partial "toc" .}}
-                        {{.Content}}
-                    </div>
-
-                    <!-- <p>{{ partial "post/meta" . }}</p> -->
-                    <!-- {{ partial "post/byauthor" . }} -->
-
-
-                </div>
-
-            </div>
-        </div>
-    </section>
+  {{ $related := (.Site.RegularPages.Related .) | first 3 }}
+  {{ with $related }}
+  <section style="padding-bottom:24px">
+    <h2 style="font-size:26px;margin-bottom:20px">Similar tools</h2>
+    <div class="grid grid-3">{{ range . }}{{ partial "tool-card.html" . }}{{ end }}</div>
+  </section>
+  {{ end }}
 </div>
-
-{{ partial "nav-buttons.html" . }}
-
-{{ end }}
-
-{{ define "footer"}}
-{{ partial "footer.html" .}}
-
-
-<script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
-<script src="/assets/swiper/swiper.min.js"></script>
-
-<!-- Initialize Swiper -->
-<script>
-    var swiper = new Swiper('.swiper-container', {
-        spaceBetween: 30,
-        centeredSlides: true,
-        loop: true,
-        autoplay: {
-            delay: 10000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-</script>
-
-<!-- <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
-<script>
-    bulmaCarousel.attach('#carousel-demo', {
-        slidesToScroll: 1,
-        slidesToShow: 1
-    });
-</script> -->
 {{ end }}

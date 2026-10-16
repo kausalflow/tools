@@ -1,42 +1,14 @@
-{{ define "header" }}
-{{ partial "menu" . }}
-<div class="hero" style="margin-bottom:2em;">
-    <div class="hero-body">
-        <div class="container">
-            <div class="container has-text-centered">
-                <h1 class="title is-2 has-text-centered">{{.Title}}</h1>
-            </div>
-        </div>
-    </div>
-</div>
-{{ end }}
-
-
 {{ define "main" }}
-<div class="is-divider" data-content="TOOLS"
-                            style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
-                        </div>
-<main class="container" aria-label="Content">
-
-    <div class="columns is-multiline">
-        {{ range .Paginator.Pages }}
-        <div class="column is-one-third">
-            {{ partial "list/card.html" .}}
-        </div>
-        {{ end }}
-
-    </div>
-    <div class="is-divider" style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;"></div>
-
-    <div class="container">
-        <div class="columns">
-            <div class="column" style="margin-bottom: 2em;padding-bottom:1em;">
-        {{ partial "pagination" . }}
-    </div>
-    </div>
-    </div>
-</main>
-{{ end }}
-{{ define "footer" }}
-{{ partial "footer" . }}
+<section class="page-head"><div class="wrap">
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+</div></section>
+<div class="wrap" style="padding-top:32px;padding-bottom:64px">
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  <div class="grid grid-3" style="margin-top:24px">
+    {{ range .Pages }}
+    <a class="tile" href="{{ .RelPermalink }}"><span class="tile-title">{{ .Title }}</span><span class="tile-sub">{{ .Params.summary | default .Params.description | plainify | truncate 140 }}</span></a>
+    {{ end }}
+  </div>
+</div>
 {{ end }}

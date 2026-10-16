@@ -1,10 +1,77 @@
-{{ define "title"}} {{ .Site.Title}} {{end}}
-{{ define "header"}} {{ partial "menu" .}} {{end}}
-
 {{ define "main" }}
+{{ $tools := where .Site.RegularPages "Type" "tools" }}
+{{ $blurbs := dict
+  "Analysis and Computations" "Compute, clean and visualise data"
+  "Career" "Jobs, CVs and career advice"
+  "Communications" "Share and discuss your work"
+  "Datasets" "Find and deposit data"
+  "Fun" "Take a break, stay focused"
+  "Guides" "How-tos and learning resources"
+  "Life" "Life around the lab"
+  "Productivity" "Get more done"
+  "Project Management" "Plan work and stay on track"
+  "Project Research" "Find, read and organise literature"
+  "Publishing and Sharing" "Write, format and publish" }}
+<section class="hero">
+  <div class="wrap">
+    <span class="mono" style="color:var(--accent)">A community-curated directory &middot; {{ len $tools }} tools</span>
+    <h1>Find the right tool for your research.</h1>
+    <p class="lead">Literature, writing, data and project tools, picked and described by researchers. Free to use, free to contribute.</p>
+    <form class="searchbar" action="/tools/" method="get" role="search">
+      <label class="sr-only" for="home-q">Search tools</label>
+      <input id="home-q" type="search" name="q" placeholder="Try &ldquo;systematic review&rdquo;" autocomplete="off">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+    <div class="chip-row" aria-label="Popular searches">
+      <span class="mono" style="align-self:center">Popular</span>
+      {{ range slice "literature review" "citation" "latex" "data analysis" "open science" "note-taking" }}
+      <a class="chip" href="/tools/?q={{ . | urlquery }}">{{ . }}</a>
+      {{ end }}
+    </div>
+  </div>
+</section>
 
-{{ partial "home/hero.html" . }}
+<section class="section"><div class="wrap">
+  <div class="section-head"><h2>Browse by what you are doing</h2><a href="/tools/">All tools &rarr;</a></div>
+  <div class="grid grid-4">
+    {{ range .Site.Taxonomies.categories.ByCount }}
+    <a class="tile" href="{{ .Page.RelPermalink }}">
+      <span class="mono-tile tint-{{ mod (len .Page.Title) 6 }}" aria-hidden="true">{{ substr .Page.Title 0 2 }}</span>
+      <span class="tile-title">{{ .Page.Title }}</span>
+      <span class="tile-sub">{{ with index $blurbs .Page.Title }}{{ . }} &middot; {{ end }}{{ .Count }}</span>
+    </a>
+    {{ end }}
+  </div>
+</div></section>
 
+<section class="section"><div class="wrap">
+  <div class="section-head"><h2>Recently added</h2><a href="/tools/?sort=new">See all &rarr;</a></div>
+  <div class="grid grid-3">
+    {{ range first 6 ($tools.ByDate.Reverse) }}{{ partial "tool-card.html" . }}{{ end }}
+  </div>
+</div></section>
+
+{{ with site.GetPage "/collections" }}{{ if .Pages }}
+<section class="section"><div class="wrap">
+  <div class="section-head"><h2>Curated collections</h2><a href="/collections/">All collections &rarr;</a></div>
+  <div class="grid grid-2">
+    {{ range .Pages }}
+    <a class="coll" href="{{ .RelPermalink }}">
+      <span class="mono-tile tint-{{ mod (len .Title) 6 }}" aria-hidden="true">{{ substr .Title 0 1 }}</span>
+      <span><span class="tile-title">{{ .Title }}</span><br><span class="tile-sub">{{ .Params.description | plainify | truncate 140 }}</span></span>
+    </a>
+    {{ end }}
+  </div>
+</div></section>
+{{ end }}{{ end }}
+
+<section class="section"><div class="wrap">
+  <div class="band">
+    <div>
+      <h2>Know a tool researchers should use?</h2>
+      <p>Paste the address. We check it, fill in the details and open the review for you.</p>
+    </div>
+    <a class="btn btn-night" href="/submit/">Submit a tool</a>
+  </div>
+</div></section>
 {{ end }}
-
-{{ define "footer" }} {{ partial "footer" .}} {{ end }}

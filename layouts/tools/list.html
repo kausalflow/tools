@@ -1,50 +1,26 @@
-{{ define "header" }}
-{{ partial "menu" . }}
-<div class="hero" style="margin-bottom:2em;">
-    <div class="hero-body">
-        <div class="container">
-            <div class="container has-text-centered">
-                <h1 class="title is-2 has-text-centered">Tools for Academic Research</h1>
-            </div>
-        </div>
-    </div>
-</div>
-
-{{ end }}
-
-
 {{ define "main" }}
-<div class="is-divider" data-content="TOOLS"
-    style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;">
+<section class="page-head"><div class="wrap">
+  <h1>Directory</h1>
+  <p>Tools for every stage of research. Filter by field, platform or category.</p>
+</div></section>
+<div class="wrap dir">
+  <aside class="facets" id="facets" aria-label="Filters"></aside>
+  <div class="dir-main">
+    <div class="dir-tools">
+      <label class="sr-only" for="dir-q">Filter tools</label>
+      <input id="dir-q" type="search" placeholder="Filter by name, tag or description" autocomplete="off">
+      <button class="btn filters-toggle" type="button" id="filters-toggle" aria-expanded="false" aria-controls="facets">Filters</button>
+      <label class="sr-only" for="dir-sort">Sort</label>
+      <select id="dir-sort"><option value="new">Newest first</option><option value="name">Name A&ndash;Z</option></select>
+    </div>
+    <div style="display:flex;gap:16px;align-items:baseline">
+      <span class="dir-count" id="dir-count" aria-live="polite">{{ len .Pages }} tools</span>
+      <button class="btn" type="button" id="dir-clear" style="min-height:32px;padding:0 12px;font-size:14px">Clear filters</button>
+    </div>
+    <div class="grid grid-3" id="tool-grid">
+      {{ range .Pages.ByDate.Reverse }}{{ partial "tool-card.html" . }}{{ end }}
+    </div>
+    <div class="empty" id="dir-empty" hidden>No tools match these filters. <a href="/submit/">Suggest one</a>.</div>
+  </div>
 </div>
-<main class="container" aria-label="Content">
-    <div class="columns">
-        <div class="column is-3">
-            {{ partial "list/menu.html" .}}
-        </div>
-        <div class="column">
-            <div class="columns is-multiline">
-                {{ range .Paginator.Pages }}
-                <div class="column is-one-third">
-                    {{ partial "list/card.html" .}}
-                </div>
-                {{ end }}
-            </div>
-        </div>
-    </div>
-
-    <div class="is-divider" style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;"></div>
-
-    <div class="container">
-        <div class="columns">
-            <div class="column" style="margin-bottom: 2em;padding-bottom:1em;">
-                {{ partial "pagination" . }}
-            </div>
-        </div>
-    </div>
-
-</main>
-{{ end }}
-{{ define "footer" }}
-{{ partial "footer" . }}
 {{ end }}

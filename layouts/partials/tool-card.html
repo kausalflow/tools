@@ -1,0 +1,32 @@
+{{- $slug := printf "%s%s" .File.Dir .File.ContentBaseName -}}
+{{- $img := "" -}}
+{{- range .Params.images -}}
+  {{- if and (not $img) .path -}}
+    {{- $p := printf "/images/%s/%s" $slug .path -}}
+    {{- if and (fileExists (printf "static%s" $p)) (not (strings.HasSuffix $p ".mp4")) (not (strings.HasSuffix $p ".webm")) -}}{{- $img = $p -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $fields := .Params.fields | default slice -}}
+{{- $plats := .Params.platforms | default slice -}}
+{{- $cats := .Params.categories | default slice -}}
+{{- $tags := .Params.tags | default slice -}}
+{{- $isNew := lt (sub now.Unix .Date.Unix) 2592000 -}}
+<article data-card
+  data-name="{{ .Title }}" data-date="{{ .Date.Unix }}"
+  data-field="{{ delimit $fields "|" }}" data-platform="{{ delimit $plats "|" }}" data-category="{{ delimit $cats "|" }}"
+  data-q="{{ lower (printf "%s %s %s %s" .Title (.Params.summary | default "" | plainify) (delimit $tags " ") (delimit $cats " ")) }}">
+  <a class="card" href="{{ .RelPermalink }}">
+    <div class="card-media">
+      {{- if $img }}<img src="{{ $img }}" alt="" loading="lazy" decoding="async">
+      {{- else }}<span class="mono-tile tint-{{ mod (len .Title) 6 }}" aria-hidden="true">{{ substr .Title 0 1 | upper }}</span>{{ end -}}
+    </div>
+    <div class="card-body">
+      <div class="card-title"><span>{{ .Title }}</span>{{ if $isNew }}<span class="chip chip-new">NEW</span>{{ end }}</div>
+      <div class="card-sum">{{ .Params.summary | plainify }}</div>
+      <div class="chip-row">
+        {{ range first 2 $plats }}<span class="chip">{{ . }}</span>{{ end }}
+        {{ range first 1 $fields }}{{ if ne . "General and Interdisciplinary" }}<span class="chip">{{ . }}</span>{{ end }}{{ end }}
+      </div>
+    </div>
+  </a>
+</article>
