@@ -45,9 +45,12 @@ for dir in "$out"/*/; do
   url="$(gh pr create --base "$base" --head "$branch" \
     --title "Add ${name}" --body-file "$body" \
     --label triage --label "$verdict" "${flags[@]}")"
+  # PRs opened with the workflow token do not start other workflows, so ask for the preview explicitly
+  prnum="${url##*/}"
+  gh workflow run preview.yml --ref "$base" -f pr="$prnum" || echo "preview not started"
   if [ -n "$issue" ]; then
     gh issue edit "$issue" --add-label triage
-    gh issue comment "$issue" --body "Triage result: **${verdict}**. Review: ${url}"
+    gh issue comment "$issue" --body "Triage result: **${verdict}**. Review: ${url} (a preview link is posted there in a few minutes)"
   fi
   git checkout -q "$base"
 done
