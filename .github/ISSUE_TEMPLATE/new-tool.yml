@@ -1,0 +1,65 @@
+name: Suggest a tool
+description: Tell us about a tool that helps with research.
+title: "New tool: "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping. We check the link, add a screenshot and open a review for you.
+        Submissions are licensed CC BY-SA 4.0.
+  - type: input
+    id: name
+    attributes:
+      label: Your name
+      description: Shown as the person who added the tool. A handle is fine.
+  - type: input
+    id: tool
+    attributes:
+      label: Tool name
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: alt
+    attributes:
+      label: Alternative link
+      description: App store page, repository or documentation.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What it does and who it is for, in a few sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: features
+    attributes:
+      label: Features
+      description: One feature per line.
+  - type: input
+    id: categories
+    attributes:
+      label: Categories
+      description: Comma separated, e.g. Project Research, Publishing and Sharing.
+  - type: input
+    id: fields
+    attributes:
+      label: Fields
+      description: Comma separated, e.g. Medicine, Statistics. Use General and Interdisciplinary if unsure.
+  - type: input
+    id: platforms
+    attributes:
+      label: Platforms
+      description: Comma separated, e.g. Web, Mac, Win, Linux, iOS, Android.
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma separated, optional.

@@ -15,9 +15,18 @@ for dir in "$out"/*/; do
   # the name is untrusted text: keep one line, cap the length
   name="$(jq -r '.name // "unnamed"' "$dir/verdict.json" | tr -d '\r\n' | cut -c1-80)"
 
+  # set when the submission arrived as an issue (Cloudflare form or GitHub issue form)
+  issue="${ISSUE_NUMBER:-}"
+
   if [ "$verdict" = "reject" ]; then
-    gh issue create --title "Triage: reject ${name}" \
-      --body-file "$dir/report.md" --label triage --label triage-reject
+    if [ -n "$issue" ]; then
+      gh issue comment "$issue" --body-file "$dir/report.md"
+      gh issue edit "$issue" --add-label triage --add-label triage-reject
+      gh issue close "$issue" --reason "not planned"
+    else
+      gh issue create --title "Triage: reject ${name}" \
+        --body-file "$dir/report.md" --label triage --label triage-reject
+    fi
     continue
   fi
 
@@ -30,8 +39,15 @@ for dir in "$out"/*/; do
 
   flags=()
   [ "$verdict" = "needs-info" ] && flags+=(--draft)
-  gh pr create --base "$base" --head "$branch" \
-    --title "Add ${name}" --body-file "$dir/report.md" \
-    --label triage --label "$verdict" "${flags[@]}"
+  body="$dir/pr-body.md"
+  cp "$dir/report.md" "$body"
+  [ -n "$issue" ] && printf '\n\nCloses #%s\n' "$issue" >> "$body"
+  url="$(gh pr create --base "$base" --head "$branch" \
+    --title "Add ${name}" --body-file "$body" \
+    --label triage --label "$verdict" "${flags[@]}")"
+  if [ -n "$issue" ]; then
+    gh issue edit "$issue" --add-label triage
+    gh issue comment "$issue" --body "Triage result: **${verdict}**. Review: ${url}"
+  fi
   git checkout -q "$base"
 done

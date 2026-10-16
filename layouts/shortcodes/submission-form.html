@@ -1,213 +1,96 @@
-<section style="margin-bottom: 3em;">
-    <form name="kausalflow-tools-submission" enctype="multipart/form-data" method="POST" data-netlify="true">
-        <div class="field">
-            <label class="label">How shall we address you on the website? Do you have a website for us to link
-                to?</label>
-            <p>We need a name so we can address in the database that it was you who added the tool. Please consider
-                avoiding your real name since this will be public. If you would like to link to your own website, please
-                also provide a link to your personal website so that people can reach you though the link.</p>
-            <div class="control">
-                <input name="submitted_by" class="input" type="text" placeholder="Your Name" required>
-            </div>
-        </div>
+{{- $tax := readFile "scripts/triage/taxonomy.yaml" | transform.Unmarshal -}}
+{{- $url := site.Params.submit_url | default "" -}}
+{{- $fn := ne $url "" -}}
+{{- $repo := site.Params.github | default "kausalflow/tools" -}}
+{{- if $fn -}}
+<form class="submit-form" id="fn-form" action="{{ $url }}" method="post">
+  <input type="hidden" name="t" id="fn-t" value="">
+{{- else -}}
+<form class="submit-form" id="gh-form" action="https://github.com/{{ $repo }}/issues/new" method="get" target="_blank" rel="noopener">
+  <input type="hidden" name="template" value="new-tool.yml">
+  <input type="hidden" name="title" id="gh-title" value="New tool: ">
+{{- end }}
+  <div class="field">
+    <label class="label" for="f-by">Your name or handle</label>
+    <p>Shown as the person who added the tool. Please avoid your real name if you prefer, it is public.</p>
+    <input class="input" id="f-by" name="{{ if $fn }}submitted_by{{ else }}name{{ end }}" type="text" maxlength="120" autocomplete="nickname">
+  </div>
+  <div class="field">
+    <label class="label" for="f-name">Tool name</label>
+    <input class="input" id="f-name" name="{{ if $fn }}tool-name{{ else }}tool{{ end }}" type="text" maxlength="120" required>
+  </div>
+  <div class="field">
+    <label class="label" for="f-link">Link</label>
+    <p>We read this page to fill in details and take a screenshot.</p>
+    <input class="input" id="f-link" name="{{ if $fn }}tool-link{{ else }}link{{ end }}" type="url" placeholder="https://" maxlength="500" required>
+  </div>
+  <div class="field">
+    <label class="label" for="f-alt">Alternative link <span class="help">(optional: app store, repository, docs)</span></label>
+    <input class="input" id="f-alt" name="{{ if $fn }}tool-link-alt{{ else }}alt{{ end }}" type="url" placeholder="https://" maxlength="500">
+  </div>
+  <div class="field">
+    <label class="label" for="f-sum">What does it do, and who is it for?</label>
+    <p>A few sentences, at least 40 characters.</p>
+    <textarea class="textarea" id="f-sum" name="{{ if $fn }}tool-summary{{ else }}summary{{ end }}" maxlength="2000" required></textarea>
+  </div>
+  <div class="field">
+    <label class="label" for="f-feat">Main features <span class="help">(optional, one per line)</span></label>
+    <textarea class="textarea" id="f-feat" name="{{ if $fn }}tool-features{{ else }}features{{ end }}" maxlength="3000" placeholder="- Exports to BibTeX&#10;- Works offline"></textarea>
+  </div>
 
-        <div class="field">
-            <label class="label">What is the name of the tool?</label>
-            <div class="control">
-                <input name="tool-name" class="input" type="text" placeholder="Tool Name" required>
-            </div>
-        </div>
+  <fieldset class="field"><legend class="label">Categories</legend>
+    {{ range $tax.categories }}<label class="checkbox"><input type="checkbox" data-group="categories" {{ if $fn }}name="tool-categories"{{ end }} value="{{ . }}"> {{ . }}</label>{{ end }}
+  </fieldset>
+  <fieldset class="field"><legend class="label">Field</legend>
+    {{ range $tax.fields }}<label class="checkbox"><input type="checkbox" data-group="fields" {{ if $fn }}name="tool-fields"{{ end }} value="{{ . }}"> {{ . }}</label>{{ end }}
+  </fieldset>
+  <fieldset class="field"><legend class="label">Platforms</legend>
+    {{ range $tax.platforms }}<label class="checkbox"><input type="checkbox" data-group="platforms" {{ if $fn }}name="tool-platforms"{{ end }} value="{{ . }}"> {{ . }}</label>{{ end }}
+  </fieldset>
+  <fieldset class="field"><legend class="label">Tags <span class="help">(optional)</span></legend>
+    {{ range $tax.tags }}<label class="checkbox"><input type="checkbox" data-group="tags" {{ if $fn }}name="tool-tags"{{ end }} value="{{ . }}"> {{ . }}</label>{{ end }}
+  </fieldset>
+  <div class="field">
+    <label class="label" for="f-tags">Other tags <span class="help">(optional, comma separated)</span></label>
+    <input class="input" id="f-tags" name="{{ if $fn }}tool-tags-other{{ else }}tags-other{{ end }}" type="text" maxlength="300">
+  </div>
 
-        <div class="field">
-            <label class="label">How would you introduce this tool in a few sentence?</label>
-            <div class="control">
-                <textarea name="tool-summary" class="textarea" placeholder="Tool Description" required></textarea>
-            </div>
-        </div>
+  {{ if not $fn }}
+  {{ range slice "categories" "fields" "platforms" "tags" }}<input type="hidden" name="{{ . }}" id="gh-{{ . }}">{{ end }}
+  {{ end }}
+  {{ if $fn }}<div class="sr-only" aria-hidden="true">
+    <label>Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+  </div>{{ end }}
 
-        <div class="field">
-            <label class="label">What are the salient features of this tool?</label>
-            <p>bullet list is recommended, i.e.,</br>
-                - This is features one</br>
-                - This is feature two</br>
-                - ...</br></p>
-            <div class="control">
-                <textarea name="tool-features" class="textarea" placeholder="-&#10; " required></textarea>
-            </div>
-        </div>
+  {{ with (cond $fn site.Params.turnstile_sitekey "") }}
+  <div class="cf-turnstile" data-sitekey="{{ . }}" style="margin-bottom:20px"></div>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  {{ end }}
 
-        <div class="field">
-            <label class="label">What is the official website of this tool?</label>
-            <div class="control">
-                <input name="tool-link" class="input" type="url" placeholder="Tool Link" required>
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">If you have some additional links related to this tool, please specify here.</label>
-            <div class="control">
-                <input name="tool-link-alt" class="input" type="url" placeholder="Tool Alternative Link">
-            </div>
-        </div>
-
-
-        <div class="field">
-            <label class="label">What categories is this tool in?</label>
-            <div class="control">
-                <div class="select is-multiple">
-                    <select name="tool-categories[]" multiple size=8>
-                        <option value="Project Management">Project Management</option>
-                        <option value="Analysis and Computations">Analysis and Computations</option>
-                        <option value="Publishing and Sharing">Publishing and Sharing</option>
-                        <option value="Project Research">Project Research (such as background research, hypothesis
-                            proposals)</option>
-                        <option value="Communications">Communications</option>
-                        <option value="Guides">Guides (such as research guides, PhD life guides)</option>
-                        <option value="Career">Career</option>
-                        <option value="Fun">Fun</option>
-                        <option value="Project Management">Project Management</option>
-                        <option value="Other">Other (Please Specify below)</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">If you choose Other category in the above, please specify here</label>
-            <div class="control">
-                <input name="tool-category-other" class="input" type="text"
-                    placeholder="Manually Specify Tool Category">
-            </div>
-        </div>
-
-
-        <div class="field">
-            <label class="label">What tags is this tool in?</label>
-            <p>We have a few predefined tags already. Feel free to choose "Other" option and specify after.</p>
-            <div class="control">
-                <div class="select is-multiple">
-                    <select name="tool-tags[]" multiple size=8>
-                        <option value="Version Control">Version Control</option>
-                        <option value="GTD">GTD (Get Things Done)</option>
-                        <option value="Note-taking">Note-taking</option>
-                        <option value="Data Management">Data Management</option>
-                        <option value="Programming">Programming</option>
-                        <option value="Statistical Software">Statistical Software</option>
-                        <option value="Data Analysis">Data Analysis</option>
-                        <option value="References and Journals">References and Journals</option>
-                        <option value="Reference Management">Reference Management</option>
-                        <option value="Data Research">Data Research (such as astronomical images database, tools to find
-                            new data)</option>
-                        <option value="Visualization">Visualization</option>
-                        <option value="Presentation">Presentation</option>
-                        <option value="Peer Review">Peer Review</option>
-                        <option value="Regulation">Regulation</option>
-                        <option value="Open Science">Open Science</option>
-                        <option value="Publication">Publication</option>
-                        <option value="Writing">Writing</option>
-                        <option value="Community">Community (such as a forum for neuroinformatics)</option>
-                        <option value="PhD Guide">PhD Guide</option>
-                        <option value="Career">Career</option>
-                        <option value="Tools">Tools</option>
-                        <option value="Research Guide">Research Guide</option>
-                        <option value="Seminar">Seminar</option>
-                        <option value="Colloquium">Colloquium</option>
-                        <option value="Project Management">Project Management</option>
-                        <option value="AI">AI</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">If you choose Other tag in the above, please specify here</label>
-            <div class="control">
-                <input name="tool-tags-other" class="input" type="text" placeholder="Manually Specify Tool Tag">
-            </div>
-        </div>
-
-
-        <div class="field">
-            <label class="label">What platforms is this tool being used on?</label>
-            <div class="control">
-                <div class="select is-multiple">
-                    <select name="tool-platforms[]" multiple size=8>
-                        <option value="Web">Web</option>
-                        <option value="Mac">Mac</option>
-                        <option value="Win">Win</option>
-                        <option value="Linux">Linux</option>
-                        <option value="iOS">iOS</option>
-                        <option value="Android">Android</option>
-                        <option value="Book">Book</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Which field is this tool mostly used in?</label>
-            <div class="control">
-                <div class="select is-multiple">
-                    <select name="tool-fields[]" multiple size=8>
-                        <option value="General and Interdisciplinary">General and Interdisciplinary</option>
-                        <option value="Medicine">Medicine</option>
-                        <option value="Computer Science">Computer Science</option>
-                        <option value="Statistics">Statistics</option>
-                        <option value="Philosophy">Philosophy</option>
-                        <option value="Mathematics">Mathematics</option>
-                        <option value="Life Science">Life Science</option>
-                        <option value="Physical Science">Physical Science</option>
-                        <option value="Space Science">Space Science</option>
-                        <option value="Earth Science">Earth Science</option>
-                        <option value="Social Science">Social Science</option>
-                        <option value="Languages">Languages</option>
-                        <option value="Business">Business</option>
-                        <option value="History and Arts">History and Arts</option>
-                        <option value="Engineering">Engineering</option>
-                        <option value="AI">AI</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <p class="label">Upload a cover screenshot if you like</p>
-
-        <div id="file-upload-js" class="file has-name">
-            <label class="file-label">
-                <input class="file-input" type="file" name="images">
-                <span class="file-cta">
-                    <span class="file-icon">
-                        <i class="fas fa-upload"></i>
-                    </span>
-                    <span class="file-label">
-                        Choose a file…
-                    </span>
-                </span>
-                <span class="file-name">
-                    No file uploaded
-                </span>
-            </label>
-        </div>
-
-        <div class="field is-grouped" style="margin-top: 3em;">
-            <div class="control">
-                <button class="button is-link" type="submit">Submit</button>
-            </div>
-        </div>
-
-    </form>
-
-    <script>
-        const fileInput = document.querySelector('#file-upload-js input[type=file]');
-        fileInput.onchange = () => {
-            if (fileInput.files.length > 0) {
-                const fileName = document.querySelector('#file-upload-js .file-name');
-                fileName.textContent = fileInput.files[0].name;
-            }
+  <div class="field is-grouped">
+    <button class="button" type="submit">{{ if $fn }}Submit for review{{ else }}Continue on GitHub{{ end }}</button>
+    <span class="help" style="align-self:center">By submitting you agree to the CC BY-SA 4.0 licence.</span>
+  </div>
+</form>
+{{ if $fn }}
+<script>document.getElementById('fn-t').value = Date.now();</script>
+{{ else }}
+<p class="help">This opens a GitHub issue with your answers filled in. You need a free GitHub account to submit it.</p>
+<script>
+  (function () {
+    var f = document.getElementById('gh-form');
+    if (!f) return;
+    f.addEventListener('submit', function () {
+      ['categories', 'fields', 'platforms', 'tags'].forEach(function (g) {
+        var picked = Array.prototype.map.call(f.querySelectorAll('input[data-group="' + g + '"]:checked'), function (i) { return i.value; });
+        if (g === 'tags') {
+          var other = f.querySelector('[name="tags-other"]');
+          if (other && other.value.trim()) picked.push(other.value.trim());
         }
-    </script>
-
-</section>
+        document.getElementById('gh-' + g).value = picked.join(', ');
+      });
+      document.getElementById('gh-title').value = 'New tool: ' + (f.querySelector('[name="tool"]').value || '').trim();
+    });
+  })();
+</script>
+{{ end }}

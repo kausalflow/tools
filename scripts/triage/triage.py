@@ -11,7 +11,8 @@ For every submission this script
 Submissions are untrusted. Their text is only ever written into YAML through a
 safe dumper, shown to the model inside data tags, and never executed.
 
-Sources:  --csv FILE (a Netlify form export)   or   --netlify (API, needs NETLIFY_AUTH_TOKEN)
+Sources:  --csv FILE (a form export), --netlify (API, needs NETLIFY_AUTH_TOKEN),
+          or --issue-body-env VAR --issue-number N (a submission issue)
 """
 import argparse
 import csv
@@ -148,6 +149,34 @@ def from_netlify(token, site_id=None):
         for s in batch:
             yield normalize(s.get("data") or {}, s["id"], s.get("created_at", ""))
         page += 1
+
+
+# Issue-form labels (see .github/ISSUE_TEMPLATE/new-tool.yml) -> submission keys
+FORM_LABELS = {
+    "your name": "submitted_by", "tool name": "tool-name", "summary": "tool-summary",
+    "features": "tool-features", "link": "tool-link", "alternative link": "tool-link-alt",
+    "categories": "tool-categories", "fields": "tool-fields", "platforms": "tool-platforms",
+    "tags": "tool-tags",
+}
+
+
+def from_issue(body, number):
+    """One submission from a GitHub issue: the JSON comment written by /api/submit,
+    or the sections of the issue form."""
+    raw = {}
+    m = re.search(r"<!--\s*kf-submission\s*\n(.*?)\n\s*-->", body or "", re.S)
+    if m:
+        try:
+            raw = json.loads(m.group(1))
+        except ValueError:
+            raw = {}
+    if not raw:
+        for head, text in re.findall(r"^###\s+(.+?)\s*\n+(.*?)(?=^###\s|\Z)", body or "", re.S | re.M):
+            key = FORM_LABELS.get(head.strip().lower())
+            text = text.strip()
+            if key and text and text != "_No response_":
+                raw[key] = text
+    return normalize(raw, f"issue-{number}", date.today().isoformat())
 
 
 # ---------------------------------------------------------------- fetching
@@ -467,6 +496,8 @@ def main():
     src = ap.add_mutually_exclusive_group(required=True)
     src.add_argument("--csv")
     src.add_argument("--netlify", action="store_true")
+    src.add_argument("--issue-body-env", help="name of an environment variable holding a GitHub issue body")
+    ap.add_argument("--issue-number", help="issue number, used with --issue-body-env")
     ap.add_argument("--out", default="triage-out")
     ap.add_argument("--skip-ids", help="file with one submission id per line to skip")
     ap.add_argument("--only", help="comma separated submission ids to process")
@@ -477,7 +508,11 @@ def main():
 
     skip = set(Path(a.skip_ids).read_text().split()) if a.skip_ids and Path(a.skip_ids).exists() else set()
     only = set(a.only.split(",")) if a.only else None
-    if a.csv:
+    if a.issue_body_env:
+        if not a.issue_number or not a.issue_number.isdigit():
+            raise SystemExit("--issue-number must be a number")
+        subs = iter([from_issue(os.environ.get(a.issue_body_env, ""), a.issue_number)])
+    elif a.csv:
         subs = from_csv(a.csv)
     else:
         token = os.environ.get("NETLIFY_AUTH_TOKEN")

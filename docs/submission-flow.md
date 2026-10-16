@@ -1,5 +1,8 @@
 # Submission and review flow
 
+> Submissions now arrive as GitHub issues (anonymous form through the submit worker, or the prefilled GitHub issue form).
+> See [hosting-github-pages.md](hosting-github-pages.md). The checks below are unchanged.
+
 ```
 visitor -> /submit/ (Netlify form) -> Netlify submissions
         -> triage.yml (hourly, or run manually)

@@ -1,0 +1,26 @@
+name: Deploy submit worker
+
+on:
+  push:
+    branches: [master]
+    paths: ["workers/submit/**"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Skip when no Cloudflare token is configured
+        id: gate
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then echo "No CLOUDFLARE_API_TOKEN, skipping."; else echo "go=true" >> "$GITHUB_OUTPUT"; fi
+      - name: Test
+        if: steps.gate.outputs.go == 'true'
+        run: node workers/submit/test.mjs
+      - name: Deploy
+        if: steps.gate.outputs.go == 'true'
+        working-directory: workers/submit
+        run: npx --yes wrangler@4 deploy
