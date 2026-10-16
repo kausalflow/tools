@@ -28,13 +28,11 @@ Then point DNS for `tools.kausalflow.com` at GitHub: a `CNAME` record to `kausal
 Once the domain verifies, tick "Enforce HTTPS" under Settings > Pages (or
 `gh api -X PUT repos/kausalflow/tools/pages -F https_enforced=true`).
 
-## Cutover checklist
+## Netlify
 
-1. Merge, enable Pages, run the deploy, and check `https://kausalflow.github.io/tools/`-style preview or the custom domain once DNS moves.
-2. Change the DNS record. Leave Netlify running until the domain serves from GitHub.
-3. Then delete: the Netlify site, `netlify.toml`, `.github/workflows/triage.yml`, the `--netlify` source in `scripts/triage/triage.py`, and the `NETLIFY_*` secrets.
+Not used any more. If an old Netlify site still exists, unpublish or delete it so it is not indexed as a duplicate, and delete its access token.
 
 ## Limits to know
 
-- No per-PR preview URLs. Check changes locally with `hugo server`, or add a preview action later.
+- Pull request previews come from Cloudflare Pages, see [previews.md](previews.md).
 - No server-side redirects or headers. Redirects use `aliases` (HTML meta refresh).
