@@ -50,7 +50,7 @@ jobs:
         id: seen
         run: |
           if gh pr list --state all --label triage --limit 1000 --json body --jq '.[].body' \
-              | grep -q "netlify-submission:issue-${ISSUE_NUMBER}\b"; then
+              | grep -qE "(netlify-submission|kf-submission-id):issue-${ISSUE_NUMBER}\b"; then
             echo "done=true" >> "$GITHUB_OUTPUT"
           fi
 

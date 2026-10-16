@@ -1,15 +1,16 @@
 # Submission and review flow
 
-> Submissions now arrive as GitHub issues (anonymous form through the submit worker, or the prefilled GitHub issue form).
-> See [hosting-github-pages.md](hosting-github-pages.md). The checks below are unchanged.
+```
+visitor -> /submit/ form -> submit worker (workers/submit) -> GitHub issue labelled `submission`
+        (or the GitHub issue form, prefilled)
+        -> triage-issue.yml: scripts/triage/triage.py (checks, screenshot, relevance screen)
+        -> PR "Add <tool>" (label ready, or draft + needs-info), with a preview link
+           or: the issue is closed with the reason
+        -> maintainer reviews -> merge -> pages.yml publishes
+```
 
-```
-visitor -> /submit/ (Netlify form) -> Netlify submissions
-        -> triage.yml (hourly, or run manually)
-              scripts/triage/triage.py: normalise, check, screenshot, screen
-        -> PR "Add <tool>" (label ready, or draft + needs-info)   or   issue (triage-reject)
-        -> maintainer reviews the PR -> merge -> Netlify deploys
-```
+Setup: [anonymous-submissions.md](anonymous-submissions.md) (worker), [previews.md](previews.md) (PR previews),
+[hosting-github-pages.md](hosting-github-pages.md) (site).
 
 ## What the triage step checks
 
@@ -30,18 +31,14 @@ Pull requests that change `content/tools/` are validated by `validate.yml` again
 ## One-time setup
 
 1. Repo **Settings > Actions > General**: allow GitHub Actions to create pull requests.
-2. Repo secret `NETLIFY_AUTH_TOKEN`: a Netlify personal access token (User settings > Applications).
-3. Optional repo variable `NETLIFY_SITE_ID` (Netlify site settings > Site ID), to scope the form lookup.
-4. Optional repo secret `ANTHROPIC_API_KEY` for the relevance screen. Without it the screen is skipped.
-5. In Netlify, turn off the old form notification that opens a GitHub issue for each submission
-   (Forms > Form notifications), otherwise every submission also creates a lossy `todo` issue.
-6. Run the workflow once with **Run workflow** to process what is waiting. `limit` caps a run at 10 by default.
+2. Optional repo secret `ANTHROPIC_API_KEY` (and variable `ANTHROPIC_WORKSPACE_ID` if the key is not workspace scoped) for the relevance screen. Without it the screen is skipped.
+3. Worker and previews: see the two documents linked above.
 
 ## Running locally
 
 ```bash
 pip install -r scripts/triage/requirements.txt
-python scripts/triage/triage.py --csv ~/Downloads/kausalflow-tools-submission.csv --out triage-out --limit 5
+python scripts/triage/triage.py --csv submissions.csv --out triage-out --limit 5
 python scripts/triage/validate_entries.py content/tools/some-tool.md
 ```
 
