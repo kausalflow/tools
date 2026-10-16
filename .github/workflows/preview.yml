@@ -1,0 +1,83 @@
+name: Preview
+
+# Builds a pull request and publishes it to Cloudflare Pages at
+# https://pr-<number>.kausalflow-tools-preview.pages.dev  (never indexed: noindex header + robots.txt).
+# Pull requests opened by the triage bot do not trigger workflows themselves, so publish.sh
+# starts this workflow explicitly with `workflow_dispatch`.
+# One-time setup: docs/previews.md
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths: ["content/**", "static/**", "layouts/**", "assets/**", "config.yaml", ".github/workflows/preview.yml"]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "Pull request number"
+        required: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: preview-${{ github.event.pull_request.number || inputs.pr }}
+  cancel-in-progress: true
+
+env:
+  PROJECT: kausalflow-tools-preview
+  PR: ${{ github.event.pull_request.number || inputs.pr }}
+
+jobs:
+  preview:
+    # forks never get secrets; only build PRs that live in this repository
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check configuration
+        id: gate
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID are not set; see docs/previews.md"
+          else
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Refuse pull requests from forks (dispatch)
+        if: github.event_name == 'workflow_dispatch' && steps.gate.outputs.go == 'true'
+        run: |
+          fork="$(gh pr view "$PR" --repo "$GITHUB_REPOSITORY" --json isCrossRepository -q .isCrossRepository)"
+          if [ "$fork" = "true" ]; then echo "PR $PR comes from a fork; not building."; exit 1; fi
+
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.go == 'true'
+        with:
+          ref: refs/pull/${{ env.PR }}/head
+
+      - uses: peaceiris/actions-hugo@v3
+        if: steps.gate.outputs.go == 'true'
+        with:
+          hugo-version: "0.135.0"
+          extended: true
+
+      - name: Build
+        if: steps.gate.outputs.go == 'true'
+        run: |
+          url="https://pr-${PR}.${PROJECT}.pages.dev/"
+          hugo --gc --minify --baseURL "$url"
+          printf '/*\n  X-Robots-Tag: noindex, nofollow\n' > public/_headers
+          printf 'User-agent: *\nDisallow: /\n' > public/robots.txt
+
+      - name: Deploy
+        if: steps.gate.outputs.go == 'true'
+        run: npx --yes wrangler@4 pages deploy public --project-name "$PROJECT" --branch "pr-${PR}" --commit-dirty=true
+
+      - name: Comment the link
+        if: steps.gate.outputs.go == 'true'
+        run: |
+          body="Preview: https://pr-${PR}.${PROJECT}.pages.dev/ (updated for $(git rev-parse --short HEAD); not indexed)"
+          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --edit-last --create-if-none --body "$body"
