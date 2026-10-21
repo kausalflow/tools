@@ -73,6 +73,11 @@ outputFormats:
     isPlainText: true
     mediaType: "application/json"
     notAlternative: true
+  LLMS:
+    baseName: "llms"
+    isPlainText: true
+    mediaType: "text/plain"
+    notAlternative: true
 
 outputs:
   home:
@@ -80,6 +85,7 @@ outputs:
     - "RSS"
     - "SearchIndex"
     - "Tools"
+    - "LLMS"
 
 taxonomies:
     author: "author"

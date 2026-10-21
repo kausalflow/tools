@@ -1,0 +1,23 @@
+# {{ .Site.Title }}
+
+> A community-curated directory of {{ len (where .Site.RegularPages "Type" "tools") }} tools for academic research: literature, writing, data analysis, project management and more. Each tool has a page with a summary, features, categories, research fields and platforms. Content is licensed CC BY-SA 4.0.
+
+- Full data as JSON: {{ "tools.json" | absURL }}
+- New tools as RSS: {{ "index.xml" | absURL }}
+- About and data use: {{ "about/" | absURL }}
+- Submit a tool: {{ "submit/" | absURL }}
+
+Each tool is listed once, under its main category.
+{{- $tools := where .Site.RegularPages "Type" "tools" }}
+{{- range .Site.Taxonomies.categories.ByCount }}
+{{- $title := .Page.Title }}{{ $cat := $title | urlize }}
+{{- $mine := slice }}
+{{- range $tools.ByTitle }}{{ if eq (index .Params.categories 0 | urlize) $cat }}{{ $mine = $mine | append . }}{{ end }}{{ end }}
+{{- with $mine }}
+
+## {{ $title }}
+{{ range . }}
+- [{{ .Title | htmlUnescape }}]({{ .Permalink }}): {{ .Params.summary | default .Summary | plainify | replaceRE `\s+` " " | truncate 220 | htmlUnescape }}{{ with .Params.platforms }} (Platforms: {{ delimit . ", " }}){{ end }}
+{{- end }}
+{{- end }}
+{{- end }}

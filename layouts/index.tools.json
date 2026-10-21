@@ -1,0 +1,19 @@
+{{- /* Public data feed, documented on /about/. One entry per tool, with absolute URLs. */ -}}
+{{- $items := slice -}}
+{{- range where .Site.RegularPages "Type" "tools" -}}
+{{- $links := slice -}}
+{{- range .Params.links }}{{ $links = $links | append (dict "name" .name "url" .link) }}{{ end -}}
+{{- $items = $items | append (dict
+  "title" .Title
+  "url" .Permalink
+  "summary" (.Params.summary | default .Summary | plainify)
+  "features" (.Params.features | default slice)
+  "links" $links
+  "categories" (.Params.categories | default slice)
+  "tags" (.Params.tags | default slice)
+  "fields" (.Params.fields | default slice)
+  "platforms" (.Params.platforms | default slice)
+  "added" (.Date.Format "2006-01-02")
+) -}}
+{{- end -}}
+{{- jsonify (dict "indent" "  ") $items -}}

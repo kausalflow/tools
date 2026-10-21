@@ -1,0 +1,21 @@
+{{- /* Structured data for search engines and AI answer engines. */ -}}
+{{- if .IsHome -}}
+{{- $site := dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.BaseURL "description" .Site.Params.description "license" "https://creativecommons.org/licenses/by-sa/4.0/" "publisher" (dict "@type" "Organization" "name" "KausalFlow" "url" "https://kausalflow.com" "logo" (.Site.Params.logo | absURL)) -}}
+<script type="application/ld+json">{{ $site | jsonify | safeJS }}</script>
+{{- else if and .IsPage (eq .Type "tools") -}}
+{{- $slug := printf "%s%s" .File.Dir .File.ContentBaseName -}}
+{{- $app := dict "@context" "https://schema.org" "@type" "SoftwareApplication" "name" .Title "description" (.Params.summary | default .Summary | plainify) "url" .Permalink "applicationCategory" "ResearchApplication" "datePublished" (.Date.Format "2006-01-02") -}}
+{{- with .Params.links }}{{ $app = merge $app (dict "sameAs" (apply . "index" "." "link")) }}{{ end -}}
+{{- with .Params.platforms }}{{ $app = merge $app (dict "operatingSystem" (delimit . ", ")) }}{{ end -}}
+{{- with .Params.categories }}{{ $app = merge $app (dict "applicationSubCategory" (delimit . ", ")) }}{{ end -}}
+{{- $kw := slice }}{{ range .Params.tags }}{{ $kw = $kw | append . }}{{ end }}{{ range .Params.fields }}{{ $kw = $kw | append . }}{{ end -}}
+{{- with $kw }}{{ $app = merge $app (dict "keywords" (delimit . ", ")) }}{{ end -}}
+{{- with .Params.features }}{{ $app = merge $app (dict "featureList" .) }}{{ end -}}
+{{- $shots := slice }}{{ range .Params.images }}{{ $p := printf "/images/%s/%s" $slug .path }}{{ if fileExists (printf "static%s" $p) }}{{ $shots = $shots | append ($p | absURL) }}{{ end }}{{ end -}}
+{{- with $shots }}{{ $app = merge $app (dict "screenshot" .) }}{{ end -}}
+{{- $crumbs := slice (dict "@type" "ListItem" "position" 1 "name" "Directory" "item" ("tools/" | absURL)) -}}
+{{- with .Params.categories }}{{ $c := index . 0 }}{{ $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" $c "item" (printf "categories/%s/" ($c | urlize) | absURL)) }}{{ end -}}
+{{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" .Title "item" .Permalink) -}}
+<script type="application/ld+json">{{ $app | jsonify | safeJS }}</script>
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $crumbs | jsonify | safeJS }}</script>
+{{- end -}}

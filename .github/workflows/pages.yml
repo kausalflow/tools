@@ -32,7 +32,8 @@ jobs:
       - id: pages
         uses: actions/configure-pages@v5
       - name: Build
-        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        # baseURL comes from config.yaml so URLs stay https:// (Pages can report http://).
+        run: hugo --gc --minify
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
