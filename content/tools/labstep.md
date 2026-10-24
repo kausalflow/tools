@@ -41,4 +41,8 @@ makers:
   description: null
 date: 2020-12-17 23:19:14+01:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Benchling
 ---

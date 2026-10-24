@@ -31,4 +31,9 @@ links:
 - name: logseq.com
   link: https://logseq.com/
 date: '2022-04-03'
+pricing: free
+open_source: true
+alternatives_to:
+- Roam Research
+- Obsidian
 ---

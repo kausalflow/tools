@@ -6,6 +6,8 @@ name: Deploy site
 on:
   push:
     branches: [master]
+  schedule:
+    - cron: "17 4 * * 1" # Mondays: re-check every tool's link (scripts/linkcheck)
   workflow_dispatch:
 
 permissions:
@@ -31,6 +33,17 @@ jobs:
           extended: true
       - id: pages
         uses: actions/configure-pages@v5
+      - name: Link status
+        # Scheduled and manual runs check every link; pushes reuse the published results.
+        run: |
+          mkdir -p data
+          if [ "${{ github.event_name }}" = "push" ]; then
+            curl -fsS https://tools.kausalflow.com/linkcheck.json -o data/linkcheck.json || echo '{}' > data/linkcheck.json
+          else
+            pip install -q -r scripts/triage/requirements.txt
+            python scripts/linkcheck/linkcheck.py --previous https://tools.kausalflow.com/linkcheck.json
+          fi
+          mkdir -p static && cp data/linkcheck.json static/linkcheck.json
       - name: Build
         # baseURL comes from config.yaml so URLs stay https:// (Pages can report http://).
         run: hugo --gc --minify

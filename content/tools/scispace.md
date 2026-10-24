@@ -49,4 +49,8 @@ date: 2023-08-10 09:34:35+02:00
 draft: false
 collections:
 - AI
+pricing: freemium
+open_source: false
+alternatives_to:
+- Elicit
 ---

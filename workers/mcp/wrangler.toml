@@ -6,3 +6,6 @@ preview_urls = false
 
 [vars]
 SITE_URL = "https://tools.kausalflow.com"
+
+[ai]
+binding = "AI" # optional: semantic search; the worker falls back to keywords without it

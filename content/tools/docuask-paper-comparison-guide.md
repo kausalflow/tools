@@ -22,4 +22,6 @@ links:
   link: https://docuask.ai/
 date: '2026-10-20'
 draft: false
+pricing: free
+open_source: false
 ---

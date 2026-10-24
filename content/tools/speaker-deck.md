@@ -19,4 +19,8 @@ links:
 plans: null
 date: 2020-04-26 21:28:22+02:00
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- SlideShare
 ---

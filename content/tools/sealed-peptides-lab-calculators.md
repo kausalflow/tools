@@ -27,4 +27,6 @@ links:
   link: https://sealedpeptides.com/tools/embed
 date: '2026-10-22'
 draft: false
+pricing: free
+open_source: false
 ---

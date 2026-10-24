@@ -26,4 +26,8 @@ links:
 plans: null
 date: 2020-04-26 19:48:18+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Confluence
 ---

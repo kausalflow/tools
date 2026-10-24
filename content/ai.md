@@ -13,11 +13,15 @@ that any MCP-capable assistant can connect to. No account or key is needed.
 {{< mcp-url >}}
 ```
 
-The server has three read-only tools:
+The server has four read-only tools:
 
-- **search** finds tools by keywords, optionally filtered by category, research field, platform or tag.
-- **fetch** returns one tool's summary, features, links, categories, fields and platforms.
-- **list_filters** lists the categories, fields, platforms and tags in use.
+- **search** finds tools for a task described in plain words, filtered by price, open source, platform, field or category.
+- **alternatives** finds replacements for a product you name, such as EndNote or Grammarly, with open-source and free ones first.
+- **fetch** returns one tool's details: features, links, price, licence, platforms and whether its site still responds.
+- **list_filters** lists the categories, fields, platforms, tags and price models in use.
+
+Every tool records whether it is free, has a free plan, or is paid, and whether it is open source.
+Its link is checked every week, so assistants can skip tools that have shut down.
 
 ## Claude
 

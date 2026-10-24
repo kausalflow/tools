@@ -35,4 +35,6 @@ makers:
   description: null
 date: '2026-03-18'
 draft: false
+pricing: free
+open_source: true
 ---

@@ -38,4 +38,9 @@ date: 2023-08-14 12:24:32+02:00
 draft: false
 collections:
 - AI
+pricing: free
+open_source: false
+alternatives_to:
+- DALL-E
+- Midjourney
 ---

@@ -31,4 +31,6 @@ links:
 - name: pubpeer extensions
   link: https://pubpeer.com/static/extensions
 date: '2021-11-22'
+pricing: free
+open_source: false
 ---

@@ -25,4 +25,6 @@ plans:
 makers: null
 date: 2020-04-27 12:32:40+02:00
 draft: false
+pricing: free
+open_source: false
 ---

@@ -28,4 +28,6 @@ links:
 - name: cassyni.com
   link: https://cassyni.com
 date: '2021-11-25'
+pricing: freemium
+open_source: false
 ---

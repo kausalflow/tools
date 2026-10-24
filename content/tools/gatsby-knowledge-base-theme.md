@@ -32,4 +32,6 @@ links:
 - name: 'GitHub: hikerpig/gatsby-project-kb'
   link: https://github.com/hikerpig/gatsby-project-kb
 date: '2021-07-30'
+pricing: free
+open_source: true
 ---

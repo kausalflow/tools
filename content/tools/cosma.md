@@ -41,4 +41,8 @@ makers:
   description: null
 date: 2024-02-07 12:45:48+01:00
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- Obsidian graph view
 ---

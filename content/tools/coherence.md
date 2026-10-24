@@ -30,4 +30,5 @@ links:
   link: https://chromewebstore.google.com/detail/coherence-%E2%80%94-ai-reader-web/dhflgkoidkglhikepoogbpjcnhgkdajp
 date: '2026-10-15'
 draft: false
+open_source: false
 ---

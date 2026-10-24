@@ -27,4 +27,8 @@ links:
   link: https://www.any.do/
 date: 2020-04-26 14:01:51+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Todoist
 ---

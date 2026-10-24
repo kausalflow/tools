@@ -28,4 +28,8 @@ links:
   link: https://www.ama-citation-generator.xyz/
 date: '2026-10-15'
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Citation Machine
 ---

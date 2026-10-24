@@ -23,4 +23,8 @@ links:
   link: https://zipzax.com/studios/python-notebook-studio
 date: '2026-10-19'
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Google Colab
 ---

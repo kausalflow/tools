@@ -35,4 +35,8 @@ makers:
   description: null
 date: 2020-04-28 08:55:35+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- MathType
 ---

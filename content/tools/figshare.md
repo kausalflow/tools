@@ -25,4 +25,8 @@ links:
 plans: null
 date: 2020-04-26 17:50:26+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Zenodo
 ---

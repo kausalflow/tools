@@ -38,4 +38,9 @@ date: 2020-08-27 18:57:37
 draft: false
 collections:
 - AI
+pricing: paid
+open_source: false
+alternatives_to:
+- Pocket
+- Raindrop.io
 ---

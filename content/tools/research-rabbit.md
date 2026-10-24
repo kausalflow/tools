@@ -23,4 +23,9 @@ links:
 - name: researchrabbitapp.com
   link: https://researchrabbitapp.com
 date: '2021-11-25'
+pricing: free
+open_source: false
+alternatives_to:
+- Connected Papers
+- Litmaps
 ---

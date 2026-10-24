@@ -30,4 +30,8 @@ links:
   link: https://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE_Reference_Guide.pdf
 date: '2026-10-15'
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Citation Machine
 ---

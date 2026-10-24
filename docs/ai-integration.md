@@ -17,9 +17,37 @@ How AI assistants read and use the directory. Everything is generated from the t
 dependencies. It reads `/tools.json` from the live site (cached for ten minutes), so a new tool shows up
 there once the site has deployed. Tools:
 
-- `search(query, category?, field?, platform?, tag?, limit?)` returns `{results: [{id, title, url, summary}]}`.
+- `search(query, category?, field?, platform?, tag?, pricing?, open_source?, limit?)` returns
+  `{results: [{id, title, url, summary, pricing, open_source, platforms, status}]}`. With the Workers AI
+  binding (`[ai]` in `wrangler.toml`) it also ranks by meaning: tool vectors (`@cf/baai/bge-small-en-v1.5`)
+  are computed on first use and kept while the isolate lives; only the query is embedded per call. If
+  Workers AI fails, search falls back to keywords.
+- `alternatives(to, pricing?, open_source?, platform?, limit?)` returns tools whose `alternatives_to`
+  names the product, open source and free first, plus the `/alternatives/<name>/` page.
 - `fetch(id)` returns `{id, title, url, text, metadata}`. `id` is the page slug; a page URL works too.
-- `list_filters()` returns the categories, fields, platforms and tags with counts.
+- `list_filters()` returns the categories, fields, platforms, tags, price models and replaced products with counts.
+
+Unreachable tools (see below) are kept but ranked last and marked `status: "unreachable"`.
+
+## Data fields for AI answers
+
+Tool front matter has three optional fields, validated by `scripts/triage/kftools.py`:
+
+- `pricing`: `free`, `freemium` (free plan with paid upgrades) or `paid`.
+- `open_source`: `true` or `false`.
+- `alternatives_to`: well-known products the tool replaces. This is a Hugo taxonomy: every value gets an
+  "Alternatives to X" page at `/alternatives/<x>/`, indexed by search engines once it lists two tools or more.
+
+They appear on tool pages and cards, in `tools.json`, the Markdown copies, `llms-full.txt` and the JSON-LD
+(`isAccessibleForFree`, a zero-price `offers` for free tools). The October 2026 backfill was a first pass
+from the listings and general knowledge; correct any value with "Suggest an edit".
+
+## Link status
+
+`scripts/linkcheck/linkcheck.py` checks each tool's first link. The site workflow runs it every Monday
+(and on manual runs); pushes reuse the last published result from `/linkcheck.json`. A tool becomes
+`unreachable` after two failed checks in a row (401, 403 and 429 count as reachable, since many sites block
+bots). Its page then shows a notice, and `tools.json` and the MCP server carry the status.
 
 `search` and `fetch` use the result shape ChatGPT connectors and deep research require, and Claude,
 Cursor, VS Code and Claude Code accept the same server. Opening the URL in a browser redirects to `/ai/`.

@@ -29,4 +29,6 @@ makers:
   description: null
 date: 2020-07-08 20:40:55+02:00
 draft: false
+pricing: free
+open_source: false
 ---

@@ -31,4 +31,6 @@ links:
 - name: Demo site
   link: https://mathieudutour.github.io/gatsby-digital-garden/
 date: '2021-08-23'
+pricing: free
+open_source: true
 ---

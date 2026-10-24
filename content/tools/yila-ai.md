@@ -28,4 +28,5 @@ links:
   link: https://yila.ai/playbooks/paper-to-slides
 date: '2026-10-15'
 draft: false
+open_source: false
 ---

@@ -30,4 +30,8 @@ links:
   link: https://github.com/trafficinc/researchcapture
 date: '2026-10-15'
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- REDCap
 ---

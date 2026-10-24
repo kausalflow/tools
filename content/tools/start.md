@@ -29,4 +29,8 @@ makers:
   description: null
 date: 2024-04-08 16:00:52+02:00
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Rayyan
 ---

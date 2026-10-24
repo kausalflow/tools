@@ -47,4 +47,8 @@ makers:
   description: null
 date: 2021-03-07 10:11:39+01:00
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- DMPonline
 ---

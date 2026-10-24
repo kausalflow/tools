@@ -31,4 +31,5 @@ links:
 - name: readpaper.com
   link: https://readpaper.com/
 date: '2021-11-25'
+open_source: false
 ---

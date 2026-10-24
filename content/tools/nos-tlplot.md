@@ -27,4 +27,8 @@ links:
   link: https://openresearchsoftware.metajnl.com/articles/10.5334/jors.635
 date: '2026-10-15'
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- robvis
 ---

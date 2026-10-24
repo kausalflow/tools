@@ -21,6 +21,10 @@ links:
   link: https://gitlab.com
 date: 2020-04-20
 draft: false
+pricing: freemium
+open_source: true
+alternatives_to:
+- GitHub
 ---
 
 

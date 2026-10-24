@@ -25,4 +25,6 @@ links:
 - name: curvenote.com
   link: https://curvenote.com/
 date: '2022-04-18'
+pricing: freemium
+open_source: true
 ---

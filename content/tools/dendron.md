@@ -33,4 +33,9 @@ links:
 - name: www.dendron.so
   link: https://www.dendron.so
 date: '2022-04-03'
+pricing: free
+open_source: true
+alternatives_to:
+- Obsidian
+- Roam Research
 ---
