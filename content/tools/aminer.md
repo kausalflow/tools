@@ -35,4 +35,8 @@ date: 2020-05-06 20:08:26+02:00
 draft: false
 collections:
 - AI
+pricing: free
+open_source: false
+alternatives_to:
+- Google Scholar
 ---

@@ -28,4 +28,8 @@ makers:
   description: null
 date: 2024-04-08 15:56:32+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Grammarly
 ---

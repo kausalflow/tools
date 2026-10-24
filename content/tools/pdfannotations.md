@@ -26,4 +26,5 @@ links:
   link: https://pdfannotations.com/
 date: '2026-10-15'
 draft: false
+open_source: false
 ---

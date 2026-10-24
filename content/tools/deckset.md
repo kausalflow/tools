@@ -34,4 +34,9 @@ makers:
   description: null
 date: 2021-03-19 19:39:40+01:00
 draft: false
+pricing: paid
+open_source: false
+alternatives_to:
+- Keynote
+- PowerPoint
 ---

@@ -28,4 +28,6 @@ links:
   link: https://chromewebstore.google.com/detail/noteme/cmngjelfbeidndnhnfffcokjlfldelcl?pli=1
 date: 2025-07-26
 draft: false
+pricing: free
+open_source: false
 ---

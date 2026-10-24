@@ -30,4 +30,6 @@ makers:
   description: publisher
 date: 2021-02-01 22:23:20+01:00
 draft: false
+pricing: paid
+open_source: false
 ---

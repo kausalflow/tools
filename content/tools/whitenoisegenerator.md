@@ -31,4 +31,8 @@ makers:
   description: null
 date: 2024-12-09 10:45:14+01:00
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Noisli
 ---

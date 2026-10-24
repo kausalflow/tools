@@ -27,4 +27,8 @@ links:
   link: https://github.com/aurumz-rgb/ReviewAid
 date: '2026-10-15'
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- Covidence
 ---

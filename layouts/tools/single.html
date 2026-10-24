@@ -12,6 +12,7 @@
     <div class="titles">
       <h1>{{ .Title }}</h1>
       {{ with .Params.summary }}<p class="lead">{{ . | plainify | truncate 260 }}</p>{{ end }}
+      {{ with index (site.Data.linkcheck | default dict) .File.ContentBaseName }}{{ if eq .status "unreachable" }}<p class="alert" role="status">The tool's website has not responded since {{ .failing_since }}. It may have moved or shut down. <a href="{{ site.Params.editURL }}{{ $.File.Path }}">Know where it went?</a></p>{{ end }}{{ end }}
       <div class="tool-actions">
         {{ with $first }}<a class="btn btn-primary" href="{{ .link }}" rel="noopener" target="_blank">Visit {{ .name | default "website" }} &#8599;</a>{{ end }}
         <a class="btn" href="{{ .Site.Params.editURL }}{{ .File.Path }}" rel="noopener">Suggest an edit</a>
@@ -57,7 +58,10 @@
           {{ with .Params.fields }}<div><dt>Field</dt><dd>{{ delimit . ", " }}</dd></div>{{ end }}
           {{ with .Params.platforms }}<div><dt>Platform</dt><dd>{{ delimit . ", " }}</dd></div>{{ end }}
           {{ with .Params.categories }}<div><dt>Category</dt><dd>{{ range $i, $c := . }}{{ if $i }}, {{ end }}<a href="/categories/{{ $c | urlize }}/">{{ $c }}</a>{{ end }}</dd></div>{{ end }}
+          {{ with .Params.pricing }}<div><dt>Price</dt><dd>{{ index (dict "free" "Free" "freemium" "Free plan, paid upgrades" "paid" "Paid") . | default . }}</dd></div>{{ end }}
+          {{ with .Params.open_source }}<div><dt>Source</dt><dd>Open source</dd></div>{{ end }}
           {{ range .Params.plans }}{{ if .name }}<div><dt>Plan</dt><dd>{{ .name }}</dd></div>{{ end }}{{ end }}
+          {{ with .GetTerms "alternatives_to" }}<div><dt>Alternative to</dt><dd>{{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ $t.RelPermalink }}">{{ $t.LinkTitle }}</a>{{ end }}</dd></div>{{ end }}
           {{ with .Params.author }}{{ if reflect.IsMap . }}{{ else }}<div><dt>Added by</dt><dd><a href="/author/{{ . | urlize }}/">{{ . }}</a></dd></div>{{ end }}{{ end }}
           <div><dt>Added</dt><dd>{{ .Date.Format "Jan 2006" }}</dd></div>
         </dl>

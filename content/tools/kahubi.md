@@ -30,4 +30,7 @@ links:
   link: https://kahubi.com
 date: '2026-10-15'
 draft: false
+open_source: false
+alternatives_to:
+- Elicit
 ---

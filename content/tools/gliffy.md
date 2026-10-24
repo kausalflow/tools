@@ -22,4 +22,9 @@ links:
 plans: null
 date: 2020-04-26 21:02:59+02:00
 draft: false
+pricing: paid
+open_source: false
+alternatives_to:
+- Visio
+- Lucidchart
 ---

@@ -14,6 +14,12 @@
 - [{{ .name | default .link | htmlUnescape }}]({{ .link }})
 {{- end }}{{ end }}
 {{ end }}
+{{- with .Params.pricing }}
+- Price: {{ index (dict "free" "free" "freemium" "free plan with paid upgrades" "paid" "paid") . | default . }}{{ end }}
+{{- if .Params.open_source }}
+- Open source: yes{{ end }}
+{{- with .Params.alternatives_to }}
+- Alternative to: {{ delimit . ", " }}{{ end }}
 {{- with .Params.categories }}
 - Categories: {{ delimit . ", " }}{{ end }}
 {{- with .Params.fields }}

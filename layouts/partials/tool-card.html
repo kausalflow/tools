@@ -24,6 +24,7 @@
       <div class="card-title"><span>{{ .Title }}</span>{{ if $isNew }}<span class="chip chip-new">NEW</span>{{ end }}</div>
       <div class="card-sum">{{ .Params.summary | plainify }}</div>
       <div class="chip-row">
+        {{ partial "price-chips.html" . }}
         {{ range first 2 $plats }}<span class="chip">{{ . }}</span>{{ end }}
         {{ range first 1 $fields }}{{ if ne . "General and Interdisciplinary" }}<span class="chip">{{ . }}</span>{{ end }}{{ end }}
       </div>

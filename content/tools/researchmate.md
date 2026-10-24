@@ -34,4 +34,5 @@ date: 2024-05-12 14:44:43+02:00
 draft: false
 collections:
 - AI
+open_source: false
 ---

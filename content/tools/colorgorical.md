@@ -29,4 +29,6 @@ links:
 - name: vrl.cs.brown.edu/color
   link: http://vrl.cs.brown.edu/color
 date: '2021-11-13'
+pricing: free
+open_source: true
 ---

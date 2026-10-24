@@ -38,4 +38,8 @@ makers:
   description: null
 date: 2020-06-24 21:44:47+02:00
 draft: false
+pricing: paid
+open_source: false
+alternatives_to:
+- Grammarly
 ---

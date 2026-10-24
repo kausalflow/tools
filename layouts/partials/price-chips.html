@@ -1,0 +1,3 @@
+{{- /* Price and licence chips for a tool page, from the pricing and open_source fields. */ -}}
+{{- with .Params.pricing }}<span class="chip chip-{{ . }}">{{ index (dict "free" "Free" "freemium" "Free plan" "paid" "Paid") . | default . }}</span>{{ end -}}
+{{- if .Params.open_source }}<span class="chip chip-oss">Open source</span>{{ end -}}

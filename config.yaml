@@ -109,6 +109,13 @@ taxonomies:
     category: "categories"
     tag: "tags"
     collection: "collections"
+    alternative: "alternatives_to" # "alternatives to X" pages, served at /alternatives/
+
+permalinks:
+  taxonomy:
+    alternatives_to: /alternatives/
+  term:
+    alternatives_to: /alternatives/:slug/
 
 
 security:

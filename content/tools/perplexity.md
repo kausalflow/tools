@@ -44,4 +44,6 @@ date: 2024-04-08 15:25:19+02:00
 draft: false
 collections:
 - AI
+pricing: freemium
+open_source: false
 ---

@@ -33,4 +33,6 @@ makers:
   description: null
 date: 2021-09-20 10:39:56+02:00
 draft: false
+pricing: free
+open_source: false
 ---

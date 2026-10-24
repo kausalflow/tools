@@ -104,6 +104,10 @@ p { margin: 0 0 1em; }
 a.chip:hover { border-color: var(--accent); text-decoration: none; }
 .chip-new { background: var(--amber-tint); border-color: transparent; color: var(--amber); font-family: var(--font-mono); font-size: 11px; min-height: 22px; }
 .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip-free, .chip-oss { background: var(--tint); border-color: transparent; color: var(--accent); }
+.chip-freemium { border-color: var(--accent); }
+.chip-paid { background: var(--amber-tint); border-color: transparent; color: var(--amber); }
+.alert { padding: 12px 16px; border-radius: 10px; background: var(--amber-tint); color: var(--amber); margin-top: 16px; }
 
 /* monogram tiles */
 .mono-tile {

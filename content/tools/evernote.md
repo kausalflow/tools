@@ -22,4 +22,9 @@ links:
   link: https://evernote.com/
 date: 2020-04-26 12:43:26+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Notion
+- OneNote
 ---

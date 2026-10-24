@@ -22,4 +22,6 @@ links:
   link: https://pomotodo.com
 date: 2020-04-26 11:36:23+02:00
 draft: false
+pricing: freemium
+open_source: false
 ---

@@ -45,4 +45,5 @@ date: 2023-08-15 12:43:13+02:00
 draft: false
 collections:
 - AI
+open_source: false
 ---

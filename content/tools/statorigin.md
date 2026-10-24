@@ -27,4 +27,8 @@ links:
   link: https://statorigin.org/docs/api
 date: '2026-10-15'
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Statista
 ---

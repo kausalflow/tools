@@ -25,4 +25,6 @@ links:
 - name: yperdraft.rosano.ca
   link: https://hyperdraft.rosano.ca
 date: '2022-01-08'
+pricing: free
+open_source: true
 ---

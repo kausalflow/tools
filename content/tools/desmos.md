@@ -21,4 +21,8 @@ links:
 plans: null
 date: 2020-04-26 17:17:14+02:00
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- GeoGebra
 ---

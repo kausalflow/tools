@@ -25,4 +25,9 @@ plans:
   description: Paid
 date: 2020-04-26 16:48:50+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Jupyter
+- Google Colab
 ---

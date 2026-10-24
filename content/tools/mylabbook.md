@@ -49,4 +49,6 @@ makers:
   description: null
 date: 2023-04-10 11:39:21+02:00
 draft: false
+pricing: free
+open_source: true
 ---

@@ -24,4 +24,8 @@ plans:
   description: null
 date: 2020-04-26 20:21:53+02:00
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Netlify
 ---

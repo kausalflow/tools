@@ -38,4 +38,8 @@ date: 2023-08-14 12:41:37+02:00
 draft: false
 collections:
 - AI
+pricing: freemium
+open_source: false
+alternatives_to:
+- Midjourney
 ---

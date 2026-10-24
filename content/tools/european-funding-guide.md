@@ -23,4 +23,6 @@ links:
 plans: null
 date: 2020-05-03 21:21:36+02:00
 draft: false
+pricing: free
+open_source: false
 ---

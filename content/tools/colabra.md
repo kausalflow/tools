@@ -63,4 +63,8 @@ makers:
   description: null
 date: 2021-08-06 15:31:30+02:00
 draft: false
+pricing: paid
+open_source: false
+alternatives_to:
+- Benchling
 ---

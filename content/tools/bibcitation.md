@@ -25,4 +25,9 @@ links:
 - name: bibcitation.com
   link: https://www.bibcitation.com/
 date: '2021-09-20'
+pricing: free
+open_source: false
+alternatives_to:
+- Citation Machine
+- EasyBib
 ---
