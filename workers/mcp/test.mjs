@@ -76,8 +76,25 @@ assert.equal(fetched, 1, 'tools.json is cached between calls');
 
 r = await (await post({ jsonrpc: '2.0', id: 9, method: 'tools/call', params: { name: 'nope' } })).json();
 assert.equal(r.error.code, -32602);
-r = await (await post({ jsonrpc: '2.0', id: 9, method: 'resources/list' })).json();
+r = await (await post({ jsonrpc: '2.0', id: 9, method: 'prompts/list' })).json();
 assert.equal(r.error.code, -32601);
+
+// MCP Apps: search and alternatives point at a ui:// resource and return structuredContent for it
+r = await (await post({ jsonrpc: '2.0', id: 3, method: 'tools/list' })).json();
+const uri = r.result.tools[0]._meta.ui.resourceUri;
+assert.equal(uri, 'ui://kausalflow-tools/results.html');
+assert.equal(r.result.tools.find((t) => t.name === 'alternatives')._meta.ui.resourceUri, uri);
+assert.equal(r.result.tools.find((t) => t.name === 'fetch')._meta, undefined);
+r = await (await post({ jsonrpc: '2.0', id: 4, method: 'resources/list' })).json();
+assert.deepEqual(r.result.resources.map((x) => [x.uri, x.mimeType]), [[uri, 'text/html;profile=mcp-app']]);
+r = await (await post({ jsonrpc: '2.0', id: 5, method: 'resources/read', params: { uri } })).json();
+assert.match(r.result.contents[0].text, /ui\/initialize/);
+assert.match(r.result.contents[0].text, /"https:\/\/tools.example"/);
+assert.deepEqual(r.result.contents[0]._meta.ui.csp.resourceDomains, ['https://tools.example']);
+r = await (await post({ jsonrpc: '2.0', id: 6, method: 'resources/read', params: { uri: 'ui://nope' } })).json();
+assert.equal(r.error.code, -32002);
+const sr = await call('search', { query: 'latex' });
+assert.deepEqual(sr.structuredContent, JSON.parse(sr.content[0].text));
 res = await worker.fetch(new Request('https://mcp.example/', { method: 'POST', body: '{' }), env);
 assert.equal(res.status, 400);
 res = await worker.fetch(new Request('https://mcp.example/', { headers: { accept: 'text/event-stream' } }), env);

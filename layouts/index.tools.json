@@ -2,6 +2,9 @@
 {{- $checks := site.Data.linkcheck | default dict -}}
 {{- $items := slice -}}
 {{- range where .Site.RegularPages "Type" "tools" -}}
+{{- $slug := printf "%s%s" .File.Dir .File.ContentBaseName -}}
+{{- $image := "" -}}
+{{- range .Params.images }}{{ if and (not $image) .path }}{{ $p := printf "/images/%s/%s" $slug .path }}{{ if and (fileExists (printf "static%s" $p)) (not (strings.HasSuffix $p ".mp4")) (not (strings.HasSuffix $p ".webm")) }}{{ $image = $p | absURL }}{{ end }}{{ end }}{{ end -}}
 {{- $links := slice -}}
 {{- range .Params.links }}{{ $links = $links | append (dict "name" .name "url" .link) }}{{ end -}}
 {{- $item := dict
@@ -18,6 +21,7 @@
   "pricing" (.Params.pricing | default "unknown")
   "open_source" .Params.open_source
   "alternatives_to" (.Params.alternatives_to | default slice)
+  "image" $image
 -}}
 {{- with index $checks .File.ContentBaseName }}{{ $item = merge $item (dict "status" .status "last_checked" .checked) }}{{ end -}}
 {{- $items = $items | append $item -}}

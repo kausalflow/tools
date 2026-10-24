@@ -20,6 +20,9 @@ The server has four read-only tools:
 - **fetch** returns one tool's details: features, links, price, licence, platforms and whether its site still responds.
 - **list_filters** lists the categories, fields, platforms, tags and price models in use.
 
+In Claude, ChatGPT and other apps that support [MCP Apps](https://modelcontextprotocol.io/docs/extensions/apps),
+search and alternatives results appear as tool cards with a screenshot, price and platforms, and a click opens the tool's page.
+
 Every tool records whether it is free, has a free plan, or is paid, and whether it is open source.
 Its link is checked every week, so assistants can skip tools that have shut down.
 

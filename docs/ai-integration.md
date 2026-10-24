@@ -27,6 +27,11 @@ there once the site has deployed. Tools:
 - `fetch(id)` returns `{id, title, url, text, metadata}`. `id` is the page slug; a page URL works too.
 - `list_filters()` returns the categories, fields, platforms, tags, price models and replaced products with counts.
 
+`search` and `alternatives` also return `structuredContent` and point (`_meta.ui.resourceUri`, plus
+`openai/outputTemplate` for ChatGPT) at `ui://kausalflow-tools/results.html`, an [MCP Apps](https://modelcontextprotocol.io/docs/extensions/apps)
+view in `workers/mcp/src/ui.js` that renders the results as tool cards. Screenshots load from the site, which the
+resource's CSP allows; links open through `ui/open-link`. Hosts without MCP Apps use the text result.
+
 Unreachable tools (see below) are kept but ranked last and marked `status: "unreachable"`.
 
 ## Data fields for AI answers

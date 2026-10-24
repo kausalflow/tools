@@ -7,6 +7,8 @@
 //   SITE_URL    var       where tools.json lives, default https://tools.kausalflow.com
 //   AI          binding   optional Workers AI; when present, search also ranks by meaning (embeddings)
 
+import { UI_MIME, UI_URI, uiHtml } from './ui.js';
+
 const PROTOCOLS = ['2025-06-18', '2025-03-26', '2024-11-05'];
 const SERVER = { name: 'kausalflow-tools', title: 'Tools for Academic Research', version: '1.1.0' };
 const TTL = 10 * 60 * 1000;
@@ -24,6 +26,8 @@ const INSTRUCTIONS =
   'Prefer tools whose status is not "unreachable". Always give people the tool page link (url). Content is CC BY-SA 4.0.';
 
 const READ_ONLY = { readOnlyHint: true, openWorldHint: false };
+// hosts with MCP Apps support (and ChatGPT) render results as tool cards from this resource
+const CARDS = { ui: { resourceUri: UI_URI }, 'openai/outputTemplate': UI_URI };
 const FILTERS = {
   ...Object.fromEntries(Object.values(FACETS).map((one) => [one, { type: 'string', description: `Only tools with this ${one} (see list_filters for values)` }])),
   pricing: { type: 'string', enum: PRICING, description: 'Only tools with this price model. "free" is entirely free; "freemium" has a free plan with paid upgrades.' },
@@ -48,6 +52,7 @@ const TOOLS = [
       required: ['query'],
     },
     annotations: { title: 'Search research tools', ...READ_ONLY },
+    _meta: CARDS,
   },
   {
     name: 'fetch',
@@ -74,6 +79,7 @@ const TOOLS = [
       required: ['to'],
     },
     annotations: { title: 'Find alternatives', ...READ_ONLY },
+    _meta: CARDS,
   },
   {
     name: 'list_filters',
@@ -152,7 +158,7 @@ const passes = (t, a) =>
   matches(t.categories, a.category) && matches(t.tags, a.tag) && matches(t.fields, a.field) && matches(t.platforms, a.platform) &&
   (!a.pricing || t.pricing === a.pricing) && (typeof a.open_source !== 'boolean' || (t.open_source === true) === a.open_source);
 const limitOf = (a) => Math.min(Math.max(parseInt(a.limit, 10) || 10, 1), 50);
-const brief = (t) => ({ id: t.id, title: t.title, url: t.url, summary: t.summary, pricing: t.pricing, open_source: t.open_source, platforms: t.platforms, status: t.status });
+const brief = (t) => ({ id: t.id, title: t.title, url: t.url, summary: t.summary, pricing: t.pricing, open_source: t.open_source, platforms: t.platforms, status: t.status, image: t.image || null });
 // tools whose site stopped responding go last
 const dead = (t) => (t.status === 'unreachable' ? 1 : 0);
 
@@ -224,10 +230,11 @@ function facets(tools) {
 }
 
 const text = (value) => ({ content: [{ type: 'text', text: typeof value === 'string' ? value : JSON.stringify(value) }] });
+const structured = (value) => ({ ...text(value), structuredContent: value });
 async function callTool(name, args, site, env) {
   const tools = await loadTools(site);
-  if (name === 'search') return text({ results: await search(tools, args, env) });
-  if (name === 'alternatives') return text(alternatives(tools, args, site));
+  if (name === 'search') return structured({ results: await search(tools, args, env) });
+  if (name === 'alternatives') return structured(alternatives(tools, args, site));
   if (name === 'fetch') {
     const t = find(tools, args.id);
     if (!t) return { ...text(`No tool with id "${args.id}". Use search to find ids.`), isError: true };
@@ -249,7 +256,7 @@ async function rpc(msg, site, env) {
     case 'initialize':
       return ok(id, {
         protocolVersion: PROTOCOLS.includes(params.protocolVersion) ? params.protocolVersion : PROTOCOLS[0],
-        capabilities: { tools: { listChanged: false } },
+        capabilities: { tools: { listChanged: false }, resources: { listChanged: false } },
         serverInfo: SERVER,
         instructions: INSTRUCTIONS,
       });
@@ -257,6 +264,15 @@ async function rpc(msg, site, env) {
       return ok(id, {});
     case 'tools/list':
       return ok(id, { tools: TOOLS });
+    case 'resources/list':
+      return ok(id, { resources: [{ uri: UI_URI, name: 'Tool cards', description: 'Inline cards for search and alternatives results', mimeType: UI_MIME }] });
+    case 'resources/templates/list':
+      return ok(id, { resourceTemplates: [] });
+    case 'resources/read':
+      if (params.uri !== UI_URI) return fail(id, -32002, `Resource not found: ${params.uri}`);
+      return ok(id, {
+        contents: [{ uri: UI_URI, mimeType: UI_MIME, text: uiHtml(site), _meta: { ui: { csp: { resourceDomains: [site] }, prefersBorder: false } } }],
+      });
     case 'tools/call': {
       try {
         const result = await callTool(params.name, params.arguments || {}, site, env);
