@@ -35,6 +35,7 @@ menu:
       url: "https://github.com/kausalflow/tools/discussions"
 
 params:
+  mcp_url: "https://kausalflow-tools-mcp.leima.workers.dev" # MCP server for AI assistants (workers/mcp), shown on /ai/
   submit_url: "https://kausalflow-tools-submit.leima.workers.dev" # submit worker (workers/submit); empty makes the form open a prefilled GitHub issue instead
   turnstile_sitekey: "" # Cloudflare Turnstile site key for the submit form (public); empty disables the widget
   theme_variant: 
@@ -78,6 +79,15 @@ outputFormats:
     isPlainText: true
     mediaType: "text/plain"
     notAlternative: true
+  LLMSFull:
+    baseName: "llms-full"
+    isPlainText: true
+    mediaType: "text/plain"
+    notAlternative: true
+  Markdown: # index.md next to each page, for AI assistants that fetch pages
+    baseName: "index"
+    isPlainText: true
+    mediaType: "text/markdown"
 
 outputs:
   home:
@@ -86,6 +96,13 @@ outputs:
     - "SearchIndex"
     - "Tools"
     - "LLMS"
+    - "LLMSFull"
+
+cascade:
+  # tool pages also get an index.md copy (layouts/tools/single.md)
+  - _target:
+      path: "/tools/**"
+    outputs: ["HTML", "Markdown"]
 
 taxonomies:
     author: "author"

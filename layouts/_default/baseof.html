@@ -14,6 +14,7 @@
   {{ template "_internal/google_analytics.html" . }}
   {{ with .OutputFormats.Get "RSS" }}<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">{{ end }}
   <link rel="alternate" type="text/plain" href="{{ "llms.txt" | absURL }}" title="llms.txt">
+  {{ with .OutputFormats.Get "Markdown" }}<link rel="alternate" type="text/markdown" href="{{ .Permalink }}" title="Markdown">{{ end }}
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="icon" href="{{ .Site.Params.favicon }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
