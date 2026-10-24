@@ -6,6 +6,8 @@
 // Configuration (wrangler.toml):
 //   SITE_URL    var       where tools.json lives, default https://tools.kausalflow.com
 //   AI          binding   optional Workers AI; when present, search also ranks by meaning (embeddings)
+//   QUERIES     binding   optional Analytics Engine dataset; records each search (text, filters, result
+//                         count, no client data) so maintainers can see what people look for and miss
 
 import { UI_MIME, UI_URI, uiHtml } from './ui.js';
 
@@ -229,12 +231,30 @@ function facets(tools) {
   return out;
 }
 
+// What was asked and how many results came back; nothing about who asked.
+function record(env, tool, args, count) {
+  try {
+    const filters = ['category', 'tag', 'field', 'platform', 'pricing', 'open_source'].filter((k) => args[k] !== undefined).map((k) => `${k}=${args[k]}`);
+    env?.QUERIES?.writeDataPoint({ indexes: [tool], blobs: [tool, String(args.query ?? args.to ?? '').slice(0, 200), filters.join(' ')], doubles: [count] });
+  } catch {
+    // analytics must never break a search
+  }
+}
+
 const text = (value) => ({ content: [{ type: 'text', text: typeof value === 'string' ? value : JSON.stringify(value) }] });
 const structured = (value) => ({ ...text(value), structuredContent: value });
 async function callTool(name, args, site, env) {
   const tools = await loadTools(site);
-  if (name === 'search') return structured({ results: await search(tools, args, env) });
-  if (name === 'alternatives') return structured(alternatives(tools, args, site));
+  if (name === 'search') {
+    const results = await search(tools, args, env);
+    record(env, name, args, results.length);
+    return structured({ results });
+  }
+  if (name === 'alternatives') {
+    const found = alternatives(tools, args, site);
+    record(env, name, args, found.results.length);
+    return structured(found);
+  }
   if (name === 'fetch') {
     const t = find(tools, args.id);
     if (!t) return { ...text(`No tool with id "${args.id}". Use search to find ids.`), isError: true };

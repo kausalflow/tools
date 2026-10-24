@@ -116,4 +116,9 @@ assert.equal(aiCalls, before + 1, 'tool vectors are reused, only the query is em
 const broken = { run: async () => { throw new Error('quota'); } };
 r = await (await worker.fetch(new Request('https://mcp.example/', { method: 'POST', body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'search', arguments: { query: 'latex' } } }) }), { ...env, AI: broken })).json();
 assert.equal(JSON.parse(r.result.content[0].text).results[0].id, 'overleaf', 'falls back to keywords when Workers AI fails');
+const points = [];
+await (await worker.fetch(new Request('https://mcp.example/', { method: 'POST', body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'alternatives', arguments: { to: 'Nothing', pricing: 'free' } } }) }), { ...env, QUERIES: { writeDataPoint: (p) => points.push(p) } })).json();
+assert.deepEqual(points, [{ indexes: ['alternatives'], blobs: ['alternatives', 'Nothing', 'pricing=free'], doubles: [0] }]);
+r = await (await worker.fetch(new Request('https://mcp.example/', { method: 'POST', body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'search', arguments: { query: 'latex' } } }) }), { ...env, QUERIES: { writeDataPoint: () => { throw new Error('down'); } } })).json();
+assert.equal(JSON.parse(r.result.content[0].text).results[0].id, 'overleaf', 'analytics failures are ignored');
 console.log('mcp worker: all tests passed');

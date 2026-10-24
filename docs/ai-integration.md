@@ -62,3 +62,32 @@ pull requests and deploys them from `master` when `CLOUDFLARE_API_TOKEN` is set.
 
 If the worker moves (for example to a custom domain such as `mcp.tools.kausalflow.com`), change
 `params.mcp_url` in `config.yaml`; the `/ai/` page and `llms.txt` pick it up.
+
+## What people search for
+
+With the `QUERIES` Analytics Engine binding, each `search` and `alternatives` call writes one data point:
+the tool name, the query (or product) text, the filters and the result count, with no client data. The
+`/ai/` page says so. Searches that find nothing are the list of tools to add. Query them with the
+[SQL API](https://developers.cloudflare.com/analytics/analytics-engine/sql-api/):
+
+```sql
+SELECT blob2 AS query, blob3 AS filters, count() AS times
+FROM kausalflow_tools_mcp_queries
+WHERE timestamp > NOW() - INTERVAL '30' DAY AND double1 = 0
+GROUP BY query, filters ORDER BY times DESC LIMIT 50
+```
+
+## Being found
+
+Assistants find servers through registries and directories, not through this site. After the worker is live:
+
+1. **Official MCP Registry**: run the "Publish MCP server to the registry" workflow. It checks that the
+   server answers and then publishes `workers/mcp/server.json` as `io.github.kausalflow/tools`. Bump `version`
+   in `server.json` for each later publish.
+2. **Anthropic's connector directory** and **OpenAI's app directory**: these need submission forms filled in
+   by the owner. They ask for the server URL, a description, a privacy note (above) and screenshots.
+3. **Community directories**: Smithery, Glama, PulseMCP and mcp.so pick up servers from the registry or from
+   a short form.
+
+A custom domain such as `mcp.kausalflow.com` looks more trustworthy than `*.workers.dev`. If you add one, change
+`params.mcp_url` and the `server.json` URL, then publish again.

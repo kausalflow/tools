@@ -77,5 +77,8 @@ Any client that speaks MCP over Streamable HTTP can use the URL above. Without M
 - Every tool page has a Markdown copy: add `index.md` to its address, for example [/tools/zotero/index.md](/tools/zotero/index.md).
 - [tools.json](/tools.json) is the whole directory as JSON.
 
+To learn what researchers need, the server records the words of each search and how many tools it found.
+It records nothing about who searched.
+
 All content is licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Please link back to the tool pages when you reuse it.
 Missing a tool? [Submit it](/submit/).
