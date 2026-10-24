@@ -14,11 +14,12 @@ The content of this website is under [the CC BY-SA license](https://creativecomm
 
 ## How to use the data
 
-There three different ways to use the data.
+There are several ways to use the data.
 
 1. Use the website, [tools.kausalflow.com](https://tools.kausalflow.com/).
 2. Use RSS feed, [RSS Feed](https://tools.kausalflow.com/index.xml). Use feed reader to follow new contents.
 3. Use the JSON data, [JSON Data](https://tools.kausalflow.com/tools.json). You can programmatically access the data using the programming language of your choice. [Here is an example using Python](https://deepnote.com/@lm/toolskausalflowcom-lV7DXJW_TxSAti_BffZpFQ). This JSON data also makes it easy for you to create other application based on this data, e.g., chrome new table showing random tools.
+4. Use it from an AI assistant. Claude, ChatGPT, Cursor and other assistants can search the directory through our MCP server, and [llms.txt](https://tools.kausalflow.com/llms.txt) and [llms-full.txt](https://tools.kausalflow.com/llms-full.txt) give them the whole list as text. See [Use with AI](/ai/).
 
 
 

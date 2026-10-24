@@ -1,0 +1,8 @@
+# {{ .Site.Title }}
+
+> Every tool in the directory at {{ .Site.BaseURL }}, in full. The short index is {{ "llms.txt" | absURL }} and the same data as JSON is {{ "tools.json" | absURL }}. Content is licensed CC BY-SA 4.0.
+{{ range (where .Site.RegularPages "Type" "tools").ByTitle }}
+---
+
+{{ partial "tool.md" . }}
+{{ end }}
