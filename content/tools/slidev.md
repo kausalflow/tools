@@ -45,4 +45,9 @@ makers:
   description: null
 date: 2021-06-06 20:15:28+02:00
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- PowerPoint
+- reveal.js
 ---

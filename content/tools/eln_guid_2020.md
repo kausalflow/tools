@@ -23,4 +23,5 @@ makers:
   description: null
 date: 2020-12-17 22:48:14+01:00
 draft: false
+pricing: free
 ---

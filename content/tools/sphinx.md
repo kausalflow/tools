@@ -28,6 +28,8 @@ plans:
   description: null
 date: 2020-04-26 19:38:31+02:00
 draft: false
+pricing: free
+open_source: true
 ---
 
 **Sphinx Themes and configurations**

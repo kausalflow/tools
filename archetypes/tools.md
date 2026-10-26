@@ -16,6 +16,10 @@ platforms:
   - ""
 fields:
   - ""
+pricing: # free, freemium (free plan with paid upgrades) or paid
+open_source: # true or false
+alternatives_to: # well-known tools this one replaces, e.g. EndNote; each becomes an /alternatives/ page
+  - ""
 plans:
   - name:
     description:

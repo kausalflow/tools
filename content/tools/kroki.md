@@ -34,4 +34,6 @@ links:
 - name: kroki.io
   link: https://kroki.io
 date: '2022-03-01'
+pricing: free
+open_source: true
 ---

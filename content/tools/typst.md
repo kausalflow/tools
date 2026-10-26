@@ -31,4 +31,8 @@ makers:
   description: null
 date: 2023-11-22 09:26:34+01:00
 draft: false
+pricing: freemium
+open_source: true
+alternatives_to:
+- LaTeX
 ---

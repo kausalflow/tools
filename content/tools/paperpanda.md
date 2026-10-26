@@ -26,4 +26,8 @@ links:
 - name: chrome extension
   link: https://chrome.google.com/webstore/detail/paperpanda-%E2%80%94-get-millions/ggjlkinaanncojaippgbndimlhcdlohf
 date: '2021-11-23'
+pricing: free
+open_source: false
+alternatives_to:
+- Unpaywall
 ---

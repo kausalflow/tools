@@ -41,4 +41,8 @@ date: 2023-08-10 11:57:56+02:00
 draft: false
 collections:
 - AI
+pricing: freemium
+open_source: false
+alternatives_to:
+- Grammarly
 ---

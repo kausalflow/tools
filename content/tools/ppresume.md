@@ -45,4 +45,6 @@ makers:
   description: https://github.com/xiaohanyu
 date: 2024-12-25 09:19:50+01:00
 draft: false
+pricing: freemium
+open_source: false
 ---

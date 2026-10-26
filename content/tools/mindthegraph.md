@@ -35,4 +35,8 @@ makers:
   description: null
 date: 2020-06-25 22:02:04+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- BioRender
 ---

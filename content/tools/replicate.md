@@ -42,4 +42,6 @@ date: 2023-08-14 10:28:54+02:00
 draft: false
 collections:
 - AI
+pricing: paid
+open_source: false
 ---

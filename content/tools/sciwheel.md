@@ -37,4 +37,9 @@ makers:
   description: null
 date: 2021-01-14 19:25:30+01:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Mendeley
+- Zotero
 ---

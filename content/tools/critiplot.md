@@ -27,4 +27,8 @@ links:
   link: https://zenodo.org/records/18330800
 date: '2026-10-15'
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- robvis
 ---

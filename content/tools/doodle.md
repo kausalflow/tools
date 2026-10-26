@@ -27,4 +27,8 @@ plans: null
 makers: null
 date: 2020-05-06 20:28:48+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Calendly
 ---

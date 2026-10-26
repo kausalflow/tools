@@ -36,4 +36,6 @@ links:
 - name: aperswithcode.com
   link: https://paperswithcode.com/
 date: '2022-04-09'
+pricing: free
+open_source: false
 ---

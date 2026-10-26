@@ -29,4 +29,7 @@ links:
   link: https://apps.apple.com/app/id6770080775
 date: '2026-10-15'
 draft: false
+open_source: false
+alternatives_to:
+- Otter.ai
 ---

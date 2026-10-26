@@ -37,4 +37,6 @@ date: 2020-04-26 17:34:21+02:00
 draft: false
 collections:
 - AI
+pricing: freemium
+open_source: false
 ---

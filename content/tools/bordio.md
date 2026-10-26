@@ -38,4 +38,9 @@ makers:
   description: null
 date: 2023-04-10 11:53:34+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Trello
+- Asana
 ---

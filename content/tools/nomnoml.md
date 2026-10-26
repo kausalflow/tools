@@ -33,4 +33,8 @@ makers:
   description: null
 date: 2020-08-10 23:21:36+02:00
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- PlantUML
 ---

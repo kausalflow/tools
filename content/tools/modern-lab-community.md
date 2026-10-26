@@ -36,4 +36,6 @@ makers:
 date: 2021-08-06 16:48:44+02:00
 draft: false
 author_link: https://www.seifi.co
+pricing: free
+open_source: false
 ---

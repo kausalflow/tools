@@ -23,4 +23,10 @@ links:
 plans: null
 date: 2020-04-26 22:07:06+02:00
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- Mendeley
+- EndNote
+- Paperpile
 ---

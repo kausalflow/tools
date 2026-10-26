@@ -27,4 +27,6 @@ links:
 - name: www.paperdigest.org
   link: https://www.paperdigest.org/
 date: '2022-04-09'
+pricing: freemium
+open_source: false
 ---

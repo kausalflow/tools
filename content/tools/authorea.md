@@ -25,4 +25,8 @@ links:
 plans: null
 date: 2020-04-26 20:36:50+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Overleaf
 ---

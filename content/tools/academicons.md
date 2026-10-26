@@ -24,4 +24,6 @@ makers:
   description: null
 date: 2020-04-27 13:22:46+02:00
 draft: false
+pricing: free
+open_source: true
 ---

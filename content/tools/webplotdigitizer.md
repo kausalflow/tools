@@ -31,4 +31,6 @@ makers:
   description: null
 date: 2021-07-13 22:11:03+02:00
 draft: false
+pricing: freemium
+open_source: true
 ---

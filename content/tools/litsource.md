@@ -30,4 +30,5 @@ links:
   link: https://litsource.net
 date: '2026-10-15'
 draft: false
+open_source: false
 ---

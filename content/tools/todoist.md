@@ -25,4 +25,8 @@ links:
   link: https://todoist.com/
 date: 2020-04-26 14:13:46+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Microsoft To Do
 ---

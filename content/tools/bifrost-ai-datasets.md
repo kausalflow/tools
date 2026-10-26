@@ -33,4 +33,5 @@ date: 2020-08-28 21:36:40+02:00
 draft: false
 collections:
 - AI
+open_source: false
 ---

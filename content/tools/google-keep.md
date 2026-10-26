@@ -25,4 +25,8 @@ links:
   link: https://keep.google.com/
 date: 2020-04-26 12:36:33+02:00
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Evernote
 ---

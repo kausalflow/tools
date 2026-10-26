@@ -213,3 +213,7 @@ triage-out/
 processed-ids.txt
 .dev.vars
 .wrangler/
+
+# link status, built in CI (scripts/linkcheck)
+/data/linkcheck.json
+/static/linkcheck.json

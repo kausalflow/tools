@@ -35,4 +35,9 @@ links:
 - name: heptabase.com
   link: http://heptabase.com/
 date: '2022-04-15'
+pricing: paid
+open_source: false
+alternatives_to:
+- Obsidian
+- Miro
 ---

@@ -23,4 +23,8 @@ plans: null
 makers: null
 date: 2020-04-27 08:53:57+02:00
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- Figshare
 ---

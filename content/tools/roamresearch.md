@@ -35,4 +35,9 @@ makers:
   description: null
 date: 2020-05-31 09:31:49+02:00
 draft: false
+pricing: paid
+open_source: false
+alternatives_to:
+- Obsidian
+- Notion
 ---

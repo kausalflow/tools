@@ -25,4 +25,6 @@ links:
   link: https://exceltomd.com/excel-to-markdown
 date: '2026-07-20'
 draft: false
+pricing: free
+open_source: false
 ---

@@ -45,4 +45,9 @@ makers:
   description: null
 date: 2020-12-17 22:07:43+01:00
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- LabArchives
+- Benchling
 ---

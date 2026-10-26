@@ -13,11 +13,18 @@ that any MCP-capable assistant can connect to. No account or key is needed.
 {{< mcp-url >}}
 ```
 
-The server has three read-only tools:
+The server has four read-only tools:
 
-- **search** finds tools by keywords, optionally filtered by category, research field, platform or tag.
-- **fetch** returns one tool's summary, features, links, categories, fields and platforms.
-- **list_filters** lists the categories, fields, platforms and tags in use.
+- **search** finds tools for a task described in plain words, filtered by price, open source, platform, field or category.
+- **alternatives** finds replacements for a product you name, such as EndNote or Grammarly, with open-source and free ones first.
+- **fetch** returns one tool's details: features, links, price, licence, platforms and whether its site still responds.
+- **list_filters** lists the categories, fields, platforms, tags and price models in use.
+
+In Claude, ChatGPT and other apps that support [MCP Apps](https://modelcontextprotocol.io/docs/extensions/apps),
+search and alternatives results appear as tool cards with a screenshot, price and platforms, and a click opens the tool's page.
+
+Every tool records whether it is free, has a free plan, or is paid, and whether it is open source.
+Its link is checked every week, so assistants can skip tools that have shut down.
 
 ## Claude
 
@@ -69,6 +76,9 @@ Any client that speaks MCP over Streamable HTTP can use the URL above. Without M
 - [llms-full.txt](/llms-full.txt) has every tool in full, in one Markdown file, to paste into a chat or a project.
 - Every tool page has a Markdown copy: add `index.md` to its address, for example [/tools/zotero/index.md](/tools/zotero/index.md).
 - [tools.json](/tools.json) is the whole directory as JSON.
+
+To learn what researchers need, the server records the words of each search and how many tools it found.
+It records nothing about who searched.
 
 All content is licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Please link back to the tool pages when you reuse it.
 Missing a tool? [Submit it](/submit/).

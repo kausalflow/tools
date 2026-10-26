@@ -32,4 +32,6 @@ date: 2023-04-10 11:58:14+02:00
 draft: false
 collections:
 - AI
+pricing: freemium
+open_source: false
 ---

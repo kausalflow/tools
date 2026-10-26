@@ -31,4 +31,9 @@ makers:
   description: null
 date: 2020-06-24 21:35:37+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Litmaps
+- ResearchRabbit
 ---

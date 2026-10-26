@@ -25,4 +25,9 @@ links:
 plans: null
 date: 2020-04-26 22:04:15+02:00
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Zotero
+- EndNote
 ---

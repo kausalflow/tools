@@ -52,4 +52,9 @@ makers:
   description: null
 date: 2020-05-20 23:35:16+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Evernote
+- Confluence
 ---

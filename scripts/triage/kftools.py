@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[2]
 TOOLS_DIR = ROOT / "content" / "tools"
 TAXONOMY = yaml.safe_load((Path(__file__).parent / "taxonomy.yaml").read_text())
 
+PRICING = ("free", "freemium", "paid")
 REQUIRED = ["title", "summary", "links", "categories", "fields", "platforms", "date"]
 
 
@@ -98,6 +99,13 @@ def validate_entry(fm, strict=True):
             problems.append(f"link is not an http(s) URL: {url}")
     if strict and len(fm.get("features") or []) > lim["features_max"]:
         problems.append("too many features")
+    if fm.get("pricing") is not None and fm["pricing"] not in PRICING:
+        problems.append(f"pricing must be one of {', '.join(PRICING)}")
+    if fm.get("open_source") is not None and not isinstance(fm["open_source"], bool):
+        problems.append("open_source must be true or false")
+    alts = fm.get("alternatives_to")
+    if alts is not None and not (isinstance(alts, list) and all(isinstance(a, str) and a.strip() for a in alts)):
+        problems.append("alternatives_to must be a list of tool names")
     for img in fm.get("images") or []:
         if not isinstance(img, dict) or not img.get("path"):
             problems.append("images must be a list of {path: file name}")
