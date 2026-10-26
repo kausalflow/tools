@@ -32,7 +32,10 @@ and triage rejects junk automatically.
 ## Auto-deploy (optional)
 
 `.github/workflows/deploy-workers.yml` redeploys the workers when `workers/**` changes. It needs a
-repository secret `CLOUDFLARE_API_TOKEN` (Cloudflare > My Profile > API Tokens > "Edit Cloudflare Workers" template).
+repository secret `CLOUDFLARE_API_TOKEN` (Cloudflare > My Profile > API Tokens > "Edit Cloudflare Workers" template)
+and a repository variable `CLOUDFLARE_ACCOUNT_ID` (Workers & Pages overview, right-hand column). Without the account ID,
+wrangler fails with "Failed to automatically retrieve account IDs" unless the token can also read account memberships.
+The MCP worker's Workers AI binding also needs the token to include **Workers AI: Read**.
 
 ## Local test
 
