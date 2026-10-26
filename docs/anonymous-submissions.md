@@ -35,7 +35,7 @@ and triage rejects junk automatically.
 repository secret `CLOUDFLARE_API_TOKEN` (Cloudflare > My Profile > API Tokens > "Edit Cloudflare Workers" template)
 and a repository variable `CLOUDFLARE_ACCOUNT_ID` (Workers & Pages overview, right-hand column). Without the account ID,
 wrangler fails with "Failed to automatically retrieve account IDs" unless the token can also read account memberships.
-The MCP worker's Workers AI binding also needs the token to include **Workers AI: Read**.
+If the MCP worker's deploy then fails on its Workers AI binding, add **Workers AI** permission to the token.
 
 ## Local test
 
