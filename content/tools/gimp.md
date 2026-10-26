@@ -24,4 +24,8 @@ plans:
   description: null
 date: 2020-04-26 21:22:22+02:00
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- Photoshop
 ---

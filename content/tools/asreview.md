@@ -34,4 +34,9 @@ makers:
   description: null
 date: 2024-08-12 21:16:10+02:00
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- Rayyan
+- Covidence
 ---

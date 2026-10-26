@@ -30,4 +30,6 @@ makers:
   description: null
 date: 2020-06-03 21:34:07+02:00
 draft: false
+pricing: free
+open_source: false
 ---

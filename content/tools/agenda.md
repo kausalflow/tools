@@ -23,4 +23,8 @@ links:
   link: https://agenda.com/
 date: 2020-04-26 14:25:39+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Apple Notes
 ---

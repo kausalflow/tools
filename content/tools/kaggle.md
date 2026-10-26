@@ -31,4 +31,8 @@ plans:
   description: null
 date: 2020-04-26 16:34:16+02:00
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Google Colab
 ---

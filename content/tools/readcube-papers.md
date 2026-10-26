@@ -24,4 +24,10 @@ links:
 plans: null
 date: 2020-04-26 22:01:14+02:00
 draft: false
+pricing: paid
+open_source: false
+alternatives_to:
+- Mendeley
+- Zotero
+- EndNote
 ---

@@ -21,4 +21,5 @@ links:
   link: https://cytationai.com/
 date: '2026-10-15'
 draft: false
+open_source: false
 ---

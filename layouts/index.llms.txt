@@ -2,7 +2,11 @@
 
 > A community-curated directory of {{ len (where .Site.RegularPages "Type" "tools") }} tools for academic research: literature, writing, data analysis, project management and more. Each tool has a page with a summary, features, categories, research fields and platforms. Content is licensed CC BY-SA 4.0.
 
+- MCP server (search and fetch tools, no key needed): {{ site.Params.mcp_url }}
+- Every tool in full, as Markdown: {{ "llms-full.txt" | absURL }}
 - Full data as JSON: {{ "tools.json" | absURL }}
+- Markdown copy of any tool page: add index.md to its URL, e.g. {{ "tools/zotero/index.md" | absURL }}
+- Connecting AI assistants: {{ "ai/" | absURL }}
 - New tools as RSS: {{ "index.xml" | absURL }}
 - About and data use: {{ "about/" | absURL }}
 - Submit a tool: {{ "submit/" | absURL }}

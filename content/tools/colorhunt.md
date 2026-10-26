@@ -30,4 +30,8 @@ makers:
   description: null
 date: 2021-09-20 10:45:33+02:00
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Coolors
 ---

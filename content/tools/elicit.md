@@ -30,4 +30,6 @@ links:
 date: '2022-03-28'
 collections:
 - AI
+pricing: freemium
+open_source: false
 ---

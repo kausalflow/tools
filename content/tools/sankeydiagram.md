@@ -27,4 +27,8 @@ plans:
   description: Open-source, no account required
 date: 2025-10-28
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- SankeyMATIC
 ---

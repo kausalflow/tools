@@ -22,4 +22,6 @@ links:
   link: https://view.tg/en
 date: '2026-10-15'
 draft: false
+pricing: free
+open_source: false
 ---

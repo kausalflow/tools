@@ -39,4 +39,8 @@ makers:
   description: null
 date: 2021-08-02 09:47:05+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Adobe Color
 ---

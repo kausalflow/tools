@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="page-head"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Directory</a><span aria-hidden="true">/</span><span>Alternatives</span></nav>
+  <h1>Alternatives to popular research tools</h1>
+  <p>Free, open-source and paid tools researchers use instead of well-known software.</p>
+</div></section>
+<div class="wrap" style="padding-top:32px;padding-bottom:64px">
+  <div class="chip-row">
+    {{ range .Data.Terms.ByCount }}<a class="chip" href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span class="muted">{{ .Count }}</span></a>{{ end }}
+  </div>
+</div>
+{{ end }}

@@ -25,4 +25,6 @@ links:
 plans: null
 date: 2020-04-26 22:15:31+02:00
 draft: false
+pricing: freemium
+open_source: false
 ---

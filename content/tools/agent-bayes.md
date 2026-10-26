@@ -33,4 +33,7 @@ links:
   link: https://agentbayes.com/docs
 date: '2026-10-17'
 draft: false
+open_source: false
+alternatives_to:
+- Elicit
 ---

@@ -27,4 +27,9 @@ links:
   link: https://cocalc.com/
 date: 2020-04-26 16:58:47+02:00
 draft: false
+pricing: freemium
+open_source: true
+alternatives_to:
+- Overleaf
+- Jupyter
 ---

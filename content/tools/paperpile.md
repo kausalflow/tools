@@ -45,4 +45,10 @@ makers:
   description: null
 date: 2021-02-23 20:20:13+01:00
 draft: false
+pricing: paid
+open_source: false
+alternatives_to:
+- Zotero
+- Mendeley
+- EndNote
 ---

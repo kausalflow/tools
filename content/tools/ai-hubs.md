@@ -24,4 +24,8 @@ links:
   link: https://ai-hubs.info
 date: '2026-10-15'
 draft: false
+open_source: false
+alternatives_to:
+- Elicit
+- Consensus
 ---

@@ -36,4 +36,8 @@ makers:
   description: null
 date: 2020-11-02 21:03:55+01:00
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Unpaywall
 ---

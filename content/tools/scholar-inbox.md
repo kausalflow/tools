@@ -36,4 +36,8 @@ links:
 - name: Scholar Inbox
   link: https://scholar-inbox.com/
 date: '2026-03-17'
+pricing: free
+open_source: false
+alternatives_to:
+- Google Scholar alerts
 ---

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.kausalflow/tools",
+  "title": "Tools for Academic Research",
+  "description": "Find research tools by task: price, open source, platforms, alternatives and link status.",
+  "version": "1.1.0",
+  "websiteUrl": "https://tools.kausalflow.com/ai/",
+  "repository": { "url": "https://github.com/kausalflow/tools", "source": "github", "subfolder": "workers/mcp" },
+  "remotes": [{ "type": "streamable-http", "url": "https://kausalflow-tools-mcp.leima.workers.dev" }]
+}

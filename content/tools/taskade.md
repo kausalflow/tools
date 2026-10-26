@@ -29,4 +29,9 @@ links:
   link: https://www.taskade.com/
 date: 2020-04-26 14:18:19+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Trello
+- Notion
 ---

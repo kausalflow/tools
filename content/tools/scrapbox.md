@@ -53,5 +53,9 @@ makers:
   description: null
 date: 2020-07-05
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Roam Research
 ---
 

@@ -23,4 +23,6 @@ links:
 - name: GitHub
   link: https://github.com/lifan0127/zotero-research-assistant
 date: '2023-04-11'
+pricing: free
+open_source: true
 ---

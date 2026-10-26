@@ -53,4 +53,9 @@ makers:
   description: null
 date: 2020-10-10
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Jupyter
+- Google Colab
 ---

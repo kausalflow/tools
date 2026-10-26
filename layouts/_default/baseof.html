@@ -6,7 +6,8 @@
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   {{ with .Description }}<meta name="description" content="{{ . }}">{{ else }}{{ if .IsPage }}{{ with .Params.summary }}<meta name="description" content="{{ . | plainify | truncate 200 }}">{{ end }}{{ else }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}{{ end }}
   {{ $noindex := slice "section" "taxonomy" "term" }}
-  {{ if or (and (in $noindex .Kind) (not .IsHome)) (and (isset .Params "noindex") .Params.noindex) }}<meta name="robots" content="noindex">{{ end }}
+  {{ $answer := and (eq .Kind "term") (eq .Data.Plural "alternatives_to") (ge (len .Pages) 2) }}{{/* "alternatives to X" pages with a real choice are meant to be found */}}
+  {{ if or (and (in $noindex .Kind) (not .IsHome) (not $answer)) (and (isset .Params "noindex") .Params.noindex) }}<meta name="robots" content="noindex">{{ end }}
   <meta name="author" content="{{ .Site.Params.author }}">
   <meta name="theme-color" content="#0b6e69">
   {{ partial "opengraph.html" . }}
@@ -14,6 +15,7 @@
   {{ template "_internal/google_analytics.html" . }}
   {{ with .OutputFormats.Get "RSS" }}<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">{{ end }}
   <link rel="alternate" type="text/plain" href="{{ "llms.txt" | absURL }}" title="llms.txt">
+  {{ with .OutputFormats.Get "Markdown" }}<link rel="alternate" type="text/markdown" href="{{ .Permalink }}" title="Markdown">{{ end }}
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="icon" href="{{ .Site.Params.favicon }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">

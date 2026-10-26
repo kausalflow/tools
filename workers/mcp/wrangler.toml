@@ -1,0 +1,15 @@
+name = "kausalflow-tools-mcp"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+preview_urls = false
+
+[vars]
+SITE_URL = "https://tools.kausalflow.com"
+
+[ai]
+binding = "AI" # optional: semantic search; the worker falls back to keywords without it
+
+[[analytics_engine_datasets]]
+binding = "QUERIES" # optional: what people search for, to find gaps (docs/ai-integration.md)
+dataset = "kausalflow_tools_mcp_queries"

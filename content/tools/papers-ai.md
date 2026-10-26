@@ -23,4 +23,7 @@ links:
   link: https://papers.ai/
 date: '2026-10-16'
 draft: false
+open_source: false
+alternatives_to:
+- Overleaf
 ---

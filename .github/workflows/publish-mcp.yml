@@ -1,0 +1,32 @@
+name: Publish MCP server to the registry
+
+# Lists the MCP server (workers/mcp/server.json) in the official MCP Registry, where Claude, VS Code and
+# other clients discover servers. Run it by hand after the worker is deployed or its URL changes;
+# bump "version" in server.json first, the registry rejects a version it already has.
+# The io.github.kausalflow/* name is verified through this repository's GitHub OIDC token.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: workers/mcp
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the server answers before listing it
+        run: |
+          url=$(jq -r '.remotes[0].url' server.json)
+          curl -fsS -X POST "$url" -H 'content-type: application/json' -H 'accept: application/json, text/event-stream' \
+            -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | jq -e '.result.tools | length > 0'
+      - name: Install mcp-publisher
+        run: |
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher
+      - run: ./mcp-publisher login github-oidc
+      - run: ./mcp-publisher publish

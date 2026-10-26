@@ -29,4 +29,9 @@ makers:
   description: null
 date: 2023-03-27 21:50:45+02:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- Web of Science
+- Scopus
 ---

@@ -25,4 +25,5 @@ plans:
   description: null
 date: 2020-04-26 18:12:54+02:00
 draft: false
+pricing: free
 ---

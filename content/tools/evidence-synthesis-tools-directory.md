@@ -27,4 +27,6 @@ links:
   link: https://osf.io/preprints/metaarxiv/7uskw_v1
 date: '2026-10-15'
 draft: false
+pricing: free
+open_source: true
 ---

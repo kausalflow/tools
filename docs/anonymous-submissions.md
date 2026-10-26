@@ -31,7 +31,7 @@ and triage rejects junk automatically.
 
 ## Auto-deploy (optional)
 
-`.github/workflows/deploy-worker.yml` redeploys the worker when `workers/submit/**` changes. It needs a
+`.github/workflows/deploy-workers.yml` redeploys the workers when `workers/**` changes. It needs a
 repository secret `CLOUDFLARE_API_TOKEN` (Cloudflare > My Profile > API Tokens > "Edit Cloudflare Workers" template).
 
 ## Local test

@@ -30,4 +30,8 @@ makers:
   description: null
 date: 2021-08-06 15:50:59+02:00
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- WebPlotDigitizer
 ---

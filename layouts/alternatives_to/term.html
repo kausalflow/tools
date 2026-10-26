@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{- $oss := where .Pages "Params.open_source" true -}}
+{{- $rest := where .Pages "Params.open_source" "!=" true -}}
+{{- $free := len (where .Pages "Params.pricing" "free") -}}
+<section class="page-head"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Directory</a><span aria-hidden="true">/</span><a href="/alternatives/">Alternatives</a><span aria-hidden="true">/</span><span>{{ .Title }}</span></nav>
+  <h1>Alternatives to {{ .Title }}</h1>
+  <p>{{ len .Pages }} {{ if eq (len .Pages) 1 }}tool{{ else }}tools{{ end }} researchers use instead of {{ .Title }}{{ if or $free (len $oss) }}: {{ $free }} free{{ with len $oss }}, {{ . }} open source{{ end }}{{ end }}. Open-source and free tools come first.</p>
+</div></section>
+<div class="wrap" style="padding-top:32px;padding-bottom:64px">
+  <div class="grid grid-3">
+    {{- /* open source, then free, free plan, paid, unknown */ -}}
+    {{ range $oss.ByTitle }}{{ partial "tool-card.html" . }}{{ end }}
+    {{ range slice "free" "freemium" "paid" }}{{ range (where $rest "Params.pricing" .).ByTitle }}{{ partial "tool-card.html" . }}{{ end }}{{ end }}
+    {{ range (where $rest "Params.pricing" "not in" (slice "free" "freemium" "paid")).ByTitle }}{{ partial "tool-card.html" . }}{{ end }}
+  </div>
+  <p class="muted" style="margin-top:32px">Prices and licences change, so check each tool's site. Missing one? <a href="/submit/">Suggest a tool</a>.</p>
+</div>
+{{ end }}

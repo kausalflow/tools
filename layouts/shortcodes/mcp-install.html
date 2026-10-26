@@ -1,0 +1,8 @@
+{{- /* One-click install links for editors that support them. */ -}}
+{{- $url := site.Params.mcp_url -}}
+{{- $cursor := dict "url" $url | jsonify | base64Encode -}}
+{{- $vscode := dict "name" "kausalflow-tools" "type" "http" "url" $url | jsonify -}}
+<p class="tool-actions">
+  <a class="btn btn-primary" href="cursor://anysphere.cursor-deeplink/mcp/install?name=kausalflow-tools&amp;config={{ $cursor }}">Add to Cursor</a>
+  <a class="btn" href="vscode:mcp/install?{{ $vscode | urlquery }}">Add to VS Code</a>
+</p>

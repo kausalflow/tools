@@ -26,4 +26,6 @@ links:
   link: https://github.com/puppyone-ai/puppyone-desktop
 date: '2026-10-15'
 draft: false
+pricing: free
+open_source: true
 ---

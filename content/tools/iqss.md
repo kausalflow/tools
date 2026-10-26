@@ -20,4 +20,5 @@ links:
 plans: null
 date: 2020-04-26 19:20:02+02:00
 draft: false
+pricing: free
 ---

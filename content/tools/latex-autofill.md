@@ -29,4 +29,6 @@ links:
   link: https://github.com/yikhan519/latex-autofill
 date: '2026-10-15'
 draft: false
+pricing: free
+open_source: true
 ---

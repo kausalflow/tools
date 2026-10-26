@@ -49,4 +49,9 @@ makers:
   description: null
 date: 2021-02-23 20:13:25+01:00
 draft: false
+pricing: freemium
+open_source: false
+alternatives_to:
+- XMind
+- MindMeister
 ---

@@ -29,4 +29,7 @@ links:
   link: https://youtu.be/3MvV2IR8s3Q
 date: '2026-10-15'
 draft: false
+open_source: false
+alternatives_to:
+- Julius AI
 ---

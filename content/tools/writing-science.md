@@ -31,4 +31,5 @@ makers:
   description: A Professor, first at the University of Alaska Fairbanks, and now at UC Santa Barbara, as well as journal editor, Program Chair, and other jobs that need doing to keep science and Academe running.
 date: 2020-07-13 22:14:27+02:00
 draft: false
+pricing: paid
 ---

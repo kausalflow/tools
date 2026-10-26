@@ -39,4 +39,9 @@ makers:
   description: null
 date: 2023-10-01 11:00:36+02:00
 draft: false
+pricing: free
+open_source: false
+alternatives_to:
+- Connected Papers
+- Litmaps
 ---

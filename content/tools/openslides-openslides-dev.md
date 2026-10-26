@@ -30,4 +30,9 @@ links:
   link: https://gitlab.com/open-slides/openslides
 date: '2026-10-19'
 draft: false
+pricing: free
+open_source: true
+alternatives_to:
+- PowerPoint
+- Google Slides
 ---

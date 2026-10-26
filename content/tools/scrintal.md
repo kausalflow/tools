@@ -36,4 +36,9 @@ links:
 - name: www.scrintal.com
   link: https://www.scrintal.com/
 date: '2022-04-15'
+pricing: freemium
+open_source: false
+alternatives_to:
+- Heptabase
+- Miro
 ---

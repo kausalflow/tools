@@ -22,4 +22,6 @@ links:
 - name: chrome extension
   link: https://chrome.google.com/webstore/detail/papers-with-video/aflnhgmklenfljibnfellgkmdpmmoekf
 date: '2021-11-23'
+pricing: free
+open_source: true
 ---
