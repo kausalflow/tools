@@ -19,14 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-This MIT licence covers the code in this repository: layouts, scripts,
-workers and site configuration.
-
-The directory content (everything under content/ and the tool data the
-site publishes, such as tools.json, llms.txt and the Markdown tool pages)
-is licensed separately under CC BY-SA 4.0. See LICENSE-CONTENT.
-
-Themes under themes/ keep their own licences, found in each theme's folder.
