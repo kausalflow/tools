@@ -27,8 +27,10 @@ platforms:
 fields:
 - General and Interdisciplinary
 links:
-- name: inciteful.xyz
-  link: https://inciteful.xyz
+- name: incitefulmed.com/academic
+  link: https://incitefulmed.com/academic/
+- name: Inciteful MCP server
+  link: https://incitefulmed.com/academic/mcp
 - name: github.com/inciteful-xyz/inciteful-zotero-plugin
   link: https://github.com/inciteful-xyz/inciteful-zotero-plugin
 plans:
