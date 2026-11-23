@@ -1,7 +1,7 @@
 ---
-author: DataCheck team
-title: DataCheck
-summary: 'DataCheck checks research spreadsheets (XLSX, CSV, TSV) across 56 versioned, non-AI rules for duplicates, cross-sheet reuse, shifted sequences, fixed multiples/differences, decimal-tail patterns, and statistical consistency, tracing every finding to source cells. Available on Web ($5 first trial, $13.99+ one-time credit packs) and offline Windows desktop (perpetual license, no subscription). Findings are leads for human review, not misconduct determinations. Disclosure: submitted by the DataCheck team.'
+author: datacheck.cc team
+title: "datacheck.cc (DataCheck)"
+summary: 'datacheck.cc (featuring the DataCheck module) checks research spreadsheets (XLSX, CSV, TSV) across 56 versioned, non-AI rules for duplicates, cross-sheet reuse, shifted sequences, fixed multiples/differences, decimal-tail patterns, and statistical consistency, tracing every finding to source cells. Available on Web ($5 first trial, $13.99+ one-time credit packs) and offline Windows desktop (perpetual license, no subscription). Findings are leads for human review, not misconduct determinations. Disclosure: submitted by the datacheck.cc team.'
 images:
 - path: home.png
 features:
