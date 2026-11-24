@@ -15,8 +15,10 @@ tags:
 - AI
 - Coordination
 - LLM
+- Open Science
 platforms:
 - Web
+- Linux
 fields:
 - Mathematics
 - AI
@@ -25,13 +27,15 @@ links:
   link: https://theoremos.top/en/
 - name: Public rehearsal
   link: https://app.theoremos.top/practice.html?lang=en
+- name: Source code
+  link: https://github.com/HuggingMath/theorem-os
 date: '2026-11-24'
 draft: false
-open_source: false
+open_source: true
 ---
 
 With informal input, the default workflow lets you review the generated Lean statement and its back-translation before two agents draft a proof plan. You can revise the plan before approving it, then inspect failed attempts and suggest what to try next. A separate Lean kernel check records which goals a completed candidate proves.
 
-The public rehearsal uses a preset problem and recorded checks. It requires no account or API key. New runs require approved research preview access and a supported model API key. The workbench charges no platform fee during the preview. Your model provider bills for inference. The hosted runtime is proprietary.
+The public rehearsal uses a preset problem and recorded checks. It requires no account or API key. New hosted runs require approved research preview access and a supported model API key (no platform fee during the preview; your model provider bills for inference). Developed at WestlakeNLP (Westlake University), the workbench and CLI are open-sourced under `AGPL-3.0-only` at `HuggingMath/theorem-os` and can also be self-hosted on Linux via Docker Compose.
 
 Submitted by a TheoremOS maintainer. The description was drafted with AI assistance.
